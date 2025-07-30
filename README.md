@@ -27,6 +27,20 @@ $ git reset --hard
 ```
 
 > [!NOTE]
+> On Windows, if you cannot use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/) for some reason, you will be unable to build the site as-is. The reason is that some URLs of the git-scm.com site contain question marks, for historical reasons. These question marks are obviously encoded as `%3F` in the URLs, but the way Hugo works, they are literal question marks in the filenames of the corresponding files. Such filenames are accommodated easily by Linux filesystems, but on Windows, filenames containing question marks are forbidden. For that reason, to build the site on Windows, the following command needs to be run (assuming a Bash, as the rest of this document):
+>
+> ```sh
+> for file in $(find -name \*.html -exec grep -l '^url: .*?' {} \;)
+> do
+>   git update-index --assume-unchanged "$file" &&
+>   sed -i '/^url: /s/?//g' "$file" ||
+>   break
+> done
+> ```
+>
+> This edits the affected files' `url` front-matter attributes to avoid writing those files containing question marks. Obviously, the result does not support the backwards-compatible URLs that contain URL-encoded question marks.
+
+> [!NOTE]
 > If you _already_ have a full clone and wish to accelerate development by focusing only on a small subset of the pages, you may want to run the `git sparse-checkout set [...]` command mentioned above.
 
 Here is a detailed list of the relevant directories:
@@ -109,7 +123,7 @@ Believe it or not, https://git-scm.com/ has its own test suite. It uses [Playwri
 > Building the site, letting Pagefind generate the search index, and then running the test suite can be quite time consuming. To accelerate the development cycle, it is _highly_ recommended to use a sparse checkout instead of a full clone. The minimal sparse checkout required to run the test suite can be configured like this:
 >
 > ```console
-> $ git config set --worktree core.sparseCheckoutCone false
+> $ MSYS_NO_PATHCONV=1 git config set --worktree core.sparseCheckoutCone false
 > $ git config set --worktree core.sparseCheckout true
 > $ git sparse-checkout set \
 >     /README.md \
@@ -143,6 +157,8 @@ Believe it or not, https://git-scm.com/ has its own test suite. It uses [Playwri
 >     /static/ \
 >     /tests/git-scm.spec.js
 > ```
+>
+> On Windows, unless you're doing all this in WSL, do not forget to run the commands mentioned earlier to edit the `url` front-matter attributes that contain question marks!
 >
 > The site can then be built quickly via these commands:
 >
