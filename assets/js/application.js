@@ -244,6 +244,8 @@ var Search = {
 
       if(term != Search.currentSearch) {
         Search.currentSearch = term;
+        const language = document.querySelector("html")?.getAttribute("lang");
+        const allResultsURL = `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`;
         $("#search-results").html(`
           <header> Search Results </header>
           <table>
@@ -253,7 +255,9 @@ var Search = {
                 <td class="matches">
                   <ul>
                     <li>
-                      <a class="highlight" id="show-results-label">Searching for <span id="search-term">&nbsp;</span>...</a>
+                      <a class="highlight" id="show-results-label" href="${allResultsURL}">
+                        Searching for <span id="search-term">&nbsp;</span>...
+                      </a>
                     </li>
                   </ul>
                 </td>
@@ -288,11 +292,8 @@ var Search = {
             $("#show-results-label").text("No matching pages found.");
             return;
           }
-
-          const language = document.querySelector("html")?.getAttribute("lang");
           $("#show-results-label")
             .text("Show all results...")
-            .attr('href', `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`);
 
           const loadButton = $("#load-more-results");
           loadButton.text(`Loading ${
