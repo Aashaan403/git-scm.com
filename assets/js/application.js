@@ -371,6 +371,12 @@ var Search = {
   selectResultOption: function() {
     var link = $('#search-results a')[Search.selectedIndex];
     var url = $(link).attr('href');
+    if (!url) {
+      const term = $('#search-text').val();
+      if (!term) return;
+      const language = document.querySelector("html")?.getAttribute("lang");
+      url = `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`;
+    }
     window.location.href = url;
     selectedIndex = 0;
   },
