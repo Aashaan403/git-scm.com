@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-diff Documentation
 docname: git-diff
-version: 2.49.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -34,7 +34,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.49.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-diff/index.html"
 ---
@@ -55,7 +55,7 @@ aliases:
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>diff</code></span> [<em>&lt;options&gt;</em>] [<span class='synopsis'><code>--merge-base</code></span>] <em>&lt;commit&gt;</em> [<em>&lt;commit&gt;</em>&#8230;&#8203;] <em>&lt;commit&gt;</em> [<span class='synopsis'><code>--</code></span>] [<em>&lt;path&gt;</em>&#8230;&#8203;]
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>diff</code></span> [<em>&lt;options&gt;</em>] <em>&lt;commit&gt;</em><span class='synopsis'>...</span><em>&lt;commit&gt;</em> [<span class='synopsis'><code>--</code></span>] [<em>&lt;path&gt;</em>&#8230;&#8203;]
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>diff</code></span> [<em>&lt;options&gt;</em>] <em>&lt;blob&gt;</em> <em>&lt;blob&gt;</em>
-<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>diff</code></span> [<em>&lt;options&gt;</em>] <span class='synopsis'><code>--no-index</code></span> [<span class='synopsis'><code>--</code></span>] <em>&lt;path&gt;</em> <em>&lt;path&gt;</em></pre>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>diff</code></span> [<em>&lt;options&gt;</em>] <span class='synopsis'><code>--no-index</code></span> [<span class='synopsis'><code>--</code></span>] <em>&lt;path&gt;</em> <em>&lt;path&gt;</em> [<em>&lt;pathspec&gt;</em>&#8230;&#8203;]</pre>
 </div>
 </div>
 </div>
@@ -78,14 +78,18 @@ words, the differences are what you <em>could</em> tell Git to
 further add to the index but you still haven&#8217;t.  You can
 stage these changes by using <a href='{{< relurl "docs/git-add" >}}'>git-add[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-diff.txt-spanclasssynopsiscodegitcodecodediffcodeemltoptionsgtemcode--no-indexcodecode--codeemltpathgtememltpathgtemspan"><a id="Documentation/git-diff.txt-gitdiffoptions--no-index--pathpath" class="anchor" href="#Documentation/git-diff.txt-gitdiffoptions--no-index--pathpath"></a><span class='synopsis'><code>git</code> <code>diff</code> [<em>&lt;options&gt;</em>] <code>--no-index</code> [<code>--</code>] <em>&lt;path&gt;</em> <em>&lt;path&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-diff.txt-spanclasssynopsiscodegitcodecodediffcodeemltoptionsgtemcode--no-indexcodecode--codeemltpathgtememltpathgtememltpathspecgtemspan"><a id="Documentation/git-diff.txt-gitdiffoptions--no-index--pathpathpathspec" class="anchor" href="#Documentation/git-diff.txt-gitdiffoptions--no-index--pathpathpathspec"></a><span class='synopsis'><code>git</code> <code>diff</code> [<em>&lt;options&gt;</em>] <code>--no-index</code> [<code>--</code>] <em>&lt;path&gt;</em> <em>&lt;path&gt;</em> [<em>&lt;pathspec&gt;</em>...]</span> </dt>
 <dd>
 <p>This form is to compare the given two paths on the
 filesystem.  You can omit the <span class='synopsis'><code>--no-index</code></span> option when
 running the command in a working tree controlled by Git and
 at least one of the paths points outside the working tree,
 or when running the command outside a working tree
-controlled by Git. This form implies <span class='synopsis'><code>--exit-code</code></span>.</p>
+controlled by Git. This form implies <span class='synopsis'><code>--exit-code</code></span>. If both
+paths point to directories, additional pathspecs may be
+provided. These will limit the files included in the
+difference. All such pathspecs must be relative as they
+apply to both sides of the diff.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-diff.txt-spanclasssynopsiscodegitcodecodediffcodeemltoptionsgtemcode--cachedcodecode--merge-basecodeemltcommitgtemcode--codeemltpathgtemspan"><a id="Documentation/git-diff.txt-gitdiffoptions--cached--merge-basecommit--path" class="anchor" href="#Documentation/git-diff.txt-gitdiffoptions--cached--merge-basecommit--path"></a><span class='synopsis'><code>git</code> <code>diff</code> [<em>&lt;options&gt;</em>] <code>--cached</code> [<code>--merge-base</code>] [<em>&lt;commit&gt;</em>] [<code>--</code>] [<em>&lt;path&gt;</em>...]</span> </dt>
 <dd>

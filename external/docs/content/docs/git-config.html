@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-config Documentation
 docname: git-config
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -36,7 +36,7 @@ headings:
   id: _bugs
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-config/index.html"
 ---
@@ -53,9 +53,9 @@ aliases:
 <div class="sectionbody">
 <div class="verseblock">
 <pre class="content"><em>git config list</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes]
-<em>git config get</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes] [--all] [--regexp] [--value=&lt;value&gt;] [--fixed-value] [--default=&lt;default&gt;] &lt;name&gt;
-<em>git config set</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;value&gt;] [--fixed-value] &lt;name&gt; &lt;value&gt;
-<em>git config unset</em> [&lt;file-option&gt;] [--all] [--value=&lt;value&gt;] [--fixed-value] &lt;name&gt;
+<em>git config get</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes] [--all] [--regexp] [--value=&lt;pattern&gt;] [--fixed-value] [--default=&lt;default&gt;] [--url=&lt;url&gt;] &lt;name&gt;
+<em>git config set</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt; &lt;value&gt;
+<em>git config unset</em> [&lt;file-option&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt;
 <em>git config rename-section</em> [&lt;file-option&gt;] &lt;old-name&gt; &lt;new-name&gt;
 <em>git config remove-section</em> [&lt;file-option&gt;] &lt;name&gt;
 <em>git config edit</em> [&lt;file-option&gt;]
@@ -74,7 +74,7 @@ escaped.</p>
 <div class="paragraph">
 <p>Multiple lines can be added to an option by using the <span class='synopsis'><code>--append</code></span> option.
 If you want to update or unset an option which can occur on multiple
-lines, a <span class='synopsis'><code>value-pattern</code></span> (which is an extended regular expression,
+lines, <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> (which is an extended regular expression,
 unless the <span class='synopsis'><code>--fixed-value</code></span> option is given) needs to be given.  Only the
 existing values that match the pattern are updated or unset.  If
 you want to handle the lines that do <strong>not</strong> match the pattern, just
@@ -197,7 +197,7 @@ options whose values match the given pattern.</p>
 <dt class="hdlist1" id="Documentation/git-config.txt---replace-all"><a class="anchor" href="#Documentation/git-config.txt---replace-all"></a>--replace-all </dt>
 <dd>
 <p>Default behavior is to replace at most one line. This replaces
-all lines matching the key (and optionally the <span class='synopsis'><code>value-pattern</code></span>).</p>
+all lines matching the key (and optionally <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt---append"><a class="anchor" href="#Documentation/git-config.txt---append"></a>--append </dt>
 <dd>
@@ -310,12 +310,22 @@ you can use <em>master:.gitmodules</em> to read values from the file
 section in <a href='{{< relurl "docs/gitrevisions" >}}'>gitrevisions[7]</a> for a more complete list of
 ways to spell blob names.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscode--valuecodeemltpatterngtemspan"><a id="Documentation/git-config.txt---valuepattern" class="anchor" href="#Documentation/git-config.txt---valuepattern"></a><span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscode--no-valuecodespan"><a id="Documentation/git-config.txt---no-value" class="anchor" href="#Documentation/git-config.txt---no-value"></a><span class='synopsis'><code>--no-value</code></span> </dt>
+<dd>
+<p>With <span class='synopsis'><code>get</code></span>, <span class='synopsis'><code>set</code></span>, and <span class='synopsis'><code>unset</code></span>, match only against
+<em>&lt;pattern&gt;</em>. The pattern is an extended regular expression unless
+<span class='synopsis'><code>--fixed-value</code></span> is given.</p>
+<div class="paragraph">
+<p>Use <span class='synopsis'><code>--no-value</code></span> to unset <em>&lt;pattern&gt;</em>.</p>
+</div>
+</dd>
 <dt class="hdlist1" id="Documentation/git-config.txt---fixed-value"><a class="anchor" href="#Documentation/git-config.txt---fixed-value"></a>--fixed-value </dt>
 <dd>
-<p>When used with the <span class='synopsis'><code>value-pattern</code></span> argument, treat <span class='synopsis'><code>value-pattern</code></span> as
+<p>When used with <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span>, treat <em>&lt;pattern&gt;</em> as
 an exact string instead of a regular expression. This will restrict
 the name/value pairs that are matched to only those where the value
-is exactly equal to the <span class='synopsis'><code>value-pattern</code></span>.</p>
+is exactly equal to <em>&lt;pattern&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt---typelttypegt"><a id="Documentation/git-config.txt---typetype" class="anchor" href="#Documentation/git-config.txt---typetype"></a>--type &lt;type&gt; </dt>
 <dd>
@@ -390,6 +400,13 @@ contain line breaks.</p>
 <dd>
 <p>Output only the names of config variables for <span class='synopsis'><code>list</code></span> or
 <span class='synopsis'><code>get</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscode--show-namescodespan"><a id="Documentation/git-config.txt---show-names" class="anchor" href="#Documentation/git-config.txt---show-names"></a><span class='synopsis'><code>--show-names</code></span> </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscode--no-show-namescodespan"><a id="Documentation/git-config.txt---no-show-names" class="anchor" href="#Documentation/git-config.txt---no-show-names"></a><span class='synopsis'><code>--no-show-names</code></span> </dt>
+<dd>
+<p>With <span class='synopsis'><code>get</code></span>, show config keys in addition to their values. The
+default is <span class='synopsis'><code>--no-show-names</code></span> unless <span class='synopsis'><code>--url</code></span> is given and there
+are no subsections in <em>&lt;name&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt---show-origin"><a class="anchor" href="#Documentation/git-config.txt---show-origin"></a>--show-origin </dt>
 <dd>
@@ -1957,9 +1974,9 @@ The merge information is used by <span class='synopsis'><code>git</code> <code>p
 <span class='synopsis'><code>git</code> <code>fetch</code></span>) to lookup the default branch for merging. Without
 this option, <span class='synopsis'><code>git</code> <code>pull</code></span> defaults to merge the first refspec fetched.
 Specify multiple values to get an octopus merge.
-If you wish to setup <span class='synopsis'><code>git</code> <code>pull</code></span> so that it merges into &lt;name&gt; from
+If you wish to setup <span class='synopsis'><code>git</code> <code>pull</code></span> so that it merges into <em>&lt;name&gt;</em> from
 another branch in the local repository, you can point
-branch.&lt;name&gt;.merge to the desired branch, and use the relative path
+<span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> to the desired branch, and use the relative path
 setting <span class='synopsis'><code>.</code></span> (a period) for <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.remote</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodebranchcodeemltnamegtemcodemergeOptionscodespan"><a id="Documentation/git-config.txt-branchnamemergeOptions" class="anchor" href="#Documentation/git-config.txt-branchnamemergeOptions"></a><span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.mergeOptions</code></span> </dt>
@@ -3449,13 +3466,6 @@ names that need to be unset before spawning any other process.
 Defaults to <span class='synopsis'><code>PERL5LIB</code></span> to account for the fact that Git for
 Windows insists on using its own Perl interpreter.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-corerestrictinheritedhandles"><a class="anchor" href="#Documentation/git-config.txt-corerestrictinheritedhandles"></a>core.restrictinheritedhandles </dt>
-<dd>
-<p>Windows-only: override whether spawned processes inherit only standard
-file handles (<span class='synopsis'><code>stdin</code></span>, <span class='synopsis'><code>stdout</code></span> and <span class='synopsis'><code>stderr</code></span>) or all handles. Can be
-<span class='synopsis'><code>auto</code></span>, <span class='synopsis'><code>true</code></span> or <span class='synopsis'><code>false</code></span>. Defaults to <span class='synopsis'><code>auto</code></span>, which means <span class='synopsis'><code>true</code></span> on
-Windows 7 and later, and <span class='synopsis'><code>false</code></span> on older Windows versions.</p>
-</dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-corecreateObject"><a class="anchor" href="#Documentation/git-config.txt-corecreateObject"></a>core.createObject </dt>
 <dd>
 <p>You can set this to <em>link</em>, in which case a hardlink followed by
@@ -4230,6 +4240,18 @@ walking fewer objects.</p>
 <li>
 <p><span class='synopsis'><code>pack.allowPackReuse=multi</code></span> may improve the time it takes to create a pack by
 reusing objects from multiple packs instead of just one.</p>
+</li>
+<li>
+<p><span class='synopsis'><code>pack.usePathWalk</code></span> may speed up packfile creation and make the packfiles be
+significantly smaller in the presence of certain filename collisions with Git&#8217;s
+default name-hash.</p>
+</li>
+<li>
+<p><span class='synopsis'><code>init.defaultRefFormat=reftable</code></span> causes newly initialized repositories to use
+the reftable format for storing references. This new format solves issues with
+case-insensitive filesystems, compresses better and performs significantly
+better with many use cases. Refer to Documentation/technical/reftable.adoc for
+more information on this new storage format.</p>
 </li>
 </ul>
 </div>
@@ -5014,7 +5036,7 @@ access method.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-gpgprogram"><a class="anchor" href="#Documentation/git-config.txt-gpgprogram"></a>gpg.program </dt>
 <dd>
-<p>Use this custom program instead of "<span class='synopsis'><code>gpg</code></span>" found on <span class='synopsis'><code>$PATH</code></span> when
+<p>Pathname of the program to use instead of "<span class='synopsis'><code>gpg</code></span>" when
 making or verifying a PGP signature. The program must support the
 same command-line interface as GPG, namely, to verify a detached
 signature, "<span class='synopsis'><em>gpg --verify $signature - &lt;$file</em></span>" is run, and the
@@ -5869,8 +5891,10 @@ running <em>git log</em> and friends.</p>
 <dt class="hdlist1" id="Documentation/git-config.txt-imapfolder"><a class="anchor" href="#Documentation/git-config.txt-imapfolder"></a>imap.folder </dt>
 <dd>
 <p>The folder to drop the mails into, which is typically the Drafts
-folder. For example: "INBOX.Drafts", "INBOX/Drafts" or
-"[Gmail]/Drafts". Required.</p>
+folder. For example: <span class='synopsis'><code>INBOX.Drafts</code></span>, <span class='synopsis'><code>INBOX/Drafts</code></span> or
+<span class='synopsis'>[<code>Gmail</code>]<code>/Drafts</code></span>. The IMAP folder to interact with MUST be specified;
+the value of this configuration variable is used as the fallback
+default value when the <span class='synopsis'><code>--folder</code></span> option is not given.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-imaptunnel"><a class="anchor" href="#Documentation/git-config.txt-imaptunnel"></a>imap.tunnel </dt>
 <dd>
@@ -5917,8 +5941,9 @@ format=fixed email.  Default is <span class='synopsis'><code>false</code></span>
 <p>Specify the authentication method for authenticating with the IMAP server.
 If Git was built with the NO_CURL option, or if your curl version is older
 than 7.34.0, or if you&#8217;re running git-imap-send with the <span class='synopsis'><code>--no-curl</code></span>
-option, the only supported method is <em>CRAM-MD5</em>. If this is not set
-then <em>git imap-send</em> uses the basic IMAP plaintext LOGIN command.</p>
+option, the only supported methods are <span class='synopsis'><code>PLAIN</code></span>, <span class='synopsis'><code>CRAM-MD5</code></span>, <span class='synopsis'><code>OAUTHBEARER</code></span>
+and <span class='synopsis'><code>XOAUTH2</code></span>. If this is not set then <span class='synopsis'><code>git</code> <code>imap-send</code></span> uses the basic IMAP
+plaintext <span class='synopsis'><code>LOGIN</code></span> command.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-includepath"><a class="anchor" href="#Documentation/git-config.txt-includepath"></a>include.path </dt>
 <dt class="hdlist1" id="Documentation/git-config.txt-includeIfltconditiongtpath"><a id="Documentation/git-config.txt-includeIfconditionpath" class="anchor" href="#Documentation/git-config.txt-includeIfconditionpath"></a>includeIf.&lt;condition&gt;.path </dt>
@@ -6050,16 +6075,18 @@ mark up the diff further for human consumption, provided that it
 retains a one-to-one correspondence with the lines in the
 original diff. Defaults to disabled (no filtering).</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logabbrevCommit"><a class="anchor" href="#Documentation/git-config.txt-logabbrevCommit"></a>log.abbrevCommit </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogabbrevCommitcodespan"><a id="Documentation/git-config.txt-logabbrevCommit" class="anchor" href="#Documentation/git-config.txt-logabbrevCommit"></a><span class='synopsis'><code>log.abbrevCommit</code></span> </dt>
 <dd>
-<p>If true, makes <a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show" >}}'>git-show[1]</a>, and
-<a href='{{< relurl "docs/git-whatchanged" >}}'>git-whatchanged[1]</a> assume <span class='synopsis'><code>--abbrev-commit</code></span>. You may
+<p>If <span class='synopsis'><code>true</code></span>, make
+<a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show" >}}'>git-show[1]</a>, and
+<a href='{{< relurl "docs/git-whatchanged" >}}'>git-whatchanged[1]</a>
+assume <span class='synopsis'><code>--abbrev-commit</code></span>. You may
 override this option with <span class='synopsis'><code>--no-abbrev-commit</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logdate"><a class="anchor" href="#Documentation/git-config.txt-logdate"></a>log.date </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogdatecodespan"><a id="Documentation/git-config.txt-logdate" class="anchor" href="#Documentation/git-config.txt-logdate"></a><span class='synopsis'><code>log.date</code></span> </dt>
 <dd>
-<p>Set the default date-time mode for the <em>log</em> command.
-Setting a value for log.date is similar to using <em>git log</em>'s
+<p>Set the default date-time mode for the <span class='synopsis'><code>log</code></span> command.
+Setting a value for log.date is similar to using <span class='synopsis'><code>git</code> <code>log</code></span>'s
 <span class='synopsis'><code>--date</code></span> option.  See <a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a> for details.</p>
 <div class="paragraph">
 <p>If the format is set to "auto:foo" and the pager is in use, format
@@ -6067,61 +6094,68 @@ Setting a value for log.date is similar to using <em>git log</em>'s
 be used.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logdecorate"><a class="anchor" href="#Documentation/git-config.txt-logdecorate"></a>log.decorate </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogdecoratecodespan"><a id="Documentation/git-config.txt-logdecorate" class="anchor" href="#Documentation/git-config.txt-logdecorate"></a><span class='synopsis'><code>log.decorate</code></span> </dt>
 <dd>
 <p>Print out the ref names of any commits that are shown by the log
-command. If <em>short</em> is specified, the ref name prefixes <em>refs/heads/</em>,
-<em>refs/tags/</em> and <em>refs/remotes/</em> will not be printed. If <em>full</em> is
-specified, the full ref name (including prefix) will be printed.
-If <em>auto</em> is specified, then if the output is going to a terminal,
-the ref names are shown as if <em>short</em> were given, otherwise no ref
-names are shown. This is the same as the <span class='synopsis'><code>--decorate</code></span> option
-of the <span class='synopsis'><code>git</code> <code>log</code></span>.</p>
+command. Possible values are:</p>
+<div class="listingblock">
+<div class="content">
+<pre>`short`;; the ref name prefixes `refs/heads/`, `refs/tags/` and
+	`refs/remotes/` are not printed.
+`full`;; the full ref name (including prefix) are printed.
+`auto`;; if the output is going to a terminal,
+	the ref names are shown as if `short` were given, otherwise no ref
+	names are shown.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is the same as the <span class='synopsis'><code>--decorate</code></span> option of the <span class='synopsis'><code>git</code> <code>log</code></span>.</p>
+</div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-loginitialDecorationSet"><a class="anchor" href="#Documentation/git-config.txt-loginitialDecorationSet"></a>log.initialDecorationSet </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodeloginitialDecorationSetcodespan"><a id="Documentation/git-config.txt-loginitialDecorationSet" class="anchor" href="#Documentation/git-config.txt-loginitialDecorationSet"></a><span class='synopsis'><code>log.initialDecorationSet</code></span> </dt>
 <dd>
 <p>By default, <span class='synopsis'><code>git</code> <code>log</code></span> only shows decorations for certain known ref
 namespaces. If <em>all</em> is specified, then show all refs as
 decorations.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logexcludeDecoration"><a class="anchor" href="#Documentation/git-config.txt-logexcludeDecoration"></a>log.excludeDecoration </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogexcludeDecorationcodespan"><a id="Documentation/git-config.txt-logexcludeDecoration" class="anchor" href="#Documentation/git-config.txt-logexcludeDecoration"></a><span class='synopsis'><code>log.excludeDecoration</code></span> </dt>
 <dd>
 <p>Exclude the specified patterns from the log decorations. This is
 similar to the <span class='synopsis'><code>--decorate-refs-exclude</code></span> command-line option, but
 the config option can be overridden by the <span class='synopsis'><code>--decorate-refs</code></span>
 option.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logdiffMerges"><a class="anchor" href="#Documentation/git-config.txt-logdiffMerges"></a>log.diffMerges </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogdiffMergescodespan"><a id="Documentation/git-config.txt-logdiffMerges" class="anchor" href="#Documentation/git-config.txt-logdiffMerges"></a><span class='synopsis'><code>log.diffMerges</code></span> </dt>
 <dd>
 <p>Set diff format to be used when <span class='synopsis'><code>--diff-merges=on</code></span> is
 specified, see <span class='synopsis'><code>--diff-merges</code></span> in <a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a> for
 details. Defaults to <span class='synopsis'><code>separate</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logfollow"><a class="anchor" href="#Documentation/git-config.txt-logfollow"></a>log.follow </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogfollowcodespan"><a id="Documentation/git-config.txt-logfollow" class="anchor" href="#Documentation/git-config.txt-logfollow"></a><span class='synopsis'><code>log.follow</code></span> </dt>
 <dd>
 <p>If <span class='synopsis'><code>true</code></span>, <span class='synopsis'><code>git</code> <code>log</code></span> will act as if the <span class='synopsis'><code>--follow</code></span> option was used when
 a single &lt;path&gt; is given.  This has the same limitations as <span class='synopsis'><code>--follow</code></span>,
 i.e. it cannot be used to follow multiple files and does not work well
 on non-linear history.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-loggraphColors"><a class="anchor" href="#Documentation/git-config.txt-loggraphColors"></a>log.graphColors </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodeloggraphColorscodespan"><a id="Documentation/git-config.txt-loggraphColors" class="anchor" href="#Documentation/git-config.txt-loggraphColors"></a><span class='synopsis'><code>log.graphColors</code></span> </dt>
 <dd>
 <p>A list of colors, separated by commas, that can be used to draw
 history lines in <span class='synopsis'><code>git</code> <code>log</code> <code>--graph</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logshowRoot"><a class="anchor" href="#Documentation/git-config.txt-logshowRoot"></a>log.showRoot </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogshowRootcodespan"><a id="Documentation/git-config.txt-logshowRoot" class="anchor" href="#Documentation/git-config.txt-logshowRoot"></a><span class='synopsis'><code>log.showRoot</code></span> </dt>
 <dd>
 <p>If true, the initial commit will be shown as a big creation event.
 This is equivalent to a diff against an empty tree.
 Tools like <a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a> or <a href='{{< relurl "docs/git-whatchanged" >}}'>git-whatchanged[1]</a>, which
 normally hide the root commit will now show it. True by default.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logshowSignature"><a class="anchor" href="#Documentation/git-config.txt-logshowSignature"></a>log.showSignature </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogshowSignaturecodespan"><a id="Documentation/git-config.txt-logshowSignature" class="anchor" href="#Documentation/git-config.txt-logshowSignature"></a><span class='synopsis'><code>log.showSignature</code></span> </dt>
 <dd>
 <p>If true, makes <a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show" >}}'>git-show[1]</a>, and
 <a href='{{< relurl "docs/git-whatchanged" >}}'>git-whatchanged[1]</a> assume <span class='synopsis'><code>--show-signature</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-logmailmap"><a class="anchor" href="#Documentation/git-config.txt-logmailmap"></a>log.mailmap </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodelogmailmapcodespan"><a id="Documentation/git-config.txt-logmailmap" class="anchor" href="#Documentation/git-config.txt-logmailmap"></a><span class='synopsis'><code>log.mailmap</code></span> </dt>
 <dd>
 <p>If true, makes <a href='{{< relurl "docs/git-log" >}}'>git-log[1]</a>, <a href='{{< relurl "docs/git-show" >}}'>git-show[1]</a>, and
 <a href='{{< relurl "docs/git-whatchanged" >}}'>git-whatchanged[1]</a> assume <span class='synopsis'><code>--use-mailmap</code></span>, otherwise
@@ -6435,8 +6469,33 @@ attributes" in <a href='{{< relurl "docs/gitattributes" >}}'>gitattributes[5]</a
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodemergestatcodespan"><a id="Documentation/git-config.txt-mergestat" class="anchor" href="#Documentation/git-config.txt-mergestat"></a><span class='synopsis'><code>merge.stat</code></span> </dt>
 <dd>
-<p>Whether to print the diffstat between <span class='synopsis'><code>ORIG_HEAD</code></span> and the merge result
-at the end of the merge.  True by default.</p>
+<p>What, if anything, to print between <span class='synopsis'><code>ORIG_HEAD</code></span> and the merge result
+at the end of the merge.  Possible values are:</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefalsecodespan-1-1"><a id="Documentation/git-config.txt-false-1-1-1" class="anchor" href="#Documentation/git-config.txt-false-1-1-1"></a><span class='synopsis'><code>false</code></span> </dt>
+<dd>
+<p>Show nothing.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodetruecodespan-1-1"><a id="Documentation/git-config.txt-true-1-1-1" class="anchor" href="#Documentation/git-config.txt-true-1-1-1"></a><span class='synopsis'><code>true</code></span> </dt>
+<dd>
+<p>Show <span class='synopsis'><code>git</code> <code>diff</code> <code>--diffstat</code> <code>--summary</code> <code>ORIG_HEAD</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodecompactcodespan"><a id="Documentation/git-config.txt-compact" class="anchor" href="#Documentation/git-config.txt-compact"></a><span class='synopsis'><code>compact</code></span> </dt>
+<dd>
+<p>Show <span class='synopsis'><code>git</code> <code>diff</code> <code>--compact-summary</code> <code>ORIG_HEAD</code></span>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>but any unrecognised value (e.g., a value added by a future version of
+Git) is taken as <span class='synopsis'><code>true</code></span> instead of triggering an error.  Defaults to
+<span class='synopsis'><code>true</code></span>.</p>
+</div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodemergeautoStashcodespan"><a id="Documentation/git-config.txt-mergeautoStash" class="anchor" href="#Documentation/git-config.txt-mergeautoStash"></a><span class='synopsis'><code>merge.autoStash</code></span> </dt>
 <dd>
@@ -6935,6 +6994,11 @@ that extra objects are added to the pack-file if the included
 commits contain certain types of direct renames. Default is
 <span class='synopsis'><code>true</code></span>.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-packusePathWalk"><a class="anchor" href="#Documentation/git-config.txt-packusePathWalk"></a>pack.usePathWalk </dt>
+<dd>
+<p>Enable the <span class='synopsis'><code>--path-walk</code></span> option by default for <span class='synopsis'><code>git</code> <code>pack-objects</code></span>
+processes. See <a href='{{< relurl "docs/git-pack-objects" >}}'>git-pack-objects[1]</a> for full details.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-packpreferBitmapTips"><a class="anchor" href="#Documentation/git-config.txt-packpreferBitmapTips"></a>pack.preferBitmapTips </dt>
 <dd>
 <p>When selecting which commits will receive bitmaps, prefer a
@@ -7179,6 +7243,24 @@ for details).</p>
 <dd>
 <p>The default merge strategy to use when pulling multiple branches
 at once.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-pullautoStash"><a class="anchor" href="#Documentation/git-config.txt-pullautoStash"></a>pull.autoStash </dt>
+<dd>
+<p>When set to true, automatically create a temporary stash entry
+to record the local changes before the operation begins, and
+restore them after the operation completes.  When your "git
+pull" rebases (instead of merges), this may be convenient, since
+unlike merging pull that tolerates local changes that do not
+interfere with the merge, rebasing pull refuses to work with any
+local changes.</p>
+<div class="paragraph">
+<p>If <span class='synopsis'><code>pull.autostash</code></span> is set (either to true or false),
+<span class='synopsis'><code>merge.autostash</code></span> and <span class='synopsis'><code>rebase.autostash</code></span> are ignored.  If
+<span class='synopsis'><code>pull.autostash</code></span> is not set at all, depending on the value of
+<span class='synopsis'><code>pull.rebase</code></span>, <span class='synopsis'><code>merge.autostash</code></span> or <span class='synopsis'><code>rebase.autostash</code></span> is used
+instead.  Can be overridden by the <span class='synopsis'><code>--</code>[<code>no-</code>]<code>autostash</code></span> command line
+option.</p>
+</div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-pulltwohead"><a class="anchor" href="#Documentation/git-config.txt-pulltwohead"></a>pull.twohead </dt>
 <dd>
@@ -7886,6 +7968,14 @@ a cruft pack and the respective parameters are not given over
 the command line. See similarly named <span class='synopsis'><code>pack.*</code></span> configuration
 variables for defaults and meaning.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-repackmidxMustContainCruft"><a class="anchor" href="#Documentation/git-config.txt-repackmidxMustContainCruft"></a>repack.midxMustContainCruft </dt>
+<dd>
+<p>When set to true, <a href='{{< relurl "docs/git-repack" >}}'>git-repack[1]</a> will unconditionally include
+cruft pack(s), if any, in the multi-pack index when invoked with
+<span class='synopsis'><code>--write-midx</code></span>. When false, cruft packs are only included in the MIDX
+when necessary (e.g., because they might be required to form a
+reachability closure with MIDX bitmaps). Defaults to true.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-rerereautoUpdate"><a class="anchor" href="#Documentation/git-config.txt-rerereautoUpdate"></a>rerere.autoUpdate </dt>
 <dd>
 <p>When set to true, <span class='synopsis'><code>git-rerere</code></span> updates the index with the
@@ -7988,14 +8078,14 @@ the <span class='synopsis'><code>SUDO_UID</code></span> variable from root&#8217
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailidentity"><a class="anchor" href="#Documentation/git-config.txt-sendemailidentity"></a>sendemail.identity </dt>
 <dd>
 <p>A configuration identity. When given, causes values in the
-<em>sendemail.&lt;identity&gt;</em> subsection to take precedence over
-values in the <em>sendemail</em> section. The default identity is
+<span class='synopsis'><code>sendemail.</code><em>&lt;identity&gt;</em></span> subsection to take precedence over
+values in the <span class='synopsis'><code>sendemail</code></span> section. The default identity is
 the value of <span class='synopsis'><code>sendemail.identity</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailsmtpEncryption"><a class="anchor" href="#Documentation/git-config.txt-sendemailsmtpEncryption"></a>sendemail.smtpEncryption </dt>
 <dd>
 <p>See <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a> for description.  Note that this
-setting is not subject to the <em>identity</em> mechanism.</p>
+setting is not subject to the <span class='synopsis'><code>identity</code></span> mechanism.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailsmtpSSLCertPath"><a class="anchor" href="#Documentation/git-config.txt-sendemailsmtpSSLCertPath"></a>sendemail.smtpSSLCertPath </dt>
 <dd>
@@ -8004,29 +8094,29 @@ Set it to an empty string to disable certificate verification.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailltidentitygt"><a id="Documentation/git-config.txt-sendemailidentity-1" class="anchor" href="#Documentation/git-config.txt-sendemailidentity-1"></a>sendemail.&lt;identity&gt;.* </dt>
 <dd>
-<p>Identity-specific versions of the <em>sendemail.*</em> parameters
+<p>Identity-specific versions of the <span class='synopsis'><code>sendemail.*</code></span> parameters
 found below, taking precedence over those when this
 identity is selected, through either the command-line or
 <span class='synopsis'><code>sendemail.identity</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailmultiEdit"><a class="anchor" href="#Documentation/git-config.txt-sendemailmultiEdit"></a>sendemail.multiEdit </dt>
 <dd>
-<p>If true (default), a single editor instance will be spawned to edit
+<p>If <span class='synopsis'><code>true</code></span> (default), a single editor instance will be spawned to edit
 files you have to edit (patches when <span class='synopsis'><code>--annotate</code></span> is used, and the
-summary when <span class='synopsis'><code>--compose</code></span> is used). If false, files will be edited one
+summary when <span class='synopsis'><code>--compose</code></span> is used). If <span class='synopsis'><code>false</code></span>, files will be edited one
 after the other, spawning a new editor each time.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailconfirm"><a class="anchor" href="#Documentation/git-config.txt-sendemailconfirm"></a>sendemail.confirm </dt>
 <dd>
 <p>Sets the default for whether to confirm before sending. Must be
-one of <em>always</em>, <em>never</em>, <em>cc</em>, <em>compose</em>, or <em>auto</em>. See <span class='synopsis'><code>--confirm</code></span>
+one of <span class='synopsis'><code>always</code></span>, <span class='synopsis'><code>never</code></span>, <span class='synopsis'><code>cc</code></span>, <span class='synopsis'><code>compose</code></span>, or <span class='synopsis'><code>auto</code></span>. See <span class='synopsis'><code>--confirm</code></span>
 in the <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a> documentation for the meaning of these
 values.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailmailmap"><a class="anchor" href="#Documentation/git-config.txt-sendemailmailmap"></a>sendemail.mailmap </dt>
 <dd>
-<p>If true, makes <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a> assume <span class='synopsis'><code>--mailmap</code></span>,
-otherwise assume <span class='synopsis'><code>--no-mailmap</code></span>. False by default.</p>
+<p>If <span class='synopsis'><code>true</code></span>, makes <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a> assume <span class='synopsis'><code>--mailmap</code></span>,
+otherwise assume <span class='synopsis'><code>--no-mailmap</code></span>. <span class='synopsis'><code>False</code></span> by default.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailmailmapfile"><a class="anchor" href="#Documentation/git-config.txt-sendemailmailmapfile"></a>sendemail.mailmap.file </dt>
 <dd>
@@ -8049,7 +8139,7 @@ email aliases files.  You must also supply <span class='synopsis'><code>sendemai
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailaliasFileType"><a class="anchor" href="#Documentation/git-config.txt-sendemailaliasFileType"></a>sendemail.aliasFileType </dt>
 <dd>
 <p>Format of the file(s) specified in sendemail.aliasesFile. Must be
-one of <em>mutt</em>, <em>mailrc</em>, <em>pine</em>, <em>elm</em>, <em>gnus</em>, or <em>sendmail</em>.</p>
+one of <span class='synopsis'><code>mutt</code></span>, <span class='synopsis'><code>mailrc</code></span>, <span class='synopsis'><code>pine</code></span>, <span class='synopsis'><code>elm</code></span>, <span class='synopsis'><code>gnus</code></span>, or <span class='synopsis'><code>sendmail</code></span>.</p>
 <div class="paragraph">
 <p>What an alias file in each format looks like can be found in
 the documentation of the email program of the same name. The
@@ -8116,6 +8206,12 @@ recognized by the parser.</p>
 <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a> command-line options. See its
 documentation for details.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-sendemailoutlookidfix"><a class="anchor" href="#Documentation/git-config.txt-sendemailoutlookidfix"></a>sendemail.outlookidfix </dt>
+<dd>
+<p>If <span class='synopsis'><code>true</code></span>, makes <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a> assume <span class='synopsis'><code>--outlook-id-fix</code></span>,
+and if <span class='synopsis'><code>false</code></span> assume <span class='synopsis'><code>--no-outlook-id-fix</code></span>. If not specified, it will
+behave the same way as if <span class='synopsis'><code>--outlook-id-fix</code></span> is not specified.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailsignedOffCcdeprecated"><a class="anchor" href="#Documentation/git-config.txt-sendemailsignedOffCcdeprecated"></a>sendemail.signedOffCc (deprecated) </dt>
 <dd>
 <p>Deprecated alias for <span class='synopsis'><code>sendemail.signedOffByCc</code></span>.</p>
@@ -8123,7 +8219,7 @@ documentation for details.</p>
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailsmtpBatchSize"><a class="anchor" href="#Documentation/git-config.txt-sendemailsmtpBatchSize"></a>sendemail.smtpBatchSize </dt>
 <dd>
 <p>Number of messages to be sent per connection, after that a relogin
-will happen.  If the value is 0 or undefined, send all messages in
+will happen.  If the value is <span class='synopsis'><code>0</code></span> or undefined, send all messages in
 one connection.
 See also the <span class='synopsis'><code>--batch-size</code></span> option of <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a>.</p>
 </dd>
@@ -8135,7 +8231,7 @@ See also the <span class='synopsis'><code>--relogin-delay</code></span> option o
 <dt class="hdlist1" id="Documentation/git-config.txt-sendemailforbidSendmailVariables"><a class="anchor" href="#Documentation/git-config.txt-sendemailforbidSendmailVariables"></a>sendemail.forbidSendmailVariables </dt>
 <dd>
 <p>To avoid common misconfiguration mistakes, <a href='{{< relurl "docs/git-send-email" >}}'>git-send-email[1]</a>
-will abort with a warning if any configuration options for "sendmail"
+will abort with a warning if any configuration options for <span class='synopsis'><code>sendmail</code></span>
 exist. Set this variable to bypass the check.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-sequenceeditor"><a class="anchor" href="#Documentation/git-config.txt-sequenceeditor"></a>sequence.editor </dt>

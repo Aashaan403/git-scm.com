@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-apply Documentation
 docname: git-apply
-version: 2.47.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -24,7 +24,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.47.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-apply/index.html"
 ---
@@ -123,14 +123,15 @@ cleanly to both the index and the working tree in isolation.</p>
 tree. If <span class='synopsis'><code>--check</code></span> is in effect, merely check that it would
 apply cleanly to the index entry.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-apply.txt--N"><a class="anchor" href="#Documentation/git-apply.txt--N"></a>-N </dt>
 <dt class="hdlist1" id="Documentation/git-apply.txt---intent-to-add"><a class="anchor" href="#Documentation/git-apply.txt---intent-to-add"></a>--intent-to-add </dt>
 <dd>
 <p>When applying the patch only to the working tree, mark new
 files to be added to the index later (see <span class='synopsis'><code>--intent-to-add</code></span>
-option in <a href='{{< relurl "docs/git-add" >}}'>git-add[1]</a>). This option is ignored unless
-running in a Git repository and <span class='synopsis'><code>--index</code></span> is not specified.
-Note that <span class='synopsis'><code>--index</code></span> could be implied by other options such
-as <span class='synopsis'><code>--cached</code></span> or <span class='synopsis'><code>--3way</code></span>.</p>
+option in <a href='{{< relurl "docs/git-add" >}}'>git-add[1]</a>). This option is ignored if
+<span class='synopsis'><code>--index</code></span> or <span class='synopsis'><code>--cached</code></span> are used, and has no effect outside a Git
+repository. Note that <span class='synopsis'><code>--index</code></span> could be implied by other options
+such as <span class='synopsis'><code>--3way</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-apply.txt--3"><a class="anchor" href="#Documentation/git-apply.txt--3"></a>-3 </dt>
 <dt class="hdlist1" id="Documentation/git-apply.txt---3way"><a class="anchor" href="#Documentation/git-apply.txt---3way"></a>--3way </dt>

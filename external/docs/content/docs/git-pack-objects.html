@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-pack-objects Documentation
 docname: git-pack-objects
-version: 2.49.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -24,7 +24,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.49.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-pack-objects/index.html"
 ---
@@ -41,13 +41,13 @@ aliases:
 <div class="sectionbody">
 <div class="verseblock">
 <pre class="content"><em>git pack-objects</em> [-q | --progress | --all-progress] [--all-progress-implied]
-	[--no-reuse-delta] [--delta-base-offset] [--non-empty]
-	[--local] [--incremental] [--window=&lt;n&gt;] [--depth=&lt;n&gt;]
-	[--revs [--unpacked | --all]] [--keep-pack=&lt;pack-name&gt;]
-	[--cruft] [--cruft-expiration=&lt;time&gt;]
-	[--stdout [--filter=&lt;filter-spec&gt;] | &lt;base-name&gt;]
-	[--shallow] [--keep-true-parents] [--[no-]sparse]
-	[--name-hash-version=&lt;n&gt;] &lt; &lt;object-list&gt;</pre>
+		   [--no-reuse-delta] [--delta-base-offset] [--non-empty]
+		   [--local] [--incremental] [--window=&lt;n&gt;] [--depth=&lt;n&gt;]
+		   [--revs [--unpacked | --all]] [--keep-pack=&lt;pack-name&gt;]
+		   [--cruft] [--cruft-expiration=&lt;time&gt;]
+		   [--stdout [--filter=&lt;filter-spec&gt;] | &lt;base-name&gt;]
+		   [--shallow] [--keep-true-parents] [--[no-]sparse]
+		   [--name-hash-version=&lt;n&gt;] [--path-walk] &lt; &lt;object-list&gt;</pre>
 </div>
 </div>
 </div>
@@ -135,13 +135,22 @@ included.</p>
 reference was included in the resulting packfile.  This
 can be useful to send new tags to native Git clients.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-pack-objects.txt---stdin-packs"><a class="anchor" href="#Documentation/git-pack-objects.txt---stdin-packs"></a>--stdin-packs </dt>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---stdin-packsltmodegt"><a id="Documentation/git-pack-objects.txt---stdin-packsmode" class="anchor" href="#Documentation/git-pack-objects.txt---stdin-packsmode"></a>--stdin-packs[=&lt;mode&gt;] </dt>
 <dd>
 <p>Read the basenames of packfiles (e.g., <span class='synopsis'><code>pack-1234abcd.pack</code></span>)
 from the standard input, instead of object names or revision
 arguments. The resulting pack contains all objects listed in the
 included packs (those not beginning with <span class='synopsis'><code>^</code></span>), excluding any
 objects listed in the excluded packs (beginning with <span class='synopsis'><code>^</code></span>).</p>
+<div class="paragraph">
+<p>When <span class='synopsis'><code>mode</code></span> is "follow", objects from packs not listed on stdin receive
+special treatment. Objects within unlisted packs will be included if
+those objects are (1) reachable from the included packs, and (2) not
+found in any excluded packs. This mode is useful, for example, to
+resurrect once-unreachable objects found in cruft packs to generate
+packs which are closed under reachability up to the boundary set by the
+excluded packs.</p>
+</div>
 <div class="paragraph">
 <p>Incompatible with <span class='synopsis'><code>--revs</code></span>, or options that imply <span class='synopsis'><code>--revs</code></span> (such as
 <span class='synopsis'><code>--all</code></span>), with the exception of <span class='synopsis'><code>--unpacked</code></span>, which is compatible.</p>
@@ -467,6 +476,19 @@ breaking most of the collisions from a similarly-named file appearing in
 many different directories. At the moment, this version is not allowed
 when writing reachability bitmap files with <span class='synopsis'><code>--write-bitmap-index</code></span> and it
 will be automatically changed to version <span class='synopsis'><code>1</code></span>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-pack-objects.txt---path-walk"><a class="anchor" href="#Documentation/git-pack-objects.txt---path-walk"></a>--path-walk </dt>
+<dd>
+<p>Perform compression by first organizing objects by path, then a
+second pass that compresses across paths as normal. This has the
+potential to improve delta compression especially in the presence
+of filenames that cause collisions in Git&#8217;s default name-hash
+algorithm.</p>
+<div class="paragraph">
+<p>Incompatible with <span class='synopsis'><code>--delta-islands</code></span>, <span class='synopsis'><code>--shallow</code></span>, or <span class='synopsis'><code>--filter</code></span>. The
+<span class='synopsis'><code>--use-bitmap-index</code></span> option will be ignored in the presence of
+<span class='synopsis'><code>--path-walk.</code></span></p>
 </div>
 </dd>
 </dl>

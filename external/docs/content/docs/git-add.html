@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-add Documentation
 docname: git-add
-version: 2.48.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -28,7 +28,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.48.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-add/index.html"
 ---
@@ -161,6 +161,19 @@ index.</p>
 initial command menu and directly jumps to the <span class='synopsis'><code>patch</code></span> subcommand.
 See &#8220;Interactive mode&#8221; for details.</p>
 </div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-add.txt-spanclasssynopsiscode-Ucodeemltngtemspan"><a id="Documentation/git-add.txt--Un" class="anchor" href="#Documentation/git-add.txt--Un"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-add.txt-spanclasssynopsiscode--unifiedcodeemltngtemspan"><a id="Documentation/git-add.txt---unifiedn" class="anchor" href="#Documentation/git-add.txt---unifiedn"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span>
+or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-add.txt-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"><a id="Documentation/git-add.txt---inter-hunk-contextn" class="anchor" href="#Documentation/git-add.txt---inter-hunk-contextn"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Show the context between diff hunks, up to the specified <em>&lt;number&gt;</em>
+of lines, thereby fusing hunks that are close to each other.
+Defaults to <span class='synopsis'><code>diff.interHunkContext</code></span> or 0 if the config option
+is unset.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-add.txt-spanclasssynopsiscode-ecodespan"><a id="Documentation/git-add.txt--e" class="anchor" href="#Documentation/git-add.txt--e"></a><span class='synopsis'><code>-e</code></span> </dt>
 <dt class="hdlist1" id="Documentation/git-add.txt-spanclasssynopsiscode--editcodespan"><a id="Documentation/git-add.txt---edit" class="anchor" href="#Documentation/git-add.txt---edit"></a><span class='synopsis'><code>--edit</code></span> </dt>

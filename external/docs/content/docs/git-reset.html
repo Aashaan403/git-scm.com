@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-reset Documentation
 docname: git-reset
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -22,7 +22,7 @@ headings:
   id: _discussion
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-reset/index.html"
 ---
@@ -191,6 +191,19 @@ global <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
 <p>Only meaningful with <span class='synopsis'><code>--pathspec-from-file</code></span>. Pathspec elements are
 separated with <em>NUL</em> character and all other characters are taken
 literally (including newlines and quotes).</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-reset.txt-spanclasssynopsiscode-Ucodeemltngtemspan"><a id="Documentation/git-reset.txt--Un" class="anchor" href="#Documentation/git-reset.txt--Un"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-reset.txt-spanclasssynopsiscode--unifiedcodeemltngtemspan"><a id="Documentation/git-reset.txt---unifiedn" class="anchor" href="#Documentation/git-reset.txt---unifiedn"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span>
+or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-reset.txt-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"><a id="Documentation/git-reset.txt---inter-hunk-contextn" class="anchor" href="#Documentation/git-reset.txt---inter-hunk-contextn"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Show the context between diff hunks, up to the specified <em>&lt;number&gt;</em>
+of lines, thereby fusing hunks that are close to each other.
+Defaults to <span class='synopsis'><code>diff.interHunkContext</code></span> or 0 if the config option
+is unset.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-reset.txt-spanclasssynopsiscode--codespan"><a id="Documentation/git-reset.txt---" class="anchor" href="#Documentation/git-reset.txt---"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>

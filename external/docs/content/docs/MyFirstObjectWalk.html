@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - MyFirstObjectWalk Documentation
 docname: MyFirstObjectWalk
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: What’s an Object Walk?
   id: _whats_an_object_walk
@@ -18,7 +18,7 @@ headings:
   id: _basic_object_walk
 - text: Wrapping Up
   id: _wrapping_up
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/MyFirstObjectWalk/index.html"
 ---
@@ -85,7 +85,7 @@ Open up a new file <span class='synopsis'><code>builtin/walken.c</code></span> a
 #include "builtin.h"
 #include "trace.h"
 
-int cmd_walken(int argc, const char **argv, const char *prefix)
+int cmd_walken(int argc, const char **argv, const char *prefix, struct repository *repo)
 {
 	trace_printf(_("cmd_walken incoming...\n"));
 	return 0;
@@ -138,15 +138,15 @@ int cmd_walken(int argc, const char **argv, const char *prefix)
 </div>
 </div>
 <div class="paragraph">
-<p>Also add the relevant line in <span class='synopsis'><code>builtin.h</code></span> near <span class='synopsis'><code>cmd_whatchanged</code>()</span>:</p>
+<p>Also add the relevant line in <span class='synopsis'><code>builtin.h</code></span> near <span class='synopsis'><code>cmd_version</code>()</span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>int cmd_walken(int argc, const char **argv, const char *prefix);</pre>
+<pre>int cmd_walken(int argc, const char **argv, const char *prefix, struct repository *repo);</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Include the command in <span class='synopsis'><code>git.c</code></span> in <span class='synopsis'><code>commands</code>[]</span> near the entry for <span class='synopsis'><code>whatchanged</code></span>,
+<p>Include the command in <span class='synopsis'><code>git.c</code></span> in <span class='synopsis'><code>commands</code>[]</span> near the entry for <span class='synopsis'><code>version</code></span>,
 maintaining alphabetical ordering:</p>
 </div>
 <div class="listingblock">
@@ -155,11 +155,37 @@ maintaining alphabetical ordering:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Add it to the <span class='synopsis'><code>Makefile</code></span> near the line for <span class='synopsis'><code>builtin/worktree.o</code></span>:</p>
+<p>Add an entry for the new command in the both the Make and Meson build system,
+before the entry for <span class='synopsis'><code>worktree</code></span>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the <span class='synopsis'><code>Makefile</code></span>:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>BUILTIN_OBJS += builtin/walken.o</pre>
+<pre>...
+BUILTIN_OBJS += builtin/walken.o
+...</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In the <span class='synopsis'><code>meson.build</code></span> file:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>builtin_sources = [
+   ...
+  'builtin/walken.c',
+   ...
+]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -312,7 +338,7 @@ initialization functions.</p>
 <div class="paragraph">
 <p>Next, we should have a look at any relevant configuration settings (i.e.,
 settings readable and settable from <span class='synopsis'><code>git</code> <code>config</code></span>). This is done by providing a
-callback to <span class='synopsis'><code>git_config</code>()</span>; within that callback, you can also invoke methods
+callback to <span class='synopsis'><code>repo_config</code>()</span>; within that callback, you can also invoke methods
 from other components you may need that need to intercept these options. Your
 callback will be invoked once per each configuration value which Git knows about
 (global, local, worktree, etc.).</p>
@@ -344,15 +370,15 @@ static int git_walken_config(const char *var, const char *value,
 </div>
 </div>
 <div class="paragraph">
-<p>Make sure to invoke <span class='synopsis'><code>git_config</code>()</span> with it in your <span class='synopsis'><code>cmd_walken</code>()</span>:</p>
+<p>Make sure to invoke <span class='synopsis'><code>repo_config</code>()</span> with it in your <span class='synopsis'><code>cmd_walken</code>()</span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>int cmd_walken(int argc, const char **argv, const char *prefix)
+<pre>int cmd_walken(int argc, const char **argv, const char *prefix, struct repository *repo)
 {
 	...
 
-	git_config(git_walken_config, NULL);
+	repo_config(repo, git_walken_config, NULL);
 
 	...
 }</pre>
@@ -378,14 +404,14 @@ We&#8217;ll also need to include the <span class='synopsis'><code>revision.h</co
 
 ...
 
-int cmd_walken(int argc, const char **argv, const char *prefix)
+int cmd_walken(int argc, const char **argv, const char *prefix, struct repository *repo)
 {
 	/* This can go wherever you like in your declarations.*/
 	struct rev_info rev;
 	...
 
-	/* This should go after the git_config() call. */
-	repo_init_revisions(the_repository, &amp;rev, prefix);
+	/* This should go after the repo_config() call. */
+	repo_init_revisions(repo, &amp;rev, prefix);
 
 	...
 }</pre>
@@ -449,7 +475,7 @@ point.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>int cmd_walken(int argc, const char **argv, const char *prefix)
+<pre>int cmd_walken(int argc, const char **argv, const char *prefix, struct repository *repo)
 {
 	...
 

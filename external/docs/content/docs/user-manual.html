@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - user-manual Documentation
 docname: user-manual
-version: 2.48.0
+version: 2.51.0
 headings:
 - text: Introduction
   id: _introduction
@@ -36,7 +36,7 @@ headings:
   id: git-quick-start
 - text: 'Appendix B: Notes and todo list for this manual'
   id: todo
-latest-changes: 2.48.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/user-manual/index.html"
 ---
@@ -5238,7 +5238,7 @@ instead), and declared in <span class='synopsis'><code>builtin.h</code></span>.<
 </div>
 <div class="paragraph">
 <p>Sometimes, more than one builtin is contained in one source file.  For
-example, <span class='synopsis'><code>cmd_whatchanged</code>()</span> and <span class='synopsis'><code>cmd_log</code>()</span> both reside in <span class='synopsis'><code>builtin/log.c</code></span>,
+example, <span class='synopsis'><code>cmd_show</code>()</span> and <span class='synopsis'><code>cmd_log</code>()</span> both reside in <span class='synopsis'><code>builtin/log.c</code></span>,
 since they share quite a bit of code.  In that case, the commands which are
 <em>not</em> named like the <span class='synopsis'><code>.c</code></span> file in which they live have to be listed in
 <span class='synopsis'><code>BUILT_INS</code></span> in the <span class='synopsis'><code>Makefile</code></span>.</p>
@@ -5281,7 +5281,7 @@ it does.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>        git_config(git_default_config);
+<pre>        repo_config(the_repository, git_default_config);
         if (argc != 3)
 		usage("git cat-file [-t|-s|-e|-p|&lt;type&gt;] &lt;sha1&gt;");
         if (get_sha1(argv[2], sha1))
@@ -5325,12 +5325,12 @@ hex characters, which is passed as <span class='synopsis'><code>char</code> <cod
 <div class="listingblock">
 <div class="content">
 <pre>        case 0:
-                buf = read_object_with_reference(sha1, argv[1], &amp;size, NULL);</pre>
+                buf = odb_read_object_peeled(r-&gt;objects, sha1, argv[1], &amp;size, NULL);</pre>
 </div>
 </div>
 <div class="paragraph">
 <p>This is how you read a blob (actually, not only a blob, but any type of
-object).  To know how the function <span class='synopsis'><code>read_object_with_reference</code>()</span> actually
+object).  To know how the function <span class='synopsis'><code>odb_read_object_peeled</code>()</span> actually
 works, find the source code for it (something like <span class='synopsis'><code>git</code> <code>grep</code>
 
 <code>read_object_with</code> | <code>grep</code> <code>":</code>[<code>a-z</code>]<code>"</code></span> in the Git repository), and read
@@ -5895,9 +5895,8 @@ full pathname may have special meaning:</p>
 <li>
 <p>A leading "<span class='synopsis'><code>**</code></span>" followed by a slash means match in all
 directories. For example, "<span class='synopsis'><code>**/foo</code></span>" matches file or directory
-"<span class='synopsis'><code>foo</code></span>" anywhere, the same as pattern "<span class='synopsis'><code>foo</code></span>". "<span class='synopsis'><code>**/foo/bar</code></span>"
-matches file or directory "<span class='synopsis'><code>bar</code></span>" anywhere that is directly
-under directory "<span class='synopsis'><code>foo</code></span>".</p>
+"<span class='synopsis'><code>foo</code></span>" anywhere. "<span class='synopsis'><code>**/foo/bar</code></span>" matches file or directory "<span class='synopsis'><code>bar</code></span>"
+anywhere that is directly under directory "<span class='synopsis'><code>foo</code></span>".</p>
 </li>
 <li>
 <p>A trailing "<span class='synopsis'><code>/**</code></span>" matches everything inside. For example,

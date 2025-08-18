@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-blame Documentation
 docname: git-blame
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -32,7 +32,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-blame/index.html"
 ---
@@ -131,25 +131,25 @@ May be specified multiple times. Overlapping ranges are allowed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>number</p>
+<p><em>&lt;number&gt;</em></p>
 <div class="paragraph">
 <p>If <em>&lt;start&gt;</em> or <em>&lt;end&gt;</em> is a number, it specifies an
 absolute line number (lines count from 1).</p>
 </div>
 </li>
 <li>
-<p><span class='synopsis'><code>/regex/</code></span></p>
+<p><span class='synopsis'><code>/</code><em>&lt;regex&gt;</em><code>/</code></span></p>
 <div class="paragraph">
 <p>This form will use the first line matching the given
-POSIX regex. If <em>&lt;start&gt;</em> is a regex, it will search from the end of
+POSIX <em>&lt;regex&gt;</em>. If <em>&lt;start&gt;</em> is a regex, it will search from the end of
 the previous <span class='synopsis'><code>-L</code></span> range, if any, otherwise from the start of file.
-If <em>&lt;start&gt;</em> is <span class='synopsis'><code>^/regex/</code></span>, it will search from the start of file.
-If <em>&lt;end&gt;</em> is a regex, it will search
-starting at the line given by <em>&lt;start&gt;</em>.</p>
+If <em>&lt;start&gt;</em> is <span class='synopsis'><code>^/</code><em>&lt;regex&gt;</em><code>/</code></span>, it will search from the start of file.
+If <em>&lt;end&gt;</em> is a regex, it will search starting at the line given by
+<em>&lt;start&gt;</em>.</p>
 </div>
 </li>
 <li>
-<p>+offset or -offset</p>
+<p><span class='synopsis'><code>+</code><em>&lt;offset&gt;</em></span> or <span class='synopsis'><code>-</code><em>&lt;offset&gt;</em></span></p>
 <div class="paragraph">
 <p>This is only valid for <em>&lt;end&gt;</em> and will specify a number
 of lines before or after the line given by <em>&lt;start&gt;</em>.</p>

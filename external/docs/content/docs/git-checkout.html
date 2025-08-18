@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-checkout Documentation
 docname: git-checkout
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -28,7 +28,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-checkout/index.html"
 ---
@@ -381,6 +381,19 @@ section of <a href='{{< relurl "docs/git-add" >}}'>git-add[1]</a> to learn how t
 <p>Note that this option uses the no overlay mode by default (see also
 <span class='synopsis'><code>--overlay</code></span>), and currently doesn&#8217;t support overlay mode.</p>
 </div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-spanclasssynopsiscode-Ucodeemltngtemspan"><a id="Documentation/git-checkout.txt--Un" class="anchor" href="#Documentation/git-checkout.txt--Un"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-spanclasssynopsiscode--unifiedcodeemltngtemspan"><a id="Documentation/git-checkout.txt---unifiedn" class="anchor" href="#Documentation/git-checkout.txt---unifiedn"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span>
+or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"><a id="Documentation/git-checkout.txt---inter-hunk-contextn" class="anchor" href="#Documentation/git-checkout.txt---inter-hunk-contextn"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Show the context between diff hunks, up to the specified <em>&lt;number&gt;</em>
+of lines, thereby fusing hunks that are close to each other.
+Defaults to <span class='synopsis'><code>diff.interHunkContext</code></span> or 0 if the config option
+is unset.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt-spanclasssynopsiscode--ignore-other-worktreescodespan"><a id="Documentation/git-checkout.txt---ignore-other-worktrees" class="anchor" href="#Documentation/git-checkout.txt---ignore-other-worktrees"></a><span class='synopsis'><code>--ignore-other-worktrees</code></span> </dt>
 <dd>

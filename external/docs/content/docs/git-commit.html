@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-commit Documentation
 docname: git-commit
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -34,7 +34,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-commit/index.html"
 ---
@@ -138,6 +138,19 @@ told Git about are not affected.</p>
 <p>Use the interactive patch selection interface to choose
 which changes to commit. See <a href='{{< relurl "docs/git-add" >}}'>git-add[1]</a> for
 details.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-commit.txt-spanclasssynopsiscode-Ucodeemltngtemspan"><a id="Documentation/git-commit.txt--Un" class="anchor" href="#Documentation/git-commit.txt--Un"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-commit.txt-spanclasssynopsiscode--unifiedcodeemltngtemspan"><a id="Documentation/git-commit.txt---unifiedn" class="anchor" href="#Documentation/git-commit.txt---unifiedn"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span>
+or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-commit.txt-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"><a id="Documentation/git-commit.txt---inter-hunk-contextn" class="anchor" href="#Documentation/git-commit.txt---inter-hunk-contextn"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Show the context between diff hunks, up to the specified <em>&lt;number&gt;</em>
+of lines, thereby fusing hunks that are close to each other.
+Defaults to <span class='synopsis'><code>diff.interHunkContext</code></span> or 0 if the config option
+is unset.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-commit.txt-spanclasssynopsiscode-Ccodeemltcommitgtemspan"><a id="Documentation/git-commit.txt--Ccommit" class="anchor" href="#Documentation/git-commit.txt--Ccommit"></a><span class='synopsis'><code>-C</code> <em>&lt;commit&gt;</em></span> </dt>
 <dt class="hdlist1" id="Documentation/git-commit.txt-spanclasssynopsiscode--reuse-messagecodeemltcommitgtemspan"><a id="Documentation/git-commit.txt---reuse-messagecommit" class="anchor" href="#Documentation/git-commit.txt---reuse-messagecommit"></a><span class='synopsis'><code>--reuse-message=</code><em>&lt;commit&gt;</em></span> </dt>

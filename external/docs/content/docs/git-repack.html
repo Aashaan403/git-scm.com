@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-repack Documentation
 docname: git-repack
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -22,7 +22,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-repack/index.html"
 ---
@@ -40,7 +40,7 @@ aliases:
 <div class="verseblock">
 <pre class="content"><em>git repack</em> [-a] [-A] [-d] [-f] [-F] [-l] [-n] [-q] [-b] [-m]
 	[--window=&lt;n&gt;] [--depth=&lt;n&gt;] [--threads=&lt;n&gt;] [--keep-pack=&lt;pack-name&gt;]
-	[--write-midx] [--name-hash-version=&lt;n&gt;]</pre>
+	[--write-midx] [--name-hash-version=&lt;n&gt;] [--path-walk]</pre>
 </div>
 </div>
 </div>
@@ -330,6 +330,11 @@ containing the non-redundant packs.</p>
 <dd>
 <p>Provide this argument to the underlying <span class='synopsis'><code>git</code> <code>pack-objects</code></span> process.
 See <a href='{{< relurl "docs/git-pack-objects" >}}'>git-pack-objects[1]</a> for full details.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-repack.txt---path-walk"><a class="anchor" href="#Documentation/git-repack.txt---path-walk"></a>--path-walk </dt>
+<dd>
+<p>Pass the <span class='synopsis'><code>--path-walk</code></span> option to the underlying <span class='synopsis'><code>git</code> <code>pack-objects</code></span>
+process. See <a href='{{< relurl "docs/git-pack-objects" >}}'>git-pack-objects[1]</a> for full details.</p>
 </dd>
 </dl>
 </div>

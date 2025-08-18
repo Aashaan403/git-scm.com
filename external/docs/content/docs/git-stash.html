@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-stash Documentation
 docname: git-stash
-version: 2.43.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -28,7 +28,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.43.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-stash/index.html"
 ---
@@ -58,7 +58,9 @@ aliases:
 	     [-u | --include-untracked] [-a | --all] [&lt;message&gt;]
 <em>git stash</em> clear
 <em>git stash</em> create [&lt;message&gt;]
-<em>git stash</em> store [(-m | --message) &lt;message&gt;] [-q | --quiet] &lt;commit&gt;</pre>
+<em>git stash</em> store [(-m | --message) &lt;message&gt;] [-q | --quiet] &lt;commit&gt;
+<em>git stash</em> export (--print | --to-ref &lt;ref&gt;) [&lt;stash&gt;&#8230;&#8203;]
+<em>git stash</em> import &lt;commit&gt;</pre>
 </div>
 </div>
 </div>
@@ -205,6 +207,18 @@ dangling merge commit) in the stash ref, updating the stash
 reflog.  This is intended to be useful for scripts.  It is
 probably not the command you want to use; see "push" above.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt-export--print--to-refltrefgtltstashgt82308203"><a id="Documentation/git-stash.txt-export--print--to-refrefstash" class="anchor" href="#Documentation/git-stash.txt-export--print--to-refrefstash"></a>export ( --print | --to-ref &lt;ref&gt; ) [&lt;stash&gt;&#8230;&#8203;] </dt>
+<dd>
+<p>Export the specified stashes, or all of them if none are specified, to
+a chain of commits which can be transferred using the normal fetch and
+push mechanisms, then imported using the <span class='synopsis'><code>import</code></span> subcommand.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt-importltcommitgt"><a id="Documentation/git-stash.txt-importcommit" class="anchor" href="#Documentation/git-stash.txt-importcommit"></a>import &lt;commit&gt; </dt>
+<dd>
+<p>Import the specified stashes from the specified commit, which must have been
+created by <span class='synopsis'><code>export</code></span>, and add them to the list of stashes.  To replace the
+existing stashes, use <span class='synopsis'><code>clear</code></span> first.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -279,6 +293,19 @@ to learn how to operate the <span class='synopsis'><code>--patch</code></span> m
 <span class='synopsis'><code>--no-keep-index</code></span> to override this.</p>
 </div>
 </dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt-spanclasssynopsiscode-Ucodeemltngtemspan"><a id="Documentation/git-stash.txt--Un" class="anchor" href="#Documentation/git-stash.txt--Un"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="Documentation/git-stash.txt-spanclasssynopsiscode--unifiedcodeemltngtemspan"><a id="Documentation/git-stash.txt---unifiedn" class="anchor" href="#Documentation/git-stash.txt---unifiedn"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span>
+or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"><a id="Documentation/git-stash.txt---inter-hunk-contextn" class="anchor" href="#Documentation/git-stash.txt---inter-hunk-contextn"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Show the context between diff hunks, up to the specified <em>&lt;number&gt;</em>
+of lines, thereby fusing hunks that are close to each other.
+Defaults to <span class='synopsis'><code>diff.interHunkContext</code></span> or 0 if the config option
+is unset.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-stash.txt--S"><a class="anchor" href="#Documentation/git-stash.txt--S"></a>-S </dt>
 <dt class="hdlist1" id="Documentation/git-stash.txt---staged"><a class="anchor" href="#Documentation/git-stash.txt---staged"></a>--staged </dt>
 <dd>
@@ -322,6 +349,23 @@ literally (including newlines and quotes).</p>
 <p>Quiet, suppress feedback messages.</p>
 </div>
 </dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt---print"><a class="anchor" href="#Documentation/git-stash.txt---print"></a>--print </dt>
+<dd>
+<p>This option is only valid for the <span class='synopsis'><code>export</code></span> command.</p>
+<div class="paragraph">
+<p>Create the chain of commits representing the exported stashes without
+storing it anywhere in the ref namespace and print the object ID to
+standard output.  This is designed for scripts.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt---to-ref"><a class="anchor" href="#Documentation/git-stash.txt---to-ref"></a>--to-ref </dt>
+<dd>
+<p>This option is only valid for the <span class='synopsis'><code>export</code></span> command.</p>
+<div class="paragraph">
+<p>Create the chain of commits representing the exported stashes and store
+it to the specified ref.</p>
+</div>
+</dd>
 <dt class="hdlist1" id="Documentation/git-stash.txt---"><a class="anchor" href="#Documentation/git-stash.txt---"></a>-- </dt>
 <dd>
 <p>This option is only valid for <span class='synopsis'><code>push</code></span> command.</p>
@@ -345,7 +389,7 @@ too, leaving files that do not match the pathspec intact.</p>
 <dt class="hdlist1" id="Documentation/git-stash.txt-ltstashgt"><a id="Documentation/git-stash.txt-stash" class="anchor" href="#Documentation/git-stash.txt-stash"></a>&lt;stash&gt; </dt>
 <dd>
 <p>This option is only valid for <span class='synopsis'><code>apply</code></span>, <span class='synopsis'><code>branch</code></span>, <span class='synopsis'><code>drop</code></span>, <span class='synopsis'><code>pop</code></span>,
-<span class='synopsis'><code>show</code></span> commands.</p>
+<span class='synopsis'><code>show</code></span>, and <span class='synopsis'><code>export</code></span> commands.</p>
 <div class="paragraph">
 <p>A reference of the form <span class='synopsis'><code>stash@{</code><em>&lt;revision&gt;</em><code>}</code></span>. When no <span class='synopsis'><em>&lt;stash&gt;</em></span> is
 given, the latest stash is assumed (that is, <span class='synopsis'><code>stash@{0}</code></span>).</p>

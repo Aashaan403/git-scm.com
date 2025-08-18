@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-branch Documentation
 docname: git-branch
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -26,7 +26,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-branch/index.html"
 ---
@@ -567,9 +567,9 @@ The merge information is used by <span class='synopsis'><code>git</code> <code>p
 <span class='synopsis'><code>git</code> <code>fetch</code></span>) to lookup the default branch for merging. Without
 this option, <span class='synopsis'><code>git</code> <code>pull</code></span> defaults to merge the first refspec fetched.
 Specify multiple values to get an octopus merge.
-If you wish to setup <span class='synopsis'><code>git</code> <code>pull</code></span> so that it merges into &lt;name&gt; from
+If you wish to setup <span class='synopsis'><code>git</code> <code>pull</code></span> so that it merges into <em>&lt;name&gt;</em> from
 another branch in the local repository, you can point
-branch.&lt;name&gt;.merge to the desired branch, and use the relative path
+<span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> to the desired branch, and use the relative path
 setting <span class='synopsis'><code>.</code></span> (a period) for <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.remote</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-branch.txt-spanclasssynopsiscodebranchcodeemltnamegtemcodemergeOptionscodespan"><a id="Documentation/git-branch.txt-branchnamemergeOptions" class="anchor" href="#Documentation/git-branch.txt-branchnamemergeOptions"></a><span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.mergeOptions</code></span> </dt>

@@ -6,13 +6,13 @@ section: documentation
 subsection: manual
 title: Git - api-path-walk Documentation
 docname: api-path-walk
-version: 2.49.0
+version: 2.51.0
 headings:
 - text: Basics
   id: _basics
 - text: Examples
   id: _examples
-latest-changes: 2.49.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/api-path-walk/index.html"
 ---
@@ -86,6 +86,15 @@ interested in paths where all included objects are marked with the
 the revision walk so that the walk emits commits marked with the
 <span class='synopsis'><code>UNINTERESTING</code></span> flag.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-spanclasssynopsiscodeedgeaggressivecodespan"><a id="Documentation/technical/api-path-walk.txt-edgeaggressive" class="anchor" href="#Documentation/technical/api-path-walk.txt-edgeaggressive"></a><span class='synopsis'><code>edge_aggressive</code></span> </dt>
+<dd>
+<p>For performance reasons, usually only the boundary commits are
+explored to find UNINTERESTING objects. However, in the case of
+shallow clones it can be helpful to mark all trees and blobs
+reachable from UNINTERESTING tip commits as UNINTERESTING. This
+matches the behavior of <span class='synopsis'><code>--objects-edge-aggressive</code></span> in the
+revision API.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/technical/api-path-walk.txt-spanclasssynopsiscodeplcodespan"><a id="Documentation/technical/api-path-walk.txt-pl" class="anchor" href="#Documentation/technical/api-path-walk.txt-pl"></a><span class='synopsis'><code>pl</code></span> </dt>
 <dd>
 <p>This pattern list pointer allows focusing the path-walk search to
@@ -105,6 +114,7 @@ API can prune the set of paths it walks to improve performance.</p>
 <div class="paragraph">
 <p>See example usages in:
 	<span class='synopsis'><code>t/helper/test-path-walk.c</code></span>,
+	<span class='synopsis'><code>builtin/pack-objects.c</code></span>,
 	<span class='synopsis'><code>builtin/backfill.c</code></span></p>
 </div>
 </div>

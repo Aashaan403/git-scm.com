@@ -6,19 +6,21 @@ section: documentation
 subsection: manual
 title: Git - git-whatchanged Documentation
 docname: git-whatchanged
-version: 2.43.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
 - text: SYNOPSIS
   id: _synopsis
+- text: WARNING
+  id: _warning
 - text: DESCRIPTION
   id: _description
 - text: Examples
   id: _examples
 - text: GIT
   id: _git
-latest-changes: 2.43.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-whatchanged/index.html"
 ---
@@ -34,7 +36,17 @@ aliases:
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git whatchanged</em> &lt;option&gt;&#8230;&#8203;</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>whatchanged</code></span> <em>&lt;option&gt;</em>&#8230;&#8203;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_warning"><a class="anchor" href="#_warning"></a>WARNING</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class='synopsis'><code>git</code> <code>whatchanged</code></span> has been deprecated and is scheduled for removal in
+a future version of Git, as it is merely <span class='synopsis'><code>git</code> <code>log</code></span> with different
+default; <span class='synopsis'><code>whatchanged</code></span> is not even shorter to type than <span class='synopsis'><code>log</code> <code>--raw</code></span>.</p>
 </div>
 </div>
 </div>

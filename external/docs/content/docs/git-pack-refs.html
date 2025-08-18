@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-pack-refs Documentation
 docname: git-pack-refs
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -20,7 +20,7 @@ headings:
   id: _bugs
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-pack-refs/index.html"
 ---
@@ -105,7 +105,10 @@ future.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>"files": No special handling for <span class='synopsis'><code>--auto</code></span> has been implemented.</p>
+<p>"files": Loose references are packed into the <span class='synopsis'><code>packed-refs</code></span> file
+based on the ratio of loose references to the size of the
+<span class='synopsis'><code>packed-refs</code></span> file. The bigger the <span class='synopsis'><code>packed-refs</code></span> file, the more loose
+references need to exist before we repack.</p>
 </li>
 <li>
 <p>"reftable": Tables are compacted such that they form a geometric

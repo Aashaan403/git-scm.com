@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - gitprotocol-v2 Documentation
 docname: gitprotocol-v2
-version: 2.49.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -26,7 +26,7 @@ headings:
   id: _capabilities
 - text: GIT
   id: _git
-latest-changes: 2.49.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/gitprotocol-v2/index.html"
 ---
@@ -123,7 +123,7 @@ response for stateless connections</p>
 <span class='synopsis'><code>version=2</code></span> through the respective side-channel for the transport being
 used which inevitably sets <span class='synopsis'><code>GIT_PROTOCOL</code></span>.  More information can be
 found in <a href='{{< relurl "docs/gitprotocol-pack" >}}'>gitprotocol-pack[5]</a> and <a href='{{< relurl "docs/gitprotocol-http" >}}'>gitprotocol-http[5]</a>, as well as the
-<span class='synopsis'><code>GIT_PROTOCOL</code></span> definition in <span class='synopsis'><code>git.txt</code></span>. In all cases the
+<span class='synopsis'><code>GIT_PROTOCOL</code></span> definition in <a href='{{< relurl "docs/git" >}}'>git[1]</a>. In all cases the
 response from the server is the capability advertisement.</p>
 </div>
 <div class="sect2">
@@ -183,7 +183,7 @@ S: &lt;capability-advertisement&gt;</pre>
 </div>
 <div class="paragraph">
 <p>The server may need to be configured to pass this header&#8217;s contents via
-the <span class='synopsis'><code>GIT_PROTOCOL</code></span> variable. See the discussion in <span class='synopsis'><code>git-http-backend.txt</code></span>.</p>
+the <span class='synopsis'><code>GIT_PROTOCOL</code></span> variable. See the discussion in <a href='{{< relurl "docs/git-http-backend" >}}'>git-http-backend[1]</a>.</p>
 </div>
 </div>
 </div>

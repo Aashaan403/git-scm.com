@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-merge Documentation
 docname: git-merge
-version: 2.50.0
+version: 2.51.0
 headings:
 - text: NAME
   id: _name
@@ -38,7 +38,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.50.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/git-merge/index.html"
 ---
@@ -54,7 +54,7 @@ aliases:
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>merge</code></span> [<span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>--stat</code></span>] [<span class='synopsis'><code>--no-commit</code></span>] [<span class='synopsis'><code>--squash</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>edit</code></span>]
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>merge</code></span> [<span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>--stat</code></span>] [<span class='synopsis'><code>--compact-summary</code></span>] [<span class='synopsis'><code>--no-commit</code></span>] [<span class='synopsis'><code>--squash</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>edit</code></span>]
 	[<span class='synopsis'><code>--no-verify</code></span>] [<span class='synopsis'><code>-s</code></span> <em>&lt;strategy&gt;</em>] [<span class='synopsis'><code>-X</code></span> <em>&lt;strategy-option&gt;</em>] [<span class='synopsis'><code>-S</code></span>[<em>&lt;keyid&gt;</em>]]
 	[<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>allow-unrelated-histories</code></span>]
 	[<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>rerere-autoupdate</code></span>] [<span class='synopsis'><code>-m</code></span> <em>&lt;msg&gt;</em>] [<span class='synopsis'><code>-F</code></span> <em>&lt;file&gt;</em>]
@@ -79,8 +79,8 @@ from one branch into another.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>	  A---B---C topic
-	 /
+<pre>          A---B---C topic
+         /
     D---E---F---G master</pre>
 </div>
 </div>
@@ -90,12 +90,12 @@ from one branch into another.</p>
 its current commit (<span class='synopsis'><code>C</code></span>) on top of <span class='synopsis'><code>master</code></span>, and record the result
 in a new commit along with the names of the two parent commits and
 a log message from the user describing the changes. Before the operation,
-<span class='synopsis'><code>ORIG_HEAD</code></span> is set to the tip of the current branch (<span class='synopsis'><code>C</code></span>).</p>
+<span class='synopsis'><code>ORIG_HEAD</code></span> is set to the tip of the current branch (<span class='synopsis'><code>G</code></span>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>	  A---B---C topic
-	 /         \
+<pre>          A---B---C topic
+         /         \
     D---E---F---G---H master</pre>
 </div>
 </div>
@@ -252,6 +252,10 @@ controlled by the configuration option merge.stat.</p>
 <p>With <span class='synopsis'><code>-n</code></span> or <span class='synopsis'><code>--no-stat</code></span> do not show a diffstat at the end of the
 merge.</p>
 </div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscode--compact-summarycodespan"><a id="Documentation/git-merge.txt---compact-summary" class="anchor" href="#Documentation/git-merge.txt---compact-summary"></a><span class='synopsis'><code>--compact-summary</code></span> </dt>
+<dd>
+<p>Show a compact-summary at the end of the merge.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscode--squashcodespan"><a id="Documentation/git-merge.txt---squash" class="anchor" href="#Documentation/git-merge.txt---squash"></a><span class='synopsis'><code>--squash</code></span> </dt>
 <dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscode--no-squashcodespan"><a id="Documentation/git-merge.txt---no-squash" class="anchor" href="#Documentation/git-merge.txt---no-squash"></a><span class='synopsis'><code>--no-squash</code></span> </dt>
@@ -1114,8 +1118,33 @@ attributes" in <a href='{{< relurl "docs/gitattributes" >}}'>gitattributes[5]</a
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscodemergestatcodespan"><a id="Documentation/git-merge.txt-mergestat" class="anchor" href="#Documentation/git-merge.txt-mergestat"></a><span class='synopsis'><code>merge.stat</code></span> </dt>
 <dd>
-<p>Whether to print the diffstat between <span class='synopsis'><code>ORIG_HEAD</code></span> and the merge result
-at the end of the merge.  True by default.</p>
+<p>What, if anything, to print between <span class='synopsis'><code>ORIG_HEAD</code></span> and the merge result
+at the end of the merge.  Possible values are:</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscodefalsecodespan-1"><a id="Documentation/git-merge.txt-false-1" class="anchor" href="#Documentation/git-merge.txt-false-1"></a><span class='synopsis'><code>false</code></span> </dt>
+<dd>
+<p>Show nothing.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscodetruecodespan-1"><a id="Documentation/git-merge.txt-true-1" class="anchor" href="#Documentation/git-merge.txt-true-1"></a><span class='synopsis'><code>true</code></span> </dt>
+<dd>
+<p>Show <span class='synopsis'><code>git</code> <code>diff</code> <code>--diffstat</code> <code>--summary</code> <code>ORIG_HEAD</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscodecompactcodespan"><a id="Documentation/git-merge.txt-compact" class="anchor" href="#Documentation/git-merge.txt-compact"></a><span class='synopsis'><code>compact</code></span> </dt>
+<dd>
+<p>Show <span class='synopsis'><code>git</code> <code>diff</code> <code>--compact-summary</code> <code>ORIG_HEAD</code></span>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>but any unrecognised value (e.g., a value added by a future version of
+Git) is taken as <span class='synopsis'><code>true</code></span> instead of triggering an error.  Defaults to
+<span class='synopsis'><code>true</code></span>.</p>
+</div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-spanclasssynopsiscodemergeautoStashcodespan"><a id="Documentation/git-merge.txt-mergeautoStash" class="anchor" href="#Documentation/git-merge.txt-mergeautoStash"></a><span class='synopsis'><code>merge.autoStash</code></span> </dt>
 <dd>

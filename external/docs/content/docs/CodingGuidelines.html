@@ -6,8 +6,8 @@ section: documentation
 subsection: manual
 title: Git - CodingGuidelines Documentation
 docname: CodingGuidelines
-version: 2.50.0
-latest-changes: 2.50.0
+version: 2.51.0
+latest-changes: 2.51.0
 aliases:
 - "/docs/CodingGuidelines/index.html"
 ---
@@ -448,6 +448,22 @@ macros, mostly for printf-like trace and debug macros.</p>
 <li>
 <p>since late 2021 with 44ba10d6, we have had variables declared in
 the for loop "for (int i = 0; i &lt; 10; i++)".</p>
+</li>
+<li>
+<p>since late 2023 with 8277dbe987 we have been using the bool type
+from &lt;stdbool.h&gt;.</p>
+<div class="literalblock">
+<div class="content">
+<pre>C99 features we have test balloons for:</pre>
+</div>
+</div>
+</li>
+<li>
+<p>since late 2024 with v2.48.0-rc0~20, we have test balloons for
+compound literal syntax, e.g., (struct foo){ .member = value };
+our hope is that no platforms we care about have trouble using
+them, and officially adopt its wider use in mid 2026.  Do not add
+more use of the syntax until that happens.</p>
 <div class="literalblock">
 <div class="content">
 <pre>New C99 features that we cannot use yet:</pre>
@@ -474,6 +490,10 @@ v12.01, 2022-03-28).</p>
 the first statement (i.e. -Wdeclaration-after-statement).  It is
 encouraged to have a blank line between the end of the declarations
 and the first statement in the block.</p>
+</li>
+<li>
+<p>Do not explicitly initialize global variables to 0 or NULL;
+instead, let BSS take care of the zero initialization.</p>
 </li>
 <li>
 <p>NULL pointers shall be written as NULL, not as 0.</p>
@@ -922,8 +942,9 @@ specific tasks on a structure <span class='synopsis'><code>S</code></span>:</p>
 structure itself.</p>
 </li>
 <li>
-<p><span class='synopsis'><code>S_release</code>()</span> releases a structure&#8217;s contents without freeing the
-structure.</p>
+<p><span class='synopsis'><code>S_release</code>()</span> releases a structure&#8217;s contents without reinitializing
+the structure for immediate reuse, and without freeing the structure
+itself.</p>
 </li>
 <li>
 <p><span class='synopsis'><code>S_clear</code>()</span> is equivalent to <span class='synopsis'><code>S_release</code>()</span> followed by <span class='synopsis'><code>S_init</code>()</span>
@@ -1358,6 +1379,21 @@ the content.
 <div class="paragraph">
 <p>As a side effect, backquoted placeholders are correctly typeset, but
 this style is not recommended.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>When documenting multiple related `git config` variables, place them on
+a separate line instead of separating them by commas.  For example, do
+not write this:
+  `core.var1`, `core.var2`::
+Description common to `core.var1` and `core.var2`.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead write this:
+   <span class='synopsis'><code>core.var1</code></span>::
+   <span class='synopsis'><code>core.var2</code></span>::
+	Description common to <span class='synopsis'><code>core.var1</code></span> and <span class='synopsis'><code>core.var2</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Synopsis Syntax</p>
