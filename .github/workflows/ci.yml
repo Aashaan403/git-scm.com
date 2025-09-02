@@ -40,7 +40,7 @@ jobs:
         fi
 
     - name: run Pagefind ${{ env.PAGEFIND_VERSION }} to build the search index
-      run: npx -y pagefind@${{ env.PAGEFIND_VERSION }} --site public
+      run: npx -y pagefind@${{ env.PAGEFIND_VERSION }} --site public --write-playground
 
     - name: build tar archive
       run: cd public && tar czvf ../pages.tar.gz *

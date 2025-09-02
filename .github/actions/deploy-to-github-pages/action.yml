@@ -83,7 +83,7 @@ runs:
 
     - name: run Pagefind ${{ env.PAGEFIND_VERSION }} to build the search index
       shell: bash
-      run: npx -y pagefind@${{ env.PAGEFIND_VERSION }} --site public
+      run: npx -y pagefind@${{ env.PAGEFIND_VERSION }} --site public --write-playground
 
     - name: Temporarily copy some Rails assets to help the transition
       shell: bash
