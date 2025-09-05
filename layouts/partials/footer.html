@@ -13,7 +13,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
-<script src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>
 <script src="{{ relURL "js/jquery.defaultvalue.js" }}"></script>
 <script src="{{ relURL "js/session.min.js" }}"></script>
 {{ $js := resources.Get "js/application.js" | resources.ExecuteAsTemplate "js/application.js" . | resources.Minify | fingerprint }}
