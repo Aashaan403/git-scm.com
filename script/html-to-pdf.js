@@ -38,8 +38,23 @@ const htmlToPDF = async (htmlPath, options) => {
   const page = await browser.newPage()
 
   const htmlPathURL = url.pathToFileURL(htmlPath).toString()
-
   console.log(`Processing ${htmlPathURL}...`)
+
+  // Work around HUGO_RELATIVEURLS=false by rewriting the absolute URLs
+  const baseURLPrefix = htmlPathURL.substring(0, htmlPathURL.lastIndexOf('/public/') + 8)
+  await page.route(/^file:\/\//, async (route, req) => {
+    // This _will_ be a correct URL when deployed to https://whatevers/, but
+    // this script runs before deployment, on a file:/// URL, where we need to
+    // be a bit clever to give the browser the file it needs.
+    const original = req.url()
+    const url =
+      original.startsWith(baseURLPrefix)
+        ? original
+        : original.replace(/^file:\/\/\/([A-Za-z]:\/)?(git-scm\.com\/)?/, baseURLPrefix)
+    if (url !== original) console.error(`::notice::Rewrote ${original} to ${url}`)
+    await route.continue({ url })
+  })
+
   await page.goto(htmlPathURL, { waitUntil: 'load' })
 
   await page.pdf({
