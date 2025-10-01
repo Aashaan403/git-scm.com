@@ -16,7 +16,7 @@ $baseurl: "{{ .Site.BaseURL }}{{ if (and (ne .Site.BaseURL "/") (ne .Site.BaseUR
 @import 'variables';
 @import 'layout';
 @import 'typography';
-@import 'downloads';
+@import 'install';
 @import 'search';
 @import 'front-page';
 @import 'sidebar';
