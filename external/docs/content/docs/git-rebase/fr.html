@@ -97,7 +97,7 @@ headings:
 <p>Il est possible qu&#8217;un échec de fusion empêche ce processus d&#8217;être complètement automatique. Vous devrez résoudre un tel échec de fusion et exécuter <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>. Une autre option est de contourner le commit qui a causé l&#8217;échec de fusion avec <span class='synopsis'><code>git</code> <code>rebase</code> <code>--skip</code></span>. Pour extraire la <span class='synopsis'><em><span class="hover-term" data-term="branche">&lt;branche&gt;</span></em><code>originale</code> <code>et</code> <code>supprimer</code> <code>les</code> <code>fichiers</code> <code>de</code> <code>travail</code> <code>de</code> <code>.git/rebase-apply</code></span>, utilisez la commande <span class='synopsis'><code>git</code> <code>rebase</code> <code>--abort</code></span> à la place.</p>
 </div>
 <div class="paragraph">
-<p>Supposons que l&#8217;historique suivant existe et que la branche actuelle est "topic" :</p>
+<p>Supposons que l&#8217;historique suivant existe et que la branche actuelle est "sujet" :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -160,7 +160,7 @@ git rebase master sujet</pre>
          \
           o---o---o---o---o  next
                            \
-                            o---o---o  topic</pre>
+                            o---o---o  sujet</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -443,8 +443,8 @@ git rebase master sujet</pre>
 <p>Voir aussi OPTIONS INCOMPATIBLES ci-dessous.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rebase---rerere-autoupdate"> <a class="anchor" href="#git-rebase---rerere-autoupdate"></a>--rerere-autoupdate </dt>
-<dt class="hdlist1" id="git-rebase---no-rerere-autoupdate"> <a class="anchor" href="#git-rebase---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscode--rerere-autoupdatecodespan"> <a class="anchor" href="#git-rebase---rerere-autoupdate"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscode--rerere-autoupdatecodespan"></a><span class='synopsis'><code>--rerere-autoupdate</code></span> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscode--no-rerere-autoupdatecodespan"> <a class="anchor" href="#git-rebase---no-rerere-autoupdate"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscode--no-rerere-autoupdatecodespan"></a><span class='synopsis'><code>--no-rerere-autoupdate</code></span> </dt>
 <dd>
 <p>Après que le mécanisme rerere réutilise une résolution enregistrée sur le conflit actuel pour mettre à jour les fichiers dans l&#8217;arbre de travail, lui permettre de mettre également à jour l&#8217;index avec le résultat de la résolution. <span class='synopsis'><code>--no-rerere-autoupdate</code></span> est un bon moyen de revérifier ce que <span class='synopsis'><code>rerere</code></span> a fait et de détecter des erreurs de fusion potentielles, avant de valider le résultat dans l&#8217;index avec un <span class='synopsis'><code>git</code> <code>add</code></span> séparé.</p>
 </dd>
@@ -843,32 +843,32 @@ git rebase master sujet</pre>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rebase-ort"> <a class="anchor" href="#git-rebase-ort"></a>ort </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeortcodespan"> <a class="anchor" href="#git-rebase-ort"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeortcodespan"></a><span class='synopsis'><code>ort</code></span> </dt>
 <dd>
 <p>C&#8217;est la stratégie de fusion par défaut lors du tirage ou de la fusion d&#8217;une branche. Cette stratégie ne peut résoudre que deux têtes en utilisant un algorithme de fusion à trois voies. Lorsqu&#8217;il y a plus d&#8217;un ancêtre commun qui peut être utilisé pour la fusion à trois, il crée un arbre fusionné des ancêtres communs et l&#8217;utilise comme arbre de référence pour la fusion à trois. Il a été rapporté que cela permettait de réduire les conflits de fusion sans provoquer de fausses fusions, grâce à des tests effectués sur de vraies fusions tirées de l&#8217;historique de développement du noyau Linux 2.6. En outre, cette stratégie permet de détecter et de gérer les fusions impliquant des renommages. Elle ne peut actuellement pas utiliser les copies détectées. Le nom de cet algorithme est un acronyme ("Ostensibly Recursive&#8217;s Twin" : Jumeau ostensible de recurse) et vient du fait qu&#8217;il a été écrit pour remplacer l&#8217;algorithme par défaut précédent, <span class='synopsis'><code>recursive</code></span>.</p>
 <div class="paragraph">
-<p>In the case where the path is a submodule, if the submodule commit used on one side of the merge is a descendant of the submodule commit used on the other side of the merge, Git attempts to fast-forward to the descendant. Otherwise, Git will treat this case as a conflict, suggesting as a resolution a submodule commit that is descendant of the conflicting ones, if one exists.</p>
+<p>Dans le cas où le chemin est un sous-module, si le commit de sous-module utilisé d&#8217;un côté de la fusion est un descendant du commit de sous-module utilisé de l&#8217;autre côté de la fusion, Git tente d&#8217;avancer rapidement vers le descendant. Sinon, Git traitera ce cas comme un conflit, suggérant comme résolution un commit de sous-module qui est descendant des commits conflictuels, s&#8217;il existe.</p>
 </div>
 <div class="paragraph">
-<p>La stratégie <em>ort</em> peut prendre les options suivantes :</p>
+<p>La stratégie <span class='synopsis'><code>ort</code></span> peut prendre les options suivantes :</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-rebase-ours"> <a class="anchor" href="#git-rebase-ours"></a>ours </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeourscodespan"> <a class="anchor" href="#git-rebase-ours"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeourscodespan"></a><span class='synopsis'><code>ours</code></span> </dt>
 <dd>
 <p>Cette option oblige à résoudre les sections en conflit de manière autonome et propre en favorisant notre version (<em>our</em>). Les modifications par rapport à l&#8217;autre arbre qui n&#8217;entrent pas en conflit avec notre version se reflètent dans le résultat de la fusion. Pour un fichier binaire, tout le contenu est pris de notre côté.</p>
 <div class="paragraph">
-<p>Il ne faut pas la confondre avec la stratégie de fusion <em>ours</em>, qui ne tient même pas compte de ce que contient l&#8217;autre arbre. Elle rejette tout ce que l&#8217;autre arbre a fait, déclarant que "notre" historique (<em>our</em>) contient tout ce qui s&#8217;y est passé.</p>
+<p>Il ne faut pas la confondre avec la stratégie de fusion <span class='synopsis'><code>ours</code></span>, qui ne tient même pas compte de ce que contient l&#8217;autre arbre. Elle rejette tout ce que l&#8217;autre arbre a fait, déclarant que « notre » historique (<span class='synopsis'><code>our</code></span>) contient tout ce qui s&#8217;y est passé.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rebase-theirs"> <a class="anchor" href="#git-rebase-theirs"></a>theirs </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodetheirscodespan"> <a class="anchor" href="#git-rebase-theirs"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodetheirscodespan"></a><span class='synopsis'><code>theirs</code></span> </dt>
 <dd>
-<p>C&#8217;est le contraire de <em>ours</em> ; notez que, contrairement à <em>ours</em>, il n&#8217;y a pas de stratégie de fusion <em>theirs</em> avec laquelle confondre cette option de fusion.</p>
+<p>C&#8217;est le contraire de <span class='synopsis'><code>ours</code></span> ; notez que, contrairement à <span class='synopsis'><code>ours</code></span>, il n&#8217;y a pas de stratégie de fusion <span class='synopsis'><code>theirs</code></span> avec laquelle confondre cette option de fusion.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-ignore-space-change"> <a class="anchor" href="#git-rebase-ignore-space-change"></a>ignore-space-change </dt>
-<dt class="hdlist1" id="git-rebase-ignore-all-space"> <a class="anchor" href="#git-rebase-ignore-all-space"></a>ignore-all-space </dt>
-<dt class="hdlist1" id="git-rebase-ignore-space-at-eol"> <a class="anchor" href="#git-rebase-ignore-space-at-eol"></a>ignore-space-at-eol </dt>
-<dt class="hdlist1" id="git-rebase-ignore-cr-at-eol"> <a class="anchor" href="#git-rebase-ignore-cr-at-eol"></a>ignore-cr-at-eol </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeignore-space-changecodespan"> <a class="anchor" href="#git-rebase-ignore-space-change"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeignore-space-changecodespan"></a><span class='synopsis'><code>ignore-space-change</code></span> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeignore-all-spacecodespan"> <a class="anchor" href="#git-rebase-ignore-all-space"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeignore-all-spacecodespan"></a><span class='synopsis'><code>ignore-all-space</code></span> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeignore-space-at-eolcodespan"> <a class="anchor" href="#git-rebase-ignore-space-at-eol"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeignore-space-at-eolcodespan"></a><span class='synopsis'><code>ignore-space-at-eol</code></span> </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeignore-cr-at-eolcodespan"> <a class="anchor" href="#git-rebase-ignore-cr-at-eol"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeignore-cr-at-eolcodespan"></a><span class='synopsis'><code>ignore-cr-at-eol</code></span> </dt>
 <dd>
 <p>Traiter les lignes avec le type de changement d&#8217;espace indiqué comme inchangées dans l&#8217;intérêt d&#8217;une fusion à trois points. Les changements d&#8217;espacement mélangés à d&#8217;autres changements de ligne ne sont pas ignorés. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <span class='synopsis'><code>-b</code></span>, <span class='synopsis'><code>-w</code></span>, <span class='synopsis'><code>--ignore-space-at-eol</code></span>, et <span class='synopsis'><code>--ignore-cr-at-eol</code></span>.</p>
 <div class="ulist">
@@ -885,23 +885,23 @@ git rebase master sujet</pre>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rebase-renormalize"> <a class="anchor" href="#git-rebase-renormalize"></a>renormalize </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscoderenormalizecodespan"> <a class="anchor" href="#git-rebase-renormalize"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscoderenormalizecodespan"></a><span class='synopsis'><code>renormalize</code></span> </dt>
 <dd>
 <p>Il s&#8217;agit d&#8217;une extraction et d&#8217;un validation virtuelle des trois étapes de tout fichier qui nécessite une fusion à trois points. Cette option est destinée à être utilisée lors de la fusion de branches avec différents filtres clean ou règles de normalisation de fin de ligne. Voir "Fusion de branches avec différents attributs de validation/extraction" dans <a href='{{< relurl "docs/gitattributes/fr" >}}'>gitattributes[5]</a> pour plus de détails.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-no-renormalize"> <a class="anchor" href="#git-rebase-no-renormalize"></a>no-renormalize </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeno-renormalizecodespan"> <a class="anchor" href="#git-rebase-no-renormalize"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeno-renormalizecodespan"></a><span class='synopsis'><code>no-renormalize</code></span> </dt>
 <dd>
 <p>Désactiver l&#8217;option <span class='synopsis'><code>renormalize</code></span>. Cela surcharge la variable de configuration <span class='synopsis'><code>merge.renormalize</code></span> .</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-find-renamesltngt"> <a class="anchor" href="#git-rebase-find-renamesn"></a> <a class="anchor" href="#git-rebase-find-renamesltngt"></a>find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodefind-renamescodecodecodeemltngtemspan"> <a class="anchor" href="#git-rebase-find-renamesn"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodefind-renamescodecodecodeemltngtemspan"></a><span class='synopsis'><code>find-renames</code>[<code>=</code><em>&lt;n&gt;</em>]</span> </dt>
 <dd>
-<p>Activer la détection de renommage, en fixant éventuellement le seuil de similarité. C&#8217;est la valeur par défaut. Cela surcharge la variable de configuration <span class='synopsis'><code>merge.renames</code></span>. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <span class='synopsis'><code>--find-renames</code></span>.</p>
+<p>Activer la détection de renommage, en fixant éventuellement le seuil de similarité. C&#8217;est la valeur par défaut. Cela surcharge la variable de configuration <span class='synopsis'><code>merge.renames</code></span>. Voir aussi <span class='synopsis'><code>--find-renames</code></span> de <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-rename-thresholdltngt"> <a class="anchor" href="#git-rebase-rename-thresholdn"></a> <a class="anchor" href="#git-rebase-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscoderename-thresholdcodeemltngtemspan"> <a class="anchor" href="#git-rebase-rename-thresholdn"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscoderename-thresholdcodeemltngtemspan"></a><span class='synopsis'><code>rename-threshold=</code><em>&lt;n&gt;</em></span> </dt>
 <dd>
 <p>Synonyme obsolète pour <span class='synopsis'><code>find-renames=</code><em>&lt;n&gt;</em></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-no-renames"> <a class="anchor" href="#git-rebase-no-renames"></a>no-renames </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeno-renamescodespan"> <a class="anchor" href="#git-rebase-no-renames"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeno-renamescodespan"></a><span class='synopsis'><code>no-renames</code></span> </dt>
 <dd>
 <p>Désactiver la détection de renommage. Ceci annule la variable de configuration <span class='synopsis'><code>merge.renames</code></span>. Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <span class='synopsis'><code>--no-renames</code></span>.</p>
 </dd>
@@ -909,45 +909,45 @@ git rebase master sujet</pre>
 <dd>
 <p>Synonyme obsolète pour <span class='synopsis'><code>diff-algorithm=histogram</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-patience"> <a class="anchor" href="#git-rebase-patience"></a>patience </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodepatiencecodespan"> <a class="anchor" href="#git-rebase-patience"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodepatiencecodespan"></a><span class='synopsis'><code>patience</code></span> </dt>
 <dd>
 <p>Synonyme obsolète pour <span class='synopsis'><code>diff-algorithm=patience</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-diff-algorithmhistogramminimalmyerspatience"> <a class="anchor" href="#git-rebase-diff-algorithmhistogramminimalmyerspatience"></a>diff-algorithm=[histogram|minimal|myers|patience] </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodediff-algorithmcodecodehistogramcodecodeminimalcodecodemyerscodecodepatiencecodespan"> <a class="anchor" href="#git-rebase-diff-algorithmhistogramminimalmyerspatience"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodediff-algorithmcodecodehistogramcodecodeminimalcodecodemyerscodecodepatiencecodespan"></a><span class='synopsis'><code>diff-algorithm=</code>(<code>histogram</code>|<code>minimal</code>|<code>myers</code>|<code>patience</code>)</span> </dt>
 <dd>
 <p>Utiliser un algorithme de diff différent lors des fusions, ce qui peut aider à éviter les erreurs de fusion dues à des lignes de correspondance sans importance (comme des accolades de fonctions distinctes). Voir aussi <a href='{{< relurl "docs/git-diff/fr" >}}'>git-diff[1]</a> <span class='synopsis'><code>--diff-algorithm</code></span>. Notez que <span class='synopsis'><code>ort</code></span> utilise par défaut <span class='synopsis'><code>diff-algorithm=histogram</code></span>, alors que les diffs normaux utilisent par défaut la valeur du paramètre de configuration <span class='synopsis'><code>diff.algorithm</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-subtreeltchemingt"> <a class="anchor" href="#git-rebase-subtreechemin"></a> <a class="anchor" href="#git-rebase-subtreeltchemingt"></a>subtree[=&lt;chemin&gt;] </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodesubtreecodecodecodeemltchemingtemspan"> <a class="anchor" href="#git-rebase-subtreechemin"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodesubtreecodecodecodeemltchemingtemspan"></a><span class='synopsis'><code>subtree</code>[<code>=</code><em>&lt;chemin&gt;</em>]</span> </dt>
 <dd>
 <p>Cette option est une forme plus avancée de stratégie <em>subtree</em>, où la stratégie fait une estimation de la façon dont deux arbres doivent être déplacés pour correspondre l&#8217;un à l&#8217;autre lors de la fusion. Au lieu de cela, le chemin spécifié est préfixé (ou tronqué au debut) pour faire correspondre la forme de deux arbres.</p>
 </dd>
 </dl>
 </div>
 </dd>
-<dt class="hdlist1" id="git-rebase-recursive"> <a class="anchor" href="#git-rebase-recursive"></a>recursive </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscoderecursivecodespan"> <a class="anchor" href="#git-rebase-recursive"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscoderecursivecodespan"></a><span class='synopsis'><code>recursive</code></span> </dt>
 <dd>
-<p>This is now a synonym for <span class='synopsis'><code>ort</code></span>. It was an alternative implementation until v2.49.0, but was redirected to mean <span class='synopsis'><code>ort</code></span> in v2.50.0. The previous recursive strategy was the default strategy for resolving two heads from Git v0.99.9k until v2.33.0.</p>
+<p>C&#8217;est maintenant un synonyme de <span class='synopsis'><code>ort</code></span>. Il s&#8217;agissait d&#8217;une autre mise en œuvre jusqu&#8217;à v2.49.0, mais a été redirigé vers <span class='synopsis'><code>ort</code></span> depuis v2.50.0. La stratégie récursive précédente était la stratégie par défaut pour résoudre deux têtes de Git v0.99.9k jusqu&#8217;à v2.33.0.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-resolve"> <a class="anchor" href="#git-rebase-resolve"></a>resolve </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscoderesolvecodespan"> <a class="anchor" href="#git-rebase-resolve"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscoderesolvecodespan"></a><span class='synopsis'><code>resolve</code></span> </dt>
 <dd>
 <p>Cela ne peut résoudre que deux têtes (c&#8217;est-à-dire la branche actuelle et une autre branche dont vous avez tiré) en utilisant un algorithme de fusion à trois points. Cela essaie de détecter avec soin les ambiguïtés de la fusion croisée. Les renommages ne sont pas gérés.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-octopus"> <a class="anchor" href="#git-rebase-octopus"></a>octopus </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeoctopuscodespan"> <a class="anchor" href="#git-rebase-octopus"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeoctopuscodespan"></a><span class='synopsis'><code>octopus</code></span> </dt>
 <dd>
 <p>Cela permet de résoudre les cas à plus de deux têtes, mais refuse de faire une fusion complexe qui nécessite une résolution manuelle. C&#8217;est principalement destiné à être utilisé pour regrouper les têtes de branches thématiques. C&#8217;est la stratégie de fusion par défaut lorsque l&#8217;on tire ou fusionne plusieurs branches.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-ours-1"> <a class="anchor" href="#git-rebase-ours-1"></a>ours </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodeourscodespan-1"> <a class="anchor" href="#git-rebase-ours-1"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodeourscodespan-1"></a><span class='synopsis'><code>ours</code></span> </dt>
 <dd>
-<p>Cela résout un nombre quelconque de têtes, mais l&#8217;arbre résultant de la fusion est toujours celui de la tête de la branche actuelle, ignorant effectivement toutes les modifications provenant de toutes les autres branches. C&#8217;est censé être utilisé pour remplacer l&#8217;ancienne historique du développement des branches latérales. Notez que cette stratégie est différente de l&#8217;option -Xours de la stratégie de fusion <em>ort</em>.</p>
+<p>Cela résout un nombre quelconque de têtes, mais l&#8217;arbre résultant de la fusion est toujours celui de la tête de la branche actuelle, ignorant effectivement toutes les modifications provenant de toutes les autres branches. C&#8217;est censé être utilisé pour remplacer l&#8217;ancienne historique du développement des branches latérales. Notez que cette stratégie est différente de l&#8217;option <span class='synopsis'><code>-Xours</code></span> de la stratégie de fusion <span class='synopsis'><code>ort</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-rebase-subtree"> <a class="anchor" href="#git-rebase-subtree"></a>subtree </dt>
+<dt class="hdlist1" id="git-rebase-spanclasssynopsiscodesubtreecodespan"> <a class="anchor" href="#git-rebase-subtree"></a> <a class="anchor" href="#git-rebase-spanclasssynopsiscodesubtreecodespan"></a><span class='synopsis'><code>subtree</code></span> </dt>
 <dd>
 <p>Il s&#8217;agit d&#8217;une stratégie <span class='synopsis'><code>ort</code></span> modifiée. Lors de la fusion des arbres A et B, si B correspond à un sous-arbre de A, B est d&#8217;abord ajusté pour correspondre à la structure arborescente de A, au lieu de lire les arbres au même niveau. Cet ajustement est également effectué sur l&#8217;arbre de l&#8217;ancêtre commun.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Avec les stratégies qui utilisent la fusion à trois points (y compris la fusion par défaut, <em>ort</em>), si une modification est effectuée sur les deux branches, mais qu&#8217;elle est ensuite inversée sur l&#8217;une des branches, ce changement sera présent dans le résultat de la fusion ; certaines personnes trouvent ce comportement déroutant. Cela se produit parce que seules les têtes et la base de la fusion sont prises en compte lors d&#8217;une fusion, et non le commit individuel. L&#8217;algorithme de fusion considère donc le changement inversé comme n&#8217;étant pas un changement du tout, et substitue la version modifiée à la place.</p>
+<p>Avec les stratégies qui utilisent la fusion à trois points (y compris la fusion par défaut, <span class='synopsis'><code>ort</code></span>), si une modification est effectuée sur les deux branches, mais qu&#8217;elle est ensuite inversée sur l&#8217;une des branches, ce changement sera présent dans le résultat de la fusion ; certaines personnes trouvent ce comportement déroutant. Cela se produit parce que seules les têtes et la base de la fusion sont prises en compte lors d&#8217;une fusion, et non le commit individuel. L&#8217;algorithme de fusion considère donc le changement inversé comme n&#8217;étant pas un changement du tout, et substitue la version modifiée à la place.</p>
 </div>
 </div>
 </div>
@@ -1281,12 +1281,12 @@ exemple, un commit qui a été enlevé via <span class='synopsis'><code>git</cod
 </table>
 </div>
 <div class="paragraph">
-<p>L&#8217;idée est de dire manuellement à <span class='synopsis'><code>git</code> <code>rebase</code></span> "où l&#8217;ancien <em>sous-systeme</em> s&#8217;est terminé et votre <em>sujet</em> a commencé", c&#8217;est-à-dire ce qu&#8217;était l&#8217;ancienne base de fusion entre eux. Vous devrez trouver un moyen de nommer le dernier commit de l&#8217;ancien <em>sous-system</em>, par exemple :</p>
+<p>L&#8217;idée est de dire manuellement à <span class='synopsis'><code>git</code> <code>rebase</code></span> "où l&#8217;ancien <em>sous-systeme</em> s&#8217;est terminé et votre <em>sujet</em> a commencé", c&#8217;est-à-dire ce qu&#8217;était l&#8217;ancienne base de fusion entre eux. Vous devrez trouver un moyen de nommer le dernier commit de l&#8217;ancien <em>sous-systeme</em>, par exemple :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Avec le reflog de <em>sous-system</em> : après <span class='synopsis'><code>git</code> <code>fetch</code></span>, l&#8217;ancien sommet de <em>sous-systeme</em> est à <span class='synopsis'><code>sous-systeme@{1}</code></span>. Les récupérations subséquentes augmenteront le nombre. (Voir <a href='{{< relurl "docs/git-reflog/fr" >}}'>git-reflog[1]</a>.)</p>
+<p>Avec le reflog de <em>sous-systeme</em> : après <span class='synopsis'><code>git</code> <code>fetch</code></span>, l&#8217;ancien sommet de <em>sous-systeme</em> est à <span class='synopsis'><code>sous-systeme@{1}</code></span>. Les récupérations subséquentes augmenteront le nombre. (Voir <a href='{{< relurl "docs/git-reflog/fr" >}}'>git-reflog[1]</a>.)</p>
 </li>
 <li>
 <p>Par rapport au sommet de <em>sujet</em> : sachant que votre <em>sujet</em> a trois commits, l&#8217;ancien sommet de <em>sous-systeme</em> doit être <span class='synopsis'><code>sujet~3</code></span>.</p>

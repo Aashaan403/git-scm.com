@@ -53,14 +53,14 @@ headings:
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git config list</em> [&lt;option-de-fichier&gt;] [&lt;option-d-affichage&gt;] [--includes]
-<em>git config get</em> [&lt;option-de-fichier&gt;] [&lt;option-d-affichage&gt;] [--includes] [--all] [--regexp] [--value=&lt;valeur&gt;] [--fixed-value] [--default=&lt;default&gt;] &lt;nom&gt;
-<em>git config set</em> [&lt;option-de-fichier&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;valeur&gt;] [--fixed-value] &lt;nom&gt; &lt;valeur&gt;
-<em>git config unset</em> [&lt;option-de-fichier&gt;] [--all] [--value=&lt;valeur&gt;] [--fixed-value] &lt;nom&gt;
-<em>git config rename-section</em> [&lt;option-de-fichier&gt;] &lt;ancien-name&gt; &lt;nouveau-name&gt;
-<em>git config remove-section</em> [&lt;option-de-fichier&gt;] &lt;nom&gt;
-<em>git config edit</em> [&lt;option-de-fichier&gt;]
-<em>git config</em> [&lt;option-de-fichier&gt;] --get-colorbool &lt;nom&gt; [&lt;stdout-est-tty&gt;]</pre>
+<pre class="content"><em>git config list</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes]
+<em>git config get</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes] [--all] [--regexp] [--value=&lt;pattern&gt;] [--fixed-value] [--default=&lt;default&gt;] [--url=&lt;url&gt;] &lt;name&gt;
+<em>git config set</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt; &lt;value&gt;
+<em>git config unset</em> [&lt;file-option&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt;
+<em>git config rename-section</em> [&lt;file-option&gt;] &lt;old-name&gt; &lt;new-name&gt;
+<em>git config remove-section</em> [&lt;file-option&gt;] &lt;name&gt;
+<em>git config edit</em> [&lt;file-option&gt;]
+<em>git config</em> [&lt;file-option&gt;] --get-colorbool &lt;name&gt; [&lt;stdout-is-tty&gt;]</pre>
 </div>
 </div>
 </div>
@@ -71,7 +71,7 @@ headings:
 <p>Vous pouvez interroger/définir/remplacer/annuler les options avec cette commande. Le nom est en fait la section et la clé séparées par un point, et la valeur sera échappée.</p>
 </div>
 <div class="paragraph">
-<p>Plusieurs lignes peuvent être ajoutées à une option en utilisant l&#8217;option <span class='synopsis'><code>--append</code></span>. Si vous voulez mettre à jour ou annuler une option qui peut se trouver sur plusieurs lignes, un "motif-de-valeur" (qui est une expression régulière étendue, à moins que l&#8217;option "--fixed-value" soit donnée) doit être donné. Seules les valeurs existantes qui correspondent au motif sont mises à jour ou annulées. Si vous voulez gérer les lignes qui ne correspondent <strong>pas</strong> au motif, ajoutez simplement un point d&#8217;exclamation devant (voir aussi <a href="#EXAMPLES">EXEMPLES</a>), mais notez que cela ne fonctionne que lorsque l&#8217;option <span class='synopsis'><code>--fixed-value</code></span> n&#8217;est pas utilisée.</p>
+<p>Multiple lines can be added to an option by using the <span class='synopsis'><code>--append</code></span> option. If you want to update or unset an option which can occur on multiple lines, <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> (which is an extended regular expression, unless the <span class='synopsis'><code>--fixed-value</code></span> option is given) needs to be given. Only the existing values that match the pattern are updated or unset. If you want to handle the lines that do <strong>not</strong> match the pattern, just prepend a single exclamation mark in front (see also <a href="#EXAMPLES">EXEMPLES</a>), but note that this only works when the <span class='synopsis'><code>--fixed-value</code></span> option is not in use.</p>
 </div>
 <div class="paragraph">
 <p>L&#8217;option <span class='synopsis'><code>--type=</code><em>&lt;type&gt;</em></span> indique à <em>git config</em> de s&#8217;assurer que les valeurs entrantes et sortantes peuvent être canonisées sous le &lt;type&gt; donné. Si aucun <span class='synopsis'><code>--type=</code><em>&lt;type&gt;</em></span> n&#8217;est donné, aucune canonisation ne sera effectuée. Les appelants peuvent annuler un spécificateur <span class='synopsis'><code>--type</code></span> existant avec <span class='synopsis'><code>--no-type</code></span>.</p>
@@ -162,7 +162,7 @@ headings:
 <dl>
 <dt class="hdlist1" id="git-config---replace-all"> <a class="anchor" href="#git-config---replace-all"></a>--replace-all </dt>
 <dd>
-<p>Le comportement par défaut est de remplacer au maximum une ligne. Ceci remplace toutes les lignes correspondant à la clé (et optionnellement au <span class='synopsis'><code>motif-de-valeur</code></span>).</p>
+<p>Default behavior is to replace at most one line. This replaces all lines matching the key (and optionally <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-config---append"> <a class="anchor" href="#git-config---append"></a>--append </dt>
 <dd>
@@ -238,9 +238,17 @@ headings:
 <dd>
 <p>Similaire à <span class='synopsis'><code>--file</code></span> mais utiliser le blob donné au lieu d&#8217;un fichier. Par exemple, vous pouvez utiliser <em>master:.gitmodules</em> pour lire les valeurs du fichier <em>.gitmodules</em> dans la branche master. Voir la section "SPECIFICATION DE REVISIONS" dans <a href='{{< relurl "docs/gitrevisions/fr" >}}'>gitrevisions[7]</a> pour une liste plus complète des façons d&#8217;épeler les noms de blob.</p>
 </dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--valuecodeemltpatterngtemspan"> <a class="anchor" href="#git-config---valuepattern"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--valuecodeemltpatterngtemspan"></a><span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--no-valuecodespan"> <a class="anchor" href="#git-config---no-value"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--no-valuecodespan"></a><span class='synopsis'><code>--no-value</code></span> </dt>
+<dd>
+<p>With <span class='synopsis'><code>get</code></span>, <span class='synopsis'><code>set</code></span>, and <span class='synopsis'><code>unset</code></span>, match only against <em>&lt;pattern&gt;</em>. The pattern is an extended regular expression unless <span class='synopsis'><code>--fixed-value</code></span> is given.</p>
+<div class="paragraph">
+<p>Use <span class='synopsis'><code>--no-value</code></span> to unset <em>&lt;pattern&gt;</em>.</p>
+</div>
+</dd>
 <dt class="hdlist1" id="git-config---fixed-value"> <a class="anchor" href="#git-config---fixed-value"></a>--fixed-value </dt>
 <dd>
-<p>Lorsqu’utilisé avec l’argument <em>value-pattern</em>, traiter <em>motif-de-valeur</em> comme une chaîne exacte au lieu d’une expression régulière. Cela limitera les paires nom/valeur qui sont trouvées à celles dont la valeur est exactement égale au <span class='synopsis'><code>motif-de-valeur</code></span>.</p>
+<p>When used with <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span>, treat <em>&lt;pattern&gt;</em> as an exact string instead of a regular expression. This will restrict the name/value pairs that are matched to only those where the value is exactly equal to <em>&lt;pattern&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---typelttypegt"> <a class="anchor" href="#git-config---typetype"></a> <a class="anchor" href="#git-config---typelttypegt"></a>--type &lt;type&gt; </dt>
 <dd>
@@ -291,6 +299,11 @@ headings:
 <dt class="hdlist1" id="git-config---name-only"> <a class="anchor" href="#git-config---name-only"></a>--name-only </dt>
 <dd>
 <p>Afficher seulement les noms des variables de configuration pour <span class='synopsis'><code>list</code></span> ou <span class='synopsis'><code>get</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--show-namescodespan"> <a class="anchor" href="#git-config---show-names"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--show-namescodespan"></a><span class='synopsis'><code>--show-names</code></span> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--no-show-namescodespan"> <a class="anchor" href="#git-config---no-show-names"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--no-show-namescodespan"></a><span class='synopsis'><code>--no-show-names</code></span> </dt>
+<dd>
+<p>With <span class='synopsis'><code>get</code></span>, show config keys in addition to their values. The default is <span class='synopsis'><code>--no-show-names</code></span> unless <span class='synopsis'><code>--url</code></span> is given and there are no subsections in <em>&lt;name&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---show-origin"> <a class="anchor" href="#git-config---show-origin"></a>--show-origin </dt>
 <dd>

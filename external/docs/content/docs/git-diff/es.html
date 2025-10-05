@@ -54,7 +54,7 @@ headings:
 <em>git diff [&lt;opciones&gt;] [--merge-base] &lt;confirmación&gt; [&lt; confirmación &gt;&#8230;&#8203;] &lt; confirmación &gt; [--] [&lt;ruta&gt;&#8230;&#8203;]</em>
 <em>git diff [&lt;opciones&gt;] &lt; confirmación &gt;&#8230;&#8203;&lt; confirmación &gt; [--] [&lt;ruta&gt;&#8230;&#8203;]</em>
 <em>git diff [&lt;opciones&gt;] &lt;blob&gt; &lt;blob&gt;</em>
-<em>git diff [&lt;opciones&gt;] --no-index [--] &lt;ruta&gt; &lt;ruta&gt;</em></pre>
+<em>git diff [&lt;opciones&gt;] --no-index [--] &lt;ruta&gt; &lt;ruta&gt; [&lt;espcificación-de-ruta&gt;&#8230;&#8203;]</em></pre>
 </div>
 </div>
 </div>
@@ -70,9 +70,9 @@ headings:
 <dd>
 <p>Esta forma es para ver los cambios relativos al índice que hiciste (área de presentación para la siguiente confirmación). En otras palabras, la diferencias son lo que <em>podrías</em> decirle a Git que añada al índice mas adelante pero aún no. Puedes presentar esos cambios usando <a href='{{< relurl "docs/git-add/es" >}}'>git-add[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodeemltopcionesgtemcode--no-indexcodecode--codeemltrutagtememltrutagtemspan"> <a class="anchor" href="#git-diff-gitdiffopciones--no-index--rutaruta"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodeemltopcionesgtemcode--no-indexcodecode--codeemltrutagtememltrutagtemspan"></a><span class='synopsis'><code>git</code> <code>diff</code> [<em>&lt;opciones&gt;</em>] <code>--no-index</code> [<code>--</code>] <em>&lt;ruta&gt;</em> <em>&lt;ruta&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodeemltopcionesgtemcode--no-indexcodecode--codeemltrutagtememltrutagtememltespecificacin-de-rutagtemspan"> <a class="anchor" href="#git-diff-gitdiffopciones--no-index--rutarutaespecificacin-de-ruta"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodeemltopcionesgtemcode--no-indexcodecode--codeemltrutagtememltrutagtememltespecificacin-de-rutagtemspan"></a><span class='synopsis'><code>git</code> <code>diff</code> [<em>&lt;opciones&gt;</em>] <code>--no-index</code> [<code>--</code>] <em>&lt;ruta&gt;</em> <em>&lt;ruta&gt;</em> [<em>&lt;especificación-de-ruta&gt;</em>...]</span> </dt>
 <dd>
-<p>Esta forma es para comparar las dos rutas en el sistema de ficheros dadas. Puedes omitir la opción <span class='synopsis'><code>--no-index</code></span> cuando se ejecuta el comando en un árbol de trabajo controlado por Git y por lo menos una de las rutas apunta afuera del árbol de trabajo, o cuando se ejecuta el comando fuera de un árbol de trabajo controlado por Git. Esta forma implica <span class='synopsis'><code>--exit-code</code></span>.</p>
+<p>Esta forma es para comparar las dos rutas en el sistema de ficheros dadas. Puedes omitir la opción <span class='synopsis'><code>--no-index</code></span> cuando se ejecuta el comando en un árbol de trabajo controlado por Git y por lo menos una de las rutas apunta afuera del árbol de trabajo, o cuando se ejecuta el comando fuera de un árbol de trabajo controlado por Git. Esta forma implica <span class='synopsis'><code>--exit-code</code></span>. Si ambas rutas apuntan a directorios, se pueden proporcionar especificaciones de ruta adicionales. Esas limitarán los ficheros incluidos en la diferencia. Todas esas especificaciones de ruta deben ser relativas ya que se aplican en ambos lados de la diferencia.</p>
 </dd>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodeemltopcionesgtemcode--cachedcodecode--merge-basecodeemltconfirmacingtemcode--codeemltrutagtemspan"> <a class="anchor" href="#git-diff-gitdiffopciones--cached--merge-baseconfirmacin--ruta"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodeemltopcionesgtemcode--cachedcodecode--merge-basecodeemltconfirmacingtemcode--codeemltrutagtemspan"></a><span class='synopsis'><code>git</code> <code>diff</code> [<em>&lt;opciones&gt;</em>] <code>--cached</code> [<code>--merge-base</code>] [<em>&lt;confirmación&gt;</em>] [<code>--</code>] [<em>&lt;ruta&gt;</em>...]</span> </dt>
 <dd>
@@ -761,16 +761,16 @@ use <span class='synopsis'><code>-M100%</code></span>. El índice de semejanza p
 </div>
 </div>
 <div class="paragraph">
-<p>The index contains these stages only for unmerged entries i.e. while resolving conflicts. See <a href='{{< relurl "docs/git-read-tree/es" >}}'>git-read-tree[1]</a> section "3-Way Merge" for detailed information.</p>
+<p>El índice contiene esas etapas sólo para entradas sin fusionar, ej. cuando se resuelven conflictos. Ver <a href='{{< relurl "docs/git-read-tree/es" >}}'>git-read-tree[1]</a> en la sección "Fusión de 3 vías" para información detallada.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscode-0codespan"> <a class="anchor" href="#git-diff--0"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode-0codespan"></a><span class='synopsis'><code>-0</code></span> </dt>
 <dd>
-<p>Omit diff output for unmerged entries and just show "Unmerged". Can be used only when comparing the working tree with the index.</p>
+<p>Omite en la salida la diferencia para entradas sin fusionar y sólo muestra "Unmerged". Puede usarse solamente cuando se compara el árbol de trabajo con el índice.</p>
 </dd>
 <dt class="hdlist1" id="git-diff-spanclasssynopsisemltrutagtemspan"> <a class="anchor" href="#git-diff-ruta"></a> <a class="anchor" href="#git-diff-spanclasssynopsisemltrutagtemspan"></a><span class='synopsis'><em>&lt;ruta&gt;</em>...</span> </dt>
 <dd>
-<p>The <em>&lt;path&gt;</em> parameters, when given, are used to limit the diff to the named paths (you can give directory names and get diff for all files under them).</p>
+<p>Los parámetros <em>&lt;ruta&gt;</em>, cuando se proporcionan, se usan para limitar la diferencia a las rutas señaladas (puedes dar nombres de directorios y obtener la diferencia para todos los ficheros bajo ellos).</p>
 </dd>
 </dl>
 </div>
@@ -1295,10 +1295,10 @@ $ git diff AUTO_MERGE <b class="conum">(4)</b></pre>
 <p>Cambios entre el índice y tu última confirmación; lo que estarás confirmando si ejecutas <span class='synopsis'><code>git</code> <code>commit</code></span> sin la opción <span class='synopsis'><code>-a</code></span>.</p>
 </li>
 <li>
-<p>Changes in the working tree since your last commit; what you would be committing if you run <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span></p>
+<p>Cambios en el árbol de trabajo desde tu última confirmación; lo que se confirmará si ejecutas <span class='synopsis'><code>git</code> <code>commit</code> <code>-a</code></span></p>
 </li>
 <li>
-<p>Changes in the working tree you&#8217;ve made to resolve textual conflicts so far.</p>
+<p>Cambios en el árbol de trabajo que has hecho hasta el momento para resolver conflictos textuales.</p>
 </li>
 </ol>
 </div>
@@ -1318,7 +1318,7 @@ $ git diff HEAD^ HEAD      <b class="conum">(3)</b></pre>
 <p>En lugar de usar la punta de la rama actual, compara con la punta de la rama "test".</p>
 </li>
 <li>
-<p>Instead of comparing with the tip of "test" branch, compare with the tip of the current branch, but limit the comparison to the file "test".</p>
+<p>En lugar de comparar con la punta de la rama "test", compara con la punta de la rama actual, pero limita la comparación al fichero "test".</p>
 </li>
 <li>
 <p>Compara la versión antes de la última confirmación y la última confirmación.</p>
@@ -1344,7 +1344,7 @@ $ git diff topic...master  <b class="conum">(3)</b></pre>
 <p>Igual que el anterior.</p>
 </li>
 <li>
-<p>Changes that occurred on the master branch since when the topic branch was started off it.</p>
+<p>Cambios que ocurrieron en la rama master desde que la rama topic comenzó a partir de ella.</p>
 </li>
 </ol>
 </div>
@@ -1361,18 +1361,18 @@ $ git diff arch/i386 include/asm-i386   <b class="conum">(3)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Show only modification, rename, and copy, but not addition or deletion.</p>
+<p>Muestra sólo modificación, cambio de nombre, y copia, pero no adición y eliminación.</p>
 </li>
 <li>
-<p>Show only names and the nature of change, but not actual diff output.</p>
+<p>Muestra sólo nombres y la naturaleza del cambio, pero no la salida de diferencia actual.</p>
 </li>
 <li>
-<p>Limit diff output to named subtrees.</p>
+<p>Limita la salida de diferencia a los sub-árboles señalados.</p>
 </li>
 </ol>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-Mungingthediffoutput"> <a class="anchor" href="#git-diff-Mungingthediffoutput"></a>Munging the diff output </dt>
+<dt class="hdlist1" id="git-diff-Trastocandolasalidadediferencia"> <a class="anchor" href="#git-diff-Trastocandolasalidadediferencia"></a>Trastocando la salida de diferencia </dt>
 <dd>
 <div class="listingblock">
 <div class="content">
@@ -1383,10 +1383,10 @@ $ git diff -R                          <b class="conum">(2)</b></pre>
 <div class="colist arabic">
 <ol>
 <li>
-<p>Spend extra cycles to find renames, copies and complete rewrites (very expensive).</p>
+<p>Gasta ciclos extra para encontrar cambios de nombre, copias y reescrituras completas (muy costoso).</p>
 </li>
 <li>
-<p>Output diff in reverse.</p>
+<p>Da salida a la diferencia en reversa.</p>
 </li>
 </ol>
 </div>

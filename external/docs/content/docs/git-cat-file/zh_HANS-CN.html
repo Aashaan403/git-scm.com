@@ -346,6 +346,10 @@ alink: 链接到 /etc/passwd 的符号链接</pre>
 <dd>
 <p>对象的类型（与 <span class='synopsis'><code>cat-file</code> <code>-t</code></span> 报告相同）。</p>
 </dd>
+<dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodeobjectmodecodespan"> <a class="anchor" href="#git-cat-file-objectmode"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodeobjectmodecodespan"></a><span class='synopsis'><code>objectmode</code></span> </dt>
+<dd>
+<p>If the specified object has mode information (such as a tree or index entry), the mode expressed as an octal integer. Otherwise, empty string.</p>
+</dd>
 <dt class="hdlist1" id="git-cat-file-spanclasssynopsiscodeobjectsizecodespan"> <a class="anchor" href="#git-cat-file-objectsize"></a> <a class="anchor" href="#git-cat-file-spanclasssynopsiscodeobjectsizecodespan"></a><span class='synopsis'><code>objectsize</code></span> </dt>
 <dd>
 <p>对象的大小（以字节为单位）（与 <span class='synopsis'><code>cat-file</code> <code>-s</code></span> 报告相同）。</p>
@@ -409,6 +413,14 @@ alink: 链接到 /etc/passwd 的符号链接</pre>
 <div class="listingblock">
 <div class="content">
 <pre><span class="hover-term" data-term="对象">&lt;对象&gt;</span> SP ambiguous LF</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If a name is specified that refers to a submodule entry in a tree and the target object does not exist in the repository, then <span class='synopsis'><code>cat-file</code></span> will ignore any custom format and print (with the object ID of the submodule):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;oid&gt; SP submodule LF</pre>
 </div>
 </div>
 <div class="paragraph">

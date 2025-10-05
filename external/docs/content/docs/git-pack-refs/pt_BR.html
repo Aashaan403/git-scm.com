@@ -75,7 +75,7 @@ headings:
 <div class="ulist">
 <ul>
 <li>
-<p>"files": No special handling for <span class='synopsis'><code>--auto</code></span> has been implemented.</p>
+<p>"files": Loose references are packed into the <span class='synopsis'><code>packed-refs</code></span> file based on the ratio of loose references to the size of the <span class='synopsis'><code>packed-refs</code></span> file. The bigger the <span class='synopsis'><code>packed-refs</code></span> file, the more loose references need to exist before we repack.</p>
 </li>
 <li>
 <p>"reftable": Tables are compacted such that they form a geometric sequence. For two tables N and N+1, where N+1 is newer, this maintains the property that N is at least twice as big as N+1. Only tables that violate this property are compacted.</p>

@@ -158,8 +158,8 @@ headings:
 <dd>
 <p>Quando o patch não for aplicado corretamente, use a mesclagem de 3 vias caso o patch registre a identidade das bolhas aos quais devem ser aplicadas disponibilizando-as localmente. A opção <span class='synopsis'><code>--no-3way</code></span> pode ser utilizada para substituir uma variável de configuração de três vias. Para mais informações, consulte <span class='synopsis'><code>am.threeWay</code></span> em <a href='{{< relurl "docs/git-config/pt_BR" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-am---rerere-autoupdate"> <a class="anchor" href="#git-am---rerere-autoupdate"></a>--rerere-autoupdate </dt>
-<dt class="hdlist1" id="git-am---no-rerere-autoupdate"> <a class="anchor" href="#git-am---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
+<dt class="hdlist1" id="git-am-spanclasssynopsiscode--rerere-autoupdatecodespan"> <a class="anchor" href="#git-am---rerere-autoupdate"></a> <a class="anchor" href="#git-am-spanclasssynopsiscode--rerere-autoupdatecodespan"></a><span class='synopsis'><code>--rerere-autoupdate</code></span> </dt>
+<dt class="hdlist1" id="git-am-spanclasssynopsiscode--no-rerere-autoupdatecodespan"> <a class="anchor" href="#git-am---no-rerere-autoupdate"></a> <a class="anchor" href="#git-am-spanclasssynopsiscode--no-rerere-autoupdatecodespan"></a><span class='synopsis'><code>--no-rerere-autoupdate</code></span> </dt>
 <dd>
 <p>Depois que o mecanismo <em>rerere</em> reutilizar uma resolução registrada no conflito atual para atualizar os arquivos na árvore de trabalho, permita que ele também atualize o índice com o resultado da resolução. A opção <span class='synopsis'><code>--no-rerere-autoupdate</code></span> é uma boa maneira de verificar novamente o que o <span class='synopsis'><code>rerere</code></span> fez e detectar possíveis erros de mesclagem, antes de fazer o commit resultante no índice com um comando <span class='synopsis'><code>git</code> <code>add</code></span> separado.</p>
 </dd>

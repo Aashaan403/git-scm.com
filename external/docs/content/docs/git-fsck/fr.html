@@ -205,22 +205,301 @@ headings:
 <div class="paragraph">
 <p>La liste suivante énumère les types d&#8217;erreurs que <span class='synopsis'><code>git</code> <code>fsck</code></span> détecte et ce que chaque erreur signifie, avec leur sévérité par défaut. La gravité de l&#8217;erreur, autre que celles qui sont marquées comme "(FATAL)", peut être modifiée en définissant la variable de configuration <span class='synopsis'><code>fsck.</code><em>&lt;id-msg&gt;</em></span> correspondante.</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>fr/fsck-msgids.adoc</code></span></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadDatecodespan"> <a class="anchor" href="#git-fsck-badDate"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadDatecodespan"></a><span class='synopsis'><code>badDate</code></span> </dt>
+<dd>
+<p>(ERREUR) Format de date invalide dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadDateOverflowcodespan"> <a class="anchor" href="#git-fsck-badDateOverflow"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadDateOverflowcodespan"></a><span class='synopsis'><code>badDateOverflow</code></span> </dt>
+<dd>
+<p>(ERREUR) Valeur de date invalide dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadEmailcodespan"> <a class="anchor" href="#git-fsck-badEmail"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadEmailcodespan"></a><span class='synopsis'><code>badEmail</code></span> </dt>
+<dd>
+<p>(ERREUR) Format de courriel invalide dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadFilemodecodespan"> <a class="anchor" href="#git-fsck-badFilemode"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadFilemodecodespan"></a><span class='synopsis'><code>badFilemode</code></span> </dt>
+<dd>
+<p>(INFO) Un arbre contient une mauvaise entrée de mode de fichier.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadNamecodespan"> <a class="anchor" href="#git-fsck-badName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadNamecodespan"></a><span class='synopsis'><code>badName</code></span> </dt>
+<dd>
+<p>(ERREUR) Un nom d&#8217;auteur ou de validateur est vide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadObjectSha1codespan"> <a class="anchor" href="#git-fsck-badObjectSha1"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadObjectSha1codespan"></a><span class='synopsis'><code>badObjectSha1</code></span> </dt>
+<dd>
+<p>(ERREUR) Un objet a un mauvais sha1.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadPackedRefEntrycodespan"> <a class="anchor" href="#git-fsck-badPackedRefEntry"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadPackedRefEntrycodespan"></a><span class='synopsis'><code>badPackedRefEntry</code></span> </dt>
+<dd>
+<p>(ERREUR) Le fichier "packed-refs" contient une entrée invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadPackedRefHeadercodespan"> <a class="anchor" href="#git-fsck-badPackedRefHeader"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadPackedRefHeadercodespan"></a><span class='synopsis'><code>badPackedRefHeader</code></span> </dt>
+<dd>
+<p>(ERREUR) Le fichier "packed-refs" contient un en-tête invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadParentSha1codespan"> <a class="anchor" href="#git-fsck-badParentSha1"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadParentSha1codespan"></a><span class='synopsis'><code>badParentSha1</code></span> </dt>
+<dd>
+<p>(ERREUR) Un objet de commit a un mauvais parent sha1.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadRefContentcodespan"> <a class="anchor" href="#git-fsck-badRefContent"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadRefContentcodespan"></a><span class='synopsis'><code>badRefContent</code></span> </dt>
+<dd>
+<p>(ERREUR) Une ref a un mauvais contenu.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadRefFiletypecodespan"> <a class="anchor" href="#git-fsck-badRefFiletype"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadRefFiletypecodespan"></a><span class='synopsis'><code>badRefFiletype</code></span> </dt>
+<dd>
+<p>(ERREUR) Une ref a un mauvais type de fichier.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadRefNamecodespan"> <a class="anchor" href="#git-fsck-badRefName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadRefNamecodespan"></a><span class='synopsis'><code>badRefName</code></span> </dt>
+<dd>
+<p>(ERREUR) Une réf a un format invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadReferentNamecodespan"> <a class="anchor" href="#git-fsck-badReferentName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadReferentNamecodespan"></a><span class='synopsis'><code>badReferentName</code></span> </dt>
+<dd>
+<p>(ERREUR) Le nom référent d&#8217;un symref est invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadTagNamecodespan"> <a class="anchor" href="#git-fsck-badTagName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadTagNamecodespan"></a><span class='synopsis'><code>badTagName</code></span> </dt>
+<dd>
+<p>(INFO) Une étiquette a un format invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadTimezonecodespan"> <a class="anchor" href="#git-fsck-badTimezone"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadTimezonecodespan"></a><span class='synopsis'><code>badTimezone</code></span> </dt>
+<dd>
+<p>(ERREUR) Fuseau horaire invalide trouvé dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadTreecodespan"> <a class="anchor" href="#git-fsck-badTree"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadTreecodespan"></a><span class='synopsis'><code>badTree</code></span> </dt>
+<dd>
+<p>(ERREUR) Un arbre ne peut pas être analysé.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadTreeSha1codespan"> <a class="anchor" href="#git-fsck-badTreeSha1"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadTreeSha1codespan"></a><span class='synopsis'><code>badTreeSha1</code></span> </dt>
+<dd>
+<p>(ERREUR) Un arbre a un format invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadTypecodespan"> <a class="anchor" href="#git-fsck-badType"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadTypecodespan"></a><span class='synopsis'><code>badType</code></span> </dt>
+<dd>
+<p>(ERROR) Type d&#8217;objet invalide trouvé.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodeduplicateEntriescodespan"> <a class="anchor" href="#git-fsck-duplicateEntries"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodeduplicateEntriescodespan"></a><span class='synopsis'><code>duplicateEntries</code></span> </dt>
+<dd>
+<p>(ERREUR) Un arbre contient des entrées de fichiers en double.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodeemptyNamecodespan"> <a class="anchor" href="#git-fsck-emptyName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodeemptyNamecodespan"></a><span class='synopsis'><code>emptyName</code></span> </dt>
+<dd>
+<p>(ATTENTION) Un chemin contient un nom vide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodeemptyPackedRefsFilecodespan"> <a class="anchor" href="#git-fsck-emptyPackedRefsFile"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodeemptyPackedRefsFilecodespan"></a><span class='synopsis'><code>emptyPackedRefsFile</code></span> </dt>
+<dd>
+<p>(INFO) fichier "packed-refs" vide. Reportez cet incident à la liste de diffusion <a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a> si vous voyez cette erreur. Comme seules les versions très jeunes de Git créeraient un tel fichier "packed_refs" vide, nous pourrions renforcer cette règle à l&#8217;avenir.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodeextraHeaderEntrycodespan"> <a class="anchor" href="#git-fsck-extraHeaderEntry"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodeextraHeaderEntrycodespan"></a><span class='synopsis'><code>extraHeaderEntry</code></span> </dt>
+<dd>
+<p>(IGNORE) Des en-têtes supplémentaires ont été trouvés après <span class='synopsis'><code>tagger</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodefullPathnamecodespan"> <a class="anchor" href="#git-fsck-fullPathname"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodefullPathnamecodespan"></a><span class='synopsis'><code>fullPathname</code></span> </dt>
+<dd>
+<p>(ATTENTION) Un chemin contient le chemin complet commençant par "/".</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitattributesBlobcodespan"> <a class="anchor" href="#git-fsck-gitattributesBlob"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitattributesBlobcodespan"></a><span class='synopsis'><code>gitattributesBlob</code></span> </dt>
+<dd>
+<p>(ERREUR) Un non-blob trouvé à <span class='synopsis'><code>.gitattributes</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitattributesLargecodespan"> <a class="anchor" href="#git-fsck-gitattributesLarge"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitattributesLargecodespan"></a><span class='synopsis'><code>gitattributesLarge</code></span> </dt>
+<dd>
+<p>(ERREUR) Le blob <span class='synopsis'><code>.gitattributes</code></span> est trop grand.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitattributesLineLengthcodespan"> <a class="anchor" href="#git-fsck-gitattributesLineLength"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitattributesLineLengthcodespan"></a><span class='synopsis'><code>gitattributesLineLength</code></span> </dt>
+<dd>
+<p>(ERREUR) Le blob <span class='synopsis'><code>.gitattributes</code></span> contient des lignes trop longues.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitattributesMissingcodespan"> <a class="anchor" href="#git-fsck-gitattributesMissing"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitattributesMissingcodespan"></a><span class='synopsis'><code>gitattributesMissing</code></span> </dt>
+<dd>
+<p>(ERREUR) Impossible de lire le blob <span class='synopsis'><code>.gitattributes</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitattributesSymlinkcodespan"> <a class="anchor" href="#git-fsck-gitattributesSymlink"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitattributesSymlinkcodespan"></a><span class='synopsis'><code>gitattributesSymlink</code></span> </dt>
+<dd>
+<p>(INFO) <span class='synopsis'><code>.gitattributes</code></span> est un symlink.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitignoreSymlinkcodespan"> <a class="anchor" href="#git-fsck-gitignoreSymlink"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitignoreSymlinkcodespan"></a><span class='synopsis'><code>gitignoreSymlink</code></span> </dt>
+<dd>
+<p>(INFO) <span class='synopsis'><code>.gitignore</code></span> est un symlink.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesBlobcodespan"> <a class="anchor" href="#git-fsck-gitmodulesBlob"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesBlobcodespan"></a><span class='synopsis'><code>gitmodulesBlob</code></span> </dt>
+<dd>
+<p>(ERREUR) Un non-blob trouvé à <span class='synopsis'><code>.gitmodules</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesLargecodespan"> <a class="anchor" href="#git-fsck-gitmodulesLarge"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesLargecodespan"></a><span class='synopsis'><code>gitmodulesLarge</code></span> </dt>
+<dd>
+<p>(ERREUR) Le fichier <span class='synopsis'><code>.gitmodules</code></span> est trop grand à analyser.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesMissingcodespan"> <a class="anchor" href="#git-fsck-gitmodulesMissing"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesMissingcodespan"></a><span class='synopsis'><code>gitmodulesMissing</code></span> </dt>
+<dd>
+<p>(ERREUR) Incapable de lire le blob <span class='synopsis'><code>.gitmodules</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesNamecodespan"> <a class="anchor" href="#git-fsck-gitmodulesName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesNamecodespan"></a><span class='synopsis'><code>gitmodulesName</code></span> </dt>
+<dd>
+<p>(ERREUR) Un nom de sous-module est invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesParsecodespan"> <a class="anchor" href="#git-fsck-gitmodulesParse"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesParsecodespan"></a><span class='synopsis'><code>gitmodulesParse</code></span> </dt>
+<dd>
+<p>(INFO) Impossible d&#8217;analyser le blob <span class='synopsis'><code>.gitmodules</code></span>.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>See original version for this content.</p>
+<p><span class='synopsis'><code>gitmodulesLarge</code></span>;
+	(ERREUR) le blob de <span class='synopsis'><code>.gitmodules</code></span> est trop grand pour l&#8217;analyse.</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesPathcodespan"> <a class="anchor" href="#git-fsck-gitmodulesPath"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesPathcodespan"></a><span class='synopsis'><code>gitmodulesPath</code></span> </dt>
+<dd>
+<p>(ERREUR) Le chemin de <span class='synopsis'><code>.gitmodules</code></span> est invalide.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesSymlinkcodespan"> <a class="anchor" href="#git-fsck-gitmodulesSymlink"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesSymlinkcodespan"></a><span class='synopsis'><code>gitmodulesSymlink</code></span> </dt>
+<dd>
+<p>(ERREUR) <span class='synopsis'><code>.gitmodules</code></span> est un symlink.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesUpdatecodespan"> <a class="anchor" href="#git-fsck-gitmodulesUpdate"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesUpdatecodespan"></a><span class='synopsis'><code>gitmodulesUpdate</code></span> </dt>
+<dd>
+<p>(ERREUR) Paramètre de mise à jour de sous-module invalide trouvé.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesUrlcodespan"> <a class="anchor" href="#git-fsck-gitmodulesUrl"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesUrlcodespan"></a><span class='synopsis'><code>gitmodulesUrl</code></span> </dt>
+<dd>
+<p>(ERREUR) une URL de sous-module invalide trouvée.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodehasDotcodespan"> <a class="anchor" href="#git-fsck-hasDot"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodehasDotcodespan"></a><span class='synopsis'><code>hasDot</code></span> </dt>
+<dd>
+<p>(ATTENTION) Un arbre contient une entrée nommée <span class='synopsis'><code>.</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodehasDotdotcodespan"> <a class="anchor" href="#git-fsck-hasDotdot"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodehasDotdotcodespan"></a><span class='synopsis'><code>hasDotdot</code></span> </dt>
+<dd>
+<p>(ATTENTION) Un arbre contient une entrée nommée <span class='synopsis'><code>..</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodehasDotgitcodespan"> <a class="anchor" href="#git-fsck-hasDotgit"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodehasDotgitcodespan"></a><span class='synopsis'><code>hasDotgit</code></span> </dt>
+<dd>
+<p>(ATTENTION) Un arbre contient une entrée nommée <span class='synopsis'><code>.git</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodelargePathnamecodespan"> <a class="anchor" href="#git-fsck-largePathname"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodelargePathnamecodespan"></a><span class='synopsis'><code>largePathname</code></span> </dt>
+<dd>
+<p>(ATTENTION) Un arbre contient une entrée avec un nom très long. Si la valeur de `fsck.largePathname ` contient un caractère deux-points, cette valeur est utilisée comme la longueur maximale admissible (par exemple, "warn:10" se plaindrait de tout composant de chemin de 11 octets ou plus). La valeur par défaut est 4096.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemailmapSymlinkcodespan"> <a class="anchor" href="#git-fsck-mailmapSymlink"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemailmapSymlinkcodespan"></a><span class='synopsis'><code>mailmapSymlink</code></span> </dt>
+<dd>
+<p>(INFO) <span class='synopsis'><code>.mailmap</code></span> est un symlink.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingAuthorcodespan"> <a class="anchor" href="#git-fsck-missingAuthor"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingAuthorcodespan"></a><span class='synopsis'><code>missingAuthor</code></span> </dt>
+<dd>
+<p>(ERREUR) L&#8217;auteur est manquant.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingCommittercodespan"> <a class="anchor" href="#git-fsck-missingCommitter"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingCommittercodespan"></a><span class='synopsis'><code>missingCommitter</code></span> </dt>
+<dd>
+<p>(ERREUR) Le validateur est manquant.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingEmailcodespan"> <a class="anchor" href="#git-fsck-missingEmail"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingEmailcodespan"></a><span class='synopsis'><code>missingEmail</code></span> </dt>
+<dd>
+<p>(ERREUR) Le courriel manque dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingNameBeforeEmailcodespan"> <a class="anchor" href="#git-fsck-missingNameBeforeEmail"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingNameBeforeEmailcodespan"></a><span class='synopsis'><code>missingNameBeforeEmail</code></span> </dt>
+<dd>
+<p>(ERREUR) Nom manquant avant un courriel dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingObjectcodespan"> <a class="anchor" href="#git-fsck-missingObject"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingObjectcodespan"></a><span class='synopsis'><code>missingObject</code></span> </dt>
+<dd>
+<p>(ERREUR) ligne <span class='synopsis'><code>object</code></span> dans un objet étiquette manquante.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingSpaceBeforeDatecodespan"> <a class="anchor" href="#git-fsck-missingSpaceBeforeDate"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingSpaceBeforeDatecodespan"></a><span class='synopsis'><code>missingSpaceBeforeDate</code></span> </dt>
+<dd>
+<p>(ERREUR) Espace manquant avant la date dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingSpaceBeforeEmailcodespan"> <a class="anchor" href="#git-fsck-missingSpaceBeforeEmail"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingSpaceBeforeEmailcodespan"></a><span class='synopsis'><code>missingSpaceBeforeEmail</code></span> </dt>
+<dd>
+<p>(ERREUR) Espace manquant avant le courriel dans une ligne auteur/validateur.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingTagcodespan"> <a class="anchor" href="#git-fsck-missingTag"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingTagcodespan"></a><span class='synopsis'><code>missingTag</code></span> </dt>
+<dd>
+<p>(ERREUR) Fin inattendue après la ligne <span class='synopsis'><code>type</code></span> dans un objet étiquette.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingTagEntrycodespan"> <a class="anchor" href="#git-fsck-missingTagEntry"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingTagEntrycodespan"></a><span class='synopsis'><code>missingTagEntry</code></span> </dt>
+<dd>
+<p>(ERREUR) ligne <span class='synopsis'><code>tag</code></span> dans un objet étiquette manquante.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingTaggerEntrycodespan"> <a class="anchor" href="#git-fsck-missingTaggerEntry"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingTaggerEntrycodespan"></a><span class='synopsis'><code>missingTaggerEntry</code></span> </dt>
+<dd>
+<p>(INFO) Missing <span class='synopsis'><code>tagger</code></span> line in a tag object.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingTreecodespan"> <a class="anchor" href="#git-fsck-missingTree"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingTreecodespan"></a><span class='synopsis'><code>missingTree</code></span> </dt>
+<dd>
+<p>(ERROR) Missing <span class='synopsis'><code>tree</code></span> line in a commit object.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingTypecodespan"> <a class="anchor" href="#git-fsck-missingType"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingTypecodespan"></a><span class='synopsis'><code>missingType</code></span> </dt>
+<dd>
+<p>(ERROR) Invalid type value on the <span class='synopsis'><code>type</code></span> line in a tag object.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemissingTypeEntrycodespan"> <a class="anchor" href="#git-fsck-missingTypeEntry"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemissingTypeEntrycodespan"></a><span class='synopsis'><code>missingTypeEntry</code></span> </dt>
+<dd>
+<p>(ERROR) Missing <span class='synopsis'><code>type</code></span> line in a tag object.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodemultipleAuthorscodespan"> <a class="anchor" href="#git-fsck-multipleAuthors"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodemultipleAuthorscodespan"></a><span class='synopsis'><code>multipleAuthors</code></span> </dt>
+<dd>
+<p>(ERROR) Multiple author lines found in a commit.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodenulInCommitcodespan"> <a class="anchor" href="#git-fsck-nulInCommit"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodenulInCommitcodespan"></a><span class='synopsis'><code>nulInCommit</code></span> </dt>
+<dd>
+<p>(WARN) Found a NUL byte in the commit object body.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodenulInHeadercodespan"> <a class="anchor" href="#git-fsck-nulInHeader"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodenulInHeadercodespan"></a><span class='synopsis'><code>nulInHeader</code></span> </dt>
+<dd>
+<p>(FATAL) NUL byte exists in the object header.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodenullSha1codespan"> <a class="anchor" href="#git-fsck-nullSha1"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodenullSha1codespan"></a><span class='synopsis'><code>nullSha1</code></span> </dt>
+<dd>
+<p>(WARN) Tree contains entries pointing to a null sha1.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodepackedRefEntryNotTerminatedcodespan"> <a class="anchor" href="#git-fsck-packedRefEntryNotTerminated"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodepackedRefEntryNotTerminatedcodespan"></a><span class='synopsis'><code>packedRefEntryNotTerminated</code></span> </dt>
+<dd>
+<p>(ERROR) The "packed-refs" file contains an entry that is not terminated by a newline.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodepackedRefUnsortedcodespan"> <a class="anchor" href="#git-fsck-packedRefUnsorted"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodepackedRefUnsortedcodespan"></a><span class='synopsis'><code>packedRefUnsorted</code></span> </dt>
+<dd>
+<p>(ERROR) The "packed-refs" file is not sorted.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscoderefMissingNewlinecodespan"> <a class="anchor" href="#git-fsck-refMissingNewline"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscoderefMissingNewlinecodespan"></a><span class='synopsis'><code>refMissingNewline</code></span> </dt>
+<dd>
+<p>(INFO) A loose ref that does not end with newline(LF). As valid implementations of Git never created such a loose ref file, it may become an error in the future. Report to the <a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a> mailing list if you see this error, as we need to know what tools created such a file.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodesymlinkRefcodespan"> <a class="anchor" href="#git-fsck-symlinkRef"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodesymlinkRefcodespan"></a><span class='synopsis'><code>symlinkRef</code></span> </dt>
+<dd>
+<p>(INFO) A symbolic link is used as a symref. Report to the <a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a> mailing list if you see this error, as we are assessing the feasibility of dropping the support to drop creating symbolic links as symrefs.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodesymrefTargetIsNotARefcodespan"> <a class="anchor" href="#git-fsck-symrefTargetIsNotARef"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodesymrefTargetIsNotARefcodespan"></a><span class='synopsis'><code>symrefTargetIsNotARef</code></span> </dt>
+<dd>
+<p>(INFO) The target of a symbolic reference points neither to a root reference nor to a reference starting with "refs/". Although we allow create a symref pointing to the referent which is outside the "ref" by using <span class='synopsis'><code>git</code> <code>symbolic-ref</code></span>, we may tighten the rule in the future. Report to the <a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a> mailing list if you see this error, as we need to know what tools created such a file.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodetrailingRefContentcodespan"> <a class="anchor" href="#git-fsck-trailingRefContent"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodetrailingRefContentcodespan"></a><span class='synopsis'><code>trailingRefContent</code></span> </dt>
+<dd>
+<p>(INFO) A loose ref has trailing content. As valid implementations of Git never created such a loose ref file, it may become an error in the future. Report to the <a href="mailto:git@vger.kernel.org">git@vger.kernel.org</a> mailing list if you see this error, as we need to know what tools created such a file.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodetreeNotSortedcodespan"> <a class="anchor" href="#git-fsck-treeNotSorted"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodetreeNotSortedcodespan"></a><span class='synopsis'><code>treeNotSorted</code></span> </dt>
+<dd>
+<p>(ERROR) A tree is not properly sorted.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodeunknownTypecodespan"> <a class="anchor" href="#git-fsck-unknownType"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodeunknownTypecodespan"></a><span class='synopsis'><code>unknownType</code></span> </dt>
+<dd>
+<p>(ERROR) Found an unknown object type.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodeunterminatedHeadercodespan"> <a class="anchor" href="#git-fsck-unterminatedHeader"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodeunterminatedHeadercodespan"></a><span class='synopsis'><code>unterminatedHeader</code></span> </dt>
+<dd>
+<p>(FATAL) Missing end-of-line in the object header.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodezeroPaddedDatecodespan"> <a class="anchor" href="#git-fsck-zeroPaddedDate"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodezeroPaddedDatecodespan"></a><span class='synopsis'><code>zeroPaddedDate</code></span> </dt>
+<dd>
+<p>(ERROR) Found a zero padded date in an author/committer line.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodezeroPaddedFilemodecodespan"> <a class="anchor" href="#git-fsck-zeroPaddedFilemode"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodezeroPaddedFilemodecodespan"></a><span class='synopsis'><code>zeroPaddedFilemode</code></span> </dt>
+<dd>
+<p>(WARN) Found a zero padded filemode in a tree.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

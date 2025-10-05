@@ -52,9 +52,9 @@ headings:
 <div class="sectionbody">
 <div class="verseblock">
 <pre class="content"><em>git config list</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes]
-<em>git config get</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes] [--all] [--regexp] [--value=&lt;value&gt;] [--fixed-value] [--default=&lt;default&gt;] &lt;name&gt;
-<em>git config set</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;value&gt;] [--fixed-value] &lt;name&gt; &lt;value&gt;
-<em>git config unset</em> [&lt;file-option&gt;] [--all] [--value=&lt;value&gt;] [--fixed-value] &lt;name&gt;
+<em>git config get</em> [&lt;file-option&gt;] [&lt;display-option&gt;] [--includes] [--all] [--regexp] [--value=&lt;pattern&gt;] [--fixed-value] [--default=&lt;default&gt;] [--url=&lt;url&gt;] &lt;name&gt;
+<em>git config set</em> [&lt;file-option&gt;] [--type=&lt;type&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt; &lt;value&gt;
+<em>git config unset</em> [&lt;file-option&gt;] [--all] [--value=&lt;pattern&gt;] [--fixed-value] &lt;name&gt;
 <em>git config rename-section</em> [&lt;file-option&gt;] &lt;old-name&gt; &lt;new-name&gt;
 <em>git config remove-section</em> [&lt;file-option&gt;] &lt;name&gt;
 <em>git config edit</em> [&lt;file-option&gt;]
@@ -69,7 +69,7 @@ headings:
 <p>你可以用这个命令查询/设置/替换/取消选项。名称(name)实际上是用点隔开的节和键，值(value)会被转义。</p>
 </div>
 <div class="paragraph">
-<p>Multiple lines can be added to an option by using the <span class='synopsis'><code>--append</code></span> option. If you want to update or unset an option which can occur on multiple lines, a <span class='synopsis'><code>value-pattern</code></span> (which is an extended regular expression, unless the <span class='synopsis'><code>--fixed-value</code></span> option is given) needs to be given. Only the existing values that match the pattern are updated or unset. If you want to handle the lines that do <strong>not</strong> match the pattern, just prepend a single exclamation mark in front (see also <a href="#EXAMPLES">实例</a>), but note that this only works when the <span class='synopsis'><code>--fixed-value</code></span> option is not in use.</p>
+<p>Multiple lines can be added to an option by using the <span class='synopsis'><code>--append</code></span> option. If you want to update or unset an option which can occur on multiple lines, <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> (which is an extended regular expression, unless the <span class='synopsis'><code>--fixed-value</code></span> option is given) needs to be given. Only the existing values that match the pattern are updated or unset. If you want to handle the lines that do <strong>not</strong> match the pattern, just prepend a single exclamation mark in front (see also <a href="#EXAMPLES">实例</a>), but note that this only works when the <span class='synopsis'><code>--fixed-value</code></span> option is not in use.</p>
 </div>
 <div class="paragraph">
 <p><span class='synopsis'><code>--type=</code><em>&lt;类型&gt;</em></span> 选项指示 <em>git config</em> 确保传入和传出的值在给定的 &lt;类型&gt; 下是可以被规范化的。 如果没有给定 <span class='synopsis'><code>--type=</code><em>&lt;类型&gt;</em></span>，将不执行规范化。调用者可以用 <span class='synopsis'><code>--no-type</code></span> 选项取消现有 <span class='synopsis'><code>--type</code></span> 选项的指定。</p>
@@ -160,7 +160,7 @@ headings:
 <dl>
 <dt class="hdlist1" id="git-config---replace-all"> <a class="anchor" href="#git-config---replace-all"></a>--replace-all </dt>
 <dd>
-<p>默认行为是最多替换一行。这将会替换所有与键（以及可选的 <span class='synopsis'><code>value-pattern</code></span> ）匹配的行。</p>
+<p>Default behavior is to replace at most one line. This replaces all lines matching the key (and optionally <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span>).</p>
 </dd>
 <dt class="hdlist1" id="git-config---append"> <a class="anchor" href="#git-config---append"></a>--append </dt>
 <dd>
@@ -236,9 +236,17 @@ headings:
 <dd>
 <p>类似于 <span class='synopsis'><code>--file</code></span> 选项，但使用指定的二进制对象而不是文件。例如，你可以使用 <em>master:.gitmodules</em> 来读取主分支中 <em>.gitmodules</em> 文件中的值。参见 <a href='{{< relurl "docs/gitrevisions/zh_HANS-CN" >}}'>gitrevisions[7]</a> 中的 “指定的修正” 部分，以获得更完整的二进制对象名称拼写方式。</p>
 </dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--valuecodeemltpatterngtemspan"> <a class="anchor" href="#git-config---valuepattern"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--valuecodeemltpatterngtemspan"></a><span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--no-valuecodespan"> <a class="anchor" href="#git-config---no-value"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--no-valuecodespan"></a><span class='synopsis'><code>--no-value</code></span> </dt>
+<dd>
+<p>With <span class='synopsis'><code>get</code></span>, <span class='synopsis'><code>set</code></span>, and <span class='synopsis'><code>unset</code></span>, match only against <em>&lt;pattern&gt;</em>. The pattern is an extended regular expression unless <span class='synopsis'><code>--fixed-value</code></span> is given.</p>
+<div class="paragraph">
+<p>Use <span class='synopsis'><code>--no-value</code></span> to unset <em>&lt;pattern&gt;</em>.</p>
+</div>
+</dd>
 <dt class="hdlist1" id="git-config---fixed-value"> <a class="anchor" href="#git-config---fixed-value"></a>--fixed-value </dt>
 <dd>
-<p>当与 <span class='synopsis'><code>value-pattern</code></span> 参数一起使用时，将 <span class='synopsis'><code>value-pattern</code></span> 视为精确的字符串，而不是正则表达式。这将使得被匹配的名称/值对只有那些值与 <span class='synopsis'><code>value-pattern</code></span> 完全相等的名称/值对。</p>
+<p>When used with <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span>, treat <em>&lt;pattern&gt;</em> as an exact string instead of a regular expression. This will restrict the name/value pairs that are matched to only those where the value is exactly equal to <em>&lt;pattern&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---typeltgt"> <a class="anchor" href="#git-config---type"></a> <a class="anchor" href="#git-config---typeltgt"></a>--type &lt;类型&gt; </dt>
 <dd>
@@ -289,6 +297,11 @@ headings:
 <dt class="hdlist1" id="git-config---name-only"> <a class="anchor" href="#git-config---name-only"></a>--name-only </dt>
 <dd>
 <p>Output only the names of config variables for <span class='synopsis'><code>list</code></span> or <span class='synopsis'><code>get</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--show-namescodespan"> <a class="anchor" href="#git-config---show-names"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--show-namescodespan"></a><span class='synopsis'><code>--show-names</code></span> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscode--no-show-namescodespan"> <a class="anchor" href="#git-config---no-show-names"></a> <a class="anchor" href="#git-config-spanclasssynopsiscode--no-show-namescodespan"></a><span class='synopsis'><code>--no-show-names</code></span> </dt>
+<dd>
+<p>With <span class='synopsis'><code>get</code></span>, show config keys in addition to their values. The default is <span class='synopsis'><code>--no-show-names</code></span> unless <span class='synopsis'><code>--url</code></span> is given and there are no subsections in <em>&lt;name&gt;</em>.</p>
 </dd>
 <dt class="hdlist1" id="git-config---show-origin"> <a class="anchor" href="#git-config---show-origin"></a>--show-origin </dt>
 <dd>

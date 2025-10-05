@@ -319,7 +319,7 @@ headings:
 <div class="ulist">
 <ul>
 <li>
-<p>"<span class='synopsis'><code>**</code></span>"在带斜杠目录之前，表示在所有目录中匹配。例如，"<span class='synopsis'><code>**/foo</code></span>"匹配任何文件或目录的"<span class='synopsis'><code>foo</code></span>"，与模式"<span class='synopsis'><code>foo</code></span>"相同。"<span class='synopsis'><code>**/foo/bar</code></span>"匹配任何文件或目录中直接位于目录"<span class='synopsis'><code>foo</code></span>"之下的"<span class='synopsis'><code>bar</code></span>"。</p>
+<p>A leading "<span class='synopsis'><code>**</code></span>" followed by a slash means match in all directories. For example, "<span class='synopsis'><code>**/foo</code></span>" matches file or directory "<span class='synopsis'><code>foo</code></span>" anywhere. "<span class='synopsis'><code>**/foo/bar</code></span>" matches file or directory "<span class='synopsis'><code>bar</code></span>" anywhere that is directly under directory "<span class='synopsis'><code>foo</code></span>".</p>
 </li>
 <li>
 <p>路径后跟有 "<span class='synopsis'><code>/**</code></span>" 表示匹配这个目录里面的所有文件。例如，"<span class='synopsis'><code>abc/**</code></span>" 匹配相对于 <span class='synopsis'><code>.gitignore</code></span> 文件的位置中目录 "abc "内的所有文件，深度无限。</p>

@@ -109,24 +109,24 @@ ea4c7f9bf69e781dd0cd88d2bccb2bf5cc15c9a7 git-blame: Make the output</pre>
 <p><em>&lt;début&gt;</em> et <em>&lt;fin&gt;</em> sont facultatifs. <span class='synopsis'><code>-L</code> <em>&lt;début&gt;</em></span> ou <span class='synopsis'><code>-L</code> <em>&lt;début&gt;</em><code>,</code></span>, s’étend de <em>&lt;début&gt;</em> jusqu&#8217;à la fin du fichier. <span class='synopsis'><code>-L,</code><em>&lt;fin&gt;</em></span> s’étend du début du fichier jusqu&#8217;à <em>&lt;fin&gt;</em>.</p>
 </div>
 <div class="paragraph">
-<p><em>&lt;début&gt;</em> et <em>&lt;fin&gt;</em> peuvent prendre l&#8217;une de ces formes :</p>
+<p><em>&lt;début&gt;</em> et <em>&lt;fin&gt;</em> peuvent prendre l&#8217;une de ces formes :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>nombre</p>
+<p><em>&lt;nombre&gt;</em></p>
 <div class="paragraph">
 <p>Si <em>&lt;début&gt;</em> ou <em>&lt;fin&gt;</em> est un nombre, il spécifie un numéro de ligne absolu (les lignes comptent à partir de 1).</p>
 </div>
 </li>
 <li>
-<p><span class='synopsis'><code>/regex/</code></span></p>
+<p><span class='synopsis'><code>/</code><em>&lt;regex&gt;</em><code>/</code></span></p>
 <div class="paragraph">
-<p>Cette forme utilisera la première ligne correspondant à la regex POSIX donnée. Si <em>&lt;début&gt;</em> est une regex, la recherche se fera à partir de la fin de la plage <span class='synopsis'><code>-L</code></span> précédente, le cas échéant, sinon à partir du début du fichier. Si <em>&lt;début&gt;</em> est <span class='synopsis'><code>^/regex/</code></span>, la recherche se fera à partir du début du fichier. Si <em>&lt;fin&gt;</em> est une regex, la recherche débutera à partir de la ligne donnée par <em>&lt;début&gt;</em>.</p>
+<p>Cette forme utilisera la première ligne correspondant à la regex POSIX donnée. Si <em>&lt;début&gt;</em> est une regex, la recherche se fera à partir de la fin de la plage <span class='synopsis'><code>-L</code></span> précédente, le cas échéant, sinon à partir du début du fichier. Si <em>&lt;début&gt;</em> est <span class='synopsis'><code>^/</code><em>&lt;regex&gt;</em><code>/</code></span>, la recherche se fera à partir du début du fichier. Si <em>&lt;fin&gt;</em> est une regex, la recherche débutera à partir de la ligne donnée par <em>&lt;début&gt;</em>.</p>
 </div>
 </li>
 <li>
-<p>+ offset ou -offset</p>
+<p><span class='synopsis'><code>+</code><em>&lt;offset&gt;</em></span> ou <span class='synopsis'><code>-</code><em>&lt;offset&gt;</em></span></p>
 <div class="paragraph">
 <p>Ceci n&#8217;est valable que pour <em>&lt;fin&gt;</em> et spécifiera un nombre de lignes avant ou après la ligne donnée par <em>&lt;début&gt;</em>.</p>
 </div>
