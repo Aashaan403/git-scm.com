@@ -1,18 +1,19 @@
 ---
-section: "downloads"
+section: "install"
+title: "Git - Install for Linux"
 aliases:
 - /download/linux
+- /downloads/linux
 ---
 
 <div id="main">
-  <h1>Download for Linux and Unix</h1>
-  <p>It is easiest to install Git on Linux using the preferred package
-  manager of your Linux distribution. If you prefer to build from
-  source, you can find tarballs
-  <a href="https://www.kernel.org/pub/software/scm/git/">on kernel.org</a>.
-  The latest version is
-  <a href="https://www.kernel.org/pub/software/scm/git/git-{{< site-param latest_version >}}.tar.gz">{{< site-param latest_version >}}</a>
+  {{< install-header "linux" >}}
 
+    <div class="install-content">
+  <p>
+      It is easiest to install Git on Linux with your distribution's package
+      manager.
+  </p>
   <h3>Debian/Ubuntu</h3>
   <p>For the latest stable version for your release of Debian/Ubuntu</p>
   <code># apt-get install git</code>
@@ -60,4 +61,6 @@ aliases:
   <h3>Slitaz</h3>
   <code>$ tazpkg get-install git</code>
 
+    </div>
+  </div>
 </div>

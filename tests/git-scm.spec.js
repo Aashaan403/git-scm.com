@@ -64,7 +64,7 @@ test.describe('Windows', () => {
     await expect(windowsButton).toBeVisible()
     await expect(windowsButton).toHaveClass(/selected/)
 
-    const allButton = page.getByRole('link', { name: 'All' })
+    const allButton = page.getByRole('link', { name: 'All', exact: true })
     await expect(allButton).not.toHaveClass(/selected/)
 
     const thumbnails = page.locator('.gui-thumbnails li:visible')

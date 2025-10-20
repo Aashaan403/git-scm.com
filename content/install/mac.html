@@ -1,14 +1,16 @@
 ---
-section: "downloads"
-title: "Git - Downloading Package"
+section: "install"
+title: "Git - Install for macOS"
 aliases:
 - /download/mac
+- /downloads/mac
 ---
 
 <div id="main">
-  <h1>Download for macOS</h1>
+  {{< install-header "mac" >}}
 
-  <p>There are several options for installing Git on macOS. Note that
+    <div class="install-content">
+      <p>There are several options for installing Git on macOS. Note that
   any non-source distributions are provided by third parties, and may
   not be up to date with the latest source release.</p>
 
@@ -24,12 +26,6 @@ aliases:
 
   <h3>Xcode</h3>
   <p>Apple ships a binary package of Git with <a href="https://developer.apple.com/xcode/">Xcode</a>.</p>
-  
-  <h3>Building from Source</h3>
-  <p>If you prefer to build from source, you can find tarballs
-  <a href="https://www.kernel.org/pub/software/scm/git/">on kernel.org</a>.
-  The latest version is
-  <a href="https://www.kernel.org/pub/software/scm/git/git-{{< site-param latest_version >}}.tar.gz"%>{{< site-param latest_version >}}</a>.
 
   <h3>Installing git-gui</h3>
   <p>If you would like to install <a href="https://git-scm.com/docs/git-gui/">git-gui</a> and <a href="https://git-scm.com/docs/gitk/">gitk</a>,
@@ -37,4 +33,6 @@ aliases:
 
   <code>$ brew install git-gui</code></p>
 
+    </div>
+  </div>
 </div>
