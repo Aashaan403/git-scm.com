@@ -37,9 +37,9 @@ module:
 params:
   hugo_version: 0.148.2
   pagefind_version: 1.4.0
-  latest_version: 2.51.1
-  latest_relnote_url: https://github.com/git/git/raw/HEAD/Documentation/RelNotes/2.51.1.adoc
-  latest_release_date: '2025-10-15'
+  latest_version: 2.51.2
+  latest_relnote_url: https://github.com/git/git/raw/HEAD/Documentation/RelNotes/2.51.2.adoc
+  latest_release_date: '2025-10-27'
   macos_installer:
     url: https://sourceforge.net/projects/git-osx-installer/files/git-2.33.0-intel-universal-mavericks.dmg/download?use_mirror=autoselect
     version: 2.33.0
