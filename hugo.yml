@@ -47,22 +47,22 @@ params:
     filename: git-2.33.0-intel-universal-mavericks.dmg
   windows_installer:
     installer_x64:
-      filename: Git-2.51.1-64-bit.exe
-      release_date: '2025-10-17'
-      version: 2.51.1
-      url: https://github.com/git-for-windows/git/releases/download/v2.51.1.windows.1/Git-2.51.1-64-bit.exe
+      filename: Git-2.51.2-64-bit.exe
+      release_date: '2025-10-28'
+      version: 2.51.2
+      url: https://github.com/git-for-windows/git/releases/download/v2.51.2.windows.1/Git-2.51.2-64-bit.exe
     installer_arm64:
-      filename: Git-2.51.1-arm64.exe
-      release_date: '2025-10-17'
-      version: 2.51.1
-      url: https://github.com/git-for-windows/git/releases/download/v2.51.1.windows.1/Git-2.51.1-arm64.exe
+      filename: Git-2.51.2-arm64.exe
+      release_date: '2025-10-28'
+      version: 2.51.2
+      url: https://github.com/git-for-windows/git/releases/download/v2.51.2.windows.1/Git-2.51.2-arm64.exe
     portable_x64:
-      filename: PortableGit-2.51.1-64-bit.7z.exe
-      release_date: '2025-10-17'
-      version: 2.51.1
-      url: https://github.com/git-for-windows/git/releases/download/v2.51.1.windows.1/PortableGit-2.51.1-64-bit.7z.exe
+      filename: PortableGit-2.51.2-64-bit.7z.exe
+      release_date: '2025-10-28'
+      version: 2.51.2
+      url: https://github.com/git-for-windows/git/releases/download/v2.51.2.windows.1/PortableGit-2.51.2-64-bit.7z.exe
     portable_arm64:
-      filename: PortableGit-2.51.1-arm64.7z.exe
-      release_date: '2025-10-17'
-      version: 2.51.1
-      url: https://github.com/git-for-windows/git/releases/download/v2.51.1.windows.1/PortableGit-2.51.1-arm64.7z.exe
+      filename: PortableGit-2.51.2-arm64.7z.exe
+      release_date: '2025-10-28'
+      version: 2.51.2
+      url: https://github.com/git-for-windows/git/releases/download/v2.51.2.windows.1/PortableGit-2.51.2-arm64.7z.exe
