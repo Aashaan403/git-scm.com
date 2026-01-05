@@ -58,19 +58,15 @@ async function main() {
       console.error('Using dark mode (prefers-color-scheme: dark)');
     }
 
-    // Take "before" screenshot
-    console.error(`Navigating to before URL: ${beforeUrl}`);
-    await page.goto(beforeUrl, { waitUntil: 'networkidle' });
-    const beforePath = '.before.png';
-    await page.screenshot({ path: beforePath, fullPage: true });
-    console.error(`Saved: ${beforePath}`);
+    async function takeScreenshot(url, outputPath) {
+      console.error(`Navigating to: ${url}`);
+      await page.goto(url, { waitUntil: 'networkidle' });
+      await page.screenshot({ path: outputPath, fullPage: true });
+      console.error(`Saved: ${outputPath}`);
+    }
 
-    // Take "after" screenshot
-    console.error(`Navigating to after URL: ${afterUrl}`);
-    await page.goto(afterUrl, { waitUntil: 'networkidle' });
-    const afterPath = '.after.png';
-    await page.screenshot({ path: afterPath, fullPage: true });
-    console.error(`Saved: ${afterPath}`);
+    await takeScreenshot(beforeUrl, '.before.png');
+    await takeScreenshot(afterUrl, '.after.png');
 
     console.error(`\nScreenshots saved:`);
     console.error('  - .before.png');
