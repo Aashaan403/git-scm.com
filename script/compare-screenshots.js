@@ -20,7 +20,7 @@ Options:
 Examples:
   node script/compare-screenshots.js https://git-scm.com http://localhost:5000
   node script/compare-screenshots.js https://git-scm.com /path/to/worktree
-  node script/compare-screenshots.js https://git-scm.com .@HEAD~2
+  node script/compare-screenshots.js https://git-scm.com @HEAD~2
   node script/compare-screenshots.js https://git-scm.com/docs/git-config /path/to/worktree:/docs/git-config
   node script/compare-screenshots.js --dark https://git-scm.com http://localhost:5000
   node script/compare-screenshots.js --clip=1280x720+0+0 https://git-scm.com http://localhost:5000`;
@@ -33,10 +33,11 @@ const path = require('path');
 /**
  * Parse a worktree argument to extract worktree path, commit, and page path.
  *
- * Format: worktree[@commit][:/page/path]
+ * Format: [worktree][@commit][:/page/path]
  *
  * Examples:
  *   .                    -> { worktreePath: '.', commit: undefined, pagePath: '' }
+ *   @HEAD~2              -> { worktreePath: '.', commit: 'HEAD~2', pagePath: '' }
  *   .@HEAD~2             -> { worktreePath: '.', commit: 'HEAD~2', pagePath: '' }
  *   /path/to/worktree:/docs/git -> { worktreePath: '/path/to/worktree', commit: undefined, pagePath: 'docs/git' }
  *   .@main:/about        -> { worktreePath: '.', commit: 'main', pagePath: 'about' }
@@ -45,6 +46,8 @@ const path = require('path');
  */
 function getWorktreeInfo(arg) {
   if (arg.startsWith('http://') || arg.startsWith('https://')) return false;
+  // Allow @commit as shorthand for .@commit (current directory)
+  if (arg.startsWith('@')) arg = '.' + arg;
   const colonIndex = arg.indexOf(':');
   const beforeColon = colonIndex === -1 ? arg : arg.slice(0, colonIndex);
   const pagePath = colonIndex === -1 ? '' : arg.slice(colonIndex + 1).replace(/^\/+/, '');
