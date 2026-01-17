@@ -98,7 +98,8 @@ headings:
 <dd>
 <p>Використовуйте атомарну транзакцію для оновлення посилань. Якщо будь-яке з посилань не оновиться, то вся надсилання завершиться невдачею без зміни будь-яких посилань.</p>
 </dd>
-<dt class="hdlist1" id="git-send-pack---no-signed"> <a class="anchor" href="#git-send-pack---no-signed"></a>--[no-]signed </dt>
+<dt class="hdlist1" id="git-send-pack---signed"> <a class="anchor" href="#git-send-pack---signed"></a>--signed </dt>
+<dt class="hdlist1" id="git-send-pack---no-signed"> <a class="anchor" href="#git-send-pack---no-signed"></a>--no-signed </dt>
 <dt class="hdlist1" id="git-send-pack---signedtruefalseif-asked"> <a class="anchor" href="#git-send-pack---signedtruefalseif-asked"></a>--signed=(true|false|if-asked) </dt>
 <dd>
 <p>Підписати push-запит для оновлення посилань на стороні приймача, щоб дозволити перевірку хуками та/або запис у журнал. Якщо встановлено значення <span class='synopsis'><code>false</code></span> або <span class='synopsis'><code>--no-signed</code></span>, спроба підписання не буде здійснена. Якщо встановлено значення <span class='synopsis'><code>true</code></span> або <span class='synopsis'><code>--signed</code></span>, push-запит завершиться невдачею, якщо сервер не підтримує підписані push-запити. Якщо встановлено значення <span class='synopsis'><code>if-asked</code></span>, підписати тоді і тільки тоді, коли сервер підтримує підписані push-запити. Push-запит також завершиться невдачею, якщо фактичний виклик <span class='synopsis'><code>gpg</code> <code>--sign</code></span> завершиться невдачею. Див. <a href='{{< relurl "docs/git-receive-pack/uk" >}}'>git-receive-pack[1]</a> для отримання детальної інформації на стороні приймача.</p>

@@ -26,6 +26,8 @@ headings:
   id: _формати_дати
 - text: ФАЙЛИ
   id: _файли
+- text: КОНФІГУРАЦІЯ
+  id: _конфігурація_2
 - text: НОТАТКИ
   id: _нотатки
 - text: ДИВ. ТАКОЖ
@@ -37,7 +39,7 @@ headings:
 <h2 id="_назва"><a class="anchor" href="#_назва"></a>НАЗВА</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>git-tag - Створення, перегляд, видалення або перевірка об&#8217;єкта тегу, підписаного за допомогою GPG</p>
+<p>git-tag - Створення, перелік, видалення або перевірка тегів</p>
 </div>
 </div>
 </div>
@@ -45,15 +47,15 @@ headings:
 <h2 id="_синопсис"><a class="anchor" href="#_синопсис"></a>СИНОПСИС</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git tag</em> [-a | -s | -u &lt;key-id&gt;] [-f] [-m &lt;msg&gt; | -F &lt;file&gt;] [-e]
-	[(--trailer &lt;token&gt;[(=|:)&lt;value&gt;])&#8230;&#8203;]
-	&lt;tagname&gt; [&lt;commit&gt; | &lt;object&gt;]
-<em>git tag</em> -d &lt;tagname&gt;&#8230;&#8203;
-<em>git tag</em> [-n[&lt;num&gt;]] -l [--contains &lt;commit&gt;] [--no-contains &lt;commit&gt;]
-	[--points-at &lt;object&gt;] [--column[=&lt;options&gt;] | --no-column]
-	[--create-reflog] [--sort=&lt;key&gt;] [--format=&lt;format&gt;]
-	[--merged &lt;commit&gt;] [--no-merged &lt;commit&gt;] [&lt;pattern&gt;&#8230;&#8203;]
-<em>git tag</em> -v [--format=&lt;format&gt;] &lt;tagname&gt;&#8230;&#8203;</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>tag</code></span> [<span class='synopsis'><code>-a</code></span> | <span class='synopsis'><code>-s</code></span> | <span class='synopsis'><code>-u</code></span> <em>&lt;key-id&gt;</em>] [<span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>-m</code></span> <em>&lt;msg&gt;</em> | <span class='synopsis'><code>-F</code></span> <em>&lt;file&gt;</em>] [<span class='synopsis'><code>-e</code></span>]
+	[(<span class='synopsis'><code>--trailer</code></span> <em>&lt;token&gt;</em>[(<span class='synopsis'><code>=</code></span>|<span class='synopsis'><code>:</code></span>)<em>&lt;value&gt;</em>])&#8230;&#8203;]
+	<em>&lt;tagname&gt;</em> [<em>&lt;commit&gt;</em> | <em>&lt;object&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>tag</code></span> <span class='synopsis'><code>-d</code></span> <em>&lt;tagname&gt;</em>&#8230;&#8203;
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>tag</code></span> [<span class='synopsis'><code>-n</code></span>[<em>&lt;num&gt;</em>]] <span class='synopsis'><code>-l</code></span> [<span class='synopsis'><code>--contains</code></span> <em>&lt;commit&gt;</em>] [<span class='synopsis'><code>--no-contains</code></span> <em>&lt;commit&gt;</em>]
+	[<span class='synopsis'><code>--points-at</code></span> <em>&lt;object&gt;</em>] [<span class='synopsis'><code>--column</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;options&gt;</em>] | <span class='synopsis'><code>--no-column</code></span>]
+	[<span class='synopsis'><code>--create-reflog</code></span>] [<span class='synopsis'><code>--sort=</code></span><em>&lt;key&gt;</em>] [<span class='synopsis'><code>--format=</code></span><em>&lt;format&gt;</em>]
+	[<span class='synopsis'><code>--merged</code></span> <em>&lt;commit&gt;</em>] [<span class='synopsis'><code>--no-merged</code></span> <em>&lt;commit&gt;</em>] [<em>&lt;pattern&gt;</em>&#8230;&#8203;]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>tag</code></span> <span class='synopsis'><code>-v</code></span> [<span class='synopsis'><code>--format=</code></span><em>&lt;format&gt;</em>] <em>&lt;tagname&gt;</em>&#8230;&#8203;</pre>
 </div>
 </div>
 </div>
@@ -61,7 +63,7 @@ headings:
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Додати посилання на тег у <span class='synopsis'><code>refs/tags/</code></span>, якщо не вказано <span class='synopsis'><code>-d/-l/-v</code></span> для видалення, перегляду або перевірки тегів.</p>
+<p>Додати посилання на тег у <span class='synopsis'><code>refs/tags/</code></span>, якщо не вказано <span class='synopsis'><code>-d</code></span>/<span class='synopsis'><code>-l</code></span>/<span class='synopsis'><code>-v</code></span> для видалення, перегляду або перевірки тегів.</p>
 </div>
 <div class="paragraph">
 <p>Якщо не вказано параметр <span class='synopsis'><code>-f</code></span>, іменований тег ще не повинен існувати.</p>
@@ -76,10 +78,10 @@ headings:
 <p>В іншому випадку створюється посилання на тег, яке вказує безпосередньо на заданий об&#8217;єкт (тобто легкий тег).</p>
 </div>
 <div class="paragraph">
-<p>Підписаний об&#8217;єкт тегу GnuPG буде створено, якщо використовується <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span>. Якщо <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span> не використовується, для пошуку ключа GnuPG для підписання використовується ідентифікатор комітера поточного користувача. Змінна конфігурації <span class='synopsis'><code>gpg.program</code></span> використовується для визначення власного бінарного файлу GnuPG.</p>
+<p>Криптографічно підписаний об&#8217;єкт тегу буде створено, якщо використовується <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span>. Бекенд підпису (GPG, X.509, SSH тощо) контролюється змінною конфігурації <span class='synopsis'><code>gpg.format</code></span>, за замовчуванням використовується OpenPGP. Коли <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span> не використовується, для пошуку ключа для підпису використовується ідентифікатор комітера поточного користувача. Змінна конфігурації <span class='synopsis'><code>gpg.program</code></span> використовується для визначення власного двійкового файлу підпису.</p>
 </div>
 <div class="paragraph">
-<p>Об&#8217;єкти тегів (створені за допомогою <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code></span>) називаються "анотованими" тегами; вони містять дату створення, ім&#8217;я та електронну адресу користувача тегу, повідомлення тегу та необов&#8217;язковий підпис GnuPG. Тоді як "легкий" тег - це просто ім&#8217;я об&#8217;єкта (зазвичай об&#8217;єкта коміту).</p>
+<p>Об&#8217;єкти тегів (створені за допомогою <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code></span>) називаються "анотованими" тегами; вони містять дату створення, ім&#8217;я та електронну адресу користувача тегу, повідомлення тегу та необов&#8217;язковий криптографічний підпис. Тоді як "легкий" тег - це просто ім&#8217;я об&#8217;єкта (зазвичай об&#8217;єкта коміту).</p>
 </div>
 <div class="paragraph">
 <p>Анотовані теги призначені для випуску, тоді як легкі теги призначені для приватних або тимчасових міток об&#8217;єктів. З цієї причини деякі команди git для іменування об&#8217;єктів (наприклад, <span class='synopsis'><code>git</code> <code>describe</code></span>) за замовчуванням ігноруватимуть легкі теги.</p>
@@ -91,142 +93,142 @@ headings:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-tag--a"> <a class="anchor" href="#git-tag--a"></a>-a </dt>
-<dt class="hdlist1" id="git-tag---annotate"> <a class="anchor" href="#git-tag---annotate"></a>--annotate </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-acodespan"> <a class="anchor" href="#git-tag--a"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-acodespan"></a><span class='synopsis'><code>-a</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--annotatecodespan"> <a class="anchor" href="#git-tag---annotate"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--annotatecodespan"></a><span class='synopsis'><code>--annotate</code></span> </dt>
 <dd>
 <p>Створення непідписаного, анотованого об&#8217;єкта тегу</p>
 </dd>
-<dt class="hdlist1" id="git-tag--s"> <a class="anchor" href="#git-tag--s"></a>-s </dt>
-<dt class="hdlist1" id="git-tag---sign"> <a class="anchor" href="#git-tag---sign"></a>--sign </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-scodespan"> <a class="anchor" href="#git-tag--s"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-scodespan"></a><span class='synopsis'><code>-s</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--signcodespan"> <a class="anchor" href="#git-tag---sign"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--signcodespan"></a><span class='synopsis'><code>--sign</code></span> </dt>
 <dd>
-<p>Створіть тег, підписаний GPG, використовуючи ключ стандартної адреси електронної пошти. Стандартна поведінка підписання тегом GPG контролюється змінною конфігурації <span class='synopsis'><code>tag.gpgSign</code></span>, якщо вона існує, або вимикається в іншому випадку. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>Створіть криптографічно підписаний тег, використовуючи ключ підпису за замовчуванням. Використаний сервер підпису залежить від змінної конфігурації <span class='synopsis'><code>gpg.format</code></span>. Ключ за замовчуванням визначається сервером. Для GPG він базується на адресі електронної пошти комітера, тоді як для SSH це може бути певний файл ключа або ідентифікатор агента. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---no-sign"> <a class="anchor" href="#git-tag---no-sign"></a>--no-sign </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--no-signcodespan"> <a class="anchor" href="#git-tag---no-sign"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--no-signcodespan"></a><span class='synopsis'><code>--no-sign</code></span> </dt>
 <dd>
 <p>Перевизначити змінну конфігурації <span class='synopsis'><code>tag.gpgSign</code></span>, яка встановлена для примусового підписання кожного тегу.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--ultkey-idgt"> <a class="anchor" href="#git-tag--ukey-id"></a> <a class="anchor" href="#git-tag--ultkey-idgt"></a>-u &lt;key-id&gt; </dt>
-<dt class="hdlist1" id="git-tag---local-userltkey-idgt"> <a class="anchor" href="#git-tag---local-userkey-id"></a> <a class="anchor" href="#git-tag---local-userltkey-idgt"></a>--local-user=&lt;key-id&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-ucodeemltkey-idgtemspan"> <a class="anchor" href="#git-tag--ukey-id"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-ucodeemltkey-idgtemspan"></a><span class='synopsis'><code>-u</code> <em>&lt;key-id&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--local-usercodeemltkey-idgtemspan"> <a class="anchor" href="#git-tag---local-userkey-id"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--local-usercodeemltkey-idgtemspan"></a><span class='synopsis'><code>--local-user=</code><em>&lt;key-id&gt;</em></span> </dt>
 <dd>
-<p>Створіть тег, підписаний GPG, використовуючи заданий ключ.</p>
+<p>Створіть криптографічно підписаний тег, використовуючи заданий ключ. Формат &lt;key-id&gt; та використаний сервер залежать від змінної конфігурації <span class='synopsis'><code>gpg.format</code></span>. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--f"> <a class="anchor" href="#git-tag--f"></a>-f </dt>
-<dt class="hdlist1" id="git-tag---force"> <a class="anchor" href="#git-tag---force"></a>--force </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-fcodespan"> <a class="anchor" href="#git-tag--f"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-fcodespan"></a><span class='synopsis'><code>-f</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--forcecodespan"> <a class="anchor" href="#git-tag---force"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--forcecodespan"></a><span class='synopsis'><code>--force</code></span> </dt>
 <dd>
 <p>Замінити існуючий тег заданою назвою (замість помилки)</p>
 </dd>
-<dt class="hdlist1" id="git-tag--d"> <a class="anchor" href="#git-tag--d"></a>-d </dt>
-<dt class="hdlist1" id="git-tag---delete"> <a class="anchor" href="#git-tag---delete"></a>--delete </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-dcodespan"> <a class="anchor" href="#git-tag--d"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-dcodespan"></a><span class='synopsis'><code>-d</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--deletecodespan"> <a class="anchor" href="#git-tag---delete"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--deletecodespan"></a><span class='synopsis'><code>--delete</code></span> </dt>
 <dd>
 <p>Видалити існуючі теги із заданими іменами.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--v"> <a class="anchor" href="#git-tag--v"></a>-v </dt>
-<dt class="hdlist1" id="git-tag---verify"> <a class="anchor" href="#git-tag---verify"></a>--verify </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-tag--v"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--verifycodespan"> <a class="anchor" href="#git-tag---verify"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--verifycodespan"></a><span class='synopsis'><code>--verify</code></span> </dt>
 <dd>
-<p>Перевірте GPG-підпис заданих імен тегів.</p>
+<p>Перевірте криптографічний підпис заданих тегів.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--nltnumgt"> <a class="anchor" href="#git-tag--nnum"></a> <a class="anchor" href="#git-tag--nltnumgt"></a>-n&lt;num&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-ncodeemltnumgtemspan"> <a class="anchor" href="#git-tag--nnum"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-ncodeemltnumgtemspan"></a><span class='synopsis'><code>-n</code><em>&lt;num&gt;</em></span> </dt>
 <dd>
-<p>&lt;num&gt; визначає, скільки рядків з анотації, якщо такі є, друкуються при використанні -l. Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
+<p><em>&lt;num&gt;</em> визначає, скільки рядків з анотації, якщо такі є, друкуються при використанні <span class='synopsis'><code>-l</code></span>. Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
 <div class="paragraph">
 <p>За замовчуванням рядки анотацій не друкуються. Якщо для параметра <span class='synopsis'><code>-n</code></span> не вказано число, друкується лише перший рядок. Якщо тег не анотований, замість нього відображається повідомлення коміту.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-tag--l"> <a class="anchor" href="#git-tag--l"></a>-l </dt>
-<dt class="hdlist1" id="git-tag---list"> <a class="anchor" href="#git-tag---list"></a>--list </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-lcodespan"> <a class="anchor" href="#git-tag--l"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-lcodespan"></a><span class='synopsis'><code>-l</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--listcodespan"> <a class="anchor" href="#git-tag---list"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--listcodespan"></a><span class='synopsis'><code>--list</code></span> </dt>
 <dd>
 <p>Перелік тегів. З необов&#8217;язковим параметром <span class='synopsis'><em>&lt;шаблон&gt;</em>...</span>, наприклад, <span class='synopsis'><code>git</code> <code>tag</code> <code>--list</code> <code>v-*'</code></span>, перелічує лише ті теги, що відповідають шаблону(ам).</p>
 <div class="paragraph">
-<p>Виконання команди "git tag" без аргументів також відображає всі теги. Шаблон є символом підстановки оболонки (тобто, зіставлення здійснюється за допомогою fnmatch(3)). Можна вказати кілька шаблонів; якщо будь-який з них збігається, тег відображається.</p>
+<p>Запуск <span class='synopsis'><code>git</code> <code>tag</code></span> без аргументів також відображає список усіх тегів. Шаблон є шаблоном оболонки (тобто, зіставляється за допомогою <span class='synopsis'><code>fnmatch</code></span>(3)). Можна вказати кілька шаблонів; якщо будь-який з них збігається, тег відображається.</p>
 </div>
 <div class="paragraph">
 <p>Цей параметр неявно надається, якщо надано будь-який інший параметр, подібний до списку, такий як <span class='synopsis'><code>--contains</code></span>. Дивіться документацію для кожного з цих параметрів для отримання детальної інформації.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-tag---sortltkeygt"> <a class="anchor" href="#git-tag---sortkey"></a> <a class="anchor" href="#git-tag---sortltkeygt"></a>--sort=&lt;key&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--sortcodeemltgtemspan"> <a class="anchor" href="#git-tag---sort"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--sortcodeemltgtemspan"></a><span class='synopsis'><code>--sort=</code><em>&lt;ключ&gt;</em></span> </dt>
 <dd>
-<p>Сортування на основі заданого ключа. Додайте префікс <span class='synopsis'><code>-</code></span> для сортування у порядку спадання значення. Ви можете використовувати опцію --sort=&lt;ключ&gt; кілька разів, і в цьому випадку останній ключ стає первинним ключем. Також підтримується "version:refname" або "v:refname" (імена тегів обробляються як версії). Порядок сортування "version:refname" також може залежати від змінної конфігурації "versionsort.suffix". Підтримувані ключі такі ж, як і в <span class='synopsis'><code>git</code> <code>for-each-ref</code></span>. Порядок сортування за замовчуванням дорівнює значенню, налаштованому для змінної <span class='synopsis'><code>tag.sort</code></span>, якщо вона існує, або лексикографічному порядку в іншому випадку. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>Сортування на основі заданого ключа. Додайте префікс <span class='synopsis'><code>-</code></span> для сортування у порядку спадання значення. Ви можете використовувати опцію <span class='synopsis'><code>--sort=</code><em>&lt;ключ&gt;</em></span> кілька разів, і в цьому випадку останній <em>&lt;ключ&gt;</em> стає первинним ключем. Також підтримується "<span class='synopsis'><code>version:refname</code></span>" або "<span class='synopsis'><code>v:refname</code></span>" (імена тегів обробляються як версії). Порядок сортування "<span class='synopsis'><code>version:refname</code></span>" також може залежати від змінної конфігурації "<span class='synopsis'><code>versionsort.suffix</code></span>". Підтримувані ключі такі ж, як і в <span class='synopsis'><code>git</code> <code>for-each-ref</code></span>. Порядок сортування за замовчуванням дорівнює значенню, налаштованому для змінної <span class='synopsis'><code>tag.sort</code></span>, якщо вона існує, або лексикографічному порядку в іншому випадку. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---colorltwhengt"> <a class="anchor" href="#git-tag---colorwhen"></a> <a class="anchor" href="#git-tag---colorltwhengt"></a>--color[=&lt;when&gt;] </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--colorcodecodecodeemltwhengtemspan"> <a class="anchor" href="#git-tag---colorwhen"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--colorcodecodecodeemltwhengtemspan"></a><span class='synopsis'><code>--color</code>[<code>=</code><em>&lt;when&gt;</em>]</span> </dt>
 <dd>
-<p>Враховуйте будь-які кольори, зазначені в опції <span class='synopsis'><code>--format</code></span>. Поле <span class='synopsis'><em>&lt;when&gt;</em></span> має бути одним із значень <span class='synopsis'><code>always</code></span>, <span class='synopsis'><code>never</code></span> або <span class='synopsis'><code>auto</code></span> (якщо <span class='synopsis'><em>&lt;when&gt;</em></span> відсутнє, поводьтеся так, ніби було вказано <span class='synopsis'><code>always</code></span>).</p>
+<p>Враховуйте будь-які кольори, зазначені в опції <span class='synopsis'><code>--format</code></span>. Поле <em>&lt;when&gt;</em> має бути одним із значень <span class='synopsis'><code>always</code></span>, <span class='synopsis'><code>never</code></span> або <span class='synopsis'><code>auto</code></span> (якщо <em>&lt;when&gt;</em> відсутній, поводьтеся так, ніби <span class='synopsis'><code>always</code></span> було вказано).</p>
 </dd>
-<dt class="hdlist1" id="git-tag--i"> <a class="anchor" href="#git-tag--i"></a>-i </dt>
-<dt class="hdlist1" id="git-tag---ignore-case"> <a class="anchor" href="#git-tag---ignore-case"></a>--ignore-case </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-icodespan"> <a class="anchor" href="#git-tag--i"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-icodespan"></a><span class='synopsis'><code>-i</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--ignore-casecodespan"> <a class="anchor" href="#git-tag---ignore-case"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--ignore-casecodespan"></a><span class='synopsis'><code>--ignore-case</code></span> </dt>
 <dd>
 <p>Теги сортування та фільтрації не враховують регістр.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---omit-empty"> <a class="anchor" href="#git-tag---omit-empty"></a>--omit-empty </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--omit-emptycodespan"> <a class="anchor" href="#git-tag---omit-empty"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--omit-emptycodespan"></a><span class='synopsis'><code>--omit-empty</code></span> </dt>
 <dd>
 <p>Не друкуйте новий рядок після відформатованих посилань, де формат розгортається до порожнього рядка.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---columnltoptionsgt"> <a class="anchor" href="#git-tag---columnoptions"></a> <a class="anchor" href="#git-tag---columnltoptionsgt"></a>--column[=&lt;options&gt;] </dt>
-<dt class="hdlist1" id="git-tag---no-column"> <a class="anchor" href="#git-tag---no-column"></a>--no-column </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--columncodecodecodeemltgtemspan"> <a class="anchor" href="#git-tag---column"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--columncodecodecodeemltgtemspan"></a><span class='synopsis'><code>--column</code>[<code>=</code><em>&lt;опція&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--no-columncodespan"> <a class="anchor" href="#git-tag---no-column"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--no-columncodespan"></a><span class='synopsis'><code>--no-column</code></span> </dt>
 <dd>
-<p>Відображати список тегів у стовпцях. Синтаксис опцій дивіться у змінній конфігурації <span class='synopsis'><code>column.tag</code></span>. <span class='synopsis'><code>--column</code></span> та <span class='synopsis'><code>--no-column</code></span> без опцій еквівалентні «always» та «never» відповідно.</p>
+<p>Відображати список тегів у стовпцях. Див. синтаксис опцій у змінній конфігурації <span class='synopsis'><code>column.tag</code></span>. <span class='synopsis'><code>--column</code></span> та <span class='synopsis'><code>--no-column</code></span> без опцій еквівалентні <span class='synopsis'><code>always</code></span> та <span class='synopsis'><code>never</code></span> відповідно.</p>
 <div class="paragraph">
 <p>Цей параметр застосовується лише під час перерахування тегів без рядків анотацій.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-tag---containsltcommitgt"> <a class="anchor" href="#git-tag---containscommit"></a> <a class="anchor" href="#git-tag---containsltcommitgt"></a>--contains [&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--containscodeemltgtemspan"> <a class="anchor" href="#git-tag---contains"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--containscodeemltgtemspan"></a><span class='synopsis'><code>--contains</code> [<em>&lt;коміт&gt;</em>]</span> </dt>
 <dd>
-<p>Перераховувати лише теги, що містять вказаний коміт (HEAD, якщо не вказано). Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
+<p>Перераховувати лише теги, що містять <em>&lt;commit&gt;</em> (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано). Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---no-containsltcommitgt"> <a class="anchor" href="#git-tag---no-containscommit"></a> <a class="anchor" href="#git-tag---no-containsltcommitgt"></a>--no-contains [&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--no-containscodeemltgtemspan"> <a class="anchor" href="#git-tag---no-contains"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--no-containscodeemltgtemspan"></a><span class='synopsis'><code>--no-contains</code> [<em>&lt;коміт&gt;</em>]</span> </dt>
 <dd>
-<p>Перераховувати лише теги, які не містять зазначеного коміту (HEAD, якщо не вказано). Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
+<p>Перераховувати лише теги, що не містять <em>&lt;commit&gt;</em> (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано). Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---mergedltcommitgt"> <a class="anchor" href="#git-tag---mergedcommit"></a> <a class="anchor" href="#git-tag---mergedltcommitgt"></a>--merged [&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--mergedcodeemltgtemspan"> <a class="anchor" href="#git-tag---merged"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--mergedcodeemltgtemspan"></a><span class='synopsis'><code>--merged</code> [<em>&lt;коміт&gt;</em>]</span> </dt>
 <dd>
-<p>Перелічувати лише теги, коміти яких доступні з вказаного коміту (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано).</p>
+<p>Перелічувати лише теги, коміти яких доступні з <em>&lt;commit&gt;</em> (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано).</p>
 </dd>
-<dt class="hdlist1" id="git-tag---no-mergedltcommitgt"> <a class="anchor" href="#git-tag---no-mergedcommit"></a> <a class="anchor" href="#git-tag---no-mergedltcommitgt"></a>--no-merged [&lt;commit&gt;] </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--no-mergedcodeemltgtemspan"> <a class="anchor" href="#git-tag---no-merged"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--no-mergedcodeemltgtemspan"></a><span class='synopsis'><code>--no-merged</code> [<em>&lt;коміт&gt;</em>]</span> </dt>
 <dd>
-<p>Перелічувати лише теги, коміти яких недоступні з вказаного коміту (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано).</p>
+<p>Перелічувати лише теги, коміти яких недоступні з <em>&lt;commit&gt;</em> (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано).</p>
 </dd>
-<dt class="hdlist1" id="git-tag---points-atltobjectgt"> <a class="anchor" href="#git-tag---points-atobject"></a> <a class="anchor" href="#git-tag---points-atltobjectgt"></a>--points-at &lt;object&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--points-atcodeemltobjectgtemspan"> <a class="anchor" href="#git-tag---points-atobject"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--points-atcodeemltobjectgtemspan"></a><span class='synopsis'><code>--points-at</code> [<em>&lt;object&gt;</em>]</span> </dt>
 <dd>
-<p>Перераховувати лише теги заданого об&#8217;єкта (HEAD, якщо не вказано). Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
+<p>Перераховувати лише теги <em>&lt;object&gt;</em> (<span class='synopsis'><code>HEAD</code></span>, якщо не вказано). Має на увазі <span class='synopsis'><code>--list</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--mltmsggt"> <a class="anchor" href="#git-tag--mmsg"></a> <a class="anchor" href="#git-tag--mltmsggt"></a>-m &lt;msg&gt; </dt>
-<dt class="hdlist1" id="git-tag---messageltmsggt"> <a class="anchor" href="#git-tag---messagemsg"></a> <a class="anchor" href="#git-tag---messageltmsggt"></a>--message=&lt;msg&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-mcodeemltmsggtemspan"> <a class="anchor" href="#git-tag--mmsg"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-mcodeemltmsggtemspan"></a><span class='synopsis'><code>-m</code> <em>&lt;msg&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--messagecodeemltgtemspan"> <a class="anchor" href="#git-tag---message"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--messagecodeemltgtemspan"></a><span class='synopsis'><code>--message=</code><em>&lt;повідомлення&gt;</em></span> </dt>
 <dd>
-<p>Використовувати надане повідомлення тегу (замість запиту). Якщо задано кілька опцій <span class='synopsis'><code>-m</code></span>, їхні значення об&#8217;єднуються в окремі абзаци. Має на увазі <span class='synopsis'><code>-a</code></span>, якщо не задано жодної з опцій <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span>.</p>
+<p>Використовуйте <em>&lt;msg&gt;</em> (замість запиту). Якщо задано кілька опцій <span class='synopsis'><code>-m</code></span>, їхні значення об&#8217;єднуються в окремі абзаци. Має на увазі <span class='synopsis'><code>-a</code></span>, якщо не задано жодної з опцій <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--Fltfilegt"> <a class="anchor" href="#git-tag--Ffile"></a> <a class="anchor" href="#git-tag--Fltfilegt"></a>-F &lt;file&gt; </dt>
-<dt class="hdlist1" id="git-tag---fileltfilegt"> <a class="anchor" href="#git-tag---filefile"></a> <a class="anchor" href="#git-tag---fileltfilegt"></a>--file=&lt;file&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-Fcodeemltgtemspan"> <a class="anchor" href="#git-tag--F"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-Fcodeemltgtemspan"></a><span class='synopsis'><code>-F</code> <em>&lt;файл&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--filecodeemltgtemspan"> <a class="anchor" href="#git-tag---file"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--filecodeemltgtemspan"></a><span class='synopsis'><code>--file=</code><em>&lt;файл&gt;</em></span> </dt>
 <dd>
-<p>Взяти повідомлення тегу з заданого файлу. Використати <em>-</em> для зчитування повідомлення зі стандартного вводу. Має на увазі <span class='synopsis'><code>-a</code></span>, якщо не вказано жодного з <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span>.</p>
+<p>Візьміть повідомлення тегу з <em>&lt;файлу&gt;</em>. Використовуйте <span class='synopsis'><code>-</code></span> для зчитування повідомлення зі стандартного вводу. Має на увазі <span class='synopsis'><code>-a</code></span>, якщо не вказано жодного з <span class='synopsis'><code>-a</code></span>, <span class='synopsis'><code>-s</code></span> або <span class='synopsis'><code>-u</code> <em>&lt;ідентифікатор-ключа&gt;</em></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---trailerlttokengtltvaluegt"> <a class="anchor" href="#git-tag---trailertokenvalue"></a> <a class="anchor" href="#git-tag---trailerlttokengtltvaluegt"></a>--trailer &lt;token&gt;[(=|:)&lt;value&gt;] </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--trailercodeemlttokengtemcodecodecodecodeemltvaluegtemspan"> <a class="anchor" href="#git-tag---trailertokenvalue"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--trailercodeemlttokengtemcodecodecodecodeemltvaluegtemspan"></a><span class='synopsis'><code>--trailer</code> <em>&lt;token&gt;</em>[(<code>=</code>|<code>:</code>)<em>&lt;value&gt;</em>]</span> </dt>
 <dd>
-<p>Вкажіть пару (&lt;токен&gt;, &lt;значення&gt;), яку слід застосувати як трейлер. (наприклад, <span class='synopsis'><em>git tag --trailer "Custom-Key: значення"</em></span> додасть трейлер "Custom-Key" до повідомлення тегу). Змінні конфігурації <span class='synopsis'><code>trailer.*</code></span> (<a href='{{< relurl "docs/git-interpret-trailers/uk" >}}'>git-interpret-trailers[1]</a>) можна використовувати для визначення того, чи пропускається дублікат трейлера, де в рядку трейлерів з&#8217;явиться кожен трейлер та інших деталей. Трейлери можна витягти в <span class='synopsis'><code>git</code> <code>tag</code> <code>--list</code></span>, використовуючи заповнювач <span class='synopsis'><code>--format="%</code>(<code>trailers</code>)<code>"</code></span>.</p>
+<p>Вкажіть пару (<em>&lt;токен&gt;</em>, <em>&lt;значення&gt;</em>), яку слід застосувати як трейлер. (наприклад, <span class='synopsis'><em>git tag --trailer "Custom-Key: значення"</em></span> додасть трейлер "Custom-Key" до повідомлення тегу). Змінні конфігурації <span class='synopsis'><code>trailer.*</code></span> (<a href='{{< relurl "docs/git-interpret-trailers/uk" >}}'>git-interpret-trailers[1]</a>) можна використовувати для визначення того, чи пропускається дублікат трейлера, де в рядку трейлерів з&#8217;явиться кожен трейлер та інших деталей. Трейлери можна витягти в <span class='synopsis'><code>git</code> <code>tag</code> <code>--list</code></span>, використовуючи заповнювач <span class='synopsis'><code>--format="%</code>(<code>trailers</code>)<code>"</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag--e"> <a class="anchor" href="#git-tag--e"></a>-e </dt>
-<dt class="hdlist1" id="git-tag---edit"> <a class="anchor" href="#git-tag---edit"></a>--edit </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode-ecodespan"> <a class="anchor" href="#git-tag--e"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode-ecodespan"></a><span class='synopsis'><code>-e</code></span> </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--editcodespan"> <a class="anchor" href="#git-tag---edit"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--editcodespan"></a><span class='synopsis'><code>--edit</code></span> </dt>
 <dd>
-<p>Повідомлення, взяте з файлу з опцією <span class='synopsis'><code>-F</code></span> та з командного рядка з опцією <span class='synopsis'><code>-m</code></span>, зазвичай використовується як незмінне повідомлення тегу. Ця опція дозволяє вам додатково редагувати повідомлення, взяте з цих джерел.</p>
+<p>Далі відредагуємо повідомлення, взяте з файлу за допомогою <span class='synopsis'><code>-F</code></span> та командного рядка за допомогою <span class='synopsis'><code>-m</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---cleanupltmodegt"> <a class="anchor" href="#git-tag---cleanupmode"></a> <a class="anchor" href="#git-tag---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--cleanupcodeemltgtemspan"> <a class="anchor" href="#git-tag---cleanup"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--cleanupcodeemltgtemspan"></a><span class='synopsis'><code>--cleanup=</code><em>&lt;режим&gt;</em></span> </dt>
 <dd>
-<p>Цей параметр визначає спосіб очищення повідомлення тегу. Режим «&lt;mode&gt;» може мати один із варіантів: «verbatim», «whitespace» або «strip». Режим «strip» є режимом за замовчуванням. Режим «verbatim» взагалі не змінює повідомлення, «whitespace» видаляє лише початкові/заключні пробіли, а «strip» видаляє як пробіли, так і коментарі.</p>
+<p>Встановіть спосіб очищення повідомлення тегу. <em>&lt;mode&gt;</em> може мати один із варіантів: <span class='synopsis'><code>verbatim</code></span>, <span class='synopsis'><code>whitespace</code></span> або <span class='synopsis'><code>strip</code></span>. Режим <span class='synopsis'><code>strip</code></span> використовується за замовчуванням. Режим <span class='synopsis'><code>verbatim</code></span> взагалі не змінює повідомлення, <span class='synopsis'><code>whitespace</code></span> видаляє лише початкові/заключні пробіли, а <span class='synopsis'><code>strip</code></span> видаляє як пробіли, так і коментарі.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---create-reflog"> <a class="anchor" href="#git-tag---create-reflog"></a>--create-reflog </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--create-reflogcodespan"> <a class="anchor" href="#git-tag---create-reflog"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--create-reflogcodespan"></a><span class='synopsis'><code>--create-reflog</code></span> </dt>
 <dd>
 <p>Створіть журнал перепису для тегу. Щоб глобально ввімкнути журнали перепису для тегів, див. <span class='synopsis'><code>core.logAllRefUpdates</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Заперечувана форма <span class='synopsis'><code>--no-create-reflog</code></span> лише перевизначає попередню форму <span class='synopsis'><code>--create-reflog</code></span>, але наразі не скасовує налаштування <span class='synopsis'><code>core.logAllRefUpdates</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag---formatltformatgt"> <a class="anchor" href="#git-tag---formatformat"></a> <a class="anchor" href="#git-tag---formatltformatgt"></a>--format=&lt;format&gt; </dt>
+<dt class="hdlist1" id="git-tag-spanclasssynopsiscode--formatcodeemltformatgtemspan"> <a class="anchor" href="#git-tag---formatformat"></a> <a class="anchor" href="#git-tag-spanclasssynopsiscode--formatcodeemltformatgtemspan"></a><span class='synopsis'><code>--format=</code><em>&lt;format&gt;</em></span> </dt>
 <dd>
 <p>Рядок, який інтерполює <span class='synopsis'><em>%(назваполя)</em></span> з посилання на тег, що відображається, та об&#8217;єкта, на який воно вказує. Формат такий самий, як і у <a href='{{< relurl "docs/git-for-each-ref/uk" >}}'>git-for-each-ref[1]</a>. Якщо не вказано, за замовчуванням використовується <span class='synopsis'><code>%</code>(<code>refname:strip=2</code>)</span>.</p>
 </dd>
-<dt class="hdlist1" id="git-tag-lttagnamegt"> <a class="anchor" href="#git-tag-tagname"></a> <a class="anchor" href="#git-tag-lttagnamegt"></a>&lt;tagname&gt; </dt>
+<dt class="hdlist1" id="git-tag-emlttagnamegtem"> <a class="anchor" href="#git-tag-tagname"></a> <a class="anchor" href="#git-tag-emlttagnamegtem"></a><em>&lt;tagname&gt;</em> </dt>
 <dd>
 <p>Назва тегу, який потрібно створити, видалити або описати. Нова назва тегу має пройти всі перевірки, визначені в <a href='{{< relurl "docs/git-check-ref-format/uk" >}}'>git-check-ref-format[1]</a>. Деякі з цих перевірок можуть обмежувати кількість символів, дозволених у назві тегу.</p>
 </dd>
-<dt class="hdlist1" id="git-tag-ltcommitgt"> <a class="anchor" href="#git-tag-commit"></a> <a class="anchor" href="#git-tag-ltcommitgt"></a>&lt;commit&gt; </dt>
-<dt class="hdlist1" id="git-tag-ltobjectgt"> <a class="anchor" href="#git-tag-object"></a> <a class="anchor" href="#git-tag-ltobjectgt"></a>&lt;object&gt; </dt>
+<dt class="hdlist1" id="git-tag-emltcommitgtem"> <a class="anchor" href="#git-tag-commit"></a> <a class="anchor" href="#git-tag-emltcommitgtem"></a><em>&lt;commit&gt;</em> </dt>
+<dt class="hdlist1" id="git-tag-emltobjectgtem"> <a class="anchor" href="#git-tag-object"></a> <a class="anchor" href="#git-tag-emltobjectgtem"></a><em>&lt;object&gt;</em> </dt>
 <dd>
-<p>Об&#8217;єкт, на який посилатиметься новий тег, зазвичай це коміт. За замовчуванням HEAD.</p>
+<p>Об&#8217;єкт, на який посилатиметься новий тег, зазвичай це коміт. За замовчуванням <span class='synopsis'><code>HEAD</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -236,16 +238,25 @@ headings:
 <h2 id="_конфігурація"><a class="anchor" href="#_конфігурація"></a>КОНФІГУРАЦІЯ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>За замовчуванням, «git tag» у режимі sign-with-default (-s) використовуватиме вашу ідентифікацію комітера (формату <span class='synopsis'><em>Ваше ім'я &lt;ваша@адреса_електронної_пошти&gt;</em></span>) для пошуку ключа. Якщо ви хочете використовувати інший ключ за замовчуванням, ви можете вказати його в конфігурації репозиторію наступним чином:</p>
+<p>За замовчуванням, <span class='synopsis'><code>git</code> <code>tag</code></span> у режимі sign-with-default (<span class='synopsis'><code>-s</code></span>) використовуватиме ваш ідентифікатор комітера (у форматі <span class='synopsis'><em>Ваше ім'я &lt;ваша@адреса_електронної_пошти&gt;</em></span>) для пошуку ключа. Якщо ви хочете використовувати інший ключ за замовчуванням, ви можете вказати його в конфігурації репозиторію наступним чином:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre>[user]
-    signingKey = &lt;gpg-key-id&gt;</pre>
+    signingKey = &lt;key-id&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Параметр <span class='synopsis'><code>pager.tag</code></span> враховується лише під час перерахування тегів, тобто коли використовується або мається на увазі <span class='synopsis'><code>-l</code></span>. За замовчуванням використовується пейджер. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>Бекенд підпису можна вибрати за допомогою змінної конфігурації <span class='synopsis'><code>gpg.format</code></span>, яка за замовчуванням має значення <span class='synopsis'><code>openpgp</code></span>. Див. список інших підтримуваних форматів у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Шлях до програми, що використовується для кожного сервера підписання, можна вказати за допомогою змінної конфігурації <span class='synopsis'><code>gpg.</code><em>&lt;format&gt;</em><code>.program</code></span>. Для сервера <span class='synopsis'><code>openpgp</code></span> <span class='synopsis'><code>gpg.program</code></span> можна використовувати як синонім <span class='synopsis'><code>gpg.openpgp.program</code></span>. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> для отримання детальної інформації.</p>
+</div>
+<div class="paragraph">
+<p><span class='synopsis'><code>pager.tag</code></span> враховується лише під час перерахування тегів, тобто коли використовується або мається на увазі <span class='synopsis'><code>-l</code></span>. За замовчуванням використовується пейджер.</p>
+</div>
+<div class="paragraph">
+<p>Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> для отримання додаткової інформації та інших змінних конфігурації.</p>
 </div>
 </div>
 </div>
@@ -258,7 +269,7 @@ headings:
 <p>Що робити, коли ви позначили неправильний коміт і хочете перепознати його?</p>
 </div>
 <div class="paragraph">
-<p>Якщо ви ніколи нічого не виштовхували, просто перемініть тег. Використайте "-f", щоб замінити старий. І все готово.</p>
+<p>Якщо ви ніколи нічого не виштовхували, просто перемініть тег. Використайте <span class='synopsis'><code>-f</code></span>, щоб замінити старий. І все готово.</p>
 </div>
 <div class="paragraph">
 <p>Але якщо ви виклали дані (або інші могли просто читати ваш репозиторій безпосередньо), то інші вже бачили старий тег. У такому разі ви можете зробити одне з двох:</p>
@@ -269,12 +280,12 @@ headings:
 <p>Розумна річ. Просто визнайте, що ви помилилися, і використовуйте інше ім&#8217;я. Інші вже бачили одне ім&#8217;я тегу, і якщо ви збережете те саме ім&#8217;я, ви можете опинитися в ситуації, коли двоє людей мають "версію X", але насправді вони мають "різні" "X". Тож просто назвіть це "X.1" і на цьому покінчіть.</p>
 </li>
 <li>
-<p>Божевілля. Ви справді хочете назвати нову версію "X", "хоча" інші вже бачили стару. Тож просто знову використовуйте <em>git tag -f</em>, ніби ви ще не опублікували стару.</p>
+<p>Божевілля. Ви справді хочете назвати нову версію "X", "хоча" інші вже бачили стару. Тож просто знову використовуйте <span class='synopsis'><code>git</code> <code>tag</code> <code>-f</code></span>, ніби ви ще не опублікували стару версію.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Однак, Git <strong>не</strong> змінює (і не повинен) теги за спиною користувачів. Тож, якщо хтось уже отримав старий тег, виконання «git pull» у вашому дереві не повинно просто змусити його перезаписати старий.</p>
+<p>Однак, Git <strong>не</strong> змінює (і не повинен) теги за спиною користувачів. Тож, якщо хтось уже отримав старий тег, виконання <span class='synopsis'><code>git</code> <code>pull</code></span> на вашому дереві не повинно просто змусити його перезаписати старий.</p>
 </div>
 <div class="paragraph">
 <p>Якщо хтось отримав від вас тег випуску, ви не можете просто змінити його для нього, оновивши свій власний. Це велика проблема безпеки, оскільки люди ПОВИННІ довіряти своїм тегам. Якщо ви дійсно хочете зробити щось божевільне, вам потрібно просто зізнатися у своїй помилці та сказати людям, що ви помилилися. Ви можете зробити це, зробивши публічну заяву, в якій скажете:</p>
@@ -314,7 +325,7 @@ headings:
 <p>З іншого боку, якщо ви отримуєте дані, бо хочете отримати одноразове злиття від когось іншого, ви зазвичай не хочете отримувати теги звідти. Це трапляється частіше з людьми, які знаходяться поблизу верхнього рівня, але не обмежується ними. Прості смертні, коли отримують дані один від одного, не обов&#8217;язково хочуть автоматично отримувати приватні теги опорних точок від іншої людини.</p>
 </div>
 <div class="paragraph">
-<p>Часто повідомлення типу «будь ласка, витягніть» у списку розсилки містять лише два фрагменти інформації: URL-адресу репозиторію та назву гілки; це розроблено для легкого копіювання та вставки в кінці командного рядка «git fetch»:</p>
+<p>Часто повідомлення типу «будь ласка, витягніть» у списку розсилки містять лише два фрагменти інформації: URL-адресу репозиторію та назву гілки; це розроблено для легкого копіювання та вставки в кінці командного рядка <span class='synopsis'><code>git</code> <code>fetch</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -411,6 +422,31 @@ headings:
 <p>Цей файл містить повідомлення анотованого тегу, що створюється. Якщо <span class='synopsis'><code>git</code> <code>tag</code></span> завершується через помилку перед створенням анотованого тегу, то повідомлення тегу, яке було надано користувачем у сеансі редактора, буде доступне в цьому файлі, але може бути перезаписано наступним викликом <span class='synopsis'><code>git</code> <code>tag</code></span>.</p>
 </dd>
 </dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_конфігурація_2"><a class="anchor" href="#_конфігурація_2"></a>КОНФІГУРАЦІЯ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Все, що знаходиться нижче цього рядка в цьому розділі, вибірково включено з документації <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Вміст такий самий, як і там:</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <span class='synopsis'><code>uk/config/tag.adoc</code></span></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

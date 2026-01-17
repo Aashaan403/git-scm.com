@@ -179,7 +179,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--multiplecodespan"> <a class="anchor" href="#git-fetch---multiple"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--multiplecodespan"></a><span class='synopsis'><code>--multiple</code></span> </dt>
 <dd>
-<p>Allow several <em>&lt;repository&gt;</em> and <em>&lt;group&gt;</em> arguments to be specified. No <em>&lt;refspec&gt;</em>s may be specified.</p>
+<p>Permettre de spécifier plusieurs arguments <em>&lt;dépôt&gt;</em> et <em>&lt;groupe&gt;</em>. Aucun <em>&lt;spécificateur-de-référence&gt;</em> ne peut être spécifié.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--auto-maintenancecodespan"> <a class="anchor" href="#git-fetch---auto-maintenance"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--auto-maintenancecodespan"></a><span class='synopsis'><code>--auto-maintenance</code></span> </dt>
 <dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-auto-maintenancecodespan"> <a class="anchor" href="#git-fetch---no-auto-maintenance"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-auto-maintenancecodespan"></a><span class='synopsis'><code>--no-auto-maintenance</code></span> </dt>
@@ -332,7 +332,7 @@ Cette option permet de passer outre à ce contrôle.</p>
 <dl>
 <dt class="hdlist1" id="git-fetch-emltspc-de-rfgtem"> <a class="anchor" href="#git-fetch-spc-de-rf"></a> <a class="anchor" href="#git-fetch-emltspc-de-rfgtem"></a><em>&lt;spéc-de-réf&gt;</em> </dt>
 <dd>
-<p>Specifies which refs to fetch and which local refs to update. When no <em>&lt;refspec&gt;</em>s appear on the command line, the refs to fetch are read from <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span> variables instead
+<p>Préciser les références à récupérer et les références locales à mettre à jour. Lorsqu&#8217;aucun <em>&lt;spéc-de-réf&gt;</em> n&#8217;apparaît sur la ligne de commande, les références à récupérer sont lues à partir des variables <span class='synopsis'><code>remote.</code><em>&lt;dépôt&gt;</em><code>.fetch</code></span> à la place
 (voir <a href="#CRTB">BRANCHES DE SUIVI À DISTANCE CONFIGURÉES</a> ci-dessous).</p>
 <div class="paragraph">
 <p>Le format d&#8217;un paramètre <em>&lt;spéc-de-réf&gt;</em> est un plus <span class='synopsis'><code>+</code></span> optionnel, suivi de la source <em>&lt;src&gt;</em>, suivi de deux points <span class='synopsis'><code>:</code></span>, suivi de la destination <em>&lt;dst&gt;</em>. Les deux points peuvent être omis lorsque <em>&lt;dst&gt;</em> est vide. <em>&lt;src&gt;</em> est typiquement une réf, ou un motif glob avec un unique <span class='synopsis'><code>*</code></span> qui est utilisé pour trouver un ensemble de réfs mais cela peut aussi être un nom d&#8217;objet hexadécimal complet.</p>

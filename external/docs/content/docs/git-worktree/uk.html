@@ -30,6 +30,8 @@ headings:
   id: _формат_виведення_списку
 - text: ПРИКЛАДИ
   id: _приклади
+- text: КОНФІГУРАЦІЯ
+  id: _конфігурація
 - text: ПОМИЛКИ
   id: _помилки
 - text: GIT
@@ -47,15 +49,15 @@ headings:
 <h2 id="_синопсис"><a class="anchor" href="#_синопсис"></a>СИНОПСИС</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git worktree add</em> [-f] [--detach] [--checkout] [--lock [--reason &lt;string&gt;]]
-		   [--orphan] [(-b | -B) &lt;new-branch&gt;] &lt;path&gt; [&lt;commit-ish&gt;]
-<em>git worktree list</em> [-v | --porcelain [-z]]
-<em>git worktree lock</em> [--reason &lt;string&gt;] &lt;worktree&gt;
-<em>git worktree move</em> &lt;worktree&gt; &lt;new-path&gt;
-<em>git worktree prune</em> [-n] [-v] [--expire &lt;expire&gt;]
-<em>git worktree remove</em> [-f] &lt;worktree&gt;
-<em>git worktree repair</em> [&lt;path&gt;&#8230;&#8203;]
-<em>git worktree unlock</em> &lt;worktree&gt;</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>add</code></span> [<span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>--detach</code></span>] [<span class='synopsis'><code>--checkout</code></span>] [<span class='synopsis'><code>--lock</code></span> [<span class='synopsis'><code>--reason</code></span> <em>&lt;string&gt;</em>]]
+		 [<span class='synopsis'><code>--orphan</code></span>] [(<span class='synopsis'><code>-b</code></span> | <span class='synopsis'><code>-B</code></span>) <em>&lt;new-branch&gt;</em>] <em>&lt;path&gt;</em> [<em>&lt;commit-ish&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>list</code></span> [<span class='synopsis'><code>-v</code></span> | <span class='synopsis'><code>--porcelain</code></span> [<span class='synopsis'><code>-z</code></span>]]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>lock</code></span> [<span class='synopsis'><code>--reason</code></span> <em>&lt;string&gt;</em>] <em>&lt;worktree&gt;</em>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>move</code></span> <em>&lt;worktree&gt;</em> <em>&lt;new-path&gt;</em>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>prune</code></span> [<span class='synopsis'><code>-n</code></span>] [<span class='synopsis'><code>-v</code></span>] [<span class='synopsis'><code>--expire</code></span> <em>&lt;expire&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>remove</code></span> [<span class='synopsis'><code>-f</code></span>] <em>&lt;worktree&gt;</em>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>repair</code></span> [<em>&lt;path&gt;</em>&#8230;&#8203;]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>worktree</code></span> <span class='synopsis'><code>unlock</code></span> <em>&lt;worktree&gt;</em></pre>
 </div>
 </div>
 </div>
@@ -72,7 +74,7 @@ headings:
 <p>Це нове робоче дерево називається "зв&#8217;язаним робочим деревом", на відміну від "головного робочого дерева", підготовленого за допомогою <a href='{{< relurl "docs/git-init/uk" >}}'>git-init[1]</a> або <a href='{{< relurl "docs/git-clone/uk" >}}'>git-clone[1]</a>. Репозиторій має одне головне робоче дерево (якщо це не голий репозиторій) та нуль або більше зв&#8217;язаних робочих дерев. Коли ви закінчите роботу зі зв&#8217;язаним робочим деревом, видаліть його за допомогою <span class='synopsis'><code>git</code> <code>worktree</code> <code>remove</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>У найпростішій формі, <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <em>&lt;шлях&gt;</em></span> автоматично створює нову гілку, ім&#8217;я якої є останнім компонентом <span class='synopsis'><em>&lt;шлях&gt;</em></span>, що зручно, якщо ви плануєте працювати над новою темою. Наприклад, <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>../hotfix</code></span> створює нову гілку <span class='synopsis'><code>hotfix</code></span> та перевіряє її за шляхом <span class='synopsis'><code>../hotfix</code></span>. Щоб натомість працювати над існуючою гілкою в новому робочому дереві, використовуйте <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <em>&lt;шлях&gt;</em> <em>&lt;грань&gt;</em></span>. З іншого боку, якщо ви просто плануєте внести деякі експериментальні зміни або провести тестування, не порушуючи існуючу розробку, часто зручно створити "викидне" робоче дерево, не пов&#8217;язане з жодною гілкою. Наприклад, <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>-d</code> <em>&lt;шлях&gt;</em></span> створює нове робоче дерево з відокремленим <span class='synopsis'><code>HEAD</code></span> у тому ж коміті, що й поточна гілка.</p>
+<p>У найпростішій формі, <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <em>&lt;шлях&gt;</em></span> автоматично створює нову гілку, ім&#8217;я якої є останнім компонентом <em>&lt;шлях&gt;</em>, що зручно, якщо ви плануєте працювати над новою темою. Наприклад, <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>../hotfix</code></span> створює нову гілку <span class='synopsis'><code>hotfix</code></span> та перевіряє її за шляхом <span class='synopsis'><code>../hotfix</code></span>. Щоб натомість працювати над існуючою гілкою в новому робочому дереві, використовуйте <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <em>&lt;шлях&gt;</em> <em>&lt;грань&gt;</em></span>. З іншого боку, якщо ви просто плануєте внести деякі експериментальні зміни або провести тестування, не порушуючи існуючу розробку, часто зручно створити "викидне" робоче дерево, не пов&#8217;язане з жодною гілкою. Наприклад, <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code> <code>-d</code> <em>&lt;шлях&gt;</em></span> створює нове робоче дерево з відокремленим <span class='synopsis'><code>HEAD</code></span> у тому ж коміті, що й поточна гілка.</p>
 </div>
 <div class="paragraph">
 <p>Якщо робоче дерево видаляється без використання команди <span class='synopsis'><code>git</code> <code>worktree</code> <code>remove</code></span>, то пов&#8217;язані з ним адміністративні файли, які знаходяться в репозиторії (див. "ДЕТАЛІ" нижче), зрештою будуть видалені автоматично (див. <span class='synopsis'><code>gc.worktreePruneExpire</code></span> в <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>), або ви можете запустити <span class='synopsis'><code>git</code> <code>worktree</code> <code>prune</code></span> в головному або будь-якому пов&#8217;язаному робочому дереві, щоб очистити будь-які застарілі адміністративні файли.</p>
@@ -87,11 +89,11 @@ headings:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-worktree-addltpathgtltcommit-ishgt"> <a class="anchor" href="#git-worktree-addpathcommit-ish"></a> <a class="anchor" href="#git-worktree-addltpathgtltcommit-ishgt"></a>add &lt;path&gt; [&lt;commit-ish&gt;] </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscodeaddcodeemltpathgtememltcommit-ishgtemspan"> <a class="anchor" href="#git-worktree-addpathcommit-ish"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscodeaddcodeemltpathgtememltcommit-ishgtemspan"></a><span class='synopsis'><code>add</code> <em>&lt;path&gt;</em> [<em>&lt;commit-ish&gt;</em>]</span> </dt>
 <dd>
-<p>Створіть робоче дерево за адресою <span class='synopsis'><em>&lt;path&gt;</em></span> та вивантажте в нього <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>. Нове робоче дерево пов&#8217;язане з поточним репозиторієм, надаючи доступ до всього, крім файлів для кожного робочого дерева, таких як <span class='synopsis'><code>HEAD</code></span>, <span class='synopsis'><code>index</code></span> тощо. Для зручності <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> може бути простою символом "<span class='synopsis'><code>-</code></span>", що є синонімом <span class='synopsis'><code>@{-1}</code></span>.</p>
+<p>Створіть робоче дерево за адресою <em>&lt;шлях&gt;</em> та вивантажте в нього <em>&lt;commit-ish&gt;</em>. Нове робоче дерево пов&#8217;язане з поточним репозиторієм, надаючи доступ до всього, крім файлів для кожного робочого дерева, таких як <span class='synopsis'><code>HEAD</code></span>, <span class='synopsis'><code>index</code></span> тощо. Для зручності, <em>&lt;commit-ish&gt;</em> може бути простою символом "<span class='synopsis'><code>-</code></span>", що є синонімом <span class='synopsis'><code>@{-1}</code></span>.</p>
 <div class="paragraph">
-<p>Якщо <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> є назвою гілки (назвемо її <span class='synopsis'><em>&lt;branch&gt;</em></span>) і не знайдена, і не використовуються ні <span class='synopsis'><code>-b</code></span>, ні <span class='synopsis'><code>-B</code></span>, ні <span class='synopsis'><code>--detach</code></span>, але існує гілка відстеження рівно в одному віддаленому об&#8217;єкті (назвемо її <span class='synopsis'><em>&lt;remote&gt;</em></span>) з відповідним ім&#8217;ям, розглядати як еквівалент:</p>
+<p>Якщо <em>&lt;commit-ish&gt;</em> є назвою гілки (назвемо її <em>&lt;branch&gt;</em>) і не знайдена, і не використовуються ні <span class='synopsis'><code>-b</code></span>, ні <span class='synopsis'><code>-B</code></span>, ні <span class='synopsis'><code>--detach</code></span>, але існує гілка відстеження рівно в одній віддаленій гілці (назвемо її <em>&lt;remote&gt;</em>) з відповідним ім&#8217;ям, розглядати як еквівалент:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -99,49 +101,49 @@ headings:
 </div>
 </div>
 <div class="paragraph">
-<p>Якщо гілка існує на кількох віддалених серверах, і одна з них названа змінною конфігурації <span class='synopsis'><code>checkout.defaultRemote</code></span>, ми використовуватимемо її для усунення неоднозначностей, навіть якщо <span class='synopsis'><em>&lt;branch&gt;</em></span> не є унікальною на всіх віддалених серверах. Встановіть її, наприклад, на <span class='synopsis'><code>checkout.defaultRemote=origin</code></span>, щоб завжди отримувати віддалені гілки звідти, якщо <span class='synopsis'><em>&lt;branch&gt;</em></span> є неоднозначною, але існує на віддаленому сервері <span class='synopsis'><code>origin</code></span>. Див. також <span class='synopsis'><code>checkout.defaultRemote</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>Якщо гілка існує на кількох віддалених серверах, і одна з них названа змінною конфігурації <span class='synopsis'><code>checkout.defaultRemote</code></span>, ми використовуватимемо її для усунення неоднозначностей, навіть якщо <em>&lt;branch&gt;</em> не є унікальною на всіх віддалених серверах. Встановіть її, наприклад, на <span class='synopsis'><code>checkout.defaultRemote=origin</code></span>, щоб завжди отримувати віддалені гілки звідти, якщо <em>&lt;branch&gt;</em> є неоднозначною, але існує на віддаленому сервері <span class='synopsis'><code>origin</code></span>. Див. також <span class='synopsis'><code>checkout.defaultRemote</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>Якщо <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> пропущено і не використовується ні <span class='synopsis'><code>-b</code></span>, ні <span class='synopsis'><code>-B</code></span>, ні <span class='synopsis'><code>--detach</code></span>, то для зручності нове робоче дерево пов&#8217;язується з гілкою (назвемо її <span class='synopsis'><em>&lt;branch&gt;</em></span>) з назвою <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;path&gt;</em>)</span>. Якщо <span class='synopsis'><em>&lt;branch&gt;</em></span> не існує, автоматично створюється нова гілка на основі <span class='synopsis'><code>HEAD</code></span>, ніби було задано <span class='synopsis'><code>-b</code> <em>&lt;branch&gt;</em></span>. Якщо <span class='synopsis'><em>&lt;branch&gt;</em></span> існує, вона буде витягнута з нового робочого дерева, якщо вона не витягнута ніде більше, інакше команда відмовиться створювати робоче дерево (якщо не використовується <span class='synopsis'><code>--force</code></span>).</p>
+<p>Якщо <em>&lt;commit-ish&gt;</em> пропущено і не використано ні <span class='synopsis'><code>-b</code></span>, ні <span class='synopsis'><code>-B</code></span>, ні <span class='synopsis'><code>--detach</code></span>, то для зручності нове робоче дерево пов&#8217;язується з гілкою (назвемо її <em>&lt;branch&gt;</em>) з назвою <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;path&gt;</em>)</span>. Якщо <em>&lt;branch&gt;</em> не існує, автоматично створюється нова гілка на основі <span class='synopsis'><code>HEAD</code></span>, ніби було вказано <span class='synopsis'><code>-b</code> <em>&lt;branch&gt;</em></span>. Якщо <em>&lt;branch&gt;</em> існує, вона буде витягнута з нового робочого дерева, якщо вона не витягнута ніде більше, інакше команда відмовиться створювати робоче дерево (якщо не використано <span class='synopsis'><code>--force</code></span>).</p>
 </div>
 <div class="paragraph">
-<p>Якщо <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> пропущено, не використовується ні <span class='synopsis'><code>--detach</code></span>, ні <span class='synopsis'><code>--orphan</code></span>, і немає дійсних локальних гілок (або віддалених гілок, якщо вказано <span class='synopsis'><code>--guess-remote</code></span>), тоді, для зручності, нове робоче дерево пов&#8217;язується з новою ненародженою гілкою з назвою <span class='synopsis'><em>&lt;branch&gt;</em></span> (після <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;path&gt;</em>)</span>, якщо не використовується ні <span class='synopsis'><code>-b</code></span>, ні <span class='synopsis'><code>-B</code></span>), ніби <span class='synopsis'><code>--orphan</code></span> було передано команді. У випадку, якщо репозиторій має віддалену гілку та використовується <span class='synopsis'><code>--guess-remote</code></span>, але не існує віддалених або локальних гілок, команда не виконується з попередженням, яке нагадує користувачеві спочатку отримати дані зі своєї віддаленої гілки (або перевизначити їх за допомогою <span class='synopsis'><code>-f/--force</code></span>).</p>
+<p>Якщо <em>&lt;commit-ish&gt;</em> пропущено, не використовується ні <span class='synopsis'><code>--detach</code></span>, ні <span class='synopsis'><code>--orphan</code></span>, і немає дійсних локальних гілок (або віддалених гілок, якщо вказано <span class='synopsis'><code>--guess-remote</code></span>), тоді, для зручності, нове робоче дерево пов&#8217;язується з новою ненародженою гілкою з іменем <em>&lt;branch&gt;</em> (після <span class='synopsis'><code>$</code>(<code>basename</code> <em>&lt;path&gt;</em>)</span>, якщо не використовується ні <span class='synopsis'><code>-b</code></span>, ні <span class='synopsis'><code>-B</code></span>), ніби команді було передано <span class='synopsis'><code>--orphan</code></span>. У випадку, якщо репозиторій має віддалену гілку та використовується <span class='synopsis'><code>--guess-remote</code></span>, але не існує віддалених або локальних гілок, команда не виконується з попередженням, яке нагадує користувачеві спочатку отримати дані зі своєї віддаленої гілки (або перевизначити їх за допомогою <span class='synopsis'><code>-f/--force</code></span>).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree-list"> <a class="anchor" href="#git-worktree-list"></a>list </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscodelistcodespan"> <a class="anchor" href="#git-worktree-list"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscodelistcodespan"></a><span class='synopsis'><code>list</code></span> </dt>
 <dd>
 <p>Перелічіть деталі кожного робочого дерева. Спочатку перелічено головне робоче дерево, а потім кожне з пов&#8217;язаних робочих дерев. Вихідні деталі включають, чи є робоче дерево чистим, яку версію наразі вилучено, яку гілку наразі вилучено (або "відокремлену HEAD", якщо її немає), "заблоковано", якщо робоче дерево заблоковано, "обрізається", якщо робоче дерево можна обрізати командою <span class='synopsis'><code>prune</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-lock"> <a class="anchor" href="#git-worktree-lock"></a>lock </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscodelockcodespan"> <a class="anchor" href="#git-worktree-lock"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscodelockcodespan"></a><span class='synopsis'><code>lock</code></span> </dt>
 <dd>
 <p>Якщо робоче дерево знаходиться на портативному пристрої або мережевому ресурсі, який не завжди змонтовано, заблокуйте його, щоб запобігти автоматичному видаленню адміністративних файлів. Це також запобігає його переміщенню або видаленню. За потреби вкажіть причину блокування за допомогою <span class='synopsis'><code>--reason</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-move"> <a class="anchor" href="#git-worktree-move"></a>move </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscodemovecodespan"> <a class="anchor" href="#git-worktree-move"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscodemovecodespan"></a><span class='synopsis'><code>move</code></span> </dt>
 <dd>
 <p>Перемістити робоче дерево в нове місце. Зверніть увагу, що головне робоче дерево або пов&#8217;язані робочі дерева, що містять підмодулі, не можна перемістити за допомогою цієї команди. (Однак команда <span class='synopsis'><code>git</code> <code>worktree</code> <code>repair</code></span> може відновити з&#8217;єднання зі пов&#8217;язаними робочими деревами, якщо ви перемістите головне робоче дерево вручну.)</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-prune"> <a class="anchor" href="#git-worktree-prune"></a>prune </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscodeprunecodespan"> <a class="anchor" href="#git-worktree-prune"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscodeprunecodespan"></a><span class='synopsis'><code>prune</code></span> </dt>
 <dd>
 <p>Вирізати інформацію з робочого дерева в <span class='synopsis'><code>$GIT_DIR/worktrees</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-remove"> <a class="anchor" href="#git-worktree-remove"></a>remove </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscoderemovecodespan"> <a class="anchor" href="#git-worktree-remove"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscoderemovecodespan"></a><span class='synopsis'><code>remove</code></span> </dt>
 <dd>
 <p>Видалити робоче дерево. Можна видалити лише чисті робочі дерева (без невідстежуваних файлів та без змін у відстежуваних файлах). Нечисті робочі дерева або ті, що містять підмодулі, можна видалити за допомогою <span class='synopsis'><code>--force</code></span>. Основне робоче дерево видалити не можна.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-repairltpathgt82308203"> <a class="anchor" href="#git-worktree-repairpath"></a> <a class="anchor" href="#git-worktree-repairltpathgt82308203"></a>repair [&lt;path&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscoderepaircodeemltpathgtemspan"> <a class="anchor" href="#git-worktree-repairpath"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscoderepaircodeemltpathgtemspan"></a><span class='synopsis'><code>repair</code> [<em>&lt;path&gt;</em>...]</span> </dt>
 <dd>
 <p>Відновіть адміністративні файли робочого дерева, якщо це можливо, якщо вони пошкоджені або застаріли через зовнішні фактори.</p>
 <div class="paragraph">
 <p>Наприклад, якщо головне робоче дерево (або голий репозиторій) переміщено, пов&#8217;язані робочі дерева не зможуть його знайти. Запуск <span class='synopsis'><code>repair</code></span> у головному робочому дереві відновить з&#8217;єднання між пов&#8217;язаними робочими деревами та головним робочим деревом.</p>
 </div>
 <div class="paragraph">
-<p>Аналогічно, якщо робоче дерево для пов&#8217;язаного робочого дерева переміщується без використання <span class='synopsis'><code>git</code> <code>worktree</code> <code>move</code></span>, головне робоче дерево (або чистий репозиторій) не зможе його знайти. Запуск <span class='synopsis'><code>repair</code></span> в нещодавно переміщеному робочому дереві відновить з&#8217;єднання. Якщо переміщено кілька пов&#8217;язаних робочих дерев, запуск <span class='synopsis'><code>repair</code></span> з будь-якого робочого дерева з новим <span class='synopsis'><em>&lt;шлях&gt;</em></span> кожного дерева як аргументом відновить з&#8217;єднання з усіма зазначеними шляхами.</p>
+<p>Аналогічно, якщо робоче дерево для пов&#8217;язаного робочого дерева переміщується без використання <span class='synopsis'><code>git</code> <code>worktree</code> <code>move</code></span>, головне робоче дерево (або чистий репозиторій) не зможе його знайти. Запуск <span class='synopsis'><code>repair</code></span> в нещодавно переміщеному робочому дереві відновить з&#8217;єднання. Якщо переміщено кілька пов&#8217;язаних робочих дерев, запуск <span class='synopsis'><code>repair</code></span> з будь-якого робочого дерева з новим <em>&lt;шлях&gt;</em> кожного дерева як аргументом відновить з&#8217;єднання з усіма зазначеними шляхами.</p>
 </div>
 <div class="paragraph">
-<p>Якщо і головне робоче дерево, і пов&#8217;язані робочі дерева були переміщені або скопійовані вручну, то виконання команди <span class='synopsis'><code>repair</code></span> в головному робочому дереві та вказівка нового <span class='synopsis'><em>&lt;шлях&gt;</em></span> для кожного пов&#8217;язаного робочого дерева відновить усі з&#8217;єднання в обох напрямках.</p>
+<p>Якщо і головне робоче дерево, і пов&#8217;язані робочі дерева були переміщені або скопійовані вручну, то виконання команди <span class='synopsis'><code>repair</code></span> в головному робочому дереві та вказівка нового <em>&lt;шлях&gt;</em> для кожного пов&#8217;язаного робочого дерева відновить усі з&#8217;єднання в обох напрямках.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree-unlock"> <a class="anchor" href="#git-worktree-unlock"></a>unlock </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscodeunlockcodespan"> <a class="anchor" href="#git-worktree-unlock"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscodeunlockcodespan"></a><span class='synopsis'><code>unlock</code></span> </dt>
 <dd>
 <p>Розблокувати робоче дерево, що дозволить його скоротити, перемістити або видалити.</p>
 </dd>
@@ -154,95 +156,99 @@ headings:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-worktree--f"> <a class="anchor" href="#git-worktree--f"></a>-f </dt>
-<dt class="hdlist1" id="git-worktree---force"> <a class="anchor" href="#git-worktree---force"></a>--force </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-fcodespan"> <a class="anchor" href="#git-worktree--f"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-fcodespan"></a><span class='synopsis'><code>-f</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--forcecodespan"> <a class="anchor" href="#git-worktree---force"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--forcecodespan"></a><span class='synopsis'><code>--force</code></span> </dt>
 <dd>
-<p>За замовчуванням, <span class='synopsis'><code>add</code></span> відмовляється створювати нове робоче дерево, коли <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> є назвою гілки та вже витягнута іншим робочим деревом, або якщо <span class='synopsis'><em>&lt;path&gt;</em></span> вже призначено деякому робочому дереву, але відсутнє (наприклад, якщо <span class='synopsis'><em>&lt;path&gt;</em></span> було видалено вручну). Ця опція замінює ці запобіжні заходи. Щоб додати відсутній, але заблокований шлях до робочого дерева, двічі вкажіть <span class='synopsis'><code>--force</code></span>.</p>
+<p>За замовчуванням, <span class='synopsis'><code>add</code></span> відмовляється створювати нове робоче дерево, коли <em>&lt;commit-ish&gt;</em> є назвою гілки та вже витягнута іншим робочим деревом, або якщо <em>&lt;path&gt;</em> вже призначено якомусь робочому дереву, але відсутнє (наприклад, якщо <em>&lt;path&gt;</em> було видалено вручну). Ця опція замінює ці запобіжні заходи. Щоб додати відсутній, але заблокований шлях до робочого дерева, двічі вкажіть <span class='synopsis'><code>--force</code></span>.</p>
 <div class="paragraph">
-<p><span class='synopsis'><code>move</code></span> відмовляється переміщувати заблоковане робоче дерево, якщо двічі не вказано <span class='synopsis'><code>--force</code></span>. Якщо пункт призначення вже призначено якомусь іншому робочому дереву, але він відсутній (наприклад, якщо <span class='synopsis'><em>&lt;new-path&gt;</em></span> було видалено вручну), тоді <span class='synopsis'><code>--force</code></span> дозволяє продовжити переміщення; використовуйте <span class='synopsis'><code>--force</code></span> двічі, якщо пункт призначення заблоковано.</p>
+<p><span class='synopsis'><code>move</code></span> відмовляється переміщувати заблоковане робоче дерево, якщо двічі не вказано <span class='synopsis'><code>--force</code></span>. Якщо пункт призначення вже призначено якомусь іншому робочому дереву, але він відсутній (наприклад, якщо <em>&lt;новий-шлях&gt;</em> було видалено вручну), тоді <span class='synopsis'><code>--force</code></span> дозволяє продовжити переміщення; використовуйте <span class='synopsis'><code>--force</code></span> двічі, якщо пункт призначення заблоковано.</p>
 </div>
 <div class="paragraph">
 <p><span class='synopsis'><code>remove</code></span> відмовляється видаляти нечисте робоче дерево, якщо не використовується <span class='synopsis'><code>--force</code></span>. Щоб видалити заблоковане робоче дерево, двічі вкажіть <span class='synopsis'><code>--force</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree--bltnew-branchgt"> <a class="anchor" href="#git-worktree--bnew-branch"></a> <a class="anchor" href="#git-worktree--bltnew-branchgt"></a>-b &lt;new-branch&gt; </dt>
-<dt class="hdlist1" id="git-worktree--Bltnew-branchgt"> <a class="anchor" href="#git-worktree--Bnew-branch"></a> <a class="anchor" href="#git-worktree--Bltnew-branchgt"></a>-B &lt;new-branch&gt; </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-bcodeemltnew-branchgtemspan"> <a class="anchor" href="#git-worktree--bnew-branch"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-bcodeemltnew-branchgtemspan"></a><span class='synopsis'><code>-b</code> <em>&lt;new-branch&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-Bcodeemltnew-branchgtemspan"> <a class="anchor" href="#git-worktree--Bnew-branch"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-Bcodeemltnew-branchgtemspan"></a><span class='synopsis'><code>-B</code> <em>&lt;new-branch&gt;</em></span> </dt>
 <dd>
-<p>За допомогою <span class='synopsis'><code>add</code></span> створіть нову гілку з назвою <span class='synopsis'><em>&lt;new-branch&gt;</em></span>, починаючи з <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>, та перенесіть <span class='synopsis'><em>&lt;new-branch&gt;</em></span> у нове робоче дерево. Якщо <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> пропущено, за замовчуванням використовується <span class='synopsis'><code>HEAD</code></span>. За замовчуванням <span class='synopsis'><code>-b</code></span> відмовляється створювати нову гілку, якщо вона вже існує. <span class='synopsis'><code>-B</code></span> ігнорує цей захист, скидаючи <span class='synopsis'><em>&lt;new-branch&gt;</em></span> до <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>.</p>
+<p>За допомогою <span class='synopsis'><code>add</code></span> створіть нову гілку з назвою <em>&lt;new-branch&gt;</em>, починаючи з <em>&lt;commit-ish&gt;</em>, та витягніть <em>&lt;new-branch&gt;</em> у нове робоче дерево. Якщо <em>&lt;commit-ish&gt;</em> пропущено, значення за замовчуванням становить <span class='synopsis'><code>HEAD</code></span>. За замовчуванням <span class='synopsis'><code>-b</code></span> відмовляється створювати нову гілку, якщо вона вже існує. <span class='synopsis'><code>-B</code></span> ігнорує цей захист, скидаючи <em>&lt;new-branch&gt;</em> до <em>&lt;commit-ish&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree--d"> <a class="anchor" href="#git-worktree--d"></a>-d </dt>
-<dt class="hdlist1" id="git-worktree---detach"> <a class="anchor" href="#git-worktree---detach"></a>--detach </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-dcodespan"> <a class="anchor" href="#git-worktree--d"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-dcodespan"></a><span class='synopsis'><code>-d</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--detachcodespan"> <a class="anchor" href="#git-worktree---detach"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--detachcodespan"></a><span class='synopsis'><code>--detach</code></span> </dt>
 <dd>
 <p>За допомогою <span class='synopsis'><code>add</code></span> від’єднайте <span class='synopsis'><code>HEAD</code></span> у новому робочому дереві. Див. "DETACHED HEAD" у <a href='{{< relurl "docs/git-checkout/uk" >}}'>git-checkout[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree---no-checkout"> <a class="anchor" href="#git-worktree---no-checkout"></a>--[no-]checkout </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--checkoutcodespan"> <a class="anchor" href="#git-worktree---checkout"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--checkoutcodespan"></a><span class='synopsis'><code>--checkout</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--no-checkoutcodespan"> <a class="anchor" href="#git-worktree---no-checkout"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--no-checkoutcodespan"></a><span class='synopsis'><code>--no-checkout</code></span> </dt>
 <dd>
-<p>За замовчуванням, <span class='synopsis'><code>add</code></span> перевіряє <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>, проте <span class='synopsis'><code>--no-checkout</code></span> можна використовувати для придушення перевірки, щоб внести зміни, такі як налаштування розрідженої перевірки. Див. "Різдкісну перевірку" в <a href='{{< relurl "docs/git-read-tree/uk" >}}'>git-read-tree[1]</a>.</p>
+<p>За замовчуванням, <span class='synopsis'><code>add</code></span> перевіряє <em>&lt;commit-ish&gt;</em>, проте <span class='synopsis'><code>--no-checkout</code></span> можна використовувати для придушення перевірки, щоб внести зміни, такі як налаштування розрідженої перевірки. Див. "Різдкісну перевірку" в <a href='{{< relurl "docs/git-read-tree/uk" >}}'>git-read-tree[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree---no-guess-remote"> <a class="anchor" href="#git-worktree---no-guess-remote"></a>--[no-]guess-remote </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--guess-remotecodespan"> <a class="anchor" href="#git-worktree---guess-remote"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--guess-remotecodespan"></a><span class='synopsis'><code>--guess-remote</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--no-guess-remotecodespan"> <a class="anchor" href="#git-worktree---no-guess-remote"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--no-guess-remotecodespan"></a><span class='synopsis'><code>--no-guess-remote</code></span> </dt>
 <dd>
-<p>З <span class='synopsis'><code>worktree</code> <code>add</code> <em>&lt;path&gt;</em></span>, без <span class='synopsis'><em>&lt;commit-ish&gt;</em></span>, замість створення нової гілки з <span class='synopsis'><code>HEAD</code></span>, якщо існує гілка відстеження рівно в одній віддаленій гілці, що відповідає базовій назві <span class='synopsis'><em>&lt;path&gt;</em></span>, нова гілка базується на гілці віддаленого відстеження та позначається гілка віддаленого відстеження як "upstream" від нової гілки.</p>
+<p>З <span class='synopsis'><code>worktree</code> <code>add</code> <em>&lt;path&gt;</em></span>, без <em>&lt;commit-ish&gt;</em>, замість створення нової гілки з <span class='synopsis'><code>HEAD</code></span>, якщо існує гілка відстеження рівно в одному віддаленому гілці, що відповідає базовій назві <em>&lt;path&gt;</em>, нова гілка базується на гілці віддаленого відстеження та позначається гілка віддаленого відстеження як "upstream" від нової гілки.</p>
 <div class="paragraph">
 <p>Це також можна налаштувати як поведінку за замовчуванням, використовуючи параметр конфігурації <span class='synopsis'><code>worktree.guessRemote</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree---no-relative-paths"> <a class="anchor" href="#git-worktree---no-relative-paths"></a>--[no-]relative-paths </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--relative-pathscodespan"> <a class="anchor" href="#git-worktree---relative-paths"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--relative-pathscodespan"></a><span class='synopsis'><code>--relative-paths</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--no-relative-pathscodespan"> <a class="anchor" href="#git-worktree---no-relative-paths"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--no-relative-pathscodespan"></a><span class='synopsis'><code>--no-relative-paths</code></span> </dt>
 <dd>
 <p>Зв&#8217;язування робочих дерев за допомогою відносних або абсолютних шляхів (за замовчуванням). Перевизначає параметр конфігурації <span class='synopsis'><code>worktree.useRelativePaths</code></span>, див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 <div class="paragraph">
 <p>За допомогою функції <span class='synopsis'><code>repair</code></span> файли посилань будуть оновлені, якщо виникне абсолютна/відносна невідповідність, навіть якщо посилання правильні.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree---no-track"> <a class="anchor" href="#git-worktree---no-track"></a>--[no-]track </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--trackcodespan"> <a class="anchor" href="#git-worktree---track"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--trackcodespan"></a><span class='synopsis'><code>--track</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--no-trackcodespan"> <a class="anchor" href="#git-worktree---no-track"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--no-trackcodespan"></a><span class='synopsis'><code>--no-track</code></span> </dt>
 <dd>
-<p>Під час створення нової гілки, якщо <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> є гілкою, позначте її як "upstream" (вище за течією) від нової гілки. Це значення за замовчуванням, якщо <span class='synopsis'><em>&lt;commit-ish&gt;</em></span> є гілкою з віддаленим відстеженням. Дивіться <span class='synopsis'><code>--track</code></span> у <a href='{{< relurl "docs/git-branch/uk" >}}'>git-branch[1]</a> для отримання детальної інформації.</p>
+<p>Під час створення нової гілки, якщо <em>&lt;commit-ish&gt;</em> є гілкою, позначте її як "upstream" від нової гілки. Це значення за замовчуванням, якщо <em>&lt;commit-ish&gt;</em> є гілкою з віддаленим відстеженням. Дивіться <span class='synopsis'><code>--track</code></span> у <a href='{{< relurl "docs/git-branch/uk" >}}'>git-branch[1]</a> для отримання детальної інформації.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree---lock"> <a class="anchor" href="#git-worktree---lock"></a>--lock </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--lockcodespan"> <a class="anchor" href="#git-worktree---lock"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--lockcodespan"></a><span class='synopsis'><code>--lock</code></span> </dt>
 <dd>
 <p>Тримати робоче дерево заблокованим після створення. Це еквівалент <span class='synopsis'><code>git</code> <code>worktree</code> <code>lock</code></span> після <span class='synopsis'><code>git</code> <code>worktree</code> <code>add</code></span>, але без умови змагання.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree--n"> <a class="anchor" href="#git-worktree--n"></a>-n </dt>
-<dt class="hdlist1" id="git-worktree---dry-run"> <a class="anchor" href="#git-worktree---dry-run"></a>--dry-run </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-worktree--n"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--dry-runcodespan"> <a class="anchor" href="#git-worktree---dry-run"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--dry-runcodespan"></a><span class='synopsis'><code>--dry-run</code></span> </dt>
 <dd>
 <p>З командою <span class='synopsis'><code>prune</code></span> нічого не видаляйте; просто повідомте, що буде видалено.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree---orphan"> <a class="anchor" href="#git-worktree---orphan"></a>--orphan </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--orphancodespan"> <a class="anchor" href="#git-worktree---orphan"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--orphancodespan"></a><span class='synopsis'><code>--orphan</code></span> </dt>
 <dd>
-<p>За допомогою команди <span class='synopsis'><code>add</code></span> зробіть нове робоче дерево та індекс порожніми, пов&#8217;язавши робоче дерево з новою ненародженою гілкою під назвою <span class='synopsis'><em>&lt;new-branch&gt;</em></span>.</p>
+<p>За допомогою команди <span class='synopsis'><code>add</code></span> зробіть нове робоче дерево та індекс порожніми, пов&#8217;язавши робоче дерево з новою ненародженою гілкою з назвою <em>&lt;нова-гілка&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree---porcelain"> <a class="anchor" href="#git-worktree---porcelain"></a>--porcelain </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--porcelaincodespan"> <a class="anchor" href="#git-worktree---porcelain"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--porcelaincodespan"></a><span class='synopsis'><code>--porcelain</code></span> </dt>
 <dd>
 <p>За допомогою <span class='synopsis'><code>list</code></span> виводьте дані у зручному для розбору форматі для скриптів. Цей формат залишатиметься стабільним у різних версіях Git та незалежно від конфігурації користувача. Рекомендується поєднувати це з <span class='synopsis'><code>-z</code></span>. Детальніше дивіться нижче.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree--z"> <a class="anchor" href="#git-worktree--z"></a>-z </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-zcodespan"> <a class="anchor" href="#git-worktree--z"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-zcodespan"></a><span class='synopsis'><code>-z</code></span> </dt>
 <dd>
-<p>Закінчувати кожен рядок символом NUL, а не символом нового рядка, коли <span class='synopsis'><code>--porcelain</code></span> вказано разом із <span class='synopsis'><code>list</code></span>. Це дає змогу розбирати вивід, коли шлях до робочого дерева містить символ нового рядка.</p>
+<p>Закінчуйте кожен рядок символом <em>NUL</em>, а не символом нового рядка, якщо <span class='synopsis'><code>--porcelain</code></span> вказано разом зі списком <span class='synopsis'><code>list</code></span>. Це дає змогу розбирати вивід, коли шлях до робочого дерева містить символ нового рядка.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree--q"> <a class="anchor" href="#git-worktree--q"></a>-q </dt>
-<dt class="hdlist1" id="git-worktree---quiet"> <a class="anchor" href="#git-worktree---quiet"></a>--quiet </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-worktree--q"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-worktree---quiet"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>За допомогою <span class='synopsis'><code>add</code></span> приховує повідомлення зворотного зв&#8217;язку.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree--v"> <a class="anchor" href="#git-worktree--v"></a>-v </dt>
-<dt class="hdlist1" id="git-worktree---verbose"> <a class="anchor" href="#git-worktree---verbose"></a>--verbose </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-worktree--v"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-worktree---verbose"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
 <p>За допомогою оператора <span class='synopsis'><code>prune</code></span> повідомляти про всі видалення.</p>
 <div class="paragraph">
 <p>За допомогою <span class='synopsis'><code>list</code></span> виведіть додаткову інформацію про робочі дерева (див. нижче).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree---expirelttimegt"> <a class="anchor" href="#git-worktree---expiretime"></a> <a class="anchor" href="#git-worktree---expirelttimegt"></a>--expire &lt;time&gt; </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--expirecodeemlttimegtemspan"> <a class="anchor" href="#git-worktree---expiretime"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--expirecodeemlttimegtemspan"></a><span class='synopsis'><code>--expire</code> <em>&lt;time&gt;</em></span> </dt>
 <dd>
-<p>За допомогою <span class='synopsis'><code>prune</code></span> видаляються лише невикористані робочі дерева, старші за <span class='synopsis'><em>&lt;час&gt;</em></span>.</p>
+<p>За допомогою <span class='synopsis'><code>prune</code></span> видаляються лише невикористані робочі дерева, старші за <em>&lt;час&gt;</em>.</p>
 <div class="paragraph">
-<p>За допомогою <span class='synopsis'><code>list</code></span> позначте відсутні робочі дерева як такі, що підлягають скороченню, якщо вони старіші за <span class='synopsis'><em>&lt;time&gt;</em></span>.</p>
+<p>За допомогою <span class='synopsis'><code>list</code></span> позначте відсутні робочі дерева як такі, що підлягають скороченню, якщо вони старші за <em>&lt;час&gt;</em>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-worktree---reasonltstringgt"> <a class="anchor" href="#git-worktree---reasonstring"></a> <a class="anchor" href="#git-worktree---reasonltstringgt"></a>--reason &lt;string&gt; </dt>
+<dt class="hdlist1" id="git-worktree-spanclasssynopsiscode--reasoncodeemltstringgtemspan"> <a class="anchor" href="#git-worktree---reasonstring"></a> <a class="anchor" href="#git-worktree-spanclasssynopsiscode--reasoncodeemltstringgtemspan"></a><span class='synopsis'><code>--reason</code> <em>&lt;string&gt;</em></span> </dt>
 <dd>
 <p>З <span class='synopsis'><code>lock</code></span> або <span class='synopsis'><code>add</code> <code>--lock</code></span>, пояснення, чому робоче дерево заблоковано.</p>
 </dd>
-<dt class="hdlist1" id="git-worktree-ltworktreegt"> <a class="anchor" href="#git-worktree-worktree"></a> <a class="anchor" href="#git-worktree-ltworktreegt"></a>&lt;worktree&gt; </dt>
+<dt class="hdlist1" id="git-worktree-emltworktreegtem"> <a class="anchor" href="#git-worktree-worktree"></a> <a class="anchor" href="#git-worktree-emltworktreegtem"></a><em>&lt;worktree&gt;</em> </dt>
 <dd>
 <p>Робочі дерева можна ідентифікувати за шляхом, відносним або абсолютним.</p>
 <div class="paragraph">
@@ -453,6 +459,31 @@ $ git commit -a -m 'emergency fix for boss'
 $ popd
 $ git worktree remove ../temp</pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_конфігурація"><a class="anchor" href="#_конфігурація"></a>КОНФІГУРАЦІЯ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Все, що знаходиться нижче цього рядка в цьому розділі, вибірково включено з документації <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Вміст такий самий, як і там:</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Missing <span class='synopsis'><code>uk/config/worktree.adoc</code></span></p>
+</div>
+<div class="paragraph">
+<p>See original version for this content.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

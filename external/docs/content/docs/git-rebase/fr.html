@@ -16,8 +16,8 @@ headings:
   id: _synopsis
 - text: DESCRIPTION
   id: _description
-- text: TRANSPLANTING A TOPIC BRANCH WITH --ONTO
-  id: _transplanting_a_topic_branch_with_onto
+- text: TRANSPLANTER UNE BRANCHE DE SUJET AVEC --ONTO
+  id: _transplanter_une_branche_de_sujet_avec_onto
 - text: OPTIONS DE MODE
   id: _options_de_mode
 - text: OPTIONS
@@ -69,7 +69,7 @@ headings:
 <h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Transplant a series of commits onto a different starting point. You can also use <span class='synopsis'><code>git</code> <code>rebase</code></span> to reorder or combine commits: see INTERACTIVE MODE below for how to do that.</p>
+<p>Transplanter une série de commits sur un point de départ différent. Vous pouvez également utiliser <span class='synopsis'><code>git</code> <code>rebase</code></span> pour réorganiser ou combiner des commits : voir MODE INTERACTIF ci-dessous pour comment faire.</p>
 </div>
 <div class="paragraph">
 <p>Par exemple, imaginez que vous avez travaillé sur la branche <span class='synopsis'><code>sujet</code></span> de cet historique, et vous voulez « rattraper » le travail effectué sur la branche <span class='synopsis'><code>master</code></span>.</p>
@@ -140,7 +140,7 @@ headings:
 <p>Rejouer les commits, un par un, en ordre. C&#8217;est similaire à l&#8217;exécution de `git cherry-pick &lt;commit&gt; ` pour chaque commit. Voir REBASER LES FUSIONS pour comment les fusions sont gérées.</p>
 </li>
 <li>
-<p>Update your branch to point to the final commit with the equivalent of <span class='synopsis'><code>git</code> <code>checkout</code> <code>-B</code> <em>&lt;branch&gt;</em></span>.</p>
+<p>Mettre à jour votre branche pour pointer vers le dernier commit avec l&#8217;équivalent de <span class='synopsis'><code>git</code> <code>checkout</code> <code>-B</code> <em>&lt;branche&gt;</em></span> .</p>
 </li>
 </ol>
 </div>
@@ -159,7 +159,7 @@ Lors du commencement du rebasage, <span class='synopsis'><code>ORIG_HEAD</code><
 </div>
 </div>
 <div class="sect1">
-<h2 id="_transplanting_a_topic_branch_with_onto"><a class="anchor" href="#_transplanting_a_topic_branch_with_onto"></a>TRANSPLANTING A TOPIC BRANCH WITH --ONTO</h2>
+<h2 id="_transplanter_une_branche_de_sujet_avec_onto"><a class="anchor" href="#_transplanter_une_branche_de_sujet_avec_onto"></a>TRANSPLANTER UNE BRANCHE DE SUJET AVEC <span class='synopsis'><code>--ONTO</code></span></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Voici comment vous transplanteriez une branche de sujet basée sur une branche sur une autre, pour prétendre que vous avez fourché la branche de sujet de cette dernière branche, en utilisant <span class='synopsis'><code>rebase</code> <code>--onto</code></span>.</p>
@@ -311,7 +311,7 @@ Lors du commencement du rebasage, <span class='synopsis'><code>ORIG_HEAD</code><
 </dl>
 </div>
 <div class="paragraph">
-<p>See TRANSPLANTING A TOPIC BRANCH WITH --ONTO above for examples.</p>
+<p>Voir TRANSPLANTER UNE BRANCHE DE SUJET AVEC <span class='synopsis'><code>--ONTO</code></span> ci-dessus pour des exemples.</p>
 </div>
 <div class="dlist">
 <dl>

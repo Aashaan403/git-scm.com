@@ -47,8 +47,8 @@ headings:
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-q</code></span>] [<span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>-m</code></span>] <span class='synopsis'><code>--detach</code></span> [<em>&lt;branch&gt;</em>]
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-q</code></span>] [<span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>-m</code></span>] [<span class='synopsis'><code>--detach</code></span>] <em>&lt;commit&gt;</em>
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-q</code></span>] [<span class='synopsis'><code>-f</code></span>] [<span class='synopsis'><code>-m</code></span>] [[<span class='synopsis'><code>-b</code></span>|<span class='synopsis'><code>-B</code></span>|<span class='synopsis'><code>--orphan</code></span>] <em>&lt;new-branch&gt;</em>] [<em>&lt;start-point&gt;</em>]
-<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-f</code></span>] <em>&lt;tree-ish&gt;</em> [<span class='synopsis'><code>--</code></span>] <em>&lt;pathspec&gt;</em>&#8230;&#8203;
-<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-f</code></span>] <em>&lt;tree-ish&gt;</em> <span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;file&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> <em>&lt;tree-ish&gt;</em> [<span class='synopsis'><code>--</code></span>] <em>&lt;pathspec&gt;</em>&#8230;&#8203;
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> <em>&lt;tree-ish&gt;</em> <span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;file&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-f</code></span>|<span class='synopsis'><code>--ours</code></span>|<span class='synopsis'><code>--theirs</code></span>|<span class='synopsis'><code>-m</code></span>|<span class='synopsis'><code>--conflict=</code></span><em>&lt;style&gt;</em>] [<span class='synopsis'><code>--</code></span>] <em>&lt;pathspec&gt;</em>&#8230;&#8203;
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> [<span class='synopsis'><code>-f</code></span>|<span class='synopsis'><code>--ours</code></span>|<span class='synopsis'><code>--theirs</code></span>|<span class='synopsis'><code>-m</code></span>|<span class='synopsis'><code>--conflict=</code></span><em>&lt;style&gt;</em>] <span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;file&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]
 <span class='synopsis'><code>git</code></span> <span class='synopsis'><code>checkout</code></span> (<span class='synopsis'><code>-p</code></span>|<span class='synopsis'><code>--patch</code></span>) [<em>&lt;tree-ish&gt;</em>] [<span class='synopsis'><code>--</code></span>] [<em>&lt;pathspec&gt;</em>&#8230;&#8203;]</pre>
@@ -59,15 +59,28 @@ headings:
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Оновлює файли в робочому дереві відповідно до версії в індексі або вказаному дереві. Якщо шлях не було вказано, <span class='synopsis'><code>git</code> <code>checkout</code></span> також оновить <span class='synopsis'><code>HEAD</code></span>, щоб встановити вказану гілку як поточну.</p>
+<p><span class='synopsis'><code>git</code> <code>checkout</code></span> має два основні режими:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Перемикання гілок</strong>, з <span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;branch&gt;</em></span></p>
+</li>
+<li>
+<p><strong>Відновіть іншу версію файлу</strong>, наприклад, за допомогою <span class='synopsis'><em>git checkout &lt;commit&gt; &lt;ім'я файлу&gt;</em></span> або <span class='synopsis'><em>git checkout &lt;ім'я файлу&gt;</em></span></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Дивіться РОЗУМІННЯ НЕОДНОЗНАЧНОСТЕЙ АРГУМЕНТІВ нижче, щоб дізнатися, як Git вирішує, який з них використовувати.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodeemltbranchgtemspan"> <a class="anchor" href="#git-checkout-gitcheckoutbranch"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodeemltbranchgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> [<em>&lt;branch&gt;</em>]</span> </dt>
 <dd>
-<p>Щоб підготуватися до роботи з <em>&lt;гілкою&gt;</em>, перейдіть до неї, оновивши індекс та файли в робочому дереві, а також вказавши <span class='synopsis'><code>HEAD</code></span> на гілку. Локальні зміни до файлів у робочому дереві зберігаються, щоб їх можна було зафіксувати в <em>&lt;гілці&gt;</em>.</p>
+<p>Переключіться на <em>&lt;гілка&gt;</em>. Це встановлює поточну гілку на <em>&lt;гілка&gt;</em> та оновлює файли у вашому робочому каталозі. Зчитування завершиться невдачею, якщо є незакомічені зміни у будь-яких файлах, де <em>&lt;гілка&gt;</em> та ваш поточний коміт мають різний вміст. В іншому випадку незакомічені зміни будуть збережені.</p>
 <div class="paragraph">
-<p>Якщо <em><span class="hover-term" data-term="гілка">&lt;гілка&gt;</span></em> не знайдено, але існує гілка відстеження рівно в одному віддаленому об&#8217;єкті (назвемо його <em>&lt;віддалений&gt;</em>) з відповідним ім&#8217;ям, і <span class='synopsis'><code>--no-guess</code></span> не вказано, розглядати як еквівалент</p>
+<p>Якщо <em>&lt;гілка&gt;</em> не знайдено, але існує гілка відстеження рівно в одному віддаленому об&#8217;єкті (назвемо його <em>&lt;віддалений&gt;</em>) з відповідним ім&#8217;ям, і <span class='synopsis'><code>--no-guess</code></span> не вказано, розглядати як еквівалент</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -75,47 +88,50 @@ headings:
 </div>
 </div>
 <div class="paragraph">
-<p>Ви можете пропустити <em>&lt;branch&gt;</em>, і в цьому випадку команда зводиться до "перевірки поточної гілки", що є прославленою ні на що не здатною операцією з досить дорогими побічними ефектами, щоб показати лише інформацію про відстеження, якщо вона існує, для поточної гілки.</p>
+<p>Запуск <span class='synopsis'><code>git</code> <code>checkout</code></span> без вказівки гілки не має жодного ефекту, окрім виведення інформації про відстеження для поточної гілки.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-bcodecode-Bcodeemltnew-branchgtememltstart-pointgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout-b-Bnew-branchstart-point"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-bcodecode-Bcodeemltnew-branchgtememltstart-pointgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> (<code>-b</code>|<code>-B</code>) <em>&lt;new-branch&gt;</em> [<em>&lt;start-point&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-bcodeemltnew-branchgtememltstart-pointgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout-bnew-branchstart-point"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-bcodeemltnew-branchgtememltstart-pointgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> <code>-b</code> <em>&lt;new-branch&gt;</em> [<em>&lt;start-point&gt;</em>]</span> </dt>
 <dd>
-<p>Вказівка <span class='synopsis'><code>-b</code></span> призводить до створення нової гілки, ніби було викликано <a href='{{< relurl "docs/git-branch/uk" >}}'>git-branch[1]</a>, а потім отримано. У цьому випадку ви можете використовувати опції <span class='synopsis'><code>--track</code></span> або <span class='synopsis'><code>--no-track</code></span>, які будуть передані до <span class='synopsis'><code>git</code> <code>branch</code></span>. Для зручності, <span class='synopsis'><code>--track</code></span> без <span class='synopsis'><code>-b</code></span> означає створення гілки; див. опис <span class='synopsis'><code>--track</code></span> нижче.</p>
+<p>Створіть нову гілку з назвою <em>&lt;нова-гілка&gt;</em>, запустіть її з <em>&lt;початкової-точки&gt;</em> (за замовчуванням поточний коміт) та перевірте нову гілку. Ви можете використовувати опції <span class='synopsis'><code>--track</code></span> або <span class='synopsis'><code>--no-track</code></span>, щоб встановити інформацію для відстеження основної гілки.</p>
 <div class="paragraph">
-<p>Якщо задано <span class='synopsis'><code>-B</code></span>, то <em>&lt;нова-гілка&gt;</em> створюється, якщо вона не існує; інакше вона скидається. Це транзакційний еквівалент</p>
+<p>Це не вдасться, якщо виникне помилка під час отримання <em>&lt;new-branch&gt;</em>, наприклад, якщо отримання коміту <span class='synopsis'><em>&lt;start-point&gt;</em></span> перезапише ваші незакомічені зміни.</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>$ git branch -f &lt;branch&gt; [&lt;start-point&gt;]
-$ git checkout &lt;branch&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>тобто, гілка не скидається/не створюється, доки "git checkout" не буде успішним (наприклад, коли гілка використовується в іншому робочому дереві, не лише поточна гілка залишається незмінною, але й гілка не скидається до початкової точки).</p>
-</div>
+</dd>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-Bcodeemltbranchgtememltstart-pointgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout-Bbranchstart-point"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-Bcodeemltbranchgtememltstart-pointgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> <code>-B</code> <em>&lt;branch&gt;</em> [<em>&lt;start-point&gt;</em>]</span> </dt>
+<dd>
+<p>Те саме, що й <span class='synopsis'><code>-b</code></span>, за винятком того, що якщо гілка вже існує, то <span class='synopsis'><code>_</code><em>&lt;гілка&gt;</em><code>_</code></span> скидається до початкової точки, а не призводить до невдачі.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode--detachcodeemltbranchgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout--detachbranch"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode--detachcodeemltbranchgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> <code>--detach</code> [<em>&lt;branch&gt;</em>]</span> </dt>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode--detachcodeemltcommitgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout--detachcommit"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode--detachcodeemltcommitgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> [<code>--detach</code>] <em>&lt;commit&gt;</em></span> </dt>
 <dd>
-<p>Підготуйтеся до роботи над <em>&lt;commit&gt;</em>, від&#8217;єднавши від нього <span class='synopsis'><code>HEAD</code></span> (див. розділ "DETACHED HEAD") та оновивши індекс і файли в робочому дереві. Локальні зміни файлів у робочому дереві зберігаються, тому результуюче робоче дерево буде станом, записаним у комміті, плюс локальні зміни.</p>
-<div class="paragraph">
-<p>Коли аргумент <em>&lt;commit&gt;</em> є назвою гілки, опцію <span class='synopsis'><code>--detach</code></span> можна використовувати для від&#8217;єднання <span class='synopsis'><code>HEAD</code></span> на кінці гілки (<span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;branch&gt;</em></span> перевірить цю гілку без від&#8217;єднання <span class='synopsis'><code>HEAD</code></span>).</p>
-</div>
+<p>Те саме, що й <span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;branch&gt;</em></span>, за винятком того, що замість вказівки <span class='synopsis'><code>HEAD</code></span> на гілку, він вказує <span class='synopsis'><code>HEAD</code></span> на ID коміта. Дивіться розділ "DETACHED HEAD" нижче для отримання додаткової інформації.</p>
 <div class="paragraph">
 <p>Пропуск <em>&lt;branch&gt;</em> від&#8217;єднує <span class='synopsis'><code>HEAD</code></span> на кінчику поточної гілки.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtememlttree-ishgtemcode--codeemltpathspecgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictstyletree-ish--pathspec"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtememlttree-ishgtemcode--codeemltpathspecgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> [<code>-f</code>|<code>--ours</code>|<code>--theirs</code>|<code>-m</code>|<code>--conflict=</code><em>&lt;style&gt;</em>] [<em>&lt;tree-ish&gt;</em>] [<code>--</code>] <em>&lt;pathspec&gt;</em>...</span> </dt>
-<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtememlttree-ishgtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictstyletree-ish--pathspec-from-filefile--pathspec-file-nul"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtememlttree-ishgtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>git</code> <code>checkout</code> [<code>-f</code>|<code>--ours</code>|<code>--theirs</code>|<code>-m</code>|<code>--conflict=</code><em>&lt;style&gt;</em>] [<em>&lt;tree-ish&gt;</em>] <code>--pathspec-from-file=</code><em>&lt;file&gt;</em> [<code>--pathspec-file-nul</code>]</span> </dt>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodeemlttree-ishgtemcode--codeemltpathspecgtemspan"> <a class="anchor" href="#git-checkout-gitcheckouttree-ish--pathspec"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodeemlttree-ishgtemcode--codeemltpathspecgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;tree-ish&gt;</em> [<code>--</code>] <em>&lt;pathspec&gt;</em>...</span> </dt>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodeemlttree-ishgtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-checkout-gitcheckouttree-ish--pathspec-from-filefile--pathspec-file-nul"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodeemlttree-ishgtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;tree-ish&gt;</em> <code>--pathspec-from-file=</code><em>&lt;file&gt;</em> [<code>--pathspec-file-nul</code>]</span> </dt>
 <dd>
-<p>Перезаписати вміст файлів, що відповідають специфікації шляху. Якщо <em>&lt;дерево-подібне&gt;</em> (найчастіше коміт) не вказано, перезаписати робоче дерево вмістом індексу. Якщо вказано <em>&lt;дерево-подібне&gt;</em>, перезаписати як індекс, так і робоче дерево вмістом <em>&lt;дерево-подібне&gt;</em>.</p>
+<p>Замініть вказані файли та/або каталоги версією з заданого коміту або дерева та додайте їх до індексу (також відомого як "область проміжної обробки").</p>
 <div class="paragraph">
-<p>Індекс може містити необ&#8217;єднані записи через попереднє невдале злиття. За замовчуванням, якщо ви спробуєте вивести такий запис з індексу, операція виведення завершиться невдачею, і нічого не буде виведено. Використання <span class='synopsis'><code>-f</code></span> проігнорує ці необ&#8217;єднані записи. Вміст з певної сторони злиття можна вивести з індексу за допомогою <span class='synopsis'><code>--ours</code></span> або <span class='synopsis'><code>--theirs</code></span>. За допомогою <span class='synopsis'><code>-m</code></span> зміни, внесені до робочого файлу дерева, можна відкинути, щоб відтворити початковий конфліктний результат злиття.</p>
+<p>Наприклад, <span class='synopsis'><code>git</code> <code>checkout</code> <code>main</code> <code>file.txt</code></span> замінить <span class='synopsis'><code>file.txt</code></span> версією з <span class='synopsis'><code>main</code></span>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtemcode--codeemltpathspecgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictstyle--pathspec"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtemcode--codeemltpathspecgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> [<code>-f</code>|<code>--ours</code>|<code>--theirs</code>|<code>-m</code>|<code>--conflict=</code><em>&lt;style&gt;</em>] [<code>--</code>] <em>&lt;pathspec&gt;</em>...</span> </dt>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-checkout-gitcheckout-f--ours--theirs-m--conflictstyle--pathspec-from-filefile--pathspec-file-nul"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-fcodecode--ourscodecode--theirscodecode-mcodecode--conflictcodeemltstylegtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>git</code> <code>checkout</code> [<code>-f</code>|<code>--ours</code>|<code>--theirs</code>|<code>-m</code>|<code>--conflict=</code><em>&lt;style&gt;</em>] <code>--pathspec-from-file=</code><em>&lt;file&gt;</em> [<code>--pathspec-file-nul</code>]</span> </dt>
+<dd>
+<p>Замініть вказані файли та/або каталоги версією з індексу.</p>
+<div class="paragraph">
+<p>Наприклад, якщо ви чекнете коміт, відредагуєте <span class='synopsis'><code>file.txt</code></span>, а потім вирішите, що ці зміни були помилкою, <span class='synopsis'><code>git</code> <code>checkout</code> <code>file.txt</code></span> відкине будь-які неіндексовані зміни до <span class='synopsis'><code>file.txt</code></span>.</p>
+</div>
+<div class="paragraph">
+<p>Це не вдасться, якщо файл має конфлікт злиття, і ви ще не виконали <span class='synopsis'><code>git</code> <code>add</code> <code>file.txt</code></span> (або щось еквівалентне), щоб позначити його як вирішене. Ви можете використовувати <span class='synopsis'><code>-f</code></span>, щоб ігнорувати не об&#8217;єднані файли замість невдачі, використовувати <span class='synopsis'><code>--ours</code></span> або <span class='synopsis'><code>--theirs</code></span>, щоб замінити їх версією з певної сторони злиття, або використовувати <span class='synopsis'><code>-m</code></span>, щоб замінити їх оригінальним результатом конфлікту злиття.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-pcodecode--patchcodeemlttree-ishgtemcode--codeemltpathspecgtemspan"> <a class="anchor" href="#git-checkout-gitcheckout-p--patchtree-ish--pathspec"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscodegitcodecodecheckoutcodecode-pcodecode--patchcodeemlttree-ishgtemcode--codeemltpathspecgtemspan"></a><span class='synopsis'><code>git</code> <code>checkout</code> (<code>-p</code>|<code>--patch</code>) [<em>&lt;tree-ish&gt;</em>] [<code>--</code>] [<em>&lt;pathspec&gt;</em>...]</span> </dt>
 <dd>
-<p>Це схоже на попередній режим, але дозволяє використовувати інтерактивний інтерфейс для відображення виводу "різниці" та вибору фрагментів для використання в результаті. Дивіться нижче опис опції <span class='synopsis'><code>--patch</code></span>.</p>
+<p>Це схоже на два попередні режими, але дозволяє використовувати інтерактивний інтерфейс для відображення виводу "різниці" та вибору фрагментів для використання в результаті. Дивіться нижче опис опції <span class='synopsis'><code>--patch</code></span>.</p>
 </dd>
 </dl>
 </div>
@@ -161,12 +177,12 @@ $ git checkout &lt;branch&gt;</pre>
 </dd>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscode-Bcodeemltnew-branchgtemspan"> <a class="anchor" href="#git-checkout--Bnew-branch"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscode-Bcodeemltnew-branchgtemspan"></a><span class='synopsis'><code>-B</code> <em>&lt;new-branch&gt;</em></span> </dt>
 <dd>
-<p>Створює гілку <em>&lt;нова-гілка&gt;</em>, запускає її з <em>&lt;початкова-точка&gt;</em>; якщо вона вже існує, то скидає її до <em>&lt;початкова-точка&gt;</em>. А потім перевіряє результуючу гілку. Це еквівалентно запуску <span class='synopsis'><code>git</code> <code>branch</code></span> з <span class='synopsis'><code>-f</code></span>, а потім <span class='synopsis'><code>git</code> <code>checkout</code></span> цієї гілки; див. <a href='{{< relurl "docs/git-branch/uk" >}}'>git-branch[1]</a> для деталей.</p>
+<p>Те саме, що й <span class='synopsis'><code>-b</code></span>, за винятком того, що якщо гілка вже існує, то <span class='synopsis'><code>_</code><em>&lt;гілка&gt;</em><code>_</code></span> скидається до початкової точки, а не призводить до невдачі.</p>
 </dd>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscode-tcodespan"> <a class="anchor" href="#git-checkout--t"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscode-tcodespan"></a><span class='synopsis'><code>-t</code></span> </dt>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscode--trackcodecodecodecodedirectcodecodeinheritcodespan"> <a class="anchor" href="#git-checkout---trackdirectinherit"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscode--trackcodecodecodecodedirectcodecodeinheritcodespan"></a><span class='synopsis'><code>--track</code>[<code>=</code>(<code>direct</code>|<code>inherit</code>)]</span> </dt>
 <dd>
-<p>Під час створення нової гілки налаштуйте конфігурацію "upstream". Див. <span class='synopsis'><code>--track</code></span> у <a href='{{< relurl "docs/git-branch/uk" >}}'>git-branch[1]</a> для отримання детальної інформації.</p>
+<p>Під час створення нової гілки налаштуйте конфігурацію "upstream". Див. <span class='synopsis'><code>--track</code></span> у <a href='{{< relurl "docs/git-branch/uk" >}}'>git-branch[1]</a> для отримання детальної інформації. Для зручності, --track без -b означає створення гілки.</p>
 <div class="paragraph">
 <p>Якщо не вказано параметр <span class='synopsis'><code>-b</code></span>, ім&#8217;я нової гілки буде отримано з гілки віддаленого відстеження, шляхом перегляду локальної частини специфікації посилань, налаштованої для відповідного віддаленого елемента, а потім видалення початкової частини до "*". Це підкаже нам використовувати <span class='synopsis'><code>hack</code></span> як локальну гілку під час розгалуження від <span class='synopsis'><code>origin/hack</code></span> (або <span class='synopsis'><code>remotes/origin/hack</code></span>, або навіть <span class='synopsis'><code>refs/remotes/origin/hack</code></span>). Якщо задана назва не має косої риски, або вищевказане вгадування призводить до порожньої назви, вгадування переривається. У такому випадку ви можете явно вказати назву за допомогою <span class='synopsis'><code>-b</code></span>.</p>
 </div>
@@ -178,7 +194,7 @@ $ git checkout &lt;branch&gt;</pre>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscode--guesscodespan"> <a class="anchor" href="#git-checkout---guess"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscode--guesscodespan"></a><span class='synopsis'><code>--guess</code></span> </dt>
 <dt class="hdlist1" id="git-checkout-spanclasssynopsiscode--no-guesscodespan"> <a class="anchor" href="#git-checkout---no-guess"></a> <a class="anchor" href="#git-checkout-spanclasssynopsiscode--no-guesscodespan"></a><span class='synopsis'><code>--no-guess</code></span> </dt>
 <dd>
-<p>Якщо <em><span class="hover-term" data-term="гілка">&lt;гілка&gt;</span></em> не знайдено, але існує гілка відстеження рівно в одному віддаленому середовищі (назвемо його <em>&lt;віддаленим&gt;</em>) з відповідним ім&#8217;ям, розглядати як еквівалент</p>
+<p>Якщо <em>&lt;гілка&gt;</em> не знайдено, але існує гілка відстеження рівно в одному віддаленому середовищі (назвемо його <em>&lt;віддаленим&gt;</em>) з відповідним ім&#8217;ям, розглядати як еквівалент</p>
 <div class="listingblock">
 <div class="content">
 <pre>$ git checkout -b &lt;branch&gt; --track &lt;remote&gt;/&lt;branch&gt;</pre>
@@ -289,7 +305,7 @@ $ git checkout &lt;branch&gt;</pre>
 <dd>
 <p>Має сенс лише з <span class='synopsis'><code>--pathspec-from-file</code></span>. Елементи Pathspec розділяються символом <em>NUL</em>, а всі інші символи (включно з символами нового рядка та лапками) сприймаються буквально.</p>
 </dd>
-<dt class="hdlist1" id="git-checkout-ltbranchgt"> <a class="anchor" href="#git-checkout-branch"></a> <a class="anchor" href="#git-checkout-ltbranchgt"></a>&lt;branch&gt; </dt>
+<dt class="hdlist1" id="git-checkout-spanclasssynopsisemltbranchgtemspan"> <a class="anchor" href="#git-checkout-branch"></a> <a class="anchor" href="#git-checkout-spanclasssynopsisemltbranchgtemspan"></a><span class='synopsis'><em>&lt;branch&gt;</em></span> </dt>
 <dd>
 <p>Гілка для вилучення; якщо вона посилається на гілку (тобто ім&#8217;я, яке, доповнене "refs/heads/", є коректним посиланням), то ця гілка вилучена. В іншому випадку, якщо вона посилається на коректний коміт, ваш <span class='synopsis'><code>HEAD</code></span> стає "відокремленим", і ви більше не перебуваєте на жодній гілці (див. деталі нижче).</p>
 <div class="paragraph">
@@ -472,7 +488,15 @@ $ git log -g -2 HEAD</pre>
 <h2 id="_усунення_неоднозначностей_аргументу"><a class="anchor" href="#_усунення_неоднозначностей_аргументу"></a>УСУНЕННЯ НЕОДНОЗНАЧНОСТЕЙ АРГУМЕНТУ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Коли задано лише один аргумент, і це не <span class='synopsis'><code>--</code></span> (наприклад, <span class='synopsis'><code>git</code> <code>checkout</code> <code>abc</code></span>), і коли аргумент є одночасно коректним <em>&lt;tree-ish&gt;</em> (наприклад, гілка <span class='synopsis'><code>abc</code></span> існує) та коректним <em>&lt;pathspec&gt;</em> (наприклад, файл або каталог з іменем "abc" існує), Git зазвичай просить вас усунути неоднозначність. Однак, оскільки отримання гілки є дуже поширеною операцією, <span class='synopsis'><code>git</code> <code>checkout</code> <code>abc</code></span> приймає "abc" як <em>&lt;tree-ish&gt;</em> у такій ситуації. Використовуйте <span class='synopsis'><code>git</code> <code>checkout</code> <code>--</code> <em>&lt;pathspec&gt;</em></span>, якщо ви хочете отримати ці шляхи з індексу.</p>
+<p>Коли ви запускаєте <span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;щось&gt;</em></span>, Git намагається вгадати, чи має <span class='synopsis'><em>&lt;щось&gt;</em></span> бути гілкою, комітом чи набором файлів, а потім або перемикається на цю гілку чи коміт, або відновлює вказані файли.</p>
+</div>
+<div class="paragraph">
+<p>Якщо виникне будь-яка неоднозначність, Git трактуватиме <span class='synopsis'><em>&lt;щось&gt;</em></span> як гілку або коміт, але ви можете використовувати подвійне дефіс <span class='synopsis'><code>--</code></span>, щоб змусити Git трактувати параметр як список файлів та/або каталогів, ось так:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git checkout -- file.txt</pre>
+</div>
 </div>
 </div>
 </div>

@@ -55,10 +55,19 @@ headings:
 <h2 id="_описание"><a class="anchor" href="#_описание"></a>ОПИСАНИЕ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Эта команда обновляет индекс, основываясь на текущем содержимом рабочего каталога, чтобы подготовить список изменений для следующего коммита. Обычно она добавляет текущее содержимое существующих файлов как единое целое, но при применении определённых параметров её также можно использовать для индексирования только части изменений, имеющихся в рабочем каталоге, или удаления путей, которые более не существуют.</p>
+<p>Add contents of new or changed files to the index. The "index" (also known as the "staging area") is what you use to prepare the contents of the next commit.</p>
 </div>
 <div class="paragraph">
-<p>Так называемый «индекс» содержит снимок содержимого рабочего каталога, и именно этот снимок используется в качестве содержимого последующего коммита. Таким образом, после внесения любых изменений в рабочий каталог и перед запуском команды commit вы должны добавить любые новые или изменённые файлы в индекс с помощью команды <span class='synopsis'><code>add</code></span>.</p>
+<p>When you run <span class='synopsis'><code>git</code> <code>commit</code></span> without any other arguments, it will only commit staged changes. For example, if you&#8217;ve edited <span class='synopsis'><code>file.c</code></span> and want to commit your changes to that file, you can run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git add file.c
+git commit</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also add only part of your changes to a file with <span class='synopsis'><code>git</code> <code>add</code> <code>-p</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Эту команду можно выполнить несколько раз перед коммитом. Непосредственно во время выполнения эта команды только добавляет содержимое указанного файла(ов); если вы хотите, чтобы изменения, сделанные после запуска оной, были включены в следующий коммит, вы должны запустить <span class='synopsis'><code>git</code> <code>add</code></span> ещё раз, чтобы добавить новое содержимое в индекс.</p>
@@ -67,7 +76,7 @@ headings:
 <p>Команда <span class='synopsis'><code>git</code> <code>status</code></span> может быть использована для получения информации о том, какие файлы содержат изменения, подготовленные для следующего коммита.</p>
 </div>
 <div class="paragraph">
-<p>Команда <span class='synopsis'><code>git</code> <code>add</code></span> по умолчанию не добавляет игнорируемые файлы. Если какие-либо игнорируемые файлы были явно указаны в командной строке, <span class='synopsis'><code>git</code> <code>add</code></span> завершится ошибкой со списком игнорируемых файлов. Игнорируемые файлы, найденные в результате рекурсивного обхода каталогов или подстановки шаблонов имён (globbing), которые выполняет сам Git (заключите шаблон в кавычки, чтобы он не обрабатывался оболочкой), будут проигнорированы без вывода дополнительных уведомлений. Заставить команду <span class='synopsis'><code>git</code> <code>add</code></span> обрабатывать игнорируемые файлы можно с помощью параметра <span class='synopsis'><code>-f</code></span> (force, принудительно).</p>
+<p>The <span class='synopsis'><code>git</code> <code>add</code></span> command will not add ignored files by default. You can use the <span class='synopsis'><code>--force</code></span> option to add ignored files. If you specify the exact filename of an ignored file, <span class='synopsis'><code>git</code> <code>add</code></span> will fail with a list of ignored files. Otherwise it will silently ignore the file.</p>
 </div>
 <div class="paragraph">
 <p>По ссылке <a href='{{< relurl "docs/git-commit/ru" >}}'>git-commit[1]</a> доступны альтернативные пути добавления файлов в коммит.</p>
@@ -118,24 +127,16 @@ headings:
 <p>По сути это запускает <span class='synopsis'><code>add</code> <code>--interactive</code></span>, но пропускает начальное меню и сразу переходит к подкоманде <span class='synopsis'><code>patch</code></span>. См. подробности в разделе «Интерактивный режим».</p>
 </div>
 </dd>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode-Ucodeemltngtemspan"> <a class="anchor" href="#git-add--Un"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode-Ucodeemltngtemspan"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--unifiedcodeemltngtemspan"> <a class="anchor" href="#git-add---unifiedn"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--unifiedcodeemltngtemspan"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span> or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"> <a class="anchor" href="#git-add---inter-hunk-contextn"></a> <a class="anchor" href="#git-add-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Выводить в качестве контекста между блоками изменений до <em>&lt;n&gt;</em> строк, тем самым объединяя близкие блоки изменений. По умолчанию равно значению переменной конфигурации <span class='synopsis'><code>diff.interHunkContext</code></span> или 0, если она не установлена.</p>
+</dd>
 </dl>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>ru/diff-context-options.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="dlist">
 <dl>
@@ -325,21 +326,22 @@ headings:
 <p>Эта команда позволяет выбрать один путь из перечисленных в <em>status</em>. После выбора пути, она выведет различия между индексом и рабочей копией и для каждого блока изменений будет спрашивать вас, хотите ли вы добавить этот блок в индекс. Вы можете выбрать один из следующих вариантов и нажать Enter:</p>
 <div class="literalblock">
 <div class="content">
-<pre>y - индексировать этот блок
-n - пропустить этот блок
-q - выход; пропустить этот и все оставшиеся блоки
-a - индексировать этот и остальные блоки файла
-d - пропустить этот и остальные блоки файла
-g - выбрать блок изменений на который нужно перейти
-/ - поиск блока изменений с помощью регулярного выражения
-j - не принимать решение по этому блоку, перейти на следующий нерешенный
-J - не принимать решение по этому блоку, перейти на следующий
-k - не принимать решение по этому блоку, перейти на предыдущий нерешенный
-K - не принимать решение по этому блоку, перейти на предыдущий
-s - разделить текущий блок на блоки меньшего размера
-e - вручную отредактировать текущий блок
-p - вывести текущий блок
-? - вывести справку</pre>
+<pre>y - stage this hunk
+n - do not stage this hunk
+q - quit; do not stage this hunk or any of the remaining ones
+a - stage this hunk and all later hunks in the file
+d - do not stage this hunk or any of the later hunks in the file
+g - select a hunk to go to
+/ - search for a hunk matching the given regex
+j - go to the next undecided hunk, roll over at the bottom
+J - go to the next hunk, roll over at the bottom
+k - go to the previous undecided hunk, roll over at the top
+K - go to the previous hunk, roll over at the top
+s - split the current hunk into smaller hunks
+e - manually edit the current hunk
+p - print the current hunk
+P - print the current hunk using the pager
+? - print help</pre>
 </div>
 </div>
 <div class="paragraph">

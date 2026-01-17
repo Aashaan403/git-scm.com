@@ -97,11 +97,17 @@ headings:
 <dt class="hdlist1" id="git-fast-import---allow-unsafe-features"> <a class="anchor" href="#git-fast-import---allow-unsafe-features"></a>--allow-unsafe-features </dt>
 <dd>
 <p>通过使用 <span class='synopsis'><code>feature</code></span> 或 <span class='synopsis'><code>option</code></span> 命令，许多命令行选项可以作为 fast-import 流本身的一部分提供。然而，其中一些选项是不安全的（例如，允许 fast-import 访问仓库之外的文件系统）。这些选项默认是禁用的，但可以通过在命令行中提供该选项来允许。 目前这只影响 <span class='synopsis'><code>export-marks</code></span>、<span class='synopsis'><code>import-marks</code></span> 和 <span class='synopsis'><code>import-marks-if-exists</code></span>。</p>
-<div class="literalblock">
-<div class="content">
-<pre>只有在信任生成快速导入流的程序时，才能启用此选项！对于使用 `import` 功能的远程帮助程序，该选项会自动启用，因为它们已经被信任可以运行自己的代码。</pre>
+<div class="paragraph">
+<p>只有在信任生成快速导入流的程序时，才能启用此选项！对于使用 <span class='synopsis'><code>import</code></span> 功能的远程帮助程序，该选项会自动启用，因为它们已经被信任可以运行自己的代码。</p>
 </div>
-</div>
+</dd>
+<dt class="hdlist1" id="git-fast-import---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-import---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-tags=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
+<dd>
+<p>Specify how to handle signed tags. Behaves in the same way as the same option in <a href='{{< relurl "docs/git-fast-export/zh_HANS-CN" >}}'>git-fast-export[1]</a>, except that default is <em>verbatim</em> (instead of <em>abort</em>).</p>
+</dd>
+<dt class="hdlist1" id="git-fast-import---signed-commitsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-import---signed-commitsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-commits=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
+<dd>
+<p>Specify how to handle signed commits. Behaves in the same way as the same option in <a href='{{< relurl "docs/git-fast-export/zh_HANS-CN" >}}'>git-fast-export[1]</a>, except that default is <em>verbatim</em> (instead of <em>abort</em>).</p>
 </dd>
 </dl>
 </div>
@@ -140,7 +146,8 @@ headings:
 <dd>
 <p>与 --import-marks 类似，但不会出错，而是在文件不存在时自动跳过。</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---no-relative-marks"> <a class="anchor" href="#git-fast-import---no-relative-marks"></a>--[no-]relative-marks </dt>
+<dt class="hdlist1" id="git-fast-import---relative-marks"> <a class="anchor" href="#git-fast-import---relative-marks"></a>--relative-marks </dt>
+<dt class="hdlist1" id="git-fast-import---no-relative-marks"> <a class="anchor" href="#git-fast-import---no-relative-marks"></a>--no-relative-marks </dt>
 <dd>
 <p>指定 --relative-marks（相对标记）后，用 --import-marks= 和 --export-marks= 指定的路径将相对于当前仓库的内部目录。 在 git-fast-import 中，这意味着路径是相对于 .git/info/fast-import 目录的。不过，其他导入程序可能会使用不同的位置。</p>
 <div class="paragraph">
@@ -565,7 +572,7 @@ This is highly experimental and the format of the <span class='synopsis'><code>g
 </div>
 </div>
 <div class="paragraph">
-<p>通常情况下，<span class='synopsis'><em>&lt;数据引用&gt;</em></span> 必须是由之前的 <span class='synopsis'><code>blob</code></span> 命令设置的标记引用 (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>)，或者是现有 Git blob 对象的完整 40 字节 SHA-1 值。 如果 <span class='synopsis'><em>&lt;模式&gt;</em></span> 是 <span class='synopsis'><code>040000</code></span>，则 <span class='synopsis'><em>&lt;数据引用&gt;</em></span> 必须是现有 Git 树对象的完整 40 字节 SHA-1 或用 <span class='synopsis'><code>--import-marks</code></span> 设置的标记引用。</p>
+<p>Here usually <span class='synopsis'><em>&lt;dataref&gt;</em></span> must be either a mark reference (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) set by a prior <span class='synopsis'><code>blob</code></span> command, or a full 40-byte SHA-1 of an existing Git blob object. If <span class='synopsis'><em>&lt;mode&gt;</em></span> is <span class='synopsis'><code>040000</code></span> then <span class='synopsis'><em>&lt;dataref&gt;</em></span> must be the full 40-byte SHA-1 of an existing Git tree object or a mark reference set with <span class='synopsis'><code>--import-marks</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fast-import--1"> <a class="anchor" href="#git-fast-import--1"></a>内联数据格式 </dt>

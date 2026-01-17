@@ -97,11 +97,17 @@ headings:
 <dt class="hdlist1" id="git-fast-import---allow-unsafe-features"> <a class="anchor" href="#git-fast-import---allow-unsafe-features"></a>--allow-unsafe-features </dt>
 <dd>
 <p>Багато параметрів командного рядка можна надати як частину самого потоку швидкого імпорту за допомогою команд <span class='synopsis'><code>feature</code></span> або <span class='synopsis'><code>option</code></span>. Однак деякі з цих параметрів є небезпечними (наприклад, дозволяючи швидкому імпорту отримувати доступ до файлової системи поза репозиторієм). Ці параметри вимкнено за замовчуванням, але їх можна дозволити, надавши цей параметр у командному рядку. Наразі це впливає лише на команди функцій <span class='synopsis'><code>export-marks</code></span>, <span class='synopsis'><code>import-marks</code></span> та <span class='synopsis'><code>import-marks-if-exists</code></span>.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Увімкніть цю опцію, лише якщо ви довіряєте програмі, яка генерує потік швидкого імпорту! Ця опція вмикається автоматично для віддалених помічників, які використовують можливість `імпорту`, оскільки їм вже довірено виконувати власний код.</pre>
+<div class="paragraph">
+<p>Увімкніть цю опцію, лише якщо ви довіряєте програмі, яка генерує потік швидкого імпорту! Ця опція вмикається автоматично для віддалених помічників, які використовують можливість <span class='synopsis'><em>імпорту</em></span>, оскільки їм вже довірено виконувати власний код.</p>
 </div>
-</div>
+</dd>
+<dt class="hdlist1" id="git-fast-import---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-import---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-tags=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
+<dd>
+<p>Вкажіть, як обробляти підписані теги. Поводиться так само, як і аналогічний параметр у <a href='{{< relurl "docs/git-fast-export/uk" >}}'>git-fast-export[1]</a>, за винятком того, що за замовчуванням використовується значення «дослівно» (замість «перервати»).</p>
+</dd>
+<dt class="hdlist1" id="git-fast-import---signed-commitsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-import---signed-commitsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-commits=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
+<dd>
+<p>Вкажіть, як обробляти підписані коміти. Поводиться так само, як і аналогічний параметр у <a href='{{< relurl "docs/git-fast-export/uk" >}}'>git-fast-export[1]</a>, за винятком того, що за замовчуванням використовується значення «verbatim» (замість «abort»).</p>
 </dd>
 </dl>
 </div>
@@ -140,7 +146,8 @@ headings:
 <dd>
 <p>Подібно до --import-marks, але замість виведення помилки, файл не існує, якщо він не існує.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---no-relative-marks"> <a class="anchor" href="#git-fast-import---no-relative-marks"></a>--[no-]relative-marks </dt>
+<dt class="hdlist1" id="git-fast-import---relative-marks"> <a class="anchor" href="#git-fast-import---relative-marks"></a>--relative-marks </dt>
+<dt class="hdlist1" id="git-fast-import---no-relative-marks"> <a class="anchor" href="#git-fast-import---no-relative-marks"></a>--no-relative-marks </dt>
 <dd>
 <p>Після вказівки --relative-marks шляхи, вказані за допомогою --import-marks= та --export-marks=, будуть відносними до внутрішнього каталогу в поточному репозиторії. У git-fast-import це означає, що шляхи будуть відносними до каталогу .git/info/fast-import. Однак інші імпортери можуть використовувати інше розташування.</p>
 <div class="paragraph">
@@ -1066,7 +1073,7 @@ from :938</pre>
 <p>Дивіться <span class='synopsis'><code>filemodify</code></span> вище для отримання детального опису <span class='synopsis'><em>&lt;шлях&gt;</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>Вивід використовує той самий формат, що й `git ls-tree <span class="hover-term" data-term="дерево">&lt;дерево&gt;</span>:</p>
+<p>Вивід використовує той самий формат, що й `git ls-tree &lt;дерево&gt;:</p>
 </div>
 <div class="exampleblock">
 <div class="content">

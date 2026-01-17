@@ -97,11 +97,17 @@ headings:
 <dt class="hdlist1" id="git-fast-import---allow-unsafe-features"> <a class="anchor" href="#git-fast-import---allow-unsafe-features"></a>--allow-unsafe-features </dt>
 <dd>
 <p>Muitas opções de linha de comando podem ser usadas como parte do próprio fluxo de importação rápida, usando os comandos <span class='synopsis'><code>feature</code></span> ou <span class='synopsis'><code>option</code></span>. No entanto, algumas dessas opções não são seguras (permitir que a importação rápida acesse o sistema de arquivos fora do repositório por exemplo). Estas opções são desativadas por padrão, mas podem ser permitidas usando essa opção na linha de comando. Atualmente, isso afeta apenas os comandos <span class='synopsis'><code>export-marks</code></span>, <span class='synopsis'><code>import-marks</code></span> e <span class='synopsis'><code>import-marks-if-exists</code></span>.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Ative esta opção apenas caso confie no programa que gera o fluxo de importação rápida! Esta opção é ativada automaticamente para os auxiliares remotos que usem o recurso `import`, pois eles já são confiáveis para executar o seu próprio código.</pre>
+<div class="paragraph">
+<p>Ative esta opção apenas caso confie no programa que gera o fluxo de importação rápida! Esta opção é ativada automaticamente para os auxiliares remotos que usem o recurso <span class='synopsis'><code>import</code></span>, pois eles já são confiáveis para executar o seu próprio código.</p>
 </div>
-</div>
+</dd>
+<dt class="hdlist1" id="git-fast-import---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-import---signed-tagsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-tags=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
+<dd>
+<p>Specify how to handle signed tags. Behaves in the same way as the same option in <a href='{{< relurl "docs/git-fast-export/pt_BR" >}}'>git-fast-export[1]</a>, except that default is <em>verbatim</em> (instead of <em>abort</em>).</p>
+</dd>
+<dt class="hdlist1" id="git-fast-import---signed-commitsverbatimwarn-verbatimwarn-stripstripabort"> <a class="anchor" href="#git-fast-import---signed-commitsverbatimwarn-verbatimwarn-stripstripabort"></a>--signed-commits=(verbatim|warn-verbatim|warn-strip|strip|abort) </dt>
+<dd>
+<p>Specify how to handle signed commits. Behaves in the same way as the same option in <a href='{{< relurl "docs/git-fast-export/pt_BR" >}}'>git-fast-export[1]</a>, except that default is <em>verbatim</em> (instead of <em>abort</em>).</p>
 </dd>
 </dl>
 </div>
@@ -140,7 +146,8 @@ headings:
 <dd>
 <p>Como <span class='synopsis'><code>--import-marks</code></span> porém caso não exista, em vez de exibir um erro, ignora silenciosamente o arquivo.</p>
 </dd>
-<dt class="hdlist1" id="git-fast-import---no-relative-marks"> <a class="anchor" href="#git-fast-import---no-relative-marks"></a>--[no-]relative-marks </dt>
+<dt class="hdlist1" id="git-fast-import---relative-marks"> <a class="anchor" href="#git-fast-import---relative-marks"></a>--relative-marks </dt>
+<dt class="hdlist1" id="git-fast-import---no-relative-marks"> <a class="anchor" href="#git-fast-import---no-relative-marks"></a>--no-relative-marks </dt>
 <dd>
 <p>Após o uso da opção <span class='synopsis'><code>--relative-marks</code></span>, os caminhos especificados com a opção <span class='synopsis'><code>--import-marks=</code></span> e <span class='synopsis'><code>--export-marks=</code></span> são relativos a um diretório interno no repositório atual. No "git-fast-import", isso significa que os caminhos são relativos ao diretório .<span class='synopsis'><code>git/info/fast-import</code></span>. Entretanto, outros importadores podem usar um local diferente.</p>
 <div class="paragraph">
@@ -565,7 +572,7 @@ This is highly experimental and the format of the <span class='synopsis'><code>g
 </div>
 </div>
 <div class="paragraph">
-<p>Aqui, normalmente, <span class='synopsis'><em>&lt;dataref&gt;</em></span> deve ser uma marcação de referência (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) definida por um comando <span class='synopsis'><code>blob</code></span> anterior ou um SHA-1 completo com 40 bytes de um objeto blob do Git já existente. Se o <span class='synopsis'><em>&lt;modo&gt;</em></span> for <span class='synopsis'><code>040000</code></span>, então <span class='synopsis'><em>&lt;dataref&gt;</em></span> deve ser o SHA-1 completo com 40 bytes de um objeto de árvore Git existente ou um conjunto de marcação de referência com a opção <span class='synopsis'><code>--import-marks</code></span>.</p>
+<p>Here usually <span class='synopsis'><em>&lt;dataref&gt;</em></span> must be either a mark reference (<span class='synopsis'><code>:</code><em>&lt;idnum&gt;</em></span>) set by a prior <span class='synopsis'><code>blob</code></span> command, or a full 40-byte SHA-1 of an existing Git blob object. If <span class='synopsis'><em>&lt;mode&gt;</em></span> is <span class='synopsis'><code>040000</code></span> then <span class='synopsis'><em>&lt;dataref&gt;</em></span> must be the full 40-byte SHA-1 of an existing Git tree object or a mark reference set with <span class='synopsis'><code>--import-marks</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-fast-import-Formatodedadosemlinha"> <a class="anchor" href="#git-fast-import-Formatodedadosemlinha"></a>Formato de dados em linha </dt>

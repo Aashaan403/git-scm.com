@@ -22,8 +22,12 @@ headings:
   id: _git_urls
 - text: ПУЛЬТИ КЕРУВАННЯ
   id: _пульти_керування
+- text: ВИГЛЯДНІ ФІЛІЇ
+  id: UPSTREAM-BRANCHES
 - text: ВИХІД
   id: _вихід
+- text: ПРАВИЛА НАТИСНЕННЯ
+  id: _правила_натиснення
 - text: ПРИМІТКА ЩОДО ШВИДКОГО ПЕРЕМОТУВАННЯ ВПЕРЕД
   id: _примітка_щодо_швидкого_перемотування_вперед
 - text: ПРИКЛАДИ
@@ -31,7 +35,7 @@ headings:
 - text: БЕЗПЕКА
   id: _безпека
 - text: КОНФІГУРАЦІЯ
-  id: _конфігурація
+  id: CONFIGURATION
 - text: GIT
   id: _git
 ---
@@ -60,19 +64,35 @@ headings:
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Оновлює віддалені посилання за допомогою локальних посилань, надсилаючи при цьому об&#8217;єкти, необхідні для виконання заданих посилань.</p>
+<p>Оновлює одну або декілька гілок, тегів чи інших посилань у віддаленому репозиторії з вашого локального репозиторію та надсилає всі необхідні дані, яких ще немає на віддаленому репозиторії.</p>
+</div>
+<div class="paragraph">
+<p>Найпростіший спосіб надсилання змін – це <span class='synopsis'><code>git</code> <code>push</code> <em>&lt;віддалена&gt;</em> <em>&lt;гілка&gt;</em></span>. <span class='synopsis'><code>git</code> <code>push</code> <code>origin</code> <code>main</code></span> надішле локальну гілку <span class='synopsis'><code>main</code></span> до гілки <span class='synopsis'><code>main</code></span> на віддаленій гілці з назвою <span class='synopsis'><code>origin</code></span>.</p>
+</div>
+<div class="paragraph">
+<p>Аргумент <span class='synopsis'><em>&lt;repository&gt;</em></span> за замовчуванням використовує значення основного репозиторію (upstream) для поточної гілки або <span class='synopsis'><code>origin</code></span>, якщо основного репозиторію немає.</p>
+</div>
+<div class="paragraph">
+<p>Щоб вирішити, які гілки, теги чи інші посилання надсилати, Git використовує (у порядку пріоритету):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Аргумент(и) <span class='synopsis'><em>&lt;refspec&gt;</em></span> (наприклад, <span class='synopsis'><code>main</code></span> у <span class='synopsis'><code>git</code> <code>push</code> <code>origin</code> <code>main</code></span>) або опції <span class='synopsis'><code>--all</code></span>, <span class='synopsis'><code>--mirror</code></span> або <span class='synopsis'><code>--tags</code></span></p>
+</li>
+<li>
+<p>Конфігурація <span class='synopsis'><code>remote.*.push</code></span> для репозиторію, до якого надсилається</p>
+</li>
+<li>
+<p>Конфігурація <span class='synopsis'><code>push.default</code></span>. Значення за замовчуванням — <span class='synopsis'><code>push.default=simple</code></span>, що надсилатиме зміни до гілки з такою ж назвою, як і поточна гілка. Дивіться розділ <a href="#CONFIGURATION">CONFIGURATION</a> нижче для отримання додаткової інформації про <span class='synopsis'><code>push.default</code></span>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Команда <span class='synopsis'><code>git</code> <code>push</code></span> може завершитися невдало, якщо ви не встановили основний напрямок (upstream) для поточної гілки, залежно від значення <span class='synopsis'><code>push.default</code></span>. Дивіться розділ <a href="#UPSTREAM-BRANCHES">UPSTREAM BRANCHES</a> нижче, щоб дізнатися більше про те, як налаштувати та використовувати основні напрямки (upstream).</p>
 </div>
 <div class="paragraph">
 <p>Ви можете створювати цікаві речі в репозиторії щоразу, коли ви до нього надсилаєте зміни, встановивши там «перехоплювачі». Дивіться документацію для <a href='{{< relurl "docs/git-receive-pack/uk" >}}'>git-receive-pack[1]</a>.</p>
-</div>
-<div class="paragraph">
-<p>Коли в командному рядку не вказано, куди надсилати дані, за допомогою аргументу <span class='synopsis'><em>&lt;repository&gt;</em></span>, для визначення місця надсилання використовується конфігурація <span class='synopsis'><code>branch.*.remote</code></span> для поточної гілки. Якщо конфігурація відсутня, за замовчуванням використовується значення <em>origin</em>.</p>
-</div>
-<div class="paragraph">
-<p>Коли в командному рядку не вказано, що надсилати за допомогою аргументів <span class='synopsis'><em>&lt;refspec&gt;</em>...</span> або опцій <span class='synopsis'><code>--all</code></span>, <span class='synopsis'><code>--mirror</code></span>, <span class='synopsis'><code>--tags</code></span>, команда знаходить значення <span class='synopsis'><em>&lt;refspec&gt;</em></span> за замовчуванням, звертаючись до конфігурації <span class='synopsis'><code>remote.*.push</code></span>, і якщо воно не знайдено, враховує конфігурацію <span class='synopsis'><code>push.default</code></span>, щоб вирішити, що надсилати (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> для значення <span class='synopsis'><code>push.default</code></span>).</p>
-</div>
-<div class="paragraph">
-<p>Коли ні в командному рядку, ні в конфігурації не вказано, що потрібно надсилати, використовується поведінка за замовчуванням, яка відповідає значенню <span class='synopsis'><code>simple</code></span> для <span class='synopsis'><code>push.default</code></span>: поточна гілка надсилається до відповідної гілки вище за течією, але як захід безпеки надсилання переривається, якщо гілка вище за течією має таку ж назву, як і локальна.</p>
 </div>
 </div>
 </div>
@@ -87,64 +107,62 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-push-ltrefspecgt82308203"> <a class="anchor" href="#git-push-refspec"></a> <a class="anchor" href="#git-push-ltrefspecgt82308203"></a>&lt;refspec&gt;&#8230;&#8203; </dt>
 <dd>
-<p>Вкажіть, яке посилання призначення оновлювати за допомогою якого вихідного об&#8217;єкта. Формат параметра &lt;refspec&gt; – це необов&#8217;язковий знак плюса <span class='synopsis'><code>+</code></span>, за яким іде вихідний об&#8217;єкт &lt;src&gt;, далі двокрапка <span class='synopsis'><code>:</code></span>, а потім посилання призначення &lt;dst&gt;.</p>
+<p>Вкажіть, яке посилання на призначення оновлювати за допомогою якого вихідного об&#8217;єкта.</p>
 <div class="paragraph">
-<p>&lt;src&gt; часто є назвою гілки, яку ви хочете надіслати, але це може бути будь-який довільний "SHA-1 вираз", такий як <span class='synopsis'><code>master~4</code></span> або <span class='synopsis'><code>HEAD</code></span> (див. <a href='{{< relurl "docs/gitrevisions/uk" >}}'>gitrevisions[7]</a>).</p>
+<p>Формат для специфікації посилань — [+]&lt;source&gt;[:&lt;dst&gt;], наприклад, <span class='synopsis'><code>main</code></span>, <span class='synopsis'><code>main:other</code></span> або <span class='synopsis'><code>HEAD^:refs/heads/main</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>&lt;dst&gt; вказує, яке посилання на віддаленій стороні оновлюється цим надсиланням. Тут не можна використовувати довільні вирази, має бути назване фактичне посилання. Якщо <span class='synopsis'><code>git</code> <code>push</code> [<em>&lt;repository&gt;</em>]</span> без аргументу <span class='synopsis'><em>&lt;refspec&gt;</em></span> встановлено на оновлення деякого посилання в пункті призначення за допомогою <span class='synopsis'><em>&lt;src&gt;</em></span> з конфігураційною змінною <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.push</code></span>, частину <span class='synopsis'><code>:</code><em>&lt;dst&gt;</em></span> можна пропустити – таке надсилання оновить посилання, яке <span class='synopsis'><em>&lt;src&gt;</em></span> зазвичай оновлює без будь-яких <span class='synopsis'><em>&lt;refspec&gt;</em></span> у командному рядку. В іншому випадку, відсутність <span class='synopsis'><code>:</code><em>&lt;dst&gt;</em></span> означає оновлення того самого посилання, що й <span class='synopsis'><em>&lt;src&gt;</em></span>.</p>
+<p><span class='synopsis'><em>&lt;src&gt;</em></span> часто є назвою локальної гілки для надсилання, але це може бути будь-який довільний "SHA-1 вираз" (див. <a href='{{< relurl "docs/gitrevisions/uk" >}}'>gitrevisions[7]</a>).</p>
 </div>
 <div class="paragraph">
-<p>Якщо &lt;dst&gt; не починається з <span class='synopsis'><code>refs/</code></span> (наприклад, <span class='synopsis'><code>refs/heads/master</code></span>), ми спробуємо визначити, де в <span class='synopsis'><code>refs/*</code></span> на цільовому &lt;repository&gt; він знаходиться, виходячи з типу &lt;src&gt;, що надсилається, та того, чи є &lt;dst&gt; неоднозначним.</p>
+<p><span class='synopsis'><em>&lt;dst&gt;</em></span> визначає, яке посилання оновлювати на віддаленій стороні. Це має бути назва гілки, тегу або іншого посилання, а не довільний вираз.</p>
 </div>
-<div class="openblock">
-<div class="content">
+<div class="paragraph">
+<p>Символ <span class='synopsis'><code>+</code></span> необов&#8217;язковий і виконує ту саму функцію, що й <span class='synopsis'><code>--force</code></span>.</p>
+</div>
+<div class="paragraph">
+<p>Ви можете написати специфікацію посилань, використовуючи повністю розгорнуту форму (наприклад, <span class='synopsis'><code>refs/heads/main:refs/heads/main</code></span>), яка вказує точне джерело та призначення, або у коротшій формі (наприклад, <span class='synopsis'><code>main</code></span> або <span class='synopsis'><code>main:other</code></span>). Ось правила розгортання специфікацій посилань, а також різні інші спеціальні форми специфікацій посилань:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Якщо &lt;dst&gt; однозначно посилається на посилання на віддаленому репозиторії &lt;repository&gt;, тоді слід надіслати змінну на це посилання.</p>
+<p><span class='synopsis'><em>&lt;src&gt;</em></span> без <span class='synopsis'><code>:</code><em>&lt;dst&gt;</em></span> означає оновлення того самого посилання, що й <span class='synopsis'><em>&lt;src&gt;</em></span>, якщо конфігурація <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.push</code></span> не вказує інший &lt;dst&gt;. Наприклад, якщо <span class='synopsis'><code>main</code></span> є гілкою, то специфікація посилань <span class='synopsis'><code>main</code></span> розширюється до <span class='synopsis'><code>main:refs/heads/main</code></span>.</p>
 </li>
 <li>
-<p>Якщо &lt;src&gt; розв&#8217;язується як посилання, що починається з refs/heads/ або refs/tags/, тоді додайте це посилання до &lt;dst&gt;.</p>
+<p>Якщо <span class='synopsis'><em>&lt;dst&gt;</em></span> однозначно посилається на посилання на віддаленому репозиторії &lt;repository&gt;, то розгорніть його до цього посилання. Наприклад, якщо <span class='synopsis'><code>v1.0</code></span> є тегом на віддаленому репозиторії, то <span class='synopsis'><code>HEAD:v1.0</code></span> розгортається до <span class='synopsis'><code>HEAD:refs/tags/v1.0</code></span>.</p>
 </li>
 <li>
-<p>Інші способи вирішення неоднозначностей можуть бути додані в майбутньому, але наразі будь-які інші випадки призведуть до помилки, яка вкаже, що ми спробували, і, залежно від конфігурації <span class='synopsis'><code>advice.pushUnqualifiedRefname</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>), підкаже, до яких посилань/простіру імен ви, можливо, хотіли надіслати зміни.</p>
+<p>Якщо <span class='synopsis'><em>&lt;src&gt;</em></span> розв&#8217;язується як посилання, що починається з <span class='synopsis'><code>refs/heads/</code></span> або <span class='synopsis'><code>refs/tags/</code></span>, то додайте це до &lt;dst&gt;. Наприклад, якщо <span class='synopsis'><code>main</code></span> є гілкою, то <span class='synopsis'><code>main:other</code></span> розширюється до <span class='synopsis'><code>main:refs/heads/other</code></span></p>
+</li>
+<li>
+<p>Спеціальна специфікація refspec <span class='synopsis'><code>:</code></span> (або <span class='synopsis'><code>+:</code></span> для дозволу оновлень без швидкого перемотування вперед) вказує Git надсилати "відповідні" гілки: для кожної гілки, що існує на локальній стороні, віддалена сторона оновлюється, якщо гілка з такою ж назвою вже існує на віддаленій стороні.</p>
+</li>
+<li>
+<p>&lt;src&gt; може містити *, щоб вказати просте збігання зі зразком. Це працює як глобальний елемент, який відповідає будь-якому посиланню, що відповідає шаблону. У <span class='synopsis'><em>&lt;src&gt;</em></span> та <span class='synopsis'><em>&lt;dst&gt;</em></span> має бути лише одна *. Це зіставлятиме посилання з місцем призначення, замінюючи * вмістом, що відповідає джерелу. Наприклад, <span class='synopsis'><code>refs/heads/*:refs/heads/*</code></span> відправить усі гілки.</p>
+</li>
+<li>
+<p>Специфікація посилань, що починається з <span class='synopsis'><code>^</code></span>, є негативною специфікацією посилань. Це визначає посилання, які потрібно виключити. Посилання вважатиметься таким, що відповідає, якщо воно відповідає принаймні одній позитивній специфікації посилань і не відповідає жодній негативній специфікації посилань. Негативні специфікації посилань можуть бути специфікаціями посилань шаблонів. Вони повинні містити лише <span class='synopsis'><em>&lt;src&gt;</em></span>. Повністю написані шістнадцяткові назви об&#8217;єктів також не підтримуються. Наприклад, <span class='synopsis'><code>git</code> <code>push</code> <code>origin</code> <code>refs/heads/*'</code> <code>^refs/heads/dev-*'</code></span> надішле всі гілки, крім тих, що починаються з <span class='synopsis'><code>dev-</code></span></p>
+</li>
+<li>
+<p>Якщо <span class='synopsis'><em>&lt;src&gt;</em></span> порожнє, посилання <span class='synopsis'><em>&lt;dst&gt;</em></span> видаляється з віддаленого репозиторію. Наприклад, <span class='synopsis'><code>git</code> <code>push</code> <code>origin</code> <code>:dev</code></span> видаляє гілку <span class='synopsis'><code>dev</code></span>.</p>
+</li>
+<li>
+<p><span class='synopsis'><code>tag</code> <em>&lt;tag&gt;</em></span> розширюється до <span class='synopsis'><code>refs/tags/</code><em>&lt;tag&gt;</em><code>:refs/tags/</code><em>&lt;tag&gt;</em></span>.
+Технічно це спеціальний синтаксис для <span class='synopsis'><code>git</code> <code>push</code></span>, а не специфікація посилань (refspec), оскільки в <span class='synopsis'><code>git</code> <code>push</code> <code>origin</code> <code>tag</code> <code>v1.0</code></span> аргументи <span class='synopsis'><code>tag</code></span> та <span class='synopsis'><code>v1.0</code></span> є окремими.</p>
+</li>
+<li>
+<p>Якщо специфікацію посилань не можна однозначно розширити, виведіть помилку із зазначенням того, що було зроблено, і залежно від конфігурації <span class='synopsis'><code>advice.pushUnqualifiedRefname</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>) запропонуйте, до яких посилань/простір імен ви, можливо, хотіли б надіслати дані.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="paragraph">
-<p>Об&#8217;єкт, на який посилається &lt;src&gt;, використовується для оновлення посилання &lt;dst&gt; на віддаленому боці. Дозволено це залежить від того, де в <span class='synopsis'><code>refs/*</code></span> знаходиться посилання &lt;dst&gt;, як детально описано нижче. У цих розділах "оновлення" означає будь-які зміни, крім видалення, які, як зазначено в наступних кількох розділах, обробляються по-різному.</p>
-</div>
-<div class="paragraph">
-<p>Простір імен <span class='synopsis'><code>refs/heads/*</code></span> прийматиме лише об&#8217;єкти комітів та оновлення, лише якщо їх можна перемотати вперед.</p>
-</div>
-<div class="paragraph">
-<p>Простір імен <span class='synopsis'><code>refs/tags/*</code></span> прийматиме будь-які типи об&#8217;єктів (як коміти, дерева та блоби можна позначати тегами), а будь-які їх оновлення будуть відхилені.</p>
-</div>
-<div class="paragraph">
-<p>Можна переміщувати об&#8217;єкт будь-якого типу до будь-якого простору імен поза <span class='synopsis'><code>refs/{tags,heads}/*</code></span>. У випадку тегів та комітів, вони будуть розглядатися як коміти всередині <span class='synopsis'><code>refs/heads/*</code></span> для визначення того, чи дозволено оновлення.</p>
-</div>
-<div class="paragraph">
-<p>Тобто, перемотування комітів та тегів поза <span class='synopsis'><code>refs/{tags,heads}/*</code></span> дозволено, навіть у випадках, коли перемотується не коміт, а об&#8217;єкт тегу, який вказує на новий коміт, що є перемотуванням останнього тегу (або коміту), який він замінює. Заміна тегу на зовсім інший тег також дозволена, якщо він вказує на той самий коміт, а також вставлення очищеного тегу, тобто вставлення коміту, на який вказує існуючий об&#8217;єкт тегу, або нового об&#8217;єкта тегу, на який вказує існуючий коміт.</p>
-</div>
-<div class="paragraph">
-<p>Об&#8217;єкти Tree та blob поза межами <span class='synopsis'><code>refs/{tags,heads}/*</code></span> будуть оброблятися так само, як якщо б вони знаходилися всередині <span class='synopsis'><code>refs/tags/*</code></span>, будь-яке їх оновлення буде відхилено.</p>
-</div>
-<div class="paragraph">
-<p>Усі описані вище правила щодо того, що не дозволено як оновлення, можна змінити, додавши необов&#8217;язковий початковий символ <span class='synopsis'><code>+</code></span> до специфікації посилань (або використовуючи опцію командного рядка <span class='synopsis'><code>--force</code></span>). Єдиним винятком є те, що жодна кількість форсування не змусить простір імен <span class='synopsis'><code>refs/heads/*</code></span> приймати об&#8217;єкт без коміту. Хуки та конфігурація також можуть змінювати або перевизначати ці правила, див., наприклад, <span class='synopsis'><code>receive.denyNonFastForwards</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> та <span class='synopsis'><code>pre-receive</code></span> та <span class='synopsis'><code>update</code></span> у <a href='{{< relurl "docs/githooks/uk" >}}'>githooks[5]</a>.</p>
-</div>
-<div class="paragraph">
-<p>Додавання порожнього &lt;src&gt; дозволяє видалити посилання &lt;dst&gt; з віддаленого репозиторію. Видалення завжди приймаються без початкового символу <span class='synopsis'><code>+</code></span> у специфікації посилань (або <span class='synopsis'><code>--force</code></span>), окрім випадків, коли це заборонено конфігурацією або хуками. Див. <span class='synopsis'><code>receive.denyDeletes</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> та <span class='synopsis'><code>pre-receive</code></span> та <span class='synopsis'><code>update</code></span> у <a href='{{< relurl "docs/githooks/uk" >}}'>githooks[5]</a>.</p>
-</div>
-<div class="paragraph">
-<p>Спеціальна специфікація refspec <span class='synopsis'><code>:</code></span> (або <span class='synopsis'><code>+:</code></span> для дозволу оновлень без швидкого перемотування вперед) вказує Git надсилати "відповідні" гілки: для кожної гілки, що існує на локальній стороні, віддалена сторона оновлюється, якщо гілка з такою ж назвою вже існує на віддаленій стороні.</p>
-</div>
-<div class="paragraph">
-<p><span class='synopsis'><code>tag</code> <em>&lt;tag&gt;</em></span> означає те саме, що <span class='synopsis'><code>refs/tags/</code><em>&lt;tag&gt;</em><code>:refs/tags/</code><em>&lt;tag&gt;</em></span>.</p>
-</div>
 </dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Не всі оновлення дозволені: див. деталі в розділі ПРАВИЛА НАДСИЛАННЯ нижче.</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1" id="git-push---all"> <a class="anchor" href="#git-push---all"></a>--all </dt>
 <dt class="hdlist1" id="git-push---branches"> <a class="anchor" href="#git-push---branches"></a>--branches </dt>
 <dd>
@@ -180,12 +198,14 @@ headings:
 <dd>
 <p>Надсилати всі посилання, які були б надсилані без цієї опції, а також надсилати анотовані теги в <span class='synopsis'><code>refs/tags</code></span>, які відсутні на віддаленому сервері, але вказують на елементи типу commit, до яких можна дістатися з посилань, що надсилаються. Це також можна вказати за допомогою змінної конфігурації <span class='synopsis'><code>push.followTags</code></span>. Для отримання додаткової інформації див. <span class='synopsis'><code>push.followTags</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-push---no-signed"> <a class="anchor" href="#git-push---no-signed"></a>--[no-]signed </dt>
+<dt class="hdlist1" id="git-push---signed"> <a class="anchor" href="#git-push---signed"></a>--signed </dt>
+<dt class="hdlist1" id="git-push---no-signed"> <a class="anchor" href="#git-push---no-signed"></a>--no-signed </dt>
 <dt class="hdlist1" id="git-push---signedtruefalseif-asked"> <a class="anchor" href="#git-push---signedtruefalseif-asked"></a>--signed=(true|false|if-asked) </dt>
 <dd>
 <p>Підписати push-запит для оновлення посилань на стороні приймача, щоб дозволити перевірку хуками та/або запис у журнал. Якщо встановлено значення <span class='synopsis'><code>false</code></span> або <span class='synopsis'><code>--no-signed</code></span>, спроба підписання не буде здійснена. Якщо встановлено значення <span class='synopsis'><code>true</code></span> або <span class='synopsis'><code>--signed</code></span>, push-запит завершиться невдачею, якщо сервер не підтримує підписані push-запити. Якщо встановлено значення <span class='synopsis'><code>if-asked</code></span>, підписати тоді і тільки тоді, коли сервер підтримує підписані push-запити. Push-запит також завершиться невдачею, якщо фактичний виклик <span class='synopsis'><code>gpg</code> <code>--sign</code></span> завершиться невдачею. Див. <a href='{{< relurl "docs/git-receive-pack/uk" >}}'>git-receive-pack[1]</a> для отримання детальної інформації на стороні приймача.</p>
 </dd>
-<dt class="hdlist1" id="git-push---no-atomic"> <a class="anchor" href="#git-push---no-atomic"></a>--[no-]atomic </dt>
+<dt class="hdlist1" id="git-push---atomic"> <a class="anchor" href="#git-push---atomic"></a>--atomic </dt>
+<dt class="hdlist1" id="git-push---no-atomic"> <a class="anchor" href="#git-push---no-atomic"></a>--no-atomic </dt>
 <dd>
 <p>Використовуйте атомарну транзакцію на віддаленому боці, якщо вона доступна. Або всі посилання оновлюються, або у разі помилки жодні посилання не оновлюються. Якщо сервер не підтримує атомарні надсилання, надсилання завершиться невдачею.</p>
 </dd>
@@ -199,7 +219,8 @@ headings:
 <dd>
 <p>Шлях до програми <em>git-receive-pack</em> на віддаленому кінці. Іноді корисно під час надсилання даних до віддаленого репозиторію через ssh, якщо у вас немає програми в каталозі за замовчуванням $PATH.</p>
 </dd>
-<dt class="hdlist1" id="git-push---no-force-with-lease"> <a class="anchor" href="#git-push---no-force-with-lease"></a>--[no-]force-with-lease </dt>
+<dt class="hdlist1" id="git-push---force-with-lease"> <a class="anchor" href="#git-push---force-with-lease"></a>--force-with-lease </dt>
+<dt class="hdlist1" id="git-push---no-force-with-lease"> <a class="anchor" href="#git-push---no-force-with-lease"></a>--no-force-with-lease </dt>
 <dt class="hdlist1" id="git-push---force-with-leaseltrefnamegt"> <a class="anchor" href="#git-push---force-with-leaserefname"></a> <a class="anchor" href="#git-push---force-with-leaseltrefnamegt"></a>--force-with-lease=&lt;refname&gt; </dt>
 <dt class="hdlist1" id="git-push---force-with-leaseltrefnamegtltexpectgt"> <a class="anchor" href="#git-push---force-with-leaserefnameexpect"></a> <a class="anchor" href="#git-push---force-with-leaseltrefnamegtltexpectgt"></a>--force-with-lease=&lt;refname&gt;:&lt;expect&gt; </dt>
 <dd>
@@ -272,15 +293,16 @@ git push --force-with-lease=master:base master:master</pre>
 <dt class="hdlist1" id="git-push--f"> <a class="anchor" href="#git-push--f"></a>-f </dt>
 <dt class="hdlist1" id="git-push---force"> <a class="anchor" href="#git-push---force"></a>--force </dt>
 <dd>
-<p>Зазвичай команда відмовляється оновлювати віддалене посилання, яке не є предком локального посилання, що використовується для його перезапису. Також, коли використовується опція <span class='synopsis'><code>--force-with-lease</code></span>, команда відмовляється оновлювати віддалене посилання, поточне значення якого не відповідає очікуваному.</p>
+<p>Зазвичай, <span class='synopsis'><code>git</code> <code>push</code></span> відмовляється оновлювати гілку, яка не є предком коміту, що надсилається.</p>
 <div class="paragraph">
-<p>Цей прапорець вимикає ці перевірки та може призвести до втрати комітів віддаленим репозиторієм; використовуйте його обережно.</p>
+<p>Цей прапорець вимикає цю перевірку, інші перевірки безпеки в PUSH RULES нижче та перевірки в --force-with-lease. Це може призвести до втрати комітів віддаленим репозиторієм; використовуйте його обережно.</p>
 </div>
 <div class="paragraph">
 <p>Зверніть увагу, що <span class='synopsis'><code>--force</code></span> застосовується до всіх посилань, які надсилаються, тому його використання з <span class='synopsis'><code>push.default</code></span>, встановленим на <span class='synopsis'><code>matching</code></span>, або з кількома місцями призначення для надсилання, налаштованими за допомогою <span class='synopsis'><code>remote.*.push</code></span>, може перезаписати посилання, відмінні від поточної гілки (включаючи локальні посилання, які знаходяться строго за їхнім віддаленим аналогом). Щоб примусово надсилати дані лише до однієї гілки, використовуйте <span class='synopsis'><code>+</code></span> перед специфікацією посилань для надсилання (наприклад, <span class='synopsis'><code>git</code> <code>push</code> <code>origin</code> <code>+master</code></span>, щоб примусово надсилати дані до гілки <span class='synopsis'><code>master</code></span>). Дивіться розділ <span class='synopsis'><em>&lt;refspec&gt;</em>...</span> вище для отримання детальної інформації.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-push---no-force-if-includes"> <a class="anchor" href="#git-push---no-force-if-includes"></a>--[no-]force-if-includes </dt>
+<dt class="hdlist1" id="git-push---force-if-includes"> <a class="anchor" href="#git-push---force-if-includes"></a>--force-if-includes </dt>
+<dt class="hdlist1" id="git-push---no-force-if-includes"> <a class="anchor" href="#git-push---no-force-if-includes"></a>--no-force-if-includes </dt>
 <dd>
 <p>Примусово оновлювати, лише якщо кінчик посилання віддаленого відстеження було інтегровано локально.</p>
 <div class="paragraph">
@@ -302,7 +324,8 @@ git push --force-with-lease=master:base master:master</pre>
 <dd>
 <p>Для кожної гілки, яка є актуальною або успішно завантаженою, додайте посилання на початковий етап (відстеження), яке використовується командою <a href='{{< relurl "docs/git-pull/uk" >}}'>git-pull[1]</a> без аргументів та іншими командами. Для отримання додаткової інформації див. <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-push---no-thin"> <a class="anchor" href="#git-push---no-thin"></a>--[no-]thin </dt>
+<dt class="hdlist1" id="git-push---thin"> <a class="anchor" href="#git-push---thin"></a>--thin </dt>
+<dt class="hdlist1" id="git-push---no-thin"> <a class="anchor" href="#git-push---no-thin"></a>--no-thin </dt>
 <dd>
 <p>Ці опції передаються до <a href='{{< relurl "docs/git-send-pack/uk" >}}'>git-send-pack[1]</a>. Тонка передача значно зменшує обсяг даних, що надсилаються, коли відправник і одержувач використовують багато спільних об&#8217;єктів. Значення за замовчуванням — <span class='synopsis'><code>--thin</code></span>.</p>
 </dd>
@@ -328,7 +351,8 @@ git push --force-with-lease=master:base master:master</pre>
 <p>Під час використання «on-demand» або «only», якщо підмодуль має конфігурацію «push.recurseSubmodules={on-demand,only}» або «submodule.recurse», відбуватиметься подальша рекурсія. У цьому випадку «only» трактується як «on-demand».</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-push---no-verify"> <a class="anchor" href="#git-push---no-verify"></a>--[no-]verify </dt>
+<dt class="hdlist1" id="git-push---verify"> <a class="anchor" href="#git-push---verify"></a>--verify </dt>
+<dt class="hdlist1" id="git-push---no-verify"> <a class="anchor" href="#git-push---no-verify"></a>--no-verify </dt>
 <dd>
 <p>Увімкнути/вимкнути хук перед надсиланням (див. <a href='{{< relurl "docs/githooks/uk" >}}'>githooks[5]</a>). За замовчуванням — --verify, що дає хуку можливість запобігти надсиланню. З --no-verify хук повністю обходиться.</p>
 </dd>
@@ -483,7 +507,7 @@ git push --force-with-lease=master:base master:master</pre>
 <h2 id="_пульти_керування"><a class="anchor" href="#_пульти_керування"></a>ПУЛЬТИ КЕРУВАННЯ<a id="REMOTES"></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Замість URL-адреси як аргумент <span class='synopsis'><em>&lt;repository&gt;</em></span> можна використовувати назву одного з наступних:</p>
+<p>Замість URL-адреси як аргумент <em>&lt;репозиторій&gt;</em> можна використовувати назву одного з наступних:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -516,7 +540,7 @@ git push --force-with-lease=master:base master:master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><span class='synopsis'><em>&lt;pushurl&gt;</em></span> використовується лише для надсилання змін. Він необов&#8217;язковий і за замовчуванням має значення <span class='synopsis'><em>&lt;URL&gt;</em></span>. Надсилання змін на віддалений сервер впливає на всі визначені адреси pushurl або всі визначені URL-адреси, якщо жодної адреси pushurl не визначено. Однак Fetch буде отримувати дані лише з першої визначеної URL-адреси, якщо визначено кілька URL-адрес.</p>
+<p><em>&lt;pushurl&gt;</em> використовується лише для надсилання змін. Він необов&#8217;язковий і за замовчуванням має значення <em>&lt;URL&gt;</em>. Надсилання змін на віддалений сервер впливає на всі визначені адреси pushurl або всі визначені URL-адреси, якщо жодної адреси pushurl не визначено. Однак Fetch буде отримувати дані лише з першої визначеної URL-адреси, якщо визначено кілька URL-адрес.</p>
 </div>
 </div>
 <div class="sect2">
@@ -532,7 +556,7 @@ git push --force-with-lease=master:base master:master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Рядки <span class='synopsis'><code>Push:</code></span> використовуються командами <em>git push</em>, а рядки <span class='synopsis'><code>Pull:</code></span> використовуються командами <em>git pull</em> та <em>git fetch</em>. Для додаткових зіставлень гілок можна вказати кілька рядків <span class='synopsis'><code>Push:</code></span> та <span class='synopsis'><code>Pull:</code></span>.</p>
+<p>Рядки <span class='synopsis'><code>Push:</code></span> використовуються командами <span class='synopsis'><code>git</code> <code>push</code></span>, а рядки <span class='synopsis'><code>Pull:</code></span> використовуються командами <span class='synopsis'><code>git</code> <code>pull</code></span> та <span class='synopsis'><code>git</code> <code>fetch</code></span>. Для додаткових зіставлень гілок можна вказати кілька рядків <span class='synopsis'><code>Push:</code></span> та <span class='synopsis'><code>Pull:</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -546,10 +570,10 @@ git push --force-with-lease=master:base master:master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><span class='synopsis'><em>&lt;URL&gt;</em></span> is required; <span class='synopsis'><code>#</code><em>&lt;head&gt;</em></span> є необов&#8217;язковим.</p>
+<p><em>&lt;URL&gt;</em> обов&#8217;язковий; <span class='synopsis'><code>#</code><em>&lt;head&gt;</em></span> необов&#8217;язковий.</p>
 </div>
 <div class="paragraph">
-<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <span class='synopsis'><em>&lt;branch&gt;</em></span> – це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а <span class='synopsis'><em>&lt;head&gt;</em></span> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
+<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <em>&lt;branch&gt; – це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а _&lt;head&gt;</em> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>git fetch uses:</p>
@@ -567,6 +591,65 @@ git push --force-with-lease=master:base master:master</pre>
 <pre>	HEAD:refs/heads/&lt;head&gt;</pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="UPSTREAM-BRANCHES"><a class="anchor" href="#UPSTREAM-BRANCHES"></a>ВИГЛЯДНІ ФІЛІЇ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Гілки в Git можуть за бажанням мати віддалену гілку, що знаходиться вище за тегом. Git за замовчуванням використовує гілку, що знаходиться вище за тегом, для віддалених операцій, наприклад:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Це значення за замовчуванням для <span class='synopsis'><code>git</code> <code>pull</code></span> або <span class='synopsis'><code>git</code> <code>fetch</code></span> без аргументів.</p>
+</li>
+<li>
+<p>Це значення за замовчуванням для <span class='synopsis'><code>git</code> <code>push</code></span> без аргументів, за деякими винятками. Наприклад, ви можете використовувати опцію <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.pushRemote</code></span> для надсилання даних на інший віддалений сервер, ніж той, з якого ви отримуєте дані, і за замовчуванням з <span class='synopsis'><code>push.default=simple</code></span> гілка, яку ви налаштовуєте, повинна мати таку саму назву.</p>
+</li>
+<li>
+<p>Різні команди, зокрема <span class='synopsis'><code>git</code> <code>checkout</code></span> та <span class='synopsis'><code>git</code> <code>status</code></span>, покажуть вам, скільки комітів було додано до вашої поточної гілки та основної гілки з моменту відгалуження від неї, наприклад, «Ваша гілка та <em>origin/main</em> розійшлися та мають 2 та 3 різні коміти відповідно».</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Дані про вихідний код зберігаються у файлі <span class='synopsis'><code>.git/config</code></span>, у полях "remote" та "merge". Наприклад, якщо вихідним кодом <span class='synopsis'><code>main</code></span> є <span class='synopsis'><code>origin/main</code></span>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[branch "main"]
+   remote = origin
+   merge = refs/heads/main</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ви можете явно встановити гілку upstream за допомогою <span class='synopsis'><code>git</code> <code>push</code> <code>--set-upstream</code> <em>&lt;віддалена&gt;</em> <em>&lt;гілка&gt;</em></span>, але Git часто автоматично встановить її за вас, наприклад:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Коли ви клонуєте репозиторій, Git автоматично встановить основний напрямок (upstream) для гілки за замовчуванням.</p>
+</li>
+<li>
+<p>Якщо у вас встановлено опцію конфігурації <span class='synopsis'><code>push.autoSetupRemote</code></span>, <span class='synopsis'><code>git</code> <code>push</code></span> автоматично встановить розгортання під час першого надсилання гілки.</p>
+</li>
+<li>
+<p>Перевірка гілки віддаленого відстеження за допомогою <span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;branch&gt;</em></span> автоматично створить локальну гілку з цією назвою та встановить основний хід (upstream) на віддалену гілку.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Гілки вище за течією іноді називають «інформацією відстеження», наприклад, «встановити інформацію відстеження гілки».
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -669,6 +752,46 @@ git push --force-with-lease=master:base master:master</pre>
 <p>Зрозуміле для людини пояснення. У випадку успішно надісланих посилань пояснення не потрібні. Для невдалого посилання описується причина невдачі.</p>
 </dd>
 </dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_правила_натиснення"><a class="anchor" href="#_правила_натиснення"></a>ПРАВИЛА НАТИСНЕННЯ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Як засіб безпеки, команда <span class='synopsis'><code>git</code> <code>push</code></span> дозволяє лише певні види оновлень, щоб запобігти випадковій втраті даних на віддаленому комп&#8217;ютері.</p>
+</div>
+<div class="paragraph">
+<p>Оскільки гілки та теги призначені для різних робіт, правила безпеки для надсилання змін до гілки відрізняються від правил для надсилання змін до тегу. У наступних правилах «оновлення» означає будь-які зміни, крім видалення та створення змін. Видалення та створення змін завжди дозволені, окрім випадків, коли це заборонено конфігурацією або перехоплювачами.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Якщо місцем призначення для публікації є <strong>гілка</strong> (<span class='synopsis'><code>refs/heads/*</code></span>): дозволені лише оновлення вперед, що означає, що місцем призначення має бути предок вихідного коміту. Джерело має бути комміт.</p>
+</li>
+<li>
+<p>Якщо місцем призначення для надсилання є <strong>тег</strong> (<span class='synopsis'><code>refs/tags/*</code></span>): усі оновлення будуть відхилені. Джерелом може бути будь-який об&#8217;єкт.</p>
+</li>
+<li>
+<p>Якщо місце призначення push-посилання не є гілкою або тегом:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Якщо джерелом є дерево або блоб-об&#8217;єкт, будь-які оновлення будуть відхилені</p>
+</li>
+<li>
+<p>Якщо джерелом є тег або об&#8217;єкт коміту, дозволено будь-яке оновлення вперед, навіть у випадках, коли перемотується не коміт, а об&#8217;єкт тегу, який вказує на новий коміт, що є перемотуванням вперед останнього тегу (або коміту), який він замінює. Заміна тегу на зовсім інший тег також дозволена, якщо він вказує на той самий коміт, а також вставлення очищеного тегу, тобто вставлення коміту, на який вказує існуючий об&#8217;єкт тегу, або нового об&#8217;єкта тегу, на який вказує існуючий коміт.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Ви можете змінити ці правила, передавши <span class='synopsis'><code>--force</code></span> або додавши необов&#8217;язковий початковий символ <span class='synopsis'><code>+</code></span> до специфікації посилання. Єдиними винятками є те, що жодна кількість примусового введення не змусить гілку прийняти об&#8217;єкт без коміту, а примусове введення не змусить віддалений репозиторій прийняти push-повідомлення, яке він налаштований відхиляти.</p>
+</div>
+<div class="paragraph">
+<p>Хуки та конфігурація також можуть перевизначати або змінювати ці правила, див., наприклад, <span class='synopsis'><code>receive.denyNonFastForwards</code></span> та <span class='synopsis'><code>receive.denyDeletes</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> та <span class='synopsis'><code>pre-receive</code></span> та <span class='synopsis'><code>update</code></span> у <a href='{{< relurl "docs/githooks/uk" >}}'>githooks[5]</a>.</p>
 </div>
 </div>
 </div>
@@ -843,7 +966,7 @@ git push --force-with-lease=master:base master:master</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_конфігурація"><a class="anchor" href="#_конфігурація"></a>КОНФІГУРАЦІЯ</h2>
+<h2 id="CONFIGURATION"><a class="anchor" href="#CONFIGURATION"></a>КОНФІГУРАЦІЯ</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Все, що знаходиться нижче цього рядка в цьому розділі, вибірково включено з документації <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Вміст такий самий, як і там:</p>

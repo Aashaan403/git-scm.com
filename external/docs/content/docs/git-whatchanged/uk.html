@@ -43,7 +43,7 @@ headings:
 <h2 id="_попередження"><a class="anchor" href="#_попередження"></a>ПОПЕРЕДЖЕННЯ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class='synopsis'><code>git</code> <code>whatchanged</code></span> є застарілим і його видалення заплановано в майбутній версії Git, оскільки це просто <span class='synopsis'><code>git</code> <code>log</code></span> з іншим значенням за замовчуванням; <span class='synopsis'><code>whatchanged</code></span> навіть не коротший за типом, ніж <span class='synopsis'><code>log</code> <code>--raw</code></span>.</p>
+<p><span class='synopsis'><code>git</code> <code>whatchanged</code></span> застарів і заплановано до видалення в майбутній версії Git, оскільки це просто <span class='synopsis'><code>git</code> <code>log</code></span> з іншими значеннями за замовчуванням.</p>
 </div>
 </div>
 </div>
@@ -54,7 +54,12 @@ headings:
 <p>Показує журнали комітів та вивід різниці, що вводяться кожним комітом.</p>
 </div>
 <div class="paragraph">
-<p>Новим користувачам рекомендується використовувати <a href='{{< relurl "docs/git-log/uk" >}}'>git-log[1]</a>. Команда <span class='synopsis'><code>whatchanged</code></span> по суті така ж, як <a href='{{< relurl "docs/git-log/uk" >}}'>git-log[1]</a>, але за замовчуванням відображає необроблений формат виводу diff та пропускає злиття.</p>
+<p>Новим користувачам рекомендується використовувати <a href='{{< relurl "docs/git-log/uk" >}}'>git-log[1]</a>. Команда <span class='synopsis'><code>whatchanged</code></span> по суті така ж, як <a href='{{< relurl "docs/git-log/uk" >}}'>git-log[1]</a>, але за замовчуванням відображає необроблений формат виводу diff та пропускає злиття:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git log --raw --no-merges</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Команда збережена переважно з історичних причин; пальці багатьох людей, які вивчили Git задовго до винаходу <span class='synopsis'><code>git</code> <code>log</code></span>, читаючи список розсилки ядра Linux, навчені її друкувати.</p>

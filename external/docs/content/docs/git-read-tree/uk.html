@@ -118,7 +118,8 @@ headings:
 <dd>
 <p>Замість запису результатів у <span class='synopsis'><code>$GIT_INDEX_FILE</code></span>, запишіть результуючий індекс у названий файл. Під час виконання команди оригінальний індексний файл блокується тим самим механізмом, що й зазвичай. Файл має дозволяти перейменування(2) з тимчасового файлу, який створюється поруч зі звичайним індексним файлом; зазвичай це означає, що він має бути в тій самій файловій системі, що й сам індексний файл, і вам потрібен дозвіл на запис до каталогів, у яких розташовані індексний файл та вихідний файл індексу.</p>
 </dd>
-<dt class="hdlist1" id="git-read-tree---no-recurse-submodules"> <a class="anchor" href="#git-read-tree---no-recurse-submodules"></a>--[no-]recurse-submodules </dt>
+<dt class="hdlist1" id="git-read-tree---recurse-submodules"> <a class="anchor" href="#git-read-tree---recurse-submodules"></a>--recurse-submodules </dt>
+<dt class="hdlist1" id="git-read-tree---no-recurse-submodules"> <a class="anchor" href="#git-read-tree---no-recurse-submodules"></a>--no-recurse-submodules </dt>
 <dd>
 <p>Використання --recurse-submodules оновить вміст усіх активних підмодулів відповідно до коміту, записаного в суперпроекті, шляхом рекурсивного виклику read-tree, а також встановить відключення HEAD підмодулів під час цього коміту.</p>
 </dd>

@@ -769,17 +769,17 @@ Les branches amont sont parfois appelées « information de suivi «, comme 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If the push destination is a <strong>branch</strong> (<span class='synopsis'><code>refs/heads/*</code></span>): only fast-forward updates are allowed, which means the destination must be an ancestor of the source commit. The source must be a commit.</p>
+<p>Si la destination de poussée est une <strong>branche</strong> (<span class='synopsis'><code>refs/heads/*</code></span>) : seules les mises à jour en avance rapide sont permises, ce qui signifie que la destination doit être un ancêtre du commit source. La source doit être un commit.</p>
 </li>
 <li>
-<p>If the push destination is a <strong>tag</strong> (<span class='synopsis'><code>refs/tags/*</code></span>): all updates will be rejected. The source can be any object.</p>
+<p>Si la destination de poussée est une <strong>étiquette</strong> (<span class='synopsis'><code>refs/tags/*</code></span>) : toutes les mises à jour seront rejetées. La source peut être n&#8217;importe quel objet.</p>
 </li>
 <li>
-<p>If the push destination is not a branch or tag:</p>
+<p>Si la destination de poussée n&#8217;est pas une branche ou une étiquette :</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If the source is a tree or blob object, any updates will be rejected</p>
+<p>Si la source est un objet arbre ou blob, toute mise à jour sera rejetée</p>
 </li>
 <li>
 <p>Si la source est un objet étiquette ou commit, toute mise à jour en avance rapidement est permise, mais lorsque ce qui n&#8217;est en avance rapide n&#8217;est pas un commit, mais un objet étiquette qui pointe vers un nouveau commit qui est une avance rapide de la dernière étiquette (ou commit) qu&#8217;il remplace. Le remplacement d&#8217;une étiquette par une étiquette entièrement différente est également autorisé, si elle pointe vers le même commit, ainsi que le fait de pousser une étiquette pelée, c&#8217;est-à-dire de pousser le commit vers lequel l&#8217;objet étiquette existant pointe, ou un nouvel objet étiquette vers lequel un commit existant pointe.</p>
@@ -790,7 +790,7 @@ Les branches amont sont parfois appelées « information de suivi «, comme 
 </ol>
 </div>
 <div class="paragraph">
-<p>You can override these rules by passing <span class='synopsis'><code>--force</code></span> or by adding the optional leading <span class='synopsis'><code>+</code></span> to a refspec. The only exceptions are that no amount of forcing will make a branch accept a non-commit object, and forcing won&#8217;t make the remote repository accept a push that it&#8217;s configured to deny.</p>
+<p>Vous pouvez contourner ces règles en passant <span class='synopsis'><code>--force</code></span> ou en ajoutant le préfixe optionnel <span class='synopsis'><code>+</code></span> à un refspec. Les seules exceptions sont qu&#8217;on ne peut pas forcer une branche à accepter un objet non-commit, et qu&#8217;aucun forçage ne fera accepter une poussée à un dépôt distant s&#8217;il est configuré pour la rejeter.</p>
 </div>
 <div class="paragraph">
 <p>Les crochets et la configuration peuvent également remplacer ou modifier ces règles, voir par exemple <span class='synopsis'><code>receive.denyNonFastForwards</code></span> et <span class='synopsis'><code>receive.denyDeletes</code></span> dans <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a> et <span class='synopsis'><code>pre-receive</code></span> et <span class='synopsis'><code>update</code></span> dans <a href='{{< relurl "docs/githooks/fr" >}}'>githooks[5]</a>.</p>

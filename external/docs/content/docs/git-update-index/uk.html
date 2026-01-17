@@ -139,7 +139,8 @@ headings:
 <dd>
 <p>Встановіть дозволи на виконання для оновлених файлів.</p>
 </dd>
-<dt class="hdlist1" id="git-update-index---no-assume-unchanged"> <a class="anchor" href="#git-update-index---no-assume-unchanged"></a>--[no-]assume-unchanged </dt>
+<dt class="hdlist1" id="git-update-index---assume-unchanged"> <a class="anchor" href="#git-update-index---assume-unchanged"></a>--assume-unchanged </dt>
+<dt class="hdlist1" id="git-update-index---no-assume-unchanged"> <a class="anchor" href="#git-update-index---no-assume-unchanged"></a>--no-assume-unchanged </dt>
 <dd>
 <p>Коли цей прапорець вказано, імена об&#8217;єктів, записані для шляхів, не оновлюються. Натомість, ця опція встановлює/скасовує біт "припускати без змін" для шляхів. Коли біт "припускати без змін" увімкнено, користувач обіцяє не змінювати файл і дозволяє Git вважати, що робочий файл дерева відповідає тому, що записано в індексі. Якщо ви хочете змінити робочий файл дерева, вам потрібно скинути цей біт, щоб повідомити Git. Це іноді корисно під час роботи з великим проектом на файловій системі, яка має дуже повільний системний виклик lstat(2) (наприклад, cifs).</p>
 <div class="paragraph">
@@ -150,15 +151,18 @@ headings:
 <dd>
 <p>Подібно до <span class='synopsis'><code>--refresh</code></span>, але перевіряє статистичну інформацію безумовно, незалежно від налаштування "припускати незмінність".</p>
 </dd>
-<dt class="hdlist1" id="git-update-index---no-skip-worktree"> <a class="anchor" href="#git-update-index---no-skip-worktree"></a>--[no-]skip-worktree </dt>
+<dt class="hdlist1" id="git-update-index---skip-worktree"> <a class="anchor" href="#git-update-index---skip-worktree"></a>--skip-worktree </dt>
+<dt class="hdlist1" id="git-update-index---no-skip-worktree"> <a class="anchor" href="#git-update-index---no-skip-worktree"></a>--no-skip-worktree </dt>
 <dd>
 <p>Коли вказано один із цих прапорців, імена об’єктів, записані для шляхів, не оновлюються. Натомість ці опції встановлюють та скидають значення біта «skip-worktree» для шляхів. Див. розділ «Біт пропуску робочого дерева» нижче для отримання додаткової інформації.</p>
 </dd>
-<dt class="hdlist1" id="git-update-index---no-ignore-skip-worktree-entries"> <a class="anchor" href="#git-update-index---no-ignore-skip-worktree-entries"></a>--[no-]ignore-skip-worktree-entries </dt>
+<dt class="hdlist1" id="git-update-index---ignore-skip-worktree-entries"> <a class="anchor" href="#git-update-index---ignore-skip-worktree-entries"></a>--ignore-skip-worktree-entries </dt>
+<dt class="hdlist1" id="git-update-index---no-ignore-skip-worktree-entries"> <a class="anchor" href="#git-update-index---no-ignore-skip-worktree-entries"></a>--no-ignore-skip-worktree-entries </dt>
 <dd>
 <p>Не видаляти записи skip-worktree (також відомі як "лише для індексу"), навіть якщо було вказано опцію <span class='synopsis'><code>--remove</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-update-index---no-fsmonitor-valid"> <a class="anchor" href="#git-update-index---no-fsmonitor-valid"></a>--[no-]fsmonitor-valid </dt>
+<dt class="hdlist1" id="git-update-index---fsmonitor-valid"> <a class="anchor" href="#git-update-index---fsmonitor-valid"></a>--fsmonitor-valid </dt>
+<dt class="hdlist1" id="git-update-index---no-fsmonitor-valid"> <a class="anchor" href="#git-update-index---no-fsmonitor-valid"></a>--no-fsmonitor-valid </dt>
 <dd>
 <p>Коли вказано один із цих прапорців, імена об’єктів, записані для шляхів, не оновлюються. Натомість ці опції встановлюють та скидають значення біта «fsmonitor valid» для шляхів. Див. розділ «Монітор файлової системи» нижче для отримання додаткової інформації.</p>
 </dd>
@@ -455,7 +459,7 @@ M foo.c</pre>
 <p>Цей режим розроблено для репозиторіїв з дуже великими індексами та спрямований на скорочення часу, необхідного для багаторазового запису цих індексів.</p>
 </div>
 <div class="paragraph">
-<p>У цьому режимі індекс розділяється на два файли: $GIT_DIR/index та $GIT_DIR/sharedindex.<span class="hover-term" data-term="SHA-1">&lt;SHA-1&gt;</span>. Зміни накопичуються в $GIT_DIR/index, розділеному індексі, тоді як спільний файл індексу містить усі записи індексу та залишається незмінним.</p>
+<p>У цьому режимі індекс розділяється на два файли: $GIT_DIR/index та $GIT_DIR/sharedindex.&lt;SHA-1&gt;. Зміни накопичуються в $GIT_DIR/index, розділеному індексі, тоді як спільний файл індексу містить усі записи індексу та залишається незмінним.</p>
 </div>
 <div class="paragraph">
 <p>Усі зміни в розділеному індексі переносяться назад до спільного файлу індексу, коли кількість записів у розділеному індексі досягає рівня, визначеного змінною конфігурації splitIndex.maxPercentChange (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>

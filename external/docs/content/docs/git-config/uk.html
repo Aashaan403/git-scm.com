@@ -69,7 +69,7 @@ headings:
 <p>За допомогою цієї команди ви можете запитувати/встановлювати/замінювати/скидати параметри. Назва насправді є секцією та ключем, розділеними крапкою, а значення буде екрановано.</p>
 </div>
 <div class="paragraph">
-<p>Multiple lines can be added to an option by using the <span class='synopsis'><code>--append</code></span> option. If you want to update or unset an option which can occur on multiple lines, <span class='synopsis'><code>--value=</code><em>&lt;pattern&gt;</em></span> (which is an extended regular expression, unless the <span class='synopsis'><code>--fixed-value</code></span> option is given) needs to be given. Only the existing values that match the pattern are updated or unset. If you want to handle the lines that do <strong>not</strong> match the pattern, just prepend a single exclamation mark in front (see also <a href="#EXAMPLES">ПРИКЛАДИ</a>), but note that this only works when the <span class='synopsis'><code>--fixed-value</code></span> option is not in use.</p>
+<p>До опції можна додати кілька рядків за допомогою опції <span class='synopsis'><code>--append</code></span>. Якщо ви хочете оновити або скасувати значення опції, яка може зустрічатися в кількох рядках, потрібно вказати <span class='synopsis'><code>--value=</code><em>&lt;шаблон&gt;</em></span> (що є розширеним регулярним виразом, якщо не вказано опцію <span class='synopsis'><code>--fixed-value</code></span>). Оновлюються або скасовуються лише існуючі значення, які відповідають шаблону. Якщо ви хочете обробити рядки, які <strong>не</strong> відповідають шаблону, просто додайте один знак оклику попереду (див. також <a href="#EXAMPLES">ПРИКЛАДИ</a>), але зверніть увагу, що це працює лише тоді, коли опція <span class='synopsis'><code>--fixed-value</code></span> не використовується.</p>
 </div>
 <div class="paragraph">
 <p>Опція <span class='synopsis'><code>--type=</code><em>&lt;тип&gt;</em></span> вказує <em>git config</em> забезпечити канонізацію вхідних та вихідних значень для заданого &lt;тип&gt;. Якщо <span class='synopsis'><code>--type=</code><em>&lt;тип&gt;</em></span> не вказано, канонізація не виконуватиметься. Викликаючі сторони можуть скинути існуючий специфікатор <span class='synopsis'><code>--type</code></span> за допомогою <span class='synopsis'><code>--no-type</code></span>.</p>
@@ -169,10 +169,8 @@ headings:
 <dt class="hdlist1" id="git-config---commentltgt"> <a class="anchor" href="#git-config---comment"></a> <a class="anchor" href="#git-config---commentltgt"></a>--comment &lt;повідомлення&gt; </dt>
 <dd>
 <p>Додайте коментар у кінці нових або змінених рядків.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Якщо _&lt;повідомлення&gt;_ починається з одного або кількох пробілів, за якими йде "#", воно використовується як є. Якщо воно починається з "#", перед його використанням додається пробіл. В іншому випадку до нього додається рядок "#" (пробіл, за яким йде хеш, а потім пробіл). Отриманий рядок розміщується одразу після значення, визначеного для змінної. _&lt;повідомлення&gt;_ не повинно містити символів переведення рядка (багаторядкові коментарі не дозволені).</pre>
-</div>
+<div class="paragraph">
+<p>Якщо <em>&lt;повідомлення&gt;</em> починається з одного або кількох пробілів, за якими йде "<mark>", воно використовується як є. Якщо воно починається з "</mark>", перед його використанням додається пробіл. В іншому випадку до нього додається рядок "#" (пробіл, за яким йде хеш, а потім пробіл). Отриманий рядок розміщується одразу після значення, визначеного для змінної. <em>&lt;повідомлення&gt;</em> не повинно містити символів переведення рядка (багаторядкові коментарі не дозволені).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-config---all"> <a class="anchor" href="#git-config---all"></a>--all </dt>
@@ -315,7 +313,8 @@ headings:
 <dd>
 <p>Знайдіть налаштування кольору для <span class='synopsis'><em>&lt;name&gt;</em></span> (наприклад, <span class='synopsis'><code>color.diff</code></span>) та виведіть "true" або "false". <span class='synopsis'><em>&lt;stdout-is-tty&gt;</em></span> має бути або "true", або "false", і враховується, коли конфігурація вказує на "auto". Якщо <span class='synopsis'><em>&lt;stdout-is-tty&gt;</em></span> відсутній, то перевіряється стандартний вивід самої команди та завершується зі статусом 0, якщо має використовуватися колір, або зі статусом 1 в іншому випадку. Коли налаштування кольору для <span class='synopsis'><code>name</code></span> не визначено, команда використовує <span class='synopsis'><code>color.ui</code></span> як резервний варіант.</p>
 </dd>
-<dt class="hdlist1" id="git-config---no-includes"> <a class="anchor" href="#git-config---no-includes"></a>--[no-]includes </dt>
+<dt class="hdlist1" id="git-config---includes"> <a class="anchor" href="#git-config---includes"></a>--includes </dt>
+<dt class="hdlist1" id="git-config---no-includes"> <a class="anchor" href="#git-config---no-includes"></a>--no-includes </dt>
 <dd>
 <p>Враховуйте директиви <span class='synopsis'><code>include.*</code></span> у конфігураційних файлах під час пошуку значень. За замовчуванням встановлено значення <span class='synopsis'><code>off</code></span>, коли вказано певний файл (наприклад, за допомогою <span class='synopsis'><code>--file</code></span>, <span class='synopsis'><code>--global</code></span> тощо), та <span class='synopsis'><code>on</code></span> під час пошуку у всіх конфігураційних файлах.</p>
 </dd>
@@ -764,7 +763,7 @@ http.sslverify false</pre>
 <dl>
 <dt class="hdlist1" id="git-config-spanclasssynopsiscodegitdircodespan"> <a class="anchor" href="#git-config-gitdir"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodegitdircodespan"></a><span class='synopsis'><code>gitdir</code></span> </dt>
 <dd>
-<p>Дані, що йдуть після ключового слова <span class='synopsis'><code>gitdir:</code></span>, використовуються як шаблон glob. Якщо розташування каталогу .git відповідає шаблону, умова включення виконується.</p>
+<p>Дані, що йдуть після ключового слова <span class='synopsis'><code>gitdir</code></span> та двокрапки, використовуються як шаблон glob. Якщо розташування каталогу .git відповідає шаблону, умова включення виконується.</p>
 <div class="paragraph">
 <p>Розташування .git може бути автоматично виявлене або походити зі змінної середовища <span class='synopsis'><code>$GIT_DIR</code></span>. Якщо репозиторій автоматично виявлено через файл .git (наприклад, з підмодулів або пов&#8217;язаного робочого дерева), розташування .git буде кінцевим розташуванням, де знаходиться каталог .git, а не місцем, де знаходиться файл .git.</p>
 </div>
@@ -794,14 +793,14 @@ http.sslverify false</pre>
 </dd>
 <dt class="hdlist1" id="git-config-spanclasssynopsiscodeonbranchcodespan"> <a class="anchor" href="#git-config-onbranch"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeonbranchcodespan"></a><span class='synopsis'><code>onbranch</code></span> </dt>
 <dd>
-<p>Дані, що йдуть після ключового слова <span class='synopsis'><code>onbranch:</code></span>, вважаються шаблоном зі стандартними шаблонами глобального підстановлення та двома додатковими, <span class='synopsis'><code>**/</code></span> та <span class='synopsis'><code>/**</code></span>, які можуть відповідати кільком компонентам шляху. Якщо ми знаходимося в робочому дереві, де назва гілки, яка наразі витягується, відповідає шаблону, умова включення виконується.</p>
+<p>Дані, що йдуть після ключового слова <span class='synopsis'><code>onbranch</code></span> та двокрапки, вважаються шаблоном зі стандартними шаблонами глобального підстановлення та двома додатковими, <span class='synopsis'><code>**/</code></span> та <span class='synopsis'><code>/**</code></span>, які можуть відповідати кільком компонентам шляху. Якщо ми знаходимося в робочому дереві, де назва гілки, яка наразі витягується, відповідає шаблону, умова включення виконується.</p>
 <div class="paragraph">
 <p>Якщо шаблон закінчується на <span class='synopsis'><code>/</code></span>, автоматично буде додано <span class='synopsis'><code>**</code></span>. Наприклад, шаблон <span class='synopsis'><code>foo/</code></span> стає <span class='synopsis'><code>foo/**</code></span>. Іншими словами, він відповідає всім гілкам, які починаються з <span class='synopsis'><code>foo/</code></span>. Це корисно, якщо ваші гілки організовані ієрархічно, і ви хочете застосувати конфігурацію до всіх гілок у цій ієрархії.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-config-spanclasssynopsiscodehasconfigremoteurlcodespan"> <a class="anchor" href="#git-config-hasconfigremoteurl"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodehasconfigremoteurlcodespan"></a><span class='synopsis'><code>hasconfig:remote.*.url:</code></span> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodehasconfigremoteurlcodespan"> <a class="anchor" href="#git-config-hasconfigremoteurl"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodehasconfigremoteurlcodespan"></a><span class='synopsis'><code>hasconfig:remote.*.url</code></span> </dt>
 <dd>
-<p>Дані, що йдуть після цього ключового слова, сприймаються як шаблон зі стандартними шаблонами підстановки та двома додатковими, <span class='synopsis'><code>**/</code></span> та <span class='synopsis'><code>/**</code></span>, які можуть відповідати кільком компонентам. Під час першого зустрічі цього ключового слова решта конфігураційних файлів будуть проскановані на наявність віддалених URL-адрес (без застосування будь-яких значень). Якщо існує хоча б одна віддалена URL-адреса, яка відповідає цьому шаблону, умова включення виконується.</p>
+<p>Дані, що йдуть після цього ключового слова та двокрапки, вважаються шаблоном зі стандартними шаблонами підстановки та двома додатковими, <span class='synopsis'><code>**/</code></span> та <span class='synopsis'><code>/**</code></span>, які можуть відповідати кільком компонентам. При першому зустрічі цього ключового слова решта конфігураційних файлів будуть проскановані на наявність віддалених URL-адрес (без застосування будь-яких значень). Якщо існує хоча б одна віддалена URL-адреса, яка відповідає цьому шаблону, умова включення виконується.</p>
 <div class="paragraph">
 <p>Файли, що включаються цією опцією (прямо чи опосередковано), не можуть містити віддалені URL-адреси.</p>
 </div>
@@ -958,6 +957,9 @@ http.sslverify false</pre>
 <p>Змінній, яка приймає значення шляху, можна надати рядок, що починається з "<span class='synopsis'><code>~/</code></span>" або "<span class='synopsis'><code>~user/</code></span>", і для такого рядка відбувається звичайне розкриття тильдою: <span class='synopsis'><code>~/</code></span> розгортається до значення <span class='synopsis'><code>$HOME</code></span>, а <span class='synopsis'><code>~user/</code></span> — до домашнього каталогу вказаного користувача.</p>
 <div class="paragraph">
 <p>Якщо шлях починається з <span class='synopsis'><code>%</code>(<code>prefix</code>)<code>/</code></span>, решта інтерпретується як шлях відносно "префікса середовища виконання" Git, тобто відносно місця, де було встановлено сам Git. Наприклад, <span class='synopsis'><code>%</code>(<code>prefix</code>)<code>/bin/</code></span> посилається на каталог, в якому знаходиться сам виконуваний файл Git. Якщо Git було скомпільовано без підтримки префіксів середовища виконання, замість нього буде підставлено скомпільований префікс. У малоймовірному випадку, якщо потрібно вказати літерал шляху, який <em>не</em> слід розширювати, його потрібно починати з <span class='synopsis'><code>./</code></span>, ось так: <span class='synopsis'><code>./%</code>(<code>prefix</code>)<code>/bin</code></span>.</p>
+</div>
+<div class="paragraph">
+<p>Якщо перед змінною є префікс <span class='synopsis'><em>:(необов'язково)</em></span>, вона трактується так, ніби її не існує, якщо вказаний шлях не існує.</p>
 </div>
 </dd>
 </dl>

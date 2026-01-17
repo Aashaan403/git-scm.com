@@ -43,23 +43,23 @@ headings:
 <h2 id="_синопсис"><a class="anchor" href="#_синопсис"></a>СИНОПСИС</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git stash</em> list [&lt;log-options&gt;]
-<em>git stash</em> show [-u | --include-untracked | --only-untracked] [&lt;diff-options&gt;] [&lt;stash&gt;]
-<em>git stash</em> drop [-q | --quiet] [&lt;stash&gt;]
-<em>git stash</em> pop [--index] [-q | --quiet] [&lt;stash&gt;]
-<em>git stash</em> apply [--index] [-q | --quiet] [&lt;stash&gt;]
-<em>git stash</em> branch &lt;branchname&gt; [&lt;stash&gt;]
-<em>git stash</em> [push [-p | --patch] [-S | --staged] [-k | --[no-]keep-index] [-q | --quiet]
-	     [-u | --include-untracked] [-a | --all] [(-m | --message) &lt;message&gt;]
-	     [--pathspec-from-file=&lt;file&gt; [--pathspec-file-nul]]
-	     [--] [&lt;pathspec&gt;&#8230;&#8203;]]
-<em>git stash</em> save [-p | --patch] [-S | --staged] [-k | --[no-]keep-index] [-q | --quiet]
-	     [-u | --include-untracked] [-a | --all] [&lt;message&gt;]
-<em>git stash</em> clear
-<em>git stash</em> create [&lt;message&gt;]
-<em>git stash</em> store [(-m | --message) &lt;message&gt;] [-q | --quiet] &lt;commit&gt;
-<em>git stash</em> export (--print | --to-ref &lt;ref&gt;) [&lt;stash&gt;&#8230;&#8203;]
-<em>git stash</em> import &lt;commit&gt;</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>list</code></span> [<em>&lt;log-options&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>show</code></span> [<span class='synopsis'><code>-u</code></span> | <span class='synopsis'><code>--include-untracked</code></span> | <span class='synopsis'><code>--only-untracked</code></span>] [<em>&lt;diff-options&gt;</em>] [<em>&lt;stash&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>drop</code></span> [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>] [<em>&lt;stash&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>pop</code></span> [<span class='synopsis'><code>--index</code></span>] [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>] [<em>&lt;stash&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>apply</code></span> [<span class='synopsis'><code>--index</code></span>] [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>] [<em>&lt;stash&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>branch</code></span> <em>&lt;branchname&gt;</em> [<em>&lt;stash&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> [<span class='synopsis'><code>push</code></span> [<span class='synopsis'><code>-p</code></span> | <span class='synopsis'><code>--patch</code></span>] [<span class='synopsis'><code>-S</code></span> | <span class='synopsis'><code>--staged</code></span>] [<span class='synopsis'><code>-k</code></span> | <span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>keep-index</code></span>] [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>]
+	     [<span class='synopsis'><code>-u</code></span> | <span class='synopsis'><code>--include-untracked</code></span>] [<span class='synopsis'><code>-a</code></span> | <span class='synopsis'><code>--all</code></span>] [(<span class='synopsis'><code>-m</code></span> | <span class='synopsis'><code>--message</code></span>) <em>&lt;message&gt;</em>]
+	     [<span class='synopsis'><code>--pathspec-from-file=</code></span><em>&lt;file&gt;</em> [<span class='synopsis'><code>--pathspec-file-nul</code></span>]]
+	     [<span class='synopsis'><code>--</code></span>] [<em>&lt;pathspec&gt;</em>&#8230;&#8203;]]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash'</code></span> <span class='synopsis'><code>save</code></span> [<span class='synopsis'><code>-p</code></span> | <span class='synopsis'><code>--patch</code></span>] [<span class='synopsis'><code>-S</code></span> | <span class='synopsis'><code>--staged</code></span>] [<span class='synopsis'><code>-k</code></span> | <span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>keep-index</code></span>] [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>]
+          [<span class='synopsis'><code>-u</code></span> | <span class='synopsis'><code>--include-untracked</code></span>] [<span class='synopsis'><code>-a</code></span> | <span class='synopsis'><code>--all</code></span>] [<em>&lt;message&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash</code></span> <span class='synopsis'><code>clear</code></span>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash</code></span> <span class='synopsis'><code>create</code></span> [<em>&lt;message&gt;</em>]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash</code></span> <span class='synopsis'><code>store</code></span> [(<span class='synopsis'><code>-m</code></span> | <span class='synopsis'><code>--message</code></span>) <em>&lt;message&gt;</em>] [<span class='synopsis'><code>-q</code></span> | <span class='synopsis'><code>--quiet</code></span>] <em>&lt;commit&gt;</em>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash</code></span> <span class='synopsis'><code>export</code></span> (<span class='synopsis'><code>--print</code></span> | <span class='synopsis'><code>--to-ref</code></span> <em>&lt;ref&gt;</em>) [<em>&lt;stash&gt;</em>&#8230;&#8203;]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>stash</code></span> <span class='synopsis'><code>import</code></span> <em>&lt;commit&gt;</em></pre>
 </div>
 </div>
 </div>
@@ -70,10 +70,10 @@ headings:
 <p>Використовуйте <span class='synopsis'><code>git</code> <code>stash</code></span>, коли хочете записати поточний стан робочого каталогу та індексу, але хочете повернутися до чистого робочого каталогу. Команда зберігає ваші локальні зміни та повертає робочий каталог до стану, що відповідає коміту <span class='synopsis'><code>HEAD</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Зміни, збережені цією командою, можна переглянути за допомогою <span class='synopsis'><code>git</code> <code>stash</code> <code>list</code></span>, перевірити за допомогою <span class='synopsis'><code>git</code> <code>stash</code> <code>show</code></span> та відновити (можливо, поверх іншого коміту) за допомогою <span class='synopsis'><code>git</code> <code>stash</code> <code>apply</code></span>. Виклик <span class='synopsis'><code>git</code> <code>stash</code></span> без будь-яких аргументів еквівалентний <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code></span>. За замовчуванням stash відображається як "WIP on <em>branchname</em> &#8230;&#8203;", але ви можете надати більш детальне повідомлення в командному рядку під час створення.</p>
+<p>Зміни, збережені цією командою, можна переглянути за допомогою <span class='synopsis'><code>git</code> <code>stash</code> <code>list</code></span>, перевірити за допомогою <span class='synopsis'><code>git</code> <code>stash</code> <code>show</code></span> та відновити (можливо, поверх іншого коміту) за допомогою <span class='synopsis'><code>git</code> <code>stash</code> <code>apply</code></span>. Виклик <span class='synopsis'><code>git</code> <code>stash</code></span> без будь-яких аргументів еквівалентний <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code></span>. За замовчуванням stash відображається як "WIP on <em>&lt;branchname&gt;</em> &#8230;&#8203;", але ви можете надати більш детальне повідомлення в командному рядку під час створення.</p>
 </div>
 <div class="paragraph">
-<p>Останній створений вами хованку зберігається в <span class='synopsis'><code>refs/stash</code></span>; старіші хованки знаходяться в reflog цього посилання та можуть бути названі за допомогою звичайного синтаксису reflog (наприклад, <span class='synopsis'><code>stash@{0}</code></span> — це останній створений хованку, <span class='synopsis'><code>stash@{1}</code></span> — той, що перед ним, також можливий <span class='synopsis'><code>stash@{2.hours.ago}</code></span>). На хованки також можна посилатися, вказуючи лише індекс хованки (наприклад, ціле число <span class='synopsis'><code>n</code></span> еквівалентне <span class='synopsis'><code>stash@{n}</code></span>).</p>
+<p>Останній створений вами хованку зберігається в <span class='synopsis'><code>refs/stash</code></span>; старіші хованки знаходяться в reflog цього посилання та можуть бути названі за допомогою звичайного синтаксису reflog (наприклад, <span class='synopsis'><code>stash@{0}</code></span> — це останній створений хованку, <span class='synopsis'><code>stash@{1}</code></span> — той, що перед ним, також можливий <span class='synopsis'><code>stash@{2.hours.ago}</code></span>). На хованки також можна посилатися, вказуючи лише індекс хованки (наприклад, ціле число <span class='synopsis'><em>&lt;n&gt;</em></span> еквівалентне <span class='synopsis'><code>stash@{</code><em>&lt;n&gt;</em><code>}</code></span>).</p>
 </div>
 </div>
 </div>
@@ -82,18 +82,18 @@ headings:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-stash-push-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--ltpathspecgt82308203"> <a class="anchor" href="#git-stash-push-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--messagemessage--pathspec-from-filefile--pathspec-file-nul--pathspec"></a> <a class="anchor" href="#git-stash-push-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--messageltmessagegt--pathspec-from-fileltfilegt--pathspec-file-nul--ltpathspecgt82308203"></a>push [-p|--patch] [-S|--staged] [-k|--[no-]keep-index] [-u|--include-untracked] [-a|--all] [-q|--quiet] [(-m|--message) &lt;message&gt;] [--pathspec-from-file=&lt;file&gt; [--pathspec-file-nul]] [--] [&lt;pathspec&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodepushcodecode-pcodecode--patchcodecode-Scodecode--stagedcodecode-kcodecode--codecodeno-codecodekeep-indexcodecode-ucodecode--include-untrackedcodecode-acodecode--allcodecode-qcodecode--quietcodecode-mcodecode--messagecodeemltmessagegtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodecode--codeemltpathspecgtemspan"> <a class="anchor" href="#git-stash-push-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quiet-m--messagemessage--pathspec-from-filefile--pathspec-file-nul--pathspec"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodepushcodecode-pcodecode--patchcodecode-Scodecode--stagedcodecode-kcodecode--codecodeno-codecodekeep-indexcodecode-ucodecode--include-untrackedcodecode-acodecode--allcodecode-qcodecode--quietcodecode-mcodecode--messagecodeemltmessagegtemcode--pathspec-from-filecodeemltfilegtemcode--pathspec-file-nulcodecode--codeemltpathspecgtemspan"></a><span class='synopsis'><code>push</code> [<code>-p</code> | <code>--patch</code>] [<code>-S</code> | <code>--staged</code>] [<code>-k</code> | <code>--</code>[<code>no-</code>]<code>keep-index</code>] [<code>-u</code> | <code>--include-untracked</code>] [ <code>-a</code> | <code>--all</code>] [<code>-q</code> | <code>--quiet</code>] [(<code>-m</code>|<code>--message</code>) <em>&lt;message&gt;</em>] [<code>--pathspec-from-file=</code><em>&lt;file&gt;</em> [<code>--pathspec-file-nul</code>]] [<code>--</code>] [<em>&lt;pathspec&gt;</em>...]</span> </dt>
 <dd>
-<p>Збережіть ваші локальні зміни в новому «записі stash» та поверніть їх до HEAD (у робочому дереві та в індексі). Частина &lt;message&gt; є необов&#8217;язковою та містить опис разом зі станом stash.</p>
+<p>Збережіть ваші локальні зміни в новому «записі stash» та поверніть їх до <span class='synopsis'><code>HEAD</code></span> (у робочому дереві та в індексі). Частина <em>&lt;message&gt;</em> є необов&#8217;язковою та містить опис разом зі станом stash.</p>
 <div class="paragraph">
 <p>Для швидкого створення знімка можна пропустити "push". У цьому режимі аргументи, що не є опціями, не дозволені, щоб запобігти створенню небажаного запису в сховищі з помилкою підкоманди. Двома винятками є <span class='synopsis'><code>stash</code> <code>-p</code></span>, який діє як псевдонім для <span class='synopsis'><code>stash</code> <code>push</code> <code>-p</code></span>, та елементи pathspec, які дозволені після подвійного дефісу <span class='synopsis'><code>--</code></span> для усунення неоднозначності.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash-save-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quietltmessagegt"> <a class="anchor" href="#git-stash-save-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quietmessage"></a> <a class="anchor" href="#git-stash-save-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quietltmessagegt"></a>save [-p|--patch] [-S|--staged] [-k|--[no-]keep-index] [-u|--include-untracked] [-a|--all] [-q|--quiet] [&lt;message&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodesavecodecode-pcodecode--patchcodecode-Scodecode--stagedcodecode-kcodecode--codecodeno-codecodekeep-indexcodecode-ucodecode--include-untrackedcodecode-acodecode--allcodecode-qcodecode--quietcodeemltmessagegtemspan"> <a class="anchor" href="#git-stash-save-p--patch-S--staged-k--no-keep-index-u--include-untracked-a--all-q--quietmessage"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodesavecodecode-pcodecode--patchcodecode-Scodecode--stagedcodecode-kcodecode--codecodeno-codecodekeep-indexcodecode-ucodecode--include-untrackedcodecode-acodecode--allcodecode-qcodecode--quietcodeemltmessagegtemspan"></a><span class='synopsis'><code>save</code> [<code>-p</code> | <code>--patch</code>] [<code>-S</code> | <code>--staged</code>] [<code>-k</code> | <code>--</code>[<code>no-</code>]<code>keep-index</code>] [<code>-u</code> | <code>--include-untracked</code>] [<code>-a</code> | <code>--all</code>] [<code>-q</code> | <code>--quiet</code>] [<em>&lt;message&gt;</em>]</span> </dt>
 <dd>
 <p>Цей параметр застарів на користь «git stash push». Він відрізняється від «stash push» тим, що не може приймати pathspec. Натомість усі аргументи, що не є параметрами, об&#8217;єднуються для формування повідомлення stash.</p>
 </dd>
-<dt class="hdlist1" id="git-stash-listltlog-optionsgt"> <a class="anchor" href="#git-stash-listlog-options"></a> <a class="anchor" href="#git-stash-listltlog-optionsgt"></a>list [&lt;log-options&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodelistcodeemltlog-optionsgtemspan"> <a class="anchor" href="#git-stash-listlog-options"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodelistcodeemltlog-optionsgtemspan"></a><span class='synopsis'><code>list</code> [<em>&lt;log-options&gt;</em>]</span> </dt>
 <dd>
 <p>Перелічіть записи stash, які у вас є на даний момент. Кожен «запис stash» перелічено з його назвою (наприклад, <span class='synopsis'><code>stash@{0}</code></span> – це останній запис, <span class='synopsis'><code>stash@{1}</code></span> – попередній тощо), назвою гілки, яка була поточною на момент створення запису, та коротким описом коміту, на якому базувався запис.</p>
 <div class="listingblock">
@@ -106,49 +106,49 @@ stash@{1}: На головному файлі: 9cc0589... Додати git-stash
 <p>Команда використовує опції, що застосовуються до команди «git log», щоб контролювати, що і як відображається. Див. <a href='{{< relurl "docs/git-log/uk" >}}'>git-log[1]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash-show-u--include-untracked--only-untrackedltdiff-optionsgtltstashgt"> <a class="anchor" href="#git-stash-show-u--include-untracked--only-untrackeddiff-optionsstash"></a> <a class="anchor" href="#git-stash-show-u--include-untracked--only-untrackedltdiff-optionsgtltstashgt"></a>show [-u|--include-untracked|--only-untracked] [&lt;diff-options&gt;] [&lt;stash&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodeshowcodecode-ucodecode--include-untrackedcodecode--only-untrackedcodeemltdiff-optionsgtememltstashgtemspan"> <a class="anchor" href="#git-stash-show-u--include-untracked--only-untrackeddiff-optionsstash"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodeshowcodecode-ucodecode--include-untrackedcodecode--only-untrackedcodeemltdiff-optionsgtememltstashgtemspan"></a><span class='synopsis'><code>show</code> [<code>-u</code> | <code>--include-untracked</code> | <code>--only-untracked</code>] [<em>&lt;diff-options&gt;</em>] [<em>&lt;stash&gt;</em>]</span> </dt>
 <dd>
-<p>Показати зміни, записані в записі stash, як різницю між вмістом stash та комітом, збереженим під час першого створення запису stash. За замовчуванням команда показує diffstat, але прийматиме будь-який формат, відомий <em>git diff</em> (наприклад, <span class='synopsis'><code>git</code> <code>stash</code> <code>show</code> <code>-p</code> <code>stash@{1}</code></span> для перегляду другого за останнім запису у формі патча). Якщо <span class='synopsis'><em>&lt;diff-option&gt;</em></span> не вказано, поведінка за замовчуванням буде задана змінними конфігурації <span class='synopsis'><code>stash.showStat</code></span> та <span class='synopsis'><code>stash.showPatch</code></span>. Ви також можете використовувати <span class='synopsis'><code>stash.showIncludeUntracked</code></span>, щоб встановити, чи ввімкнено <span class='synopsis'><code>--include-untracked</code></span> за замовчуванням.</p>
+<p>Показати зміни, записані в записі stash, як різницю між вмістом stash та комітом, збереженим під час першого створення запису stash. За замовчуванням команда показує diffstat, але прийматиме будь-який формат, відомий <em>git diff</em> (наприклад, <span class='synopsis'><code>git</code> <code>stash</code> <code>show</code> <code>-p</code> <code>stash@{1}</code></span> для перегляду другого за останнім запису у формі патча). Якщо <em>&lt;diff-option&gt;</em> не вказано, поведінка за замовчуванням буде задана змінними конфігурації <span class='synopsis'><code>stash.showStat</code></span> та <span class='synopsis'><code>stash.showPatch</code></span>. Ви також можете використовувати <span class='synopsis'><code>stash.showIncludeUntracked</code></span>, щоб встановити, чи ввімкнено <span class='synopsis'><code>--include-untracked</code></span> за замовчуванням.</p>
 </dd>
-<dt class="hdlist1" id="git-stash-pop--index-q--quietltstashgt"> <a class="anchor" href="#git-stash-pop--index-q--quietstash"></a> <a class="anchor" href="#git-stash-pop--index-q--quietltstashgt"></a>pop [--index] [-q|--quiet] [&lt;stash&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodepopcodecode--indexcodecode-qcodecode--quietcodeemltstashgtemspan"> <a class="anchor" href="#git-stash-pop--index-q--quietstash"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodepopcodecode--indexcodecode-qcodecode--quietcodeemltstashgtemspan"></a><span class='synopsis'><code>pop</code> [<code>--index</code>] [<code>-q</code> | <code>--quiet</code>] [<em>&lt;stash&gt;</em>]</span> </dt>
 <dd>
 <p>Видалити один сховищений стан зі списку сховищ та застосувати його поверх поточного робочого стану дерева, тобто виконати операцію, зворотну до <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code></span>. Робочий каталог має відповідати індексу.</p>
 <div class="paragraph">
 <p>Застосування стану може призвести до невдачі через конфлікти; у цьому випадку він не видаляється зі списку stash. Вам потрібно вирішити конфлікти вручну та після цього вручну викликати <span class='synopsis'><code>git</code> <code>stash</code> <code>drop</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash-apply--index-q--quietltstashgt"> <a class="anchor" href="#git-stash-apply--index-q--quietstash"></a> <a class="anchor" href="#git-stash-apply--index-q--quietltstashgt"></a>apply [--index] [-q|--quiet] [&lt;stash&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodeapplycodecode--indexcodecode-qcodecode--quietcodeemltstashgtemspan"> <a class="anchor" href="#git-stash-apply--index-q--quietstash"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodeapplycodecode--indexcodecode-qcodecode--quietcodeemltstashgtemspan"></a><span class='synopsis'><code>apply</code> [<code>--index</code>] [<code>-q</code> | <code>--quiet</code>] [<em>&lt;stash&gt;</em>]</span> </dt>
 <dd>
 <p>Як і <span class='synopsis'><code>pop</code></span>, але не видаляти стан зі списку stash. На відміну від <span class='synopsis'><code>pop</code></span>, <span class='synopsis'><em>&lt;stash&gt;</em></span> може бути будь-яким комітом, який виглядає як коміт, створений за допомогою <span class='synopsis'><code>stash</code> <code>push</code></span> або <span class='synopsis'><code>stash</code> <code>create</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-stash-branchltbranchnamegtltstashgt"> <a class="anchor" href="#git-stash-branchbranchnamestash"></a> <a class="anchor" href="#git-stash-branchltbranchnamegtltstashgt"></a>branch &lt;branchname&gt; [&lt;stash&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodebranchcodeemltbranchnamegtememltstashgtemspan"> <a class="anchor" href="#git-stash-branchbranchnamestash"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodebranchcodeemltbranchnamegtememltstashgtemspan"></a><span class='synopsis'><code>branch</code> <em>&lt;branchname&gt;</em> [<em>&lt;stash&gt;</em>]</span> </dt>
 <dd>
-<p>Створює та витягує нову гілку з назвою <span class='synopsis'><em>&lt;branchname&gt;</em></span>, починаючи з коміту, в якому <span class='synopsis'><em>&lt;stash&gt;</em></span> було спочатку створено, застосовує зміни, записані в <span class='synopsis'><em>&lt;stash&gt;</em></span>, до нового робочого дерева та індексу. Якщо це вдається, і <span class='synopsis'><em>&lt;stash&gt;</em></span> є посиланням у формі <span class='synopsis'><code>stash@{</code><em>&lt;revision&gt;</em><code>}</code></span>, то <span class='synopsis'><em>&lt;stash&gt;</em></span> видаляється.</p>
+<p>Створює та витягує нову гілку з іменем <em>&lt;назвагілки&gt;</em>, починаючи з коміту, в якому <em>&lt;stash&gt;</em> було спочатку створено, застосовує зміни, записані в <em>&lt;stash&gt;</em>, до нового робочого дерева та індексу. Якщо це вдається, і <em>&lt;stash&gt;</em> є посиланням у формі <span class='synopsis'><code>stash@{</code><em>&lt;ревізія&gt;</em><code>}</code></span>, то <em>&lt;stash&gt;</em> видаляється.</p>
 <div class="paragraph">
 <p>Це корисно, якщо гілка, на якій ви виконали <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code></span>, змінилася настільки, що <span class='synopsis'><code>git</code> <code>stash</code> <code>apply</code></span> не вдається виконати через конфлікти. Оскільки запис stash застосовується поверх коміту, який був HEAD на момент запуску <span class='synopsis'><code>git</code> <code>stash</code></span>, він відновлює початковий стан stash без конфліктів.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash-"> <a class="anchor" href="#git-stash-"></a>чисто </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodeclearcodespan"> <a class="anchor" href="#git-stash-clear"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodeclearcodespan"></a><span class='synopsis'><code>clear</code></span> </dt>
 <dd>
-<p>Видаліть усі записи зі сховища. Зверніть увагу, що ці записи потім будуть видалені, і їх може бути неможливо відновити (див. «Приклади» нижче для можливої стратегії).</p>
+<p>Видаліть усі записи зі сховища. Зверніть увагу, що ці записи потім будуть видалені, і їх може бути неможливо відновити (див. «ПРИКЛАДИ» нижче для можливої стратегії).</p>
 </dd>
-<dt class="hdlist1" id="git-stash-drop-q--quietltstashgt"> <a class="anchor" href="#git-stash-drop-q--quietstash"></a> <a class="anchor" href="#git-stash-drop-q--quietltstashgt"></a>drop [-q|--quiet] [&lt;stash&gt;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodedropcodecode-qcodecode--quietcodeemltstashgtemspan"> <a class="anchor" href="#git-stash-drop-q--quietstash"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodedropcodecode-qcodecode--quietcodeemltstashgtemspan"></a><span class='synopsis'><code>drop</code> [<code>-q</code> | <code>--quiet</code>] [<em>&lt;stash&gt;</em>]</span> </dt>
 <dd>
 <p>Видалити один запис stash зі списку записів stash.</p>
 </dd>
-<dt class="hdlist1" id="git-stash-create"> <a class="anchor" href="#git-stash-create"></a>create </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodecreatecodespan"> <a class="anchor" href="#git-stash-create"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodecreatecodespan"></a><span class='synopsis'><code>create</code></span> </dt>
 <dd>
 <p>Створіть запис stash (який є звичайним об&#8217;єктом commit) та поверніть його назву об&#8217;єкта, не зберігаючи її ніде в просторі імен ref. Це призначено для використання у скриптах. Ймовірно, це не та команда, яку ви хочете використовувати; див. "push" вище.</p>
 </dd>
-<dt class="hdlist1" id="git-stash--1"> <a class="anchor" href="#git-stash--1"></a>магазин </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodestorecodespan"> <a class="anchor" href="#git-stash-store"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodestorecodespan"></a><span class='synopsis'><code>store</code></span> </dt>
 <dd>
 <p>Зберегти заданий stash, створений за допомогою <em>git stash create</em> (що є завислим комітом злиття), у stash ref, оновлюючи stash reflog. Це призначено для використання скриптами. Ймовірно, це не та команда, яку ви хочете використовувати; див. "push" вище.</p>
 </dd>
-<dt class="hdlist1" id="git-stash-export--print--to-refltrefgtltstashgt82308203"> <a class="anchor" href="#git-stash-export--print--to-refrefstash"></a> <a class="anchor" href="#git-stash-export--print--to-refltrefgtltstashgt82308203"></a>export ( --print | --to-ref &lt;ref&gt; ) [&lt;stash&gt;&#8230;&#8203;] </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodeexportcodecode--printcodecode--to-refcodeemltrefgtememltstashgtemspan"> <a class="anchor" href="#git-stash-export--print--to-refrefstash"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodeexportcodecode--printcodecode--to-refcodeemltrefgtememltstashgtemspan"></a><span class='synopsis'><code>export</code> ( <code>--print</code> | <code>--to-ref</code> <em>&lt;ref&gt;</em> ) [<em>&lt;stash&gt;</em>...]</span> </dt>
 <dd>
 <p>Експортувати зазначені сховища, або всі, якщо жодного не вказано, до ланцюжка комітів, які можна передати за допомогою звичайних механізмів fetch та push, а потім імпортувати за допомогою підкоманди <span class='synopsis'><code>import</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-stash-ltcommitgt"> <a class="anchor" href="#git-stash-commit"></a> <a class="anchor" href="#git-stash-ltcommitgt"></a>імпорт &lt;commit&gt; </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscodeimportcodeemltcommitgtemspan"> <a class="anchor" href="#git-stash-importcommit"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscodeimportcodeemltcommitgtemspan"></a><span class='synopsis'><code>import</code> <em>&lt;commit&gt;</em></span> </dt>
 <dd>
 <p>Імпортуйте вказані сховища з вказаного коміту, який мав бути створений за допомогою <span class='synopsis'><code>export</code></span>, та додайте їх до списку сховищ. Щоб замінити існуючі сховища, спочатку скористайтеся <span class='synopsis'><code>clear</code></span>.</p>
 </dd>
@@ -161,48 +161,48 @@ stash@{1}: На головному файлі: 9cc0589... Додати git-stash
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-stash--a"> <a class="anchor" href="#git-stash--a"></a>-a </dt>
-<dt class="hdlist1" id="git-stash---all"> <a class="anchor" href="#git-stash---all"></a>--all </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode-acodespan"> <a class="anchor" href="#git-stash--a"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode-acodespan"></a><span class='synopsis'><code>-a</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--allcodespan"> <a class="anchor" href="#git-stash---all"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--allcodespan"></a><span class='synopsis'><code>--all</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команд <span class='synopsis'><code>push</code></span> та <span class='synopsis'><code>save</code></span>.</p>
 <div class="paragraph">
 <p>Усі ігноровані та невідстежувані файли також зберігаються, а потім очищаються за допомогою <span class='synopsis'><code>git</code> <code>clean</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--u"> <a class="anchor" href="#git-stash--u"></a>-u </dt>
-<dt class="hdlist1" id="git-stash---include-untracked"> <a class="anchor" href="#git-stash---include-untracked"></a>--include-untracked </dt>
-<dt class="hdlist1" id="git-stash---no-include-untracked"> <a class="anchor" href="#git-stash---no-include-untracked"></a>--no-include-untracked </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode-ucodespan"> <a class="anchor" href="#git-stash--u"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode-ucodespan"></a><span class='synopsis'><code>-u</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--include-untrackedcodespan"> <a class="anchor" href="#git-stash---include-untracked"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--include-untrackedcodespan"></a><span class='synopsis'><code>--include-untracked</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--no-include-untrackedcodespan"> <a class="anchor" href="#git-stash---no-include-untracked"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--no-include-untrackedcodespan"></a><span class='synopsis'><code>--no-include-untracked</code></span> </dt>
 <dd>
 <p>При використанні з командами <span class='synopsis'><code>push</code></span> та <span class='synopsis'><code>save</code></span>, усі невідстежувані файли також зберігаються, а потім очищаються за допомогою <span class='synopsis'><code>git</code> <code>clean</code></span>.</p>
 <div class="paragraph">
 <p>При використанні з командою <span class='synopsis'><code>show</code></span>, відображати невідстежувані файли у записі stash як частину різниці.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---only-untracked"> <a class="anchor" href="#git-stash---only-untracked"></a>--only-untracked </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--only-untrackedcodespan"> <a class="anchor" href="#git-stash---only-untracked"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--only-untrackedcodespan"></a><span class='synopsis'><code>--only-untracked</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команди <span class='synopsis'><code>show</code></span>.</p>
 <div class="paragraph">
 <p>Показувати лише невідстежувані файли у записі stash як частину різниці.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---index"> <a class="anchor" href="#git-stash---index"></a>--index </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--indexcodespan"> <a class="anchor" href="#git-stash---index"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--indexcodespan"></a><span class='synopsis'><code>--index</code></span> </dt>
 <dd>
 <p>Цей параметр дійсний лише для команд <span class='synopsis'><code>pop</code></span> та <span class='synopsis'><code>apply</code></span>.</p>
 <div class="paragraph">
 <p>Намагається відновити не лише зміни робочого дерева, а й зміни індексу. Однак це може призвести до невдачі, якщо у вас є конфлікти (які зберігаються в індексі, де ви, отже, більше не можете застосувати зміни в початковому вигляді).</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--k"> <a class="anchor" href="#git-stash--k"></a>-k </dt>
-<dt class="hdlist1" id="git-stash---keep-index"> <a class="anchor" href="#git-stash---keep-index"></a>--keep-index </dt>
-<dt class="hdlist1" id="git-stash---no-keep-index"> <a class="anchor" href="#git-stash---no-keep-index"></a>--no-keep-index </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode-kcodespan"> <a class="anchor" href="#git-stash--k"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode-kcodespan"></a><span class='synopsis'><code>-k</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--keep-indexcodespan"> <a class="anchor" href="#git-stash---keep-index"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--keep-indexcodespan"></a><span class='synopsis'><code>--keep-index</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--no-keep-indexcodespan"> <a class="anchor" href="#git-stash---no-keep-index"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--no-keep-indexcodespan"></a><span class='synopsis'><code>--no-keep-index</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команд <span class='synopsis'><code>push</code></span> та <span class='synopsis'><code>save</code></span>.</p>
 <div class="paragraph">
 <p>Усі зміни, вже додані до індексу, залишаються незмінними.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--p"> <a class="anchor" href="#git-stash--p"></a>-p </dt>
-<dt class="hdlist1" id="git-stash---patch"> <a class="anchor" href="#git-stash---patch"></a>--patch </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode-pcodespan"> <a class="anchor" href="#git-stash--p"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode-pcodespan"></a><span class='synopsis'><code>-p</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--patchcodespan"> <a class="anchor" href="#git-stash---patch"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--patchcodespan"></a><span class='synopsis'><code>--patch</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команд <span class='synopsis'><code>push</code></span> та <span class='synopsis'><code>save</code></span>.</p>
 <div class="paragraph">
@@ -225,8 +225,8 @@ stash@{1}: На головному файлі: 9cc0589... Додати git-stash
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-stash--S"> <a class="anchor" href="#git-stash--S"></a>-S </dt>
-<dt class="hdlist1" id="git-stash---staged"> <a class="anchor" href="#git-stash---staged"></a>--staged </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode-Scodespan"> <a class="anchor" href="#git-stash--S"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode-Scodespan"></a><span class='synopsis'><code>-S</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--stagedcodespan"> <a class="anchor" href="#git-stash---staged"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--stagedcodespan"></a><span class='synopsis'><code>--staged</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команд <span class='synopsis'><code>push</code></span> та <span class='synopsis'><code>save</code></span>.</p>
 <div class="paragraph">
@@ -236,50 +236,50 @@ stash@{1}: На головному файлі: 9cc0589... Додати git-stash
 <p>Опція <span class='synopsis'><code>--patch</code></span> має пріоритет над цією.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---pathspec-from-fileltgt"> <a class="anchor" href="#git-stash---pathspec-from-file"></a> <a class="anchor" href="#git-stash---pathspec-from-fileltgt"></a>--pathspec-from-file=&lt;файл&gt; </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--pathspec-from-filecodeemltgtemspan"> <a class="anchor" href="#git-stash---pathspec-from-file"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--pathspec-from-filecodeemltgtemspan"></a><span class='synopsis'><code>--pathspec-from-file=</code><em>&lt;файл&gt;</em></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команди <span class='synopsis'><code>push</code></span>.</p>
 <div class="paragraph">
-<p>Специфікація шляху передається у <span class='synopsis'><em>&lt;file&gt;</em></span> замість аргументів командного рядка. Якщо <span class='synopsis'><em>&lt;file&gt;</em></span> дорівнює саме <span class='synopsis'><code>-</code></span>, то використовується стандартний ввід. Елементи Pathspec розділяються символами LF або CR/LF. Елементи Pathspec можна брати в лапки, як пояснено для змінної конфігурації <span class='synopsis'><code>core.quotePath</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>). Див. також <span class='synopsis'><code>--pathspec-file-nul</code></span> та глобальну змінну <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
+<p>Специфікація шляху передається у <em>&lt;файл&gt;</em> замість аргументів командного рядка. Якщо <em>&lt;файл&gt;</em> дорівнює саме <span class='synopsis'><code>-</code></span>, то використовується стандартний ввід. Елементи Pathspec розділяються символами LF або CR/LF. Елементи Pathspec можна брати в лапки, як пояснено для змінної конфігурації <span class='synopsis'><code>core.quotePath</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>). Див. також <span class='synopsis'><code>--pathspec-file-nul</code></span> та глобальну змінну <span class='synopsis'><code>--literal-pathspecs</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---pathspec-file-nul"> <a class="anchor" href="#git-stash---pathspec-file-nul"></a>--pathspec-file-nul </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--pathspec-file-nulcodespan"> <a class="anchor" href="#git-stash---pathspec-file-nul"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--pathspec-file-nulcodespan"></a><span class='synopsis'><code>--pathspec-file-nul</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команди <span class='synopsis'><code>push</code></span>.</p>
 <div class="paragraph">
 <p>Має значення лише з <span class='synopsis'><code>--pathspec-from-file</code></span>. Елементи Pathspec розділяються символом NUL, а всі інші символи (включно з символами нового рядка та лапками) сприймаються буквально.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--q"> <a class="anchor" href="#git-stash--q"></a>-q </dt>
-<dt class="hdlist1" id="git-stash---quiet"> <a class="anchor" href="#git-stash---quiet"></a>--quiet </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-stash--q"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-stash---quiet"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команд <span class='synopsis'><code>apply</code></span>, <span class='synopsis'><code>drop</code></span>, <span class='synopsis'><code>pop</code></span>, <span class='synopsis'><code>push</code></span>, <span class='synopsis'><code>save</code></span>, <span class='synopsis'><code>store</code></span>.</p>
 <div class="paragraph">
 <p>Тихі, придушені повідомлення зворотного зв&#8217;язку.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---print"> <a class="anchor" href="#git-stash---print"></a>--print </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--printcodespan"> <a class="anchor" href="#git-stash---print"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--printcodespan"></a><span class='synopsis'><code>--print</code></span> </dt>
 <dd>
 <p>Цей параметр дійсний лише для команди <span class='synopsis'><code>export</code></span>.</p>
 <div class="paragraph">
 <p>Створіть ланцюжок комітів, що представляють експортовані схованки, без їх збереження в просторі імен ref, та виведіть ідентифікатор об&#8217;єкта у стандартний вивід. Це розроблено для скриптів.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---to-ref"> <a class="anchor" href="#git-stash---to-ref"></a>--to-ref </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--to-refcodespan"> <a class="anchor" href="#git-stash---to-ref"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--to-refcodespan"></a><span class='synopsis'><code>--to-ref</code></span> </dt>
 <dd>
 <p>Цей параметр дійсний лише для команди <span class='synopsis'><code>export</code></span>.</p>
 <div class="paragraph">
 <p>Створіть ланцюжок комітів, що представляють експортовані схованки, та збережіть його у вказаному посиланні.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash---"> <a class="anchor" href="#git-stash---"></a>-- </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsiscode--codespan"> <a class="anchor" href="#git-stash---"></a> <a class="anchor" href="#git-stash-spanclasssynopsiscode--codespan"></a><span class='synopsis'><code>--</code></span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команди <span class='synopsis'><code>push</code></span>.</p>
 <div class="paragraph">
 <p>Відокремлює pathspec від опцій для усунення неоднозначності.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash-ltpathspecgt82308203"> <a class="anchor" href="#git-stash-pathspec"></a> <a class="anchor" href="#git-stash-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-stash-spanclasssynopsisemltpathspecgtemspan"> <a class="anchor" href="#git-stash-pathspec"></a> <a class="anchor" href="#git-stash-spanclasssynopsisemltpathspecgtemspan"></a><span class='synopsis'><em>&lt;pathspec&gt;</em>...</span> </dt>
 <dd>
 <p>Ця опція дійсна лише для команди <span class='synopsis'><code>push</code></span>.</p>
 <div class="paragraph">
@@ -289,11 +289,11 @@ stash@{1}: На головному файлі: 9cc0589... Додати git-stash
 <p>Для отримання додаткової інформації див. запис «pathspec» у <a href='{{< relurl "docs/gitglossary/uk" >}}'>gitglossary[7]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash-ltstashgt"> <a class="anchor" href="#git-stash-stash"></a> <a class="anchor" href="#git-stash-ltstashgt"></a>&lt;stash&gt; </dt>
+<dt class="hdlist1" id="git-stash-emltstashgtem"> <a class="anchor" href="#git-stash-stash"></a> <a class="anchor" href="#git-stash-emltstashgtem"></a><em>&lt;stash&gt;</em> </dt>
 <dd>
 <p>Цей параметр дійсний лише для команд <span class='synopsis'><code>apply</code></span>, <span class='synopsis'><code>branch</code></span>, <span class='synopsis'><code>drop</code></span>, <span class='synopsis'><code>pop</code></span>, <span class='synopsis'><code>show</code></span> та <span class='synopsis'><code>export</code></span>.</p>
 <div class="paragraph">
-<p>Посилання у форматі <span class='synopsis'><code>stash@{</code><em>&lt;revision&gt;</em><code>}</code></span>. Якщо <span class='synopsis'><em>&lt;stash&gt;</em></span> не вказано, передбачається, що це найновіший stash (тобто <span class='synopsis'><code>stash@{0}</code></span>).</p>
+<p>Посилання у форматі <span class='synopsis'><code>stash@{</code><em>&lt;версія&gt;</em><code>}</code></span>. Якщо <em>&lt;stash&gt;</em> не вказано, передбачається, що це найновіший stash (тобто <span class='synopsis'><code>stash@{0}</code></span>).</p>
 </div>
 </dd>
 </dl>
@@ -323,7 +323,7 @@ stash@{1}: На головному файлі: 9cc0589... Додати git-stash
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-stash-8217"> <a class="anchor" href="#git-stash--1-1"></a> <a class="anchor" href="#git-stash-8217"></a>В&#8217;їжджаєш у брудне дерево </dt>
+<dt class="hdlist1" id="git-stash-8217"> <a class="anchor" href="#git-stash-"></a> <a class="anchor" href="#git-stash-8217"></a>В&#8217;їжджаєш у брудне дерево </dt>
 <dd>
 <p>Коли ви перебуваєте посеред чогось, ви дізнаєтеся, що є зміни в апстрімі, які, можливо, мають відношення до того, що ви робите. Коли ваші локальні зміни не конфліктують зі змінами в апстрімі, простий <span class='synopsis'><code>git</code> <code>pull</code></span> дозволить вам рухатися далі.</p>
 <div class="paragraph">
@@ -340,7 +340,7 @@ $ git stash pop</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--1-1-1"> <a class="anchor" href="#git-stash--1-1-1"></a>Перерваний робочий процес </dt>
+<dt class="hdlist1" id="git-stash--1"> <a class="anchor" href="#git-stash--1"></a>Перерваний робочий процес </dt>
 <dd>
 <p>Коли ви посеред якоїсь справи, ваш начальник вимагає негайно щось виправити. Традиційно ви робите коміт у тимчасову гілку для зберігання змін і повертаєтеся до початкової гілки, щоб зробити екстрене виправлення, ось так:</p>
 <div class="listingblock">
@@ -370,7 +370,7 @@ $ git stash pop
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--1-1-1-1"> <a class="anchor" href="#git-stash--1-1-1-1"></a>Тестування часткових комітів </dt>
+<dt class="hdlist1" id="git-stash--1-1"> <a class="anchor" href="#git-stash--1-1"></a>Тестування часткових комітів </dt>
 <dd>
 <p>Ви можете використовувати <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code> <code>--keep-index</code></span>, коли хочете зробити два або більше комітів зі змін у робочому дереві, і хочете перевірити кожну зміну перед комітом:</p>
 <div class="listingblock">
@@ -387,7 +387,7 @@ $ git commit foo -m 'Remaining parts'</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--1-1-1-1-1"> <a class="anchor" href="#git-stash--1-1-1-1-1"></a>Збереження непов’язаних змін для подальшого використання </dt>
+<dt class="hdlist1" id="git-stash--1-1-1"> <a class="anchor" href="#git-stash--1-1-1"></a>Збереження непов’язаних змін для подальшого використання </dt>
 <dd>
 <p>Коли ви перебуваєте посеред масштабних змін і знаходите якусь непов&#8217;язану проблему, яку не хочете забути виправити, ви можете внести зміни, проіндексувати їх та використати <span class='synopsis'><code>git</code> <code>stash</code> <code>push</code> <code>--staged</code></span>, щоб зберегти їх для подальшого використання. Це схоже на комміт проіндексованих змін, тільки коміт потрапляє до сховища, а не до поточної гілки.</p>
 <div class="listingblock">
@@ -402,7 +402,7 @@ $ git stash pop                 # завершити роботу над збе�
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-stash--1-1-1-1-1-1"> <a class="anchor" href="#git-stash--1-1-1-1-1-1"></a>Відновлення записів зі сховища, які були помилково очищені/видалені </dt>
+<dt class="hdlist1" id="git-stash--1-1-1-1"> <a class="anchor" href="#git-stash--1-1-1-1"></a>Відновлення записів зі сховища, які були помилково очищені/видалені </dt>
 <dd>
 <p>Якщо ви помилково видалите або очистите записи зі сховища, їх не можна буде відновити за допомогою звичайних механізмів безпеки. Однак, ви можете спробувати наступне заклинання, щоб отримати список записів зі сховища, які все ще знаходяться у вашому репозиторії, але більше недоступні:</p>
 <div class="listingblock">

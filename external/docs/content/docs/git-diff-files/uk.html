@@ -390,7 +390,8 @@ Implies <span class='synopsis'><code>--patch</code></span>.</p>
 <dd>
 <p>Вимкніть виявлення перейменування, навіть якщо у файлі конфігурації це встановлено за замовчуванням.</p>
 </dd>
-<dt class="hdlist1" id="git-diff-files-spanclasssynopsiscode--codecodeno-codecoderename-emptycodespan"> <a class="anchor" href="#git-diff-files---no-rename-empty"></a> <a class="anchor" href="#git-diff-files-spanclasssynopsiscode--codecodeno-codecoderename-emptycodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>rename-empty</code></span> </dt>
+<dt class="hdlist1" id="git-diff-files-spanclasssynopsiscode--rename-emptycodespan"> <a class="anchor" href="#git-diff-files---rename-empty"></a> <a class="anchor" href="#git-diff-files-spanclasssynopsiscode--rename-emptycodespan"></a><span class='synopsis'><code>--rename-empty</code></span> </dt>
+<dt class="hdlist1" id="git-diff-files-spanclasssynopsiscode--no-rename-emptycodespan"> <a class="anchor" href="#git-diff-files---no-rename-empty"></a> <a class="anchor" href="#git-diff-files-spanclasssynopsiscode--no-rename-emptycodespan"></a><span class='synopsis'><code>--no-rename-empty</code></span> </dt>
 <dd>
 <p>Чи використовувати порожні блоби як джерело перейменування.</p>
 </dd>
@@ -652,6 +653,39 @@ Implies <span class='synopsis'><code>--patch</code></span>.</p>
 <dt class="hdlist1" id="git-diff-files-spanclasssynopsiscode--ita-invisible-in-indexcodespan"> <a class="anchor" href="#git-diff-files---ita-invisible-in-index"></a> <a class="anchor" href="#git-diff-files-spanclasssynopsiscode--ita-invisible-in-indexcodespan"></a><span class='synopsis'><code>--ita-invisible-in-index</code></span> </dt>
 <dd>
 <p>За замовчуванням записи, додані за допомогою <span class='synopsis'><code>git</code> <code>add</code> <code>-N</code></span>, відображаються як існуючий порожній файл у <span class='synopsis'><code>git</code> <code>diff</code></span> та як новий файл у <span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span>. Ця опція робить запис відображатися як новий файл у <span class='synopsis'><code>git</code> <code>diff</code></span> та як неіснуючий у <span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span>. Цю опцію можна скасувати за допомогою <span class='synopsis'><code>--ita-visible-in-index</code></span>. Обидва параметри є експериментальними та можуть бути видалені в майбутньому.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-files---max-depthltdepthgt"> <a class="anchor" href="#git-diff-files---max-depthdepth"></a> <a class="anchor" href="#git-diff-files---max-depthltdepthgt"></a>--max-depth=&lt;depth&gt; </dt>
+<dd>
+<p>Для кожної специфікації шляху, заданої в командному рядку, спустіться максимум на рівні <span class='synopsis'><em>&lt;глибина&gt;</em></span> каталогів. Значення <span class='synopsis'><code>-1</code></span> означає відсутність обмежень. Не можна поєднувати з підстановочними символами в специфікації шляху. Для дерева, що містить <span class='synopsis'><code>foo/bar/baz</code></span>, наступний список показує збіги, згенеровані кожним набором опцій:</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><span class='synopsis'><code>--max-depth=0</code> <code>--</code> <code>foo</code></span>: <span class='synopsis'><code>foo</code></span></p>
+</li>
+<li>
+<p><span class='synopsis'><code>--max-depth=1</code> <code>--</code> <code>foo</code></span>: <span class='synopsis'><code>foo/bar</code></span></p>
+</li>
+<li>
+<p><span class='synopsis'><code>--max-depth=1</code> <code>--</code> <code>foo/bar</code></span>: <span class='synopsis'><code>foo/bar/baz</code></span></p>
+</li>
+<li>
+<p><span class='synopsis'><code>--max-depth=1</code> <code>--</code> <code>foo</code> <code>foo/bar</code></span>: <span class='synopsis'><code>foo/bar/baz</code></span></p>
+</li>
+<li>
+<p><span class='synopsis'><code>--max-depth=2</code> <code>--</code> <code>foo</code></span>: <span class='synopsis'><code>foo/bar/baz</code></span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Якщо не вказано параметр pathspec, глибина вимірюється так, ніби всі записи верхнього рівня були вказані. Зверніть увагу, що це відрізняється від вимірювання від кореня, оскільки <span class='synopsis'><code>--max-depth=0</code></span> все одно повертатиме <span class='synopsis'><code>foo</code></span>. Це дозволяє вам обмежувати глибину, запитуючи підмножину записів верхнього рівня.</p>
+</div>
+<div class="paragraph">
+<p>Зверніть увагу, що ця опція підтримується лише для відмінностей між об&#8217;єктами дерева, а не для індексного або робочого дерева.</p>
+</div>
 </dd>
 </dl>
 </div>
@@ -921,7 +955,7 @@ unmerged       :000000 000000 0000000 0000000 U file6</pre>
 <em>перейменувати в &lt;шлях&gt;</em>
 <em>індекс подібності &lt;номер&gt;</em>
 <em>індекс несхожості &lt;номер&gt;</em>
-<em>індекс <span class="hover-term" data-term="хеш">&lt;хеш&gt;</span>..<span class="hover-term" data-term="хеш">&lt;хеш&gt;</span> &lt;режим&gt;</em></pre>
+<em>індекс &lt;хеш&gt;..&lt;хеш&gt; &lt;режим&gt;</em></pre>
 </div>
 <div class="paragraph">
 <p>Режими файлів <em>&lt;режим&gt;</em> друкуються як 6-значні вісімкові числа, включаючи тип файлу та біти прав доступу до файлу.</p>

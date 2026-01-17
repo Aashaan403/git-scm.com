@@ -1589,7 +1589,7 @@ CommitDate: &lt;committer-date&gt;</pre>
 <div class="ulist">
 <ul>
 <li>
-<p><span class='synopsis'><code>prefix=</code><em>&lt;value&gt;</em></span>: Відображається перед списком імен посилань. За замовчуванням "&#160;+(+".</p>
+<p><span class='synopsis'><code>prefix=</code><em>&lt;value&gt;</em></span>: Відображається перед списком імен посилань. За замовчуванням "&#160;<span class='synopsis'>(</span>".</p>
 </li>
 <li>
 <p><span class='synopsis'><code>suffix=</code><em>&lt;value&gt;</em></span>: Відображається після списку імен посилань. За замовчуванням "<span class='synopsis'>)</span>".</p>
@@ -1599,7 +1599,7 @@ CommitDate: &lt;committer-date&gt;</pre>
 </li>
 <li>
 <p><span class='synopsis'><code>pointer=</code><em>&lt;value&gt;</em></span>: Відображається між HEAD та гілкою, на яку вона вказує, якщо така є.
-За замовчуванням "&#160;+&#8594;+&#160;".</p>
+За замовчуванням "&#160;<span class='synopsis'><em>&#8594;</em></span>&#160;".</p>
 </li>
 <li>
 <p><span class='synopsis'><code>tag=</code><em>&lt;value&gt;</em></span>: Відображається перед назвами тегів. За замовчуванням "<span class='synopsis'><code>tag:</code></span>&#160;".</p>
@@ -1612,12 +1612,15 @@ CommitDate: &lt;committer-date&gt;</pre>
 </li>
 </ul>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="paragraph">
 <p>Наприклад, для створення декорацій без обтікання чи анотацій тегів, з пробілами як роздільниками:</p>
 </div>
 <div class="paragraph">
-<p>+
-<span class='synopsis'><code>%</code>(<code>decorate:prefix=,suffix=,tag=,separator=</code> )</span></p>
+<p><span class='synopsis'><code>%</code>(<code>decorate:prefix=,suffix=,tag=,separator=</code> )</span></p>
+</div>
+</div>
 </div>
 <div class="dlist">
 <dl>

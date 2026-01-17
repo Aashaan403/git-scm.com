@@ -74,7 +74,8 @@ headings:
 <dd>
 <p>Вивести об&#8217;єкти, які існують, але недоступні з жодного з опорних вузлів.</p>
 </dd>
-<dt class="hdlist1" id="git-fsck---no-dangling"> <a class="anchor" href="#git-fsck---no-dangling"></a>--[no-]dangling </dt>
+<dt class="hdlist1" id="git-fsck---dangling"> <a class="anchor" href="#git-fsck---dangling"></a>--dangling </dt>
+<dt class="hdlist1" id="git-fsck---no-dangling"> <a class="anchor" href="#git-fsck---no-dangling"></a>--no-dangling </dt>
 <dd>
 <p>Вивести об&#8217;єкти, які існують, але ніколи не використовуються «безпосередньо» (за замовчуванням). <span class='synopsis'><code>--no-dangling</code></span> можна використовувати, щоб виключити цю інформацію з виводу.</p>
 </dd>
@@ -121,11 +122,13 @@ headings:
 <dd>
 <p>Під час відображення імен досяжних об&#8217;єктів, окрім SHA-1, також відображати ім&#8217;я, яке описує, <strong>як</strong> вони досяжні, сумісно з <a href='{{< relurl "docs/git-rev-parse/uk" >}}'>git-rev-parse[1]</a>, наприклад, <span class='synopsis'><code>HEAD@{1234567890}~25^2:src/</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fsck---no-progress"> <a class="anchor" href="#git-fsck---no-progress"></a>--[no-]progress </dt>
+<dt class="hdlist1" id="git-fsck---progress"> <a class="anchor" href="#git-fsck---progress"></a>--progress </dt>
+<dt class="hdlist1" id="git-fsck---no-progress"> <a class="anchor" href="#git-fsck---no-progress"></a>--no-progress </dt>
 <dd>
 <p>Стан виконання за замовчуванням повідомляється у стандартному потоці помилок, коли він підключений до терміналу, якщо не вказано --no-progress або --verbose. --progress примусово повідомляє про стан виконання, навіть якщо стандартний потік помилок не спрямовано до терміналу.</p>
 </dd>
-<dt class="hdlist1" id="git-fsck---no-references"> <a class="anchor" href="#git-fsck---no-references"></a>--[no-]references </dt>
+<dt class="hdlist1" id="git-fsck---references"> <a class="anchor" href="#git-fsck---references"></a>--references </dt>
+<dt class="hdlist1" id="git-fsck---no-references"> <a class="anchor" href="#git-fsck---no-references"></a>--no-references </dt>
 <dd>
 <p>Контролюйте, чи перевіряти узгодженість бази даних посилань за допомогою «git refs verify». Див. <a href='{{< relurl "docs/git-refs/uk" >}}'>git-refs[1]</a> для отримання детальної інформації. За замовчуванням перевіряється база даних посилань.</p>
 </dd>
@@ -221,6 +224,14 @@ headings:
 <dd>
 <p>(INFO) Дерево містить недійсний запис файлового режиму.</p>
 </dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadGpgsigcodespan"> <a class="anchor" href="#git-fsck-badGpgsig"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadGpgsigcodespan"></a><span class='synopsis'><code>badGpgsig</code></span> </dt>
+<dd>
+<p>(ПОМИЛКА) Тег містить невірний (усічений) заголовок сигнатури (наприклад, <span class='synopsis'><code>gpgsig</code></span>).</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadHeaderContinuationcodespan"> <a class="anchor" href="#git-fsck-badHeaderContinuation"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadHeaderContinuationcodespan"></a><span class='synopsis'><code>badHeaderContinuation</code></span> </dt>
+<dd>
+<p>(ПОМИЛКА) Заголовок продовження (наприклад, для <span class='synopsis'><code>gpgsig</code></span>) неочікувано скорочено.</p>
+</dd>
 <dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadNamecodespan"> <a class="anchor" href="#git-fsck-badName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadNamecodespan"></a><span class='synopsis'><code>badName</code></span> </dt>
 <dd>
 <p>(ПОМИЛКА) Ім&#8217;я автора/комітера порожнє.</p>
@@ -256,6 +267,10 @@ headings:
 <dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadReferentNamecodespan"> <a class="anchor" href="#git-fsck-badReferentName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadReferentNamecodespan"></a><span class='synopsis'><code>badReferentName</code></span> </dt>
 <dd>
 <p>(ПОМИЛКА) Ім&#8217;я референта symref недійсне.</p>
+</dd>
+<dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadReftableTableNamecodespan"> <a class="anchor" href="#git-fsck-badReftableTableName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadReftableTableNamecodespan"></a><span class='synopsis'><code>badReftableTableName</code></span> </dt>
+<dd>
+<p>(ПОПЕРЕДЖЕННЯ) Таблиця, що підлягає переформуванню, має недійсне ім&#8217;я.</p>
 </dd>
 <dt class="hdlist1" id="git-fsck-spanclasssynopsiscodebadTagNamecodespan"> <a class="anchor" href="#git-fsck-badTagName"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodebadTagNamecodespan"></a><span class='synopsis'><code>badTagName</code></span> </dt>
 <dd>
@@ -341,14 +356,6 @@ headings:
 <dd>
 <p>(INFO) Не вдалося проаналізувати блоб <span class='synopsis'><code>.gitmodules</code></span>.</p>
 </dd>
-</dl>
-</div>
-<div class="paragraph">
-<p><span class='synopsis'><code>gitmodulesLarge</code></span>;
-	(ПОМИЛКА) <span class='synopsis'><code>.gitmodules</code></span> blob занадто великий для розбору.</p>
-</div>
-<div class="dlist">
-<dl>
 <dt class="hdlist1" id="git-fsck-spanclasssynopsiscodegitmodulesPathcodespan"> <a class="anchor" href="#git-fsck-gitmodulesPath"></a> <a class="anchor" href="#git-fsck-spanclasssynopsiscodegitmodulesPathcodespan"></a><span class='synopsis'><code>gitmodulesPath</code></span> </dt>
 <dd>
 <p>(ПОМИЛКА) Шлях <span class='synopsis'><code>.gitmodules</code></span> недійсний.</p>

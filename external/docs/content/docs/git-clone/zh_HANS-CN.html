@@ -46,7 +46,7 @@ headings:
 	  [<span class='synopsis'><code>--depth</code></span> <em>&lt;depth&gt;</em>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>single-branch</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>tags</code></span>]
 	  [<span class='synopsis'><code>--recurse-submodules</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;pathspec&gt;</em>]] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>shallow-submodules</code></span>]
 	  [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>remote-submodules</code></span>] [<span class='synopsis'><code>--jobs</code></span> <em>&lt;n&gt;</em>] [<span class='synopsis'><code>--sparse</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>reject-shallow</code></span>]
-	  [<span class='synopsis'><code>--filter=</code></span><em>&lt;filter-spec&gt;</em>] [<span class='synopsis'><code>--also-filter-submodules</code></span>]] [<span class='synopsis'><code>--</code></span>] <em>&lt;repository&gt;</em>
+	  [<span class='synopsis'><code>--filter=</code></span><em>&lt;filter-spec&gt;</em> [<span class='synopsis'><code>--also-filter-submodules</code></span>]] [<span class='synopsis'><code>--</code></span>] <em>&lt;repository&gt;</em>
 	  [<em>&lt;directory&gt;</em>]</pre>
 </div>
 </div>
@@ -206,11 +206,13 @@ headings:
 <dd>
 <p>创建一个有历史的浅克隆，不包含可以被指定远程分支或标签访问的提交。本选项可以使用多次。</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodesingle-branchcodespan"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodesingle-branchcodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>single-branch</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--single-branchcodespan"> <a class="anchor" href="#git-clone---single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--single-branchcodespan"></a><span class='synopsis'><code>--single-branch</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-single-branchcodespan"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-single-branchcodespan"></a><span class='synopsis'><code>--no-single-branch</code></span> </dt>
 <dd>
 <p>仅克隆直到单一分支末尾的历史，该分支被 <span class='synopsis'><code>--branch</code></span> 选项或主分支远程 <span class='synopsis'><code>HEAD</code></span> 指定。被创建仓库之后的抓取将只更新在克隆时被指定的远程跟踪分支。如果在 <span class='synopsis'><code>--single-branch</code></span> 克隆时，远程 HEAD 未指向任何分支，则不会创建远程跟踪分支。</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodetagscodespan"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodetagscodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>tags</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--tagscodespan"> <a class="anchor" href="#git-clone---tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--tagscodespan"></a><span class='synopsis'><code>--tags</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-tagscodespan"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-tagscodespan"></a><span class='synopsis'><code>--no-tags</code></span> </dt>
 <dd>
 <p>Control whether or not tags will be cloned. When <span class='synopsis'><code>--no-tags</code></span> is given, the option will be become permanent by setting the <span class='synopsis'><code>remote.</code><em>&lt;remote&gt;</em><code>.tagOpt=--no-tags</code></span> configuration. This ensures that future <span class='synopsis'><code>git</code> <code>pull</code></span> and <span class='synopsis'><code>git</code> <code>fetch</code></span> won&#8217;t follow any tags. Subsequent explicit tag fetches will still work (see <a href='{{< relurl "docs/git-fetch/zh_HANS-CN" >}}'>git-fetch[1]</a>).</p>
 <div class="paragraph">
@@ -227,11 +229,13 @@ headings:
 <p>子模块使用其默认设置进行初始化和克隆。这等效于克隆完成后立即运行 <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code> <code>--init</code> <code>--recursive</code> <em>&lt;路径规范&gt;</em></span>。如果克隆的仓库没有工作区/检出（即给出了 <span class='synopsis'><code>--no-checkout</code></span>/<span class='synopsis'><code>-n</code></span>，<span class='synopsis'><code>--bare</code></span> 或 `--mirror`中的任何一个选项），则忽略此选项</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodeshallow-submodulescodespan"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodeshallow-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>shallow-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-submodulescodespan"> <a class="anchor" href="#git-clone---shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-submodulescodespan"></a><span class='synopsis'><code>--shallow-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-shallow-submodulescodespan"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-shallow-submodulescodespan"></a><span class='synopsis'><code>--no-shallow-submodules</code></span> </dt>
 <dd>
 <p>所有克隆的子模块都将是浅克隆，深度为 1。</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecoderemote-submodulescodespan"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecoderemote-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>remote-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--remote-submodulescodespan"> <a class="anchor" href="#git-clone---remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--remote-submodulescodespan"></a><span class='synopsis'><code>--remote-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-remote-submodulescodespan"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-remote-submodulescodespan"></a><span class='synopsis'><code>--no-remote-submodules</code></span> </dt>
 <dd>
 <p>克隆的所有子模块将使用子模块的远程跟踪分支的状态来更新子模块，而不是超级项目的已记录 SHA-1。等同于将 <span class='synopsis'><code>--remote</code></span> 传递给 <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>。</p>
 </dd>

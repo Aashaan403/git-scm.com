@@ -103,7 +103,8 @@ headings:
 <dd>
 <p>У розділі «Інформація про конфліктні файли», замість того, щоб записувати список кортежів (режим, oid, стадія, шлях) для виведення для конфліктуючих файлів, просто надайте список імен файлів з конфліктами (і не перераховуйте імена файлів кілька разів, якщо вони мають кілька конфліктуючих стадій).</p>
 </dd>
-<dt class="hdlist1" id="git-merge-tree---no-messages"> <a class="anchor" href="#git-merge-tree---no-messages"></a>--[no-]messages </dt>
+<dt class="hdlist1" id="git-merge-tree---messages"> <a class="anchor" href="#git-merge-tree---messages"></a>--messages </dt>
+<dt class="hdlist1" id="git-merge-tree---no-messages"> <a class="anchor" href="#git-merge-tree---no-messages"></a>--no-messages </dt>
 <dd>
 <p>Записуйте будь-які інформаційні повідомлення, такі як "Автоматичне злиття &lt;шлях&gt;" або сповіщення про КОНФЛІКТИ, в кінець стандартного виводу. Якщо не вказано, за замовчуванням ці повідомлення включатимуться, якщо є конфлікти злиття, та пропускатимуться в іншому випадку.</p>
 </dd>
@@ -117,9 +118,12 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-merge-tree---merge-baseltgt"> <a class="anchor" href="#git-merge-tree---merge-base"></a> <a class="anchor" href="#git-merge-tree---merge-baseltgt"></a>--merge-base=&lt;деревоподібний&gt; </dt>
 <dd>
-<p>Замість пошуку баз злиття для &lt;branch1&gt; та &lt;branch2&gt;, вкажіть базу злиття для самого злиття, а вказівка кількох баз наразі не підтримується. Цей параметр несумісний з <span class='synopsis'><code>--stdin</code></span>.</p>
+<p>Замість пошуку баз злиття для &lt;branch1&gt; та &lt;branch2&gt;, вкажіть базу злиття для самого злиття. Цей параметр несумісний з <span class='synopsis'><code>--stdin</code></span>.</p>
 <div class="paragraph">
-<p>Оскільки база злиття надається безпосередньо, &lt;branch1&gt; та &lt;branch2&gt; не потребують вказівки комітів; достатньо дерев.</p>
+<p>Вказівка кількох баз наразі не підтримується, а це означає, що під час об&#8217;єднання двох гілок з більш ніж однією базою злиття використання цієї опції може призвести до того, що результати злиття будуть відрізнятися від результатів, які обчислить <span class='synopsis'><code>git</code> <code>merge</code></span>. Це може включати потенційну втрату деяких змін, внесених з одного боку історії, у результуючому злитті.</p>
+</div>
+<div class="paragraph">
+<p>З цією опцією, оскільки база злиття надається безпосередньо, &lt;branch1&gt; та &lt;branch2&gt; не потребують вказівки комітів; достатньо дерев.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-merge-tree--Xltoptiongt"> <a class="anchor" href="#git-merge-tree--Xoption"></a> <a class="anchor" href="#git-merge-tree--Xltoptiongt"></a>-X&lt;option&gt; </dt>
@@ -257,7 +261,7 @@ NUL</pre>
 <p>"CONFLICT (rename/delete): &lt;oldfile&gt; renamed&#8230;&#8203;but deleted in&#8230;&#8203;"</p>
 </li>
 <li>
-<p>"Не вдалося об&#8217;єднати підмодуль <span class="hover-term" data-term="підмодуль">&lt;підмодуль&gt;</span> (немає бази злиття)</p>
+<p>"Не вдалося об&#8217;єднати підмодуль &lt;підмодуль&gt; (немає бази злиття)</p>
 </li>
 <li>
 <p>"Попередження: неможливо об&#8217;єднати бінарні файли: &lt;ім&#8217;я файлу&gt;</p>

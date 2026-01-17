@@ -111,24 +111,16 @@ headings:
 <dd>
 <p>Использовать интерактивный интерфейс выбора изменений, чтобы отобрать, какие изменения фиксировать. См. <a href='{{< relurl "docs/git-add/ru" >}}'>git-add[1]</a>.</p>
 </dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Ucodeemltngtemspan"> <a class="anchor" href="#git-commit--Un"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Ucodeemltngtemspan"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--unifiedcodeemltngtemspan"> <a class="anchor" href="#git-commit---unifiedn"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--unifiedcodeemltngtemspan"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span> or 3 if the config option is unset.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"> <a class="anchor" href="#git-commit---inter-hunk-contextn"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
+<dd>
+<p>Выводить в качестве контекста между блоками изменений до <em>&lt;n&gt;</em> строк, тем самым объединяя близкие блоки изменений. По умолчанию равно значению переменной конфигурации <span class='synopsis'><code>diff.interHunkContext</code></span> или 0, если она не установлена.</p>
+</dd>
 </dl>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>ru/diff-context-options.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="dlist">
 <dl>
@@ -231,7 +223,8 @@ headings:
 <p>Задаёт пару (<em>&lt;лексема&gt;</em>,<em>&lt;значение&gt;</em>), которая должна быть добавлена в качестве завершителя. (например, <span class='synopsis'><em>git commit --trailer "Signed-off-by:К О Миттер &lt;committer@example.com&gt;" --trailer "Helped-by:К О Миттер &lt;committer@example.com&gt;"</em></span> добавит завершители <span class='synopsis'><code>Signed-off-by</code></span> и <span class='synopsis'><code>Helped-by</code></span> к сообщению коммита). Определить, какое должно быть поведение в случае, если завершитель применяется несколько раз или в каком порядке они должны идти, а также другие детали можно с помощью семейства конфигурационных переменных <span class='synopsis'><code>trailer.*</code></span> (См. <a href='{{< relurl "docs/git-interpret-trailers/ru" >}}'>git-interpret-trailers[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-commit--n"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--codecodeno-codecodeverifycodespan"> <a class="anchor" href="#git-commit---no-verify"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--codecodeno-codecodeverifycodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>verify</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--verifycodespan"> <a class="anchor" href="#git-commit---verify"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--verifycodespan"></a><span class='synopsis'><code>--verify</code></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--no-verifycodespan"> <a class="anchor" href="#git-commit---no-verify"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--no-verifycodespan"></a><span class='synopsis'><code>--no-verify</code></span> </dt>
 <dd>
 <p>Не запускать перехватчики вызовов pre-commit и commit-msg. См. также <a href='{{< relurl "docs/githooks/ru" >}}'>githooks[5]</a>.</p>
 </dd>

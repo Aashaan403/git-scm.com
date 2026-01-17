@@ -77,7 +77,7 @@ headings:
 <dl>
 <dt class="hdlist1" id="git-pack-objects-base-name"> <a class="anchor" href="#git-pack-objects-base-name"></a>base-name </dt>
 <dd>
-<p>Escreva em pares de arquivos (.pack e .idx), usando &lt;nome-base&gt; para determinar o nome do arquivo criado. Quando essa opção é usada, os dois arquivos num par são gravados em arquivos &lt;nome-base&gt;-<span class="hover-term" data-term="SHA-1">&lt;SHA-1&gt;</span>.{pack,idx}. <span class="hover-term" data-term="SHA-1">&lt;SHA-1&gt;</span> é um hash baseado no conteúdo do pacote sendo gravado na saída predefinida do comando.</p>
+<p>Escreva em pares de arquivos (.pack e .idx), usando &lt;nome-base&gt; para determinar o nome do arquivo criado. Quando essa opção é usada, os dois arquivos num par são gravados em arquivos &lt;nome-base&gt;-&lt;SHA-1&gt;.{pack,idx}. &lt;SHA-1&gt; é um hash baseado no conteúdo do pacote sendo gravado na saída predefinida do comando.</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---stdout"> <a class="anchor" href="#git-pack-objects---stdout"></a>--stdout </dt>
 <dd>
@@ -85,7 +85,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-pack-objects---revs"> <a class="anchor" href="#git-pack-objects---revs"></a>--revs </dt>
 <dd>
-<p>Ler os argumentos de revisão da entrada predefinida, em vez dos nomes dos objetos individuais. Os argumentos de revisão são processados da mesma forma que o comando <em>git rev-list</em> com a opção <span class='synopsis'><code>--objects</code></span> usa seus argumentos <span class='synopsis'><code>commit</code></span> para criar a lista de objetos que produz. Os objetos da lista resultante são empacotados. Além das revisões, as opções <span class='synopsis'><code>--not</code></span> ou <span class='synopsis'><code>--shallow</code> <em><span class="hover-term" data-term="SHA-1">&lt;SHA-1&gt;</span></em></span> também são aceitas.</p>
+<p>Ler os argumentos de revisão da entrada predefinida, em vez dos nomes dos objetos individuais. Os argumentos de revisão são processados da mesma forma que o comando <em>git rev-list</em> com a opção <span class='synopsis'><code>--objects</code></span> usa seus argumentos <span class='synopsis'><code>commit</code></span> para criar a lista de objetos que produz. Os objetos da lista resultante são empacotados. Além das revisões, as opções <span class='synopsis'><code>--not</code></span> ou <span class='synopsis'><code>--shallow</code> <em>&lt;SHA-1&gt;</em></span> também são aceitas.</p>
 </dd>
 <dt class="hdlist1" id="git-pack-objects---unpacked"> <a class="anchor" href="#git-pack-objects---unpacked"></a>--unpacked </dt>
 <dd>
@@ -187,7 +187,8 @@ headings:
 <dd>
 <p>Especifica o nível de compactação dos dados recém-compactados no pacote que foi gerado. Se não for especificado, o nível de compactação do pacote será determinado primeiro por <span class='synopsis'><code>pack.compression</code></span> e, em seguida, por <span class='synopsis'><code>core.compression</code></span>, e a predefinição será -1, a predefinição zlib, caso nenhum dos dois tenha sido definido. Adicione a opção <span class='synopsis'><code>--no-reuse-object</code></span> se quiser impor um nível de compactação uniforme em todos os dados, independentemente da origem.</p>
 </dd>
-<dt class="hdlist1" id="git-pack-objects---no-sparse"> <a class="anchor" href="#git-pack-objects---no-sparse"></a>--[no-]sparse </dt>
+<dt class="hdlist1" id="git-pack-objects---sparse"> <a class="anchor" href="#git-pack-objects---sparse"></a>--sparse </dt>
+<dt class="hdlist1" id="git-pack-objects---no-sparse"> <a class="anchor" href="#git-pack-objects---no-sparse"></a>--no-sparse </dt>
 <dd>
 <p>Alterna o algoritmo "sparse" para determinar quais os objetos devem ser incluídos no pacote, quando combinado com a opção <span class='synopsis'><code>--revs</code></span>. Este algoritmo percorre apenas as árvores que aparecem em caminhos que introduzem novos objetos. Isso pode trazer significativos benefícios de desempenho ao computar um pacote e enviar uma pequena alteração. No entanto, é possível que os objetos extras sejam adicionados ao arquivo do pacote se os commits incluídos tiverem determinados tipos diretos de renomeações. Caso esta opção não seja incluída, a predefinição será o valor em <span class='synopsis'><code>pack.useSparse</code></span>, que é verdadeiro, a menos que outra opção seja especificada.</p>
 </dd>

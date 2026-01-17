@@ -145,7 +145,8 @@ headings:
 <p>Потрібно лише якщо також встановлено <span class='synopsis'><code>--compose</code></span>. Якщо <span class='synopsis'><code>--compose</code></span> не встановлено, буде запропоновано це зробити.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-outlook-id-fix"> <a class="anchor" href="#git-send-email---no-outlook-id-fix"></a>--[no-]outlook-id-fix </dt>
+<dt class="hdlist1" id="git-send-email---outlook-id-fix"> <a class="anchor" href="#git-send-email---outlook-id-fix"></a>--outlook-id-fix </dt>
+<dt class="hdlist1" id="git-send-email---no-outlook-id-fix"> <a class="anchor" href="#git-send-email---no-outlook-id-fix"></a>--no-outlook-id-fix </dt>
 <dd>
 <p>SMTP-сервери Microsoft Outlook відкидають ідентифікатор повідомлення, надісланий електронною поштою, та призначають новий випадковий ідентифікатор повідомлення, таким чином розриваючи потоки.</p>
 <div class="paragraph">
@@ -269,6 +270,21 @@ headings:
 <dd>
 <p>Увімкнути (1) або вимкнути (0) вивід налагодження. Якщо ввімкнено, команди та відповіді SMTP будуть виведені. Корисно для налагодження проблем з підключенням TLS та автентифікацією.</p>
 </dd>
+<dt class="hdlist1" id="git-send-email---imap-sent-folderltfoldergt"> <a class="anchor" href="#git-send-email---imap-sent-folderfolder"></a> <a class="anchor" href="#git-send-email---imap-sent-folderltfoldergt"></a>--imap-sent-folder=&lt;folder&gt; </dt>
+<dd>
+<p>Деякі постачальники послуг електронної пошти (наприклад, iCloud) не надсилають копії електронних листів, надісланих через SMTP, до папки «Надіслані» або подібної папки у вашій поштовій скриньці. Використовуйте цю опцію, щоб за допомогою команди <span class='synopsis'><code>git</code> <code>imap-send</code></span> надіслати копію електронних листів до папки, вказаної за допомогою цієї опції. Ви можете виконати команду <span class='synopsis'><code>git</code> <code>imap-send</code> <code>--list</code></span>, щоб отримати список дійсних назв папок, включаючи правильну назву папки «Надіслані» у вашій поштовій скриньці. Ви також можете використовувати цю опцію для надсилання електронних листів до виділеної папки IMAP на ваш вибір.</p>
+<div class="paragraph">
+<p>Ця функція вимагає налаштування <span class='synopsis'><code>git</code> <code>imap-send</code></span>. Див. інструкції за посиланням <a href='{{< relurl "docs/git-imap-send/uk" >}}'>git-imap-send[1]</a>.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="git-send-email---use-imap-only"> <a class="anchor" href="#git-send-email---use-imap-only"></a>--use-imap-only </dt>
+<dt class="hdlist1" id="git-send-email---no-use-imap-only"> <a class="anchor" href="#git-send-email---no-use-imap-only"></a>--no-use-imap-only </dt>
+<dd>
+<p>Якщо це встановлено, усі електронні листи будуть скопійовані лише до папки IMAP, зазначеної за допомогою <span class='synopsis'><code>--imap-sent-folder</code></span> або <span class='synopsis'><code>sendemail.imapSentFolder</code></span>, і не будуть надіслані одержувачам. Корисно, якщо ви просто хочете створити чернетку електронних листів і використовувати інший поштовий клієнт для їх надсилання. Якщо вимкнено за допомогою <span class='synopsis'><code>--no-use-imap-only</code></span>, електронні листи будуть надіслані як завжди. Вимкнено за замовчуванням, але для його ввімкнення можна використовувати змінну конфігурації <span class='synopsis'><code>sendemail.useImapOnly</code></span>.</p>
+<div class="paragraph">
+<p>Ця функція вимагає налаштування <span class='synopsis'><code>git</code> <code>imap-send</code></span>. Див. інструкції за посиланням <a href='{{< relurl "docs/git-imap-send/uk" >}}'>git-imap-send[1]</a>.</p>
+</div>
+</dd>
 <dt class="hdlist1" id="git-send-email---batch-sizeltnumgt"> <a class="anchor" href="#git-send-email---batch-sizenum"></a> <a class="anchor" href="#git-send-email---batch-sizeltnumgt"></a>--batch-size=&lt;num&gt; </dt>
 <dd>
 <p>Деякі поштові сервери (наприклад, <em>smtp.163.com</em>) обмежують кількість електронних листів, що надсилаються за сеанс (з&#8217;єднання), і це призведе до збою під час надсилання великої кількості повідомлень. З цією опцією send-email відключиться після надсилання <em>&lt;num&gt;</em> повідомлень і зачекає кілька секунд (див. <span class='synopsis'><code>--relogin-delay</code></span>), а потім знову підключиться, щоб обійти таке обмеження. Ви можете використовувати певний помічник з обліковими даними, щоб уникнути необхідності повторно вводити пароль щоразу, коли це трапляється. За замовчуванням використовується змінна конфігурації <span class='synopsis'><code>sendemail.smtpBatchSize</code></span>.</p>
@@ -310,7 +326,8 @@ headings:
 <dd>
 <p>Вимкніть будь-яку команду заголовка, що використовується.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-chain-reply-to"> <a class="anchor" href="#git-send-email---no-chain-reply-to"></a>--[no-]chain-reply-to </dt>
+<dt class="hdlist1" id="git-send-email---chain-reply-to"> <a class="anchor" href="#git-send-email---chain-reply-to"></a>--chain-reply-to </dt>
+<dt class="hdlist1" id="git-send-email---no-chain-reply-to"> <a class="anchor" href="#git-send-email---no-chain-reply-to"></a>--no-chain-reply-to </dt>
 <dd>
 <p>Якщо це встановлено, кожен електронний лист буде надіслано як відповідь на попередньо надісланий електронний лист. Якщо вимкнено за допомогою <span class='synopsis'><code>--no-chain-reply-to</code></span>, усі електронні листи після першого будуть надіслані як відповіді на перший надісланий електронний лист. Під час використання цього рекомендується, щоб перший наданий файл був оглядом усієї серії патчів. За замовчуванням вимкнено, але для його ввімкнення можна використовувати змінну конфігурації <span class='synopsis'><code>sendemail.chainReplyTo</code></span>.</p>
 </dd>
@@ -318,15 +335,18 @@ headings:
 <dd>
 <p>Ідентифікатор конфігурації. Якщо задано, значення в підрозділі <span class='synopsis'><code>sendemail.</code><em>&lt;identity&gt;</em></span> матимуть пріоритет над значеннями в розділі <span class='synopsis'><code>sendemail</code></span>. Ідентифікатором за замовчуванням є значення <span class='synopsis'><code>sendemail.identity</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-signed-off-by-cc"> <a class="anchor" href="#git-send-email---no-signed-off-by-cc"></a>--[no-]signed-off-by-cc </dt>
+<dt class="hdlist1" id="git-send-email---signed-off-by-cc"> <a class="anchor" href="#git-send-email---signed-off-by-cc"></a>--signed-off-by-cc </dt>
+<dt class="hdlist1" id="git-send-email---no-signed-off-by-cc"> <a class="anchor" href="#git-send-email---no-signed-off-by-cc"></a>--no-signed-off-by-cc </dt>
 <dd>
 <p>Якщо це значення встановлено, до списку копій додаються електронні адреси, знайдені в трейлері <span class='synopsis'><code>Signed-off-by</code></span> або рядках <span class='synopsis'><code>Cc:</code></span>. За замовчуванням використовується значення конфігурації <span class='synopsis'><code>sendemail.signedOffByCc</code></span>; якщо це значення не вказано, за замовчуванням використовується <span class='synopsis'><code>--signed-off-by-cc</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-cc-cover"> <a class="anchor" href="#git-send-email---no-cc-cover"></a>--[no-]cc-cover </dt>
+<dt class="hdlist1" id="git-send-email---cc-cover"> <a class="anchor" href="#git-send-email---cc-cover"></a>--cc-cover </dt>
+<dt class="hdlist1" id="git-send-email---no-cc-cover"> <a class="anchor" href="#git-send-email---no-cc-cover"></a>--no-cc-cover </dt>
 <dd>
 <p>Якщо це значення встановлено, електронні листи, знайдені в заголовках <span class='synopsis'><code>Cc:</code></span> у першому патчі серії (зазвичай супровідний лист), додаються до списку копій для кожного набору електронних листів. Значення за замовчуванням – це значення конфігурації <span class='synopsis'><code>sendemail.ccCover</code></span>; якщо воно не вказано, значення за замовчуванням – <span class='synopsis'><code>--no-cc-cover</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-to-cover"> <a class="anchor" href="#git-send-email---no-to-cover"></a>--[no-]to-cover </dt>
+<dt class="hdlist1" id="git-send-email---to-cover"> <a class="anchor" href="#git-send-email---to-cover"></a>--to-cover </dt>
+<dt class="hdlist1" id="git-send-email---no-to-cover"> <a class="anchor" href="#git-send-email---no-to-cover"></a>--no-to-cover </dt>
 <dd>
 <p>Якщо це значення встановлено, електронні листи, знайдені в заголовках <span class='synopsis'><code>To:</code></span> у першому патчі серії (зазвичай супровідний лист), додаються до списку "Кому" для кожного набору електронних листів. Значення за замовчуванням – це значення конфігурації <span class='synopsis'><code>sendemail.toCover</code></span>; якщо воно не вказано, значення за замовчуванням – <span class='synopsis'><code>--no-to-cover</code></span>.</p>
 </dd>
@@ -372,11 +392,13 @@ headings:
 <p>Значення за замовчуванням – це значення конфігурації <span class='synopsis'><code>sendemail.suppressCc</code></span>; якщо воно не вказано, за замовчуванням використовується <span class='synopsis'><code>self</code></span>, якщо вказано <span class='synopsis'><code>--suppress-from</code></span>, а також <span class='synopsis'><code>body</code></span>, якщо вказано <span class='synopsis'><code>--no-signed-off-cc</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-suppress-from"> <a class="anchor" href="#git-send-email---no-suppress-from"></a>--[no-]suppress-from </dt>
+<dt class="hdlist1" id="git-send-email---suppress-from"> <a class="anchor" href="#git-send-email---suppress-from"></a>--suppress-from </dt>
+<dt class="hdlist1" id="git-send-email---no-suppress-from"> <a class="anchor" href="#git-send-email---no-suppress-from"></a>--no-suppress-from </dt>
 <dd>
 <p>Якщо це значення встановлено, не додавати адресу <span class='synopsis'><code>From:</code></span> до списку <span class='synopsis'><code>Cc:</code></span>. За замовчуванням використовується значення конфігурації <span class='synopsis'><code>sendemail.suppressFrom</code></span>; якщо це значення не вказано, за замовчуванням використовується <span class='synopsis'><code>--no-suppress-from</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-thread"> <a class="anchor" href="#git-send-email---no-thread"></a>--[no-]thread </dt>
+<dt class="hdlist1" id="git-send-email---thread"> <a class="anchor" href="#git-send-email---thread"></a>--thread </dt>
+<dt class="hdlist1" id="git-send-email---no-thread"> <a class="anchor" href="#git-send-email---no-thread"></a>--no-thread </dt>
 <dd>
 <p>Якщо це встановлено, заголовки <span class='synopsis'><code>In-Reply-To</code></span> та <span class='synopsis'><code>References</code></span> будуть додаватися до кожного надісланого електронного листа. Те, чи посилається кожен лист на попередній лист (<span class='synopsis'><em>глибока</em></span> потоковість згідно з формулюванням <span class='synopsis'><code>git</code> <code>format-patch</code></span>), чи на перший лист (<span class='synopsis'><em>поверхнева</em></span> потоковість), визначається <span class='synopsis'><code>--</code>[<code>no-</code>]<code>chain-reply-to</code></span>.</p>
 <div class="paragraph">
@@ -386,7 +408,8 @@ headings:
 <p>Користувач повинен переконатися, що заголовок In-Reply-To ще не існує, коли <span class='synopsis'><code>git</code> <code>send-email</code></span> запитується на його додавання (особливо зверніть увагу, що <span class='synopsis'><code>git</code> <code>format-patch</code></span> можна налаштувати на власне виконання потоків). Невиконання цієї вимоги може не призвести до очікуваного результату в MUA одержувача.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-mailmap"> <a class="anchor" href="#git-send-email---no-mailmap"></a>--[no-]mailmap </dt>
+<dt class="hdlist1" id="git-send-email---mailmap"> <a class="anchor" href="#git-send-email---mailmap"></a>--mailmap </dt>
+<dt class="hdlist1" id="git-send-email---no-mailmap"> <a class="anchor" href="#git-send-email---no-mailmap"></a>--no-mailmap </dt>
 <dd>
 <p>Використовуйте файл mailmap (див. <a href='{{< relurl "docs/gitmailmap/uk" >}}'>gitmailmap[5]</a>), щоб зіставити всі адреси з їхнім канонічним справжнім іменем та адресою електронної пошти. Додаткові дані mailmap, специфічні для <span class='synopsis'><code>git</code> <code>send-email</code></span>, можна надати за допомогою значень конфігурації <span class='synopsis'><code>sendemail.mailmap.file</code></span> або <span class='synopsis'><code>sendemail.mailmap.blob</code></span>. За замовчуванням <span class='synopsis'><code>sendemail.mailmap</code></span>.</p>
 </dd>
@@ -431,7 +454,8 @@ headings:
 <dd>
 <p>Зробіть усе, крім фактичного надсилання електронних листів.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-format-patch"> <a class="anchor" href="#git-send-email---no-format-patch"></a>--[no-]format-patch </dt>
+<dt class="hdlist1" id="git-send-email---format-patch"> <a class="anchor" href="#git-send-email---format-patch"></a>--format-patch </dt>
+<dt class="hdlist1" id="git-send-email---no-format-patch"> <a class="anchor" href="#git-send-email---no-format-patch"></a>--no-format-patch </dt>
 <dd>
 <p>Коли аргумент можна розуміти або як посилання, або як ім&#8217;я файлу, виберіть, чи розуміти його як аргумент format-patch (<span class='synopsis'><code>--format-patch</code></span>), або як ім&#8217;я файлу (<span class='synopsis'><code>--no-format-patch</code></span>). За замовчуванням, коли виникає такий конфлікт, <span class='synopsis'><code>git</code> <code>send-email</code></span> завершиться невдачею.</p>
 </dd>
@@ -439,7 +463,8 @@ headings:
 <dd>
 <p>Зробіть <span class='synopsis'><code>git</code> <code>send-email</code></span> менш багатослівним. Один рядок на кожен електронний лист має бути виведений повністю.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---no-validate"> <a class="anchor" href="#git-send-email---no-validate"></a>--[no-]validate </dt>
+<dt class="hdlist1" id="git-send-email---validate"> <a class="anchor" href="#git-send-email---validate"></a>--validate </dt>
+<dt class="hdlist1" id="git-send-email---no-validate"> <a class="anchor" href="#git-send-email---no-validate"></a>--no-validate </dt>
 <dd>
 <p>Виконуйте перевірки на безпеку патчів. Наразі валідація означає наступне:</p>
 <div class="openblock">
@@ -524,10 +549,10 @@ headings:
 <div class="listingblock">
 <div class="content">
 <pre>[sendemail]
-	smtpEncryption = tls
+	smtpEncryption = ssl
 	smtpServer = smtp.gmail.com
 	smtpUser = yourname@gmail.com
-	smtpServerPort = 587</pre>
+	smtpServerPort = 465</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -539,10 +564,10 @@ headings:
 <div class="listingblock">
 <div class="content">
 <pre>[sendemail]
-	smtpEncryption = tls
+	smtpEncryption = ssl
 	smtpServer = smtp.gmail.com
 	smtpUser = yourname@gmail.com
-	smtpServerPort = 587
+	smtpServerPort = 465
 	smtpAuth = OAUTHBEARER</pre>
 </div>
 </div>

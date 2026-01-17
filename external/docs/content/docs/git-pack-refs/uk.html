@@ -59,45 +59,22 @@ headings:
 <div class="sect1">
 <h2 id="_опції"><a class="anchor" href="#_опції"></a>ОПЦІЇ</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1" id="git-pack-refs---all"> <a class="anchor" href="#git-pack-refs---all"></a>--all </dt>
-<dd>
-<p>За замовчуванням ця команда пакує всі теги та посилання, які вже упаковані, і залишає інші посилання без змін. Це пояснюється тим, що очікується активна розробка гілок, а пакування їхніх підказок не покращує продуктивність. Цей параметр також призводить до пакування всіх посилань, за винятком прихованих, пошкоджених та символічних посилань. Корисно для репозиторію з багатьма гілками історичного значення.</p>
-</dd>
-<dt class="hdlist1" id="git-pack-refs---no-prune"> <a class="anchor" href="#git-pack-refs---no-prune"></a>--no-prune </dt>
-<dd>
-<p>Зазвичай команда видаляє вільні посилання в ієрархії <span class='synopsis'><code>$GIT_DIR/refs</code></span> після їх пакування. Цей параметр забороняє цьому робити.</p>
-</dd>
-<dt class="hdlist1" id="git-pack-refs---auto"> <a class="anchor" href="#git-pack-refs---auto"></a>--auto </dt>
-<dd>
-<p>Пакуйте посилання за потреби, залежно від поточного стану бази даних посилань. Поведінка залежить від формату посилань, що використовується репозиторієм, і може змінитися в майбутньому.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>"files": Вільні посилання упаковуються у файл <span class='synopsis'><code>packed-refs</code></span> на основі співвідношення вільних посилань до розміру файлу <span class='synopsis'><code>packed-refs</code></span>. Чим більший файл <span class='synopsis'><code>packed-refs</code></span>, тим більше вільних посилань має існувати перед повторним упакуванням.</p>
-</li>
-<li>
-<p>"reftable": Таблиці стискаються таким чином, що вони утворюють геометричну послідовність. Для двох таблиць N та N+1, де N+1 новіша, це зберігає властивість, що N принаймні вдвічі більша за N+1. Стискаються лише таблиці, які порушують цю властивість.</p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1" id="git-pack-refs---includeltgt"> <a class="anchor" href="#git-pack-refs---include"></a> <a class="anchor" href="#git-pack-refs---includeltgt"></a>--include &lt;візерунок&gt; </dt>
-<dd>
-<p>Пакувати посилання на основі шаблону <span class='synopsis'><code>glob</code>(<code>7</code>)</span>. Повторення цієї опції накопичують шаблони включення. Якщо посилання включено одночасно в <span class='synopsis'><code>--include</code></span> та <span class='synopsis'><code>--exclude</code></span>, <span class='synopsis'><code>--exclude</code></span> має пріоритет. Використання <span class='synopsis'><code>--include</code></span> виключає включення всіх тегів за замовчуванням. Символічні посилання та пошкоджені посилання ніколи не будуть упаковані. При використанні з <span class='synopsis'><code>--all</code></span> це буде помилка. Використовуйте <span class='synopsis'><code>--no-include</code></span> для очищення та скидання списку шаблонів.</p>
-</dd>
-<dt class="hdlist1" id="git-pack-refs---excludeltpatterngt"> <a class="anchor" href="#git-pack-refs---excludepattern"></a> <a class="anchor" href="#git-pack-refs---excludeltpatterngt"></a>--exclude &lt;pattern&gt; </dt>
-<dd>
-<p>Не пакувати посилання, що відповідають заданому шаблону <span class='synopsis'><code>glob</code>(<code>7</code>)</span>. Повторення цієї опції накопичують шаблони виключень. Використовуйте <span class='synopsis'><code>--no-exclude</code></span> для очищення та скидання списку шаблонів. Якщо посилання вже упаковане, додавання його за допомогою <span class='synopsis'><code>--exclude</code></span> не призведе до його розпакування.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>При використанні з <span class='synopsis'><code>--all</code></span>, упаковувати лише вільні посилання, які не відповідають жодному з наданих шаблонів <span class='synopsis'><code>--exclude</code></span>.</p>
+<p>Missing <span class='synopsis'><code>uk/pack-refs-options.adoc</code></span></p>
 </div>
 <div class="paragraph">
-<p>При використанні з <span class='synopsis'><code>--include</code></span>, посилання, надані <span class='synopsis'><code>--include</code></span>, мінус посилання, надані <span class='synopsis'><code>--exclude</code></span>, будуть упаковані.</p>
+<p>See original version for this content.</p>
 </div>
-</dd>
-</dl>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -105,7 +82,7 @@ headings:
 <h2 id="_помилки"><a class="anchor" href="#_помилки"></a>ПОМИЛКИ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Старіша документація, написана до введення механізму packed-refs, може все ще містити повідомлення на кшталт «.git/refs/heads/<span class="hover-term" data-term="гілка">&lt;гілка&gt;</span> файл існує», коли це означає «гілка <span class="hover-term" data-term="гілка">&lt;гілка&gt;</span> існує».</p>
+<p>Старіша документація, написана до введення механізму packed-refs, може все ще містити повідомлення на кшталт «.git/refs/heads/&lt;гілка&gt; файл існує», коли це означає «гілка &lt;гілка&gt; існує».</p>
 </div>
 </div>
 </div>

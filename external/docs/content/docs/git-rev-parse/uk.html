@@ -188,20 +188,14 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dt class="hdlist1" id="git-rev-parse---output-object-formatsha1sha256storage"> <a class="anchor" href="#git-rev-parse---output-object-formatsha1sha256storage"></a>--output-object-format=(sha1|sha256|storage) </dt>
 <dd>
 <p>Дозволити введення oids з будь-якого формату об&#8217;єктів, який підтримує поточний репозиторій.</p>
-<div class="literalblock">
-<div class="content">
-<pre>Вказівка "sha1" за потреби перетворює та повертає sha1 oid.</pre>
+<div class="paragraph">
+<p>Вказівка "sha1" за потреби перетворює та повертає sha1 oid.</p>
 </div>
+<div class="paragraph">
+<p>Вказівка "sha256" за потреби перетворює та повертає oid sha256.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Вказівка "sha256" за потреби перетворює та повертає oid sha256.</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Вказівка "storage" за потреби перетворює значення та повертає oid, закодоване в алгоритмі хешування сховища.</pre>
-</div>
+<div class="paragraph">
+<p>Вказівка "storage" за потреби перетворює значення та повертає oid, закодоване в алгоритмі хешування сховища.</p>
 </div>
 </dd>
 </dl>
@@ -334,9 +328,9 @@ eval "set $(git rev-parse --sq --prefix "$prefix" -- "$@")"</pre>
 <dd>
 <p>Коли команда викликається з підкаталогу, показати шлях до поточного каталогу відносно каталогу верхнього рівня.</p>
 </dd>
-<dt class="hdlist1" id="git-rev-parse---show-object-formatstorageinputoutput"> <a class="anchor" href="#git-rev-parse---show-object-formatstorageinputoutput"></a>--show-object-format[=(storage|input|output)] </dt>
+<dt class="hdlist1" id="git-rev-parse---show-object-formatstorageinputoutputcompat"> <a class="anchor" href="#git-rev-parse---show-object-formatstorageinputoutputcompat"></a>--show-object-format[=(storage|input|output|compat)] </dt>
 <dd>
-<p>Показати формат об&#8217;єкта (алгоритм хешування), що використовується для репозиторію для зберігання всередині каталогу <span class='synopsis'><code>.git</code></span>, вхідних або вихідних даних. Для вхідних даних можна вивести кілька алгоритмів, розділених пробілами. Якщо не вказано, значення за замовчуванням — "storage".</p>
+<p>Показує формат об&#8217;єкта (алгоритм хешування), який використовується для репозиторію для зберігання в каталозі <span class='synopsis'><code>.git</code></span>, вхідних даних, виводу або сумісності. Для вхідних даних можна вивести кілька алгоритмів, розділених пробілами. Якщо запитується <span class='synopsis'><code>compat</code></span>, але алгоритм сумісності не ввімкнено, виводить порожній рядок. Якщо не вказано, значення за замовчуванням — "storage".</p>
 </dd>
 <dt class="hdlist1" id="git-rev-parse---show-ref-format"> <a class="anchor" href="#git-rev-parse---show-ref-format"></a>--show-ref-format </dt>
 <dd>

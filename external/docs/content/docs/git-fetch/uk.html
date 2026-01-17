@@ -22,8 +22,10 @@ headings:
   id: _git_urls
 - text: ПУЛЬТИ КЕРУВАННЯ
   id: _пульти_керування
-- text: НАЛАШТУВАНІ ГІЛКИ ДИСТАНЦІЙНОГО ВІДСТЕЖЕННЯ
-  id: _налаштувані_гілки_дистанційного_відстеження
+- text: ВИГЛЯДНІ ФІЛІЇ
+  id: UPSTREAM-BRANCHES
+- text: НАЛАШТУВАНІ ВІДДІЛЕННЯ ДИСТАНЦІЙНОГО ВІДСТЕЖЕННЯ
+  id: CRTB
 - text: Обрізка
   id: _обрізка
 - text: ВИХІД
@@ -53,10 +55,10 @@ headings:
 <h2 id="_синопсис"><a class="anchor" href="#_синопсис"></a>СИНОПСИС</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git fetch</em> [&lt;options&gt;] [&lt;repository&gt; [&lt;refspec&gt;&#8230;&#8203;]]
-<em>git fetch</em> [&lt;options&gt;] &lt;group&gt;
-<em>git fetch</em> --multiple [&lt;options&gt;] [(&lt;repository&gt; | &lt;group&gt;)&#8230;&#8203;]
-<em>git fetch</em> --all [&lt;options&gt;]</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>fetch</code></span> [<em>&lt;options&gt;</em>] [<em>&lt;repository&gt;</em> [<em>&lt;refspec&gt;</em>&#8230;&#8203;]]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>fetch</code></span> [<em>&lt;options&gt;</em>] <em>&lt;group&gt;</em>
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>fetch</code></span> <span class='synopsis'><code>--multiple</code></span> [<em>&lt;options&gt;</em>] [(<em>&lt;repository&gt;</em>|<em>&lt;group&gt;</em>)&#8230;&#8203;]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>fetch</code></span> <span class='synopsis'><code>--all</code></span> [<em>&lt;options&gt;</em>]</pre>
 </div>
 </div>
 </div>
@@ -64,13 +66,13 @@ headings:
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Отримувати гілки та/або теги (разом – «посилання») з одного або кількох інших репозиторіїв разом з об’єктами, необхідними для завершення їхньої історії. Гілки з віддаленим відстеженням оновлюються (див. опис &lt;refspec&gt; нижче для способів керування цією поведінкою).</p>
+<p>Отримувати гілки та/або теги (разом – «посилання») з одного або кількох інших репозиторіїв разом з об’єктами, необхідними для завершення їхньої історії. Гілки з віддаленим відстеженням оновлюються (див. опис <em>&lt;refspec&gt;</em> нижче для способів керування цією поведінкою).</p>
 </div>
 <div class="paragraph">
-<p>За замовчуванням будь-який тег, що вказує на історії, що витягуються, також витягується; ефект полягає в тому, щоб витягнути теги, які вказують на гілки, які вас цікавлять. Цю поведінку за замовчуванням можна змінити за допомогою опцій --tags або --no-tags або налаштувавши remote.&lt;name&gt;.tagOpt. Використовуючи специфікацію посилань, яка явно витягує теги, ви також можете витягувати теги, які не вказують на гілки, які вас цікавлять.</p>
+<p>За замовчуванням будь-який тег, що вказує на історії, що витягуються, також витягується; ефект полягає в тому, щоб витягнути теги, які вказують на гілки, які вас цікавлять. Цю поведінку за замовчуванням можна змінити, використовуючи опції <span class='synopsis'><code>--tags</code></span> або <span class='synopsis'><code>--no-tags</code></span>, або налаштувавши <span class='synopsis'><code>remote.</code><em>&lt;name&gt;</em><code>.tagOpt</code></span>. Використовуючи специфікацію посилань, яка явно витягує теги, ви також можете витягувати теги, які не вказують на гілки, які вас цікавлять.</p>
 </div>
 <div class="paragraph">
-<p>Команда «git fetch» може отримувати дані як з одного іменованого репозиторію чи URL-адреси, так і з кількох репозиторіїв одночасно, якщо вказано &lt;group&gt; та у файлі конфігурації є запис remotes.&lt;group&gt;. (Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>
+<p><span class='synopsis'><code>git</code> <code>fetch</code></span> може отримувати дані як з одного іменованого репозиторію чи URL-адреси, так і з кількох репозиторіїв одночасно, якщо вказано <em>&lt;group&gt;</em> та є запис <span class='synopsis'><code>remotes.</code><em>&lt;group&gt;</em></span> у файлі конфігурації. (Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>
 </div>
 <div class="paragraph">
 <p>Якщо віддалений сервер не вказано, за замовчуванням використовуватиметься віддалений сервер <span class='synopsis'><code>origin</code></span>, якщо для поточної гілки не налаштовано гілку upstream.</p>
@@ -85,47 +87,48 @@ headings:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch---no-all"> <a class="anchor" href="#git-fetch---no-all"></a>--[no-]all </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--allcodespan"> <a class="anchor" href="#git-fetch---all"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--allcodespan"></a><span class='synopsis'><code>--all</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-allcodespan"> <a class="anchor" href="#git-fetch---no-all"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-allcodespan"></a><span class='synopsis'><code>--no-all</code></span> </dt>
 <dd>
-<p>Отримати всі віддалені пристрої, крім тих, для яких встановлено змінну конфігурації <span class='synopsis'><code>remote.</code><em>&lt;назва&gt;</em><code>.skipFetchAll</code></span>. Це замінює змінну конфігурації fetch.all`.</p>
+<p>Отримати всі віддалені пристрої, крім тих, для яких встановлено змінну конфігурації <span class='synopsis'><code>remote.</code><em>&lt;назва&gt;</em><code>.skipFetchAll</code></span>. Це замінює змінну конфігурації <span class='synopsis'><code>fetch.all</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--a"> <a class="anchor" href="#git-fetch--a"></a>-a </dt>
-<dt class="hdlist1" id="git-fetch---append"> <a class="anchor" href="#git-fetch---append"></a>--append </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-acodespan"> <a class="anchor" href="#git-fetch--a"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-acodespan"></a><span class='synopsis'><code>-a</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--appendcodespan"> <a class="anchor" href="#git-fetch---append"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--appendcodespan"></a><span class='synopsis'><code>--append</code></span> </dt>
 <dd>
 <p>Додати назви посилань та назви об&#8217;єктів отриманих посилань до існуючого вмісту <span class='synopsis'><code>.git/FETCH_HEAD</code></span>. Без цієї опції старі дані в <span class='synopsis'><code>.git/FETCH_HEAD</code></span> будуть перезаписані.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---atomic"> <a class="anchor" href="#git-fetch---atomic"></a>--atomic </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--atomiccodespan"> <a class="anchor" href="#git-fetch---atomic"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--atomiccodespan"></a><span class='synopsis'><code>--atomic</code></span> </dt>
 <dd>
 <p>Використовуйте атомарну транзакцію для оновлення локальних посилань. Або всі посилання оновлюються, або у разі помилки жодні посилання не оновлюються.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---depthltdepthgt"> <a class="anchor" href="#git-fetch---depthdepth"></a> <a class="anchor" href="#git-fetch---depthltdepthgt"></a>--depth=&lt;depth&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--depthcodeemltdepthgtemspan"> <a class="anchor" href="#git-fetch---depthdepth"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--depthcodeemltdepthgtemspan"></a><span class='synopsis'><code>--depth=</code><em>&lt;depth&gt;</em></span> </dt>
 <dd>
 <p>Обмежити вибірку до вказаної кількості комітів з кінчика історії кожної віддаленої гілки. Якщо вибірка здійснюється до «неглибокого» репозиторію, створеного за допомогою <span class='synopsis'><code>git</code> <code>clone</code></span> з опцією <span class='synopsis'><code>--depth=</code><em>&lt;глибина&gt;</em></span> (див. <a href='{{< relurl "docs/git-clone/uk" >}}'>git-clone[1]</a>), поглибити або скоротити історію до вказаної кількості комітів. Теги для поглиблених комітів не витягуються.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---deepenltdepthgt"> <a class="anchor" href="#git-fetch---deependepth"></a> <a class="anchor" href="#git-fetch---deepenltdepthgt"></a>--deepen=&lt;depth&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--deepencodeemltdepthgtemspan"> <a class="anchor" href="#git-fetch---deependepth"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--deepencodeemltdepthgtemspan"></a><span class='synopsis'><code>--deepen=</code><em>&lt;depth&gt;</em></span> </dt>
 <dd>
-<p>Подібно до --depth, але вказує кількість комітів з поточної неглибокої межі, а не з кінця історії кожної віддаленої гілки.</p>
+<p>Подібно до <span class='synopsis'><code>--depth</code></span>, але вказує кількість комітів з поточної неглибокої межі, а не з кінця історії кожної віддаленої гілки.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---shallow-sinceltgt"> <a class="anchor" href="#git-fetch---shallow-since"></a> <a class="anchor" href="#git-fetch---shallow-sinceltgt"></a>--shallow-since=&lt;дата&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--shallow-sincecodeemltgtemspan"> <a class="anchor" href="#git-fetch---shallow-since"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--shallow-sincecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-since=</code><em>&lt;дата&gt;</em></span> </dt>
 <dd>
-<p>Поглибити або скоротити історію поверхневого репозиторію, щоб включити всі доступні коміти після &lt;дата&gt;.</p>
+<p>Поглибити або скоротити історію поверхневого репозиторію, щоб включити всі доступні коміти після <em>&lt;дата&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---shallow-excludeltgt"> <a class="anchor" href="#git-fetch---shallow-exclude"></a> <a class="anchor" href="#git-fetch---shallow-excludeltgt"></a>--shallow-exclude=<span class="hover-term" data-term="посилання">&lt;посилання&gt;</span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-fetch---shallow-exclude"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em>&lt;посилання&gt;</em></span> </dt>
 <dd>
 <p>Поглибити або скоротити історію поверхневого репозиторію, щоб виключити коміти, доступні з вказаної віддаленої гілки або тегу. Цей параметр можна вказати кілька разів.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---unshallow"> <a class="anchor" href="#git-fetch---unshallow"></a>--unshallow </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--unshallowcodespan"> <a class="anchor" href="#git-fetch---unshallow"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--unshallowcodespan"></a><span class='synopsis'><code>--unshallow</code></span> </dt>
 <dd>
 <p>Якщо вихідний репозиторій завершений, конвертуйте поверхневий репозиторій у повноцінний, усунувши всі обмеження, що накладаються поверхневими репозиторіями.</p>
 <div class="paragraph">
 <p>Якщо вихідний репозиторій неглибокий, витягніть якомога більше даних, щоб поточний репозиторій мав таку ж історію, як і вихідний репозиторій.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch---update-shallow"> <a class="anchor" href="#git-fetch---update-shallow"></a>--update-shallow </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--update-shallowcodespan"> <a class="anchor" href="#git-fetch---update-shallow"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--update-shallowcodespan"></a><span class='synopsis'><code>--update-shallow</code></span> </dt>
 <dd>
-<p>За замовчуванням, під час отримання даних з поверхневого репозиторію, <span class='synopsis'><code>git</code> <code>fetch</code></span> відхиляє посилання, які потребують оновлення .git/shallow. Ця опція оновлює .git/shallow та приймає такі посилання.</p>
+<p>За замовчуванням, під час отримання даних з поверхневого репозиторію, <span class='synopsis'><code>git</code> <code>fetch</code></span> відхиляє посилання, які потребують оновлення <span class='synopsis'><code>.git/shallow</code></span>. Ця опція оновлює <span class='synopsis'><code>.git/shallow</code></span> та приймає такі посилання.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---negotiation-tipltcommitglobgt"> <a class="anchor" href="#git-fetch---negotiation-tipcommitglob"></a> <a class="anchor" href="#git-fetch---negotiation-tipltcommitglobgt"></a>--negotiation-tip=&lt;commit|glob&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--negotiation-tipcodeemltcommitgtememltglobgtemspan"> <a class="anchor" href="#git-fetch---negotiation-tipcommitglob"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--negotiation-tipcodeemltcommitgtememltglobgtemspan"></a><span class='synopsis'><code>--negotiation-tip=</code>(<em>&lt;commit&gt;</em>|<em>&lt;glob&gt;</em>)</span> </dt>
 <dd>
 <p>За замовчуванням Git повідомлятиме серверу про коміти, доступні з усіх локальних посилань, щоб знайти спільні коміти та спробувати зменшити розмір отриманого пакет-файлу. Якщо вказано, Git повідомлятиме лише про коміти, доступні з заданих посилань. Це корисно для пришвидшення завантаження, коли користувач знає, яке локальне посилання, ймовірно, має спільні коміти з посиланням, що вибирається.</p>
 <div class="paragraph">
@@ -138,105 +141,108 @@ headings:
 <p>Дивіться також змінні конфігурації <span class='synopsis'><code>fetch.negotiationAlgorithm</code></span> та <span class='synopsis'><code>push.negotiate</code></span>, задокументовані в <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>, та опцію <span class='synopsis'><code>--negotiate-only</code></span> нижче.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch---negotiate-only"> <a class="anchor" href="#git-fetch---negotiate-only"></a>--negotiate-only </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--negotiate-onlycodespan"> <a class="anchor" href="#git-fetch---negotiate-only"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--negotiate-onlycodespan"></a><span class='synopsis'><code>--negotiate-only</code></span> </dt>
 <dd>
-<p>Не отримувати нічого з сервера, а натомість виводити предків наданих аргументів <span class='synopsis'><code>--negotiation-tip=*</code></span>, які є спільними з сервером.</p>
+<p>Не отримувати нічого з сервера, а натомість виводити предків наданих аргументів <span class='synopsis'><code>--negotiation-tip=</code></span>, які є спільними з сервером.</p>
 <div class="paragraph">
-<p>Це несумісно з <span class='synopsis'><code>--recurse-submodules=</code>[<code>yes</code>|<code>on-demand</code>]</span>. Внутрішньо це використовується для реалізації опції <span class='synopsis'><code>push.negotiate</code></span>, див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>Це несумісно з <span class='synopsis'><code>--recurse-submodules=</code>(<code>yes</code>|<code>on-demand</code>)</span>. Внутрішньо це використовується для реалізації опції <span class='synopsis'><code>push.negotiate</code></span>, див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch---dry-run"> <a class="anchor" href="#git-fetch---dry-run"></a>--dry-run </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--dry-runcodespan"> <a class="anchor" href="#git-fetch---dry-run"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--dry-runcodespan"></a><span class='synopsis'><code>--dry-run</code></span> </dt>
 <dd>
 <p>Покажіть, що буде зроблено без внесення жодних змін.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---porcelain"> <a class="anchor" href="#git-fetch---porcelain"></a>--porcelain </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--porcelaincodespan"> <a class="anchor" href="#git-fetch---porcelain"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--porcelaincodespan"></a><span class='synopsis'><code>--porcelain</code></span> </dt>
 <dd>
 <p>Вивести вивід на стандартний вивід у зручному для розбору форматі для скриптів. Див. розділ ВИВІД у <a href='{{< relurl "docs/git-fetch/uk" >}}'>git-fetch[1]</a> для отримання детальної інформації.</p>
 <div class="paragraph">
-<p>Це несумісно з <span class='synopsis'><code>--recurse-submodules=</code>[<code>yes</code>|<code>on-demand</code>]</span> та має пріоритет над параметром конфігурації <span class='synopsis'><code>fetch.output</code></span>.</p>
+<p>Це несумісно з <span class='synopsis'><code>--recurse-submodules=</code>(<code>yes</code>|<code>on-demand</code>)</span> та має пріоритет над параметром конфігурації <span class='synopsis'><code>fetch.output</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch---no-write-fetch-head"> <a class="anchor" href="#git-fetch---no-write-fetch-head"></a>--[no-]write-fetch-head </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--write-fetch-headcodespan"> <a class="anchor" href="#git-fetch---write-fetch-head"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--write-fetch-headcodespan"></a><span class='synopsis'><code>--write-fetch-head</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-write-fetch-headcodespan"> <a class="anchor" href="#git-fetch---no-write-fetch-head"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-write-fetch-headcodespan"></a><span class='synopsis'><code>--no-write-fetch-head</code></span> </dt>
 <dd>
 <p>Записати список віддалених посилань, отриманих у файлі <span class='synopsis'><code>FETCH_HEAD</code></span>, безпосередньо в <span class='synopsis'><code>$GIT_DIR</code></span>. Це значення за замовчуванням. Передача <span class='synopsis'><code>--no-write-fetch-head</code></span> з командного рядка вказує Git не записувати файл. З опцією <span class='synopsis'><code>--dry-run</code></span> файл ніколи не записується.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--f"> <a class="anchor" href="#git-fetch--f"></a>-f </dt>
-<dt class="hdlist1" id="git-fetch---force"> <a class="anchor" href="#git-fetch---force"></a>--force </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-fcodespan"> <a class="anchor" href="#git-fetch--f"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-fcodespan"></a><span class='synopsis'><code>-f</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--forcecodespan"> <a class="anchor" href="#git-fetch---force"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--forcecodespan"></a><span class='synopsis'><code>--force</code></span> </dt>
 <dd>
-<p>Коли <em>git fetch</em> використовується з <span class='synopsis'><em>&lt;src&gt;</em><code>:</code><em>&lt;dst&gt;</em></span> refspec, він може відмовитися оновлювати локальну гілку, як обговорювалося
-in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
+<p>Коли <span class='synopsis'><code>git</code> <code>fetch</code></span> використовується з <span class='synopsis'><em>&lt;src&gt;</em><code>:</code><em>&lt;dst&gt;</em></span> refspec, він може відмовитися оновлювати локальну гілку, як обговорювалося в частині <em>&lt;refspec&gt;</em> нижче.
 Цей параметр замінює цю перевірку.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--k"> <a class="anchor" href="#git-fetch--k"></a>-k </dt>
-<dt class="hdlist1" id="git-fetch---keep"> <a class="anchor" href="#git-fetch---keep"></a>--keep </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-kcodespan"> <a class="anchor" href="#git-fetch--k"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-kcodespan"></a><span class='synopsis'><code>-k</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--keepcodespan"> <a class="anchor" href="#git-fetch---keep"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--keepcodespan"></a><span class='synopsis'><code>--keep</code></span> </dt>
 <dd>
 <p>Збережіть завантажений пакет.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---multiple"> <a class="anchor" href="#git-fetch---multiple"></a>--multiple </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--multiplecodespan"> <a class="anchor" href="#git-fetch---multiple"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--multiplecodespan"></a><span class='synopsis'><code>--multiple</code></span> </dt>
 <dd>
-<p>Дозволяє вказувати кілька аргументів &lt;repository&gt; та &lt;group&gt;. Не можна вказувати &lt;refspec&gt;.</p>
+<p>Дозволяє вказувати кілька аргументів <em>&lt;репозиторій&gt;</em> та <em>&lt;група&gt;</em>. Не можна вказувати <em>&lt;посилання&gt;</em>s.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---no-auto-maintenance"> <a class="anchor" href="#git-fetch---no-auto-maintenance"></a>--[no-]auto-maintenance </dt>
-<dt class="hdlist1" id="git-fetch---no-auto-gc"> <a class="anchor" href="#git-fetch---no-auto-gc"></a>--[no-]auto-gc </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--auto-maintenancecodespan"> <a class="anchor" href="#git-fetch---auto-maintenance"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--auto-maintenancecodespan"></a><span class='synopsis'><code>--auto-maintenance</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-auto-maintenancecodespan"> <a class="anchor" href="#git-fetch---no-auto-maintenance"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-auto-maintenancecodespan"></a><span class='synopsis'><code>--no-auto-maintenance</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--auto-gccodespan"> <a class="anchor" href="#git-fetch---auto-gc"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--auto-gccodespan"></a><span class='synopsis'><code>--auto-gc</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-auto-gccodespan"> <a class="anchor" href="#git-fetch---no-auto-gc"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-auto-gccodespan"></a><span class='synopsis'><code>--no-auto-gc</code></span> </dt>
 <dd>
-<p>Виконайте <span class='synopsis'><code>git</code> <code>maintenance</code> <code>run</code> <code>--auto</code></span> в кінці, щоб виконати автоматичне обслуговування репозиторію, якщо це необхідно. (<span class='synopsis'><code>--</code>[<code>no-</code>]<code>auto-gc</code></span> – синонім.) Це вмикається за допомогою.</p>
+<p>Виконайте <span class='synopsis'><code>git</code> <code>maintenance</code> <code>run</code> <code>--auto</code></span> в кінці, щоб виконати автоматичне обслуговування репозиторію, якщо це необхідно. Це ввімкнено за замовчуванням.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---no-write-commit-graph"> <a class="anchor" href="#git-fetch---no-write-commit-graph"></a>--[no-]write-commit-graph </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--write-commit-graphcodespan"> <a class="anchor" href="#git-fetch---write-commit-graph"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--write-commit-graphcodespan"></a><span class='synopsis'><code>--write-commit-graph</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-write-commit-graphcodespan"> <a class="anchor" href="#git-fetch---no-write-commit-graph"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-write-commit-graphcodespan"></a><span class='synopsis'><code>--no-write-commit-graph</code></span> </dt>
 <dd>
 <p>Записати граф комітів після отримання. Це замінює налаштування конфігурації <span class='synopsis'><code>fetch.writeCommitGraph</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---prefetch"> <a class="anchor" href="#git-fetch---prefetch"></a>--prefetch </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--prefetchcodespan"> <a class="anchor" href="#git-fetch---prefetch"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--prefetchcodespan"></a><span class='synopsis'><code>--prefetch</code></span> </dt>
 <dd>
 <p>Змініть налаштовану специфікацію посилань, щоб розмістити всі посилання в просторі імен <span class='synopsis'><code>refs/prefetch/</code></span>. Див. завдання <span class='synopsis'><code>prefetch</code></span> у <a href='{{< relurl "docs/git-maintenance/uk" >}}'>git-maintenance[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--p"> <a class="anchor" href="#git-fetch--p"></a>-p </dt>
-<dt class="hdlist1" id="git-fetch---prune"> <a class="anchor" href="#git-fetch---prune"></a>--prune </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-pcodespan"> <a class="anchor" href="#git-fetch--p"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-pcodespan"></a><span class='synopsis'><code>-p</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--prunecodespan"> <a class="anchor" href="#git-fetch---prune"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--prunecodespan"></a><span class='synopsis'><code>--prune</code></span> </dt>
 <dd>
-<p>Перед отриманням видаліть усі посилання на віддалене відстеження, яких більше немає на віддаленому сервері. Теги не підлягають обрізанню, якщо вони отримані лише через автоматичне слідування за тегами за замовчуванням або через опцію --tags. Однак, якщо теги отримані через явну специфікацію посилань (або в командному рядку, або в конфігурації віддаленого сервера, наприклад, якщо віддалений сервер було клоновано з опцією --mirror), то вони також підлягають обрізанню. Надання <span class='synopsis'><code>--prune-tags</code></span> – це скорочення для надання специфікації посилань на теги.</p>
+<p>Перед отриманням видаліть усі посилання на віддалене відстеження, яких більше немає на віддаленому сервері. Теги не підлягають обрізанню, якщо вони отримані лише через автоматичне слідування за тегами за замовчуванням або через опцію <span class='synopsis'><code>--tags</code></span>. Однак, якщо теги отримані через явну специфікацію посилань (або в командному рядку, або в конфігурації віддаленого сервера, наприклад, якщо віддалений сервер було клоновано з опцією <span class='synopsis'><code>--mirror</code></span>), то вони також підлягають обрізанню. Надання <span class='synopsis'><code>--prune-tags</code></span> – це скорочення для надання специфікації посилань на теги.</p>
 <div class="paragraph">
 <p>Дивіться розділ ОБРІЗКА нижче для отримання додаткової інформації.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch--P"> <a class="anchor" href="#git-fetch--P"></a>-P </dt>
-<dt class="hdlist1" id="git-fetch---prune-tags"> <a class="anchor" href="#git-fetch---prune-tags"></a>--prune-tags </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-Pcodespan"> <a class="anchor" href="#git-fetch--P"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-Pcodespan"></a><span class='synopsis'><code>-P</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--prune-tagscodespan"> <a class="anchor" href="#git-fetch---prune-tags"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--prune-tagscodespan"></a><span class='synopsis'><code>--prune-tags</code></span> </dt>
 <dd>
 <p>Перед отриманням даних видаліть усі локальні теги, яких більше немає на віддаленому сервері, якщо увімкнено <span class='synopsis'><code>--prune</code></span>. Цю опцію слід використовувати обережніше, на відміну від <span class='synopsis'><code>--prune</code></span>, вона видалить усі створені локальні посилання (локальні теги). Ця опція є скороченням для надання явного значення тегу refspec разом з <span class='synopsis'><code>--prune</code></span>, див. обговорення цього в документації.</p>
 <div class="paragraph">
 <p>Дивіться розділ ОБРІЗКА нижче для отримання додаткової інформації.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch--n"> <a class="anchor" href="#git-fetch--n"></a>-n </dt>
-<dt class="hdlist1" id="git-fetch---no-tags"> <a class="anchor" href="#git-fetch---no-tags"></a>--no-tags </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-ncodespan"> <a class="anchor" href="#git-fetch--n"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-ncodespan"></a><span class='synopsis'><code>-n</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-tagscodespan"> <a class="anchor" href="#git-fetch---no-tags"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-tagscodespan"></a><span class='synopsis'><code>--no-tags</code></span> </dt>
 <dd>
-<p>За замовчуванням теги, що вказують на об&#8217;єкти, завантажені з віддаленого репозиторію, отримуються та зберігаються локально. Ця опція вимикає автоматичне відстеження тегів. Поведінку за замовчуванням для віддаленого репозиторію можна вказати за допомогою параметра remote.&lt;name&gt;.tagOpt. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>За замовчуванням теги, що вказують на об&#8217;єкти, завантажені з віддаленого репозиторію, отримуються та зберігаються локально. Ця опція вимикає автоматичне відстеження тегів. Поведінку за замовчуванням для віддаленого репозиторію можна вказати за допомогою параметра remote.<span class='synopsis'><em>&lt;name&gt;</em><code>.tagOpt.</code></span> Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---refetch"> <a class="anchor" href="#git-fetch---refetch"></a>--refetch </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--refetchcodespan"> <a class="anchor" href="#git-fetch---refetch"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--refetchcodespan"></a><span class='synopsis'><code>--refetch</code></span> </dt>
 <dd>
 <p>Замість узгодження із сервером, щоб уникнути перенесення комітів та пов&#8217;язаних об&#8217;єктів, які вже присутні локально, ця опція отримує всі об&#8217;єкти так, як це зробив би новий клон. Використовуйте це, щоб повторно застосувати фільтр часткового клонування з конфігурації або за допомогою <span class='synopsis'><code>--filter=</code></span>, коли визначення фільтра змінилося. Автоматичне обслуговування після отримання виконає консолідацію пакетів бази даних об&#8217;єктів, щоб видалити будь-які дублікати об&#8217;єктів.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---refmapltrefspecgt"> <a class="anchor" href="#git-fetch---refmaprefspec"></a> <a class="anchor" href="#git-fetch---refmapltrefspecgt"></a>--refmap=&lt;refspec&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--refmapcodeemltrefspecgtemspan"> <a class="anchor" href="#git-fetch---refmaprefspec"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--refmapcodeemltrefspecgtemspan"></a><span class='synopsis'><code>--refmap=</code><em>&lt;refspec&gt;</em></span> </dt>
 <dd>
-<p>Під час отримання посилань, перелічених у командному рядку, використовуйте вказану специфікацію посилань (можна вказати більше одного разу) для зіставлення посилань з гілками віддаленого відстеження, замість значень змінних конфігурації <span class='synopsis'><code>remote.*.fetch</code></span> для віддаленого репозиторію. Надання порожньої <span class='synopsis'><em>&lt;refspec&gt;</em></span> для опції <span class='synopsis'><code>--refmap</code></span> призведе до того, що Git ігноруватиме налаштовані специфікації посилань та повністю покладатиметься на специфікації посилань, надані як аргументи командного рядка. Див. розділ "Налаштовані гілки віддаленого відстеження" для отримання детальної інформації.</p>
+<p>Під час отримання посилань, перелічених у командному рядку, використовуйте вказану специфікацію посилань (можна вказати більше одного разу) для зіставлення посилань з гілками віддаленого відстеження, замість значень змінних конфігурації <span class='synopsis'><code>remote.</code><em>&lt;name&gt;</em><code>.fetch</code></span> для віддаленого репозиторію. Надання порожньої <em>&lt;refspec&gt;</em> для опції <span class='synopsis'><code>--refmap</code></span> призведе до того, що Git ігноруватиме налаштовані специфікації посилань та повністю покладатиметься на специфікації посилань, надані як аргументи командного рядка. Див. розділ "Налаштовані гілки віддаленого відстеження" для отримання детальної інформації.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--t"> <a class="anchor" href="#git-fetch--t"></a>-t </dt>
-<dt class="hdlist1" id="git-fetch---tags"> <a class="anchor" href="#git-fetch---tags"></a>--tags </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-tcodespan"> <a class="anchor" href="#git-fetch--t"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-tcodespan"></a><span class='synopsis'><code>-t</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--tagscodespan"> <a class="anchor" href="#git-fetch---tags"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--tagscodespan"></a><span class='synopsis'><code>--tags</code></span> </dt>
 <dd>
-<p>Отримати всі теги з віддаленого сервера (тобто отримати віддалені теги <span class='synopsis'><code>refs/tags/*</code></span> у локальні теги з такою ж назвою), на додаток до всього іншого, що було б отримано в іншому випадку. Використання лише цієї опції не призводить до обрізання тегів, навіть якщо використовується --prune (хоча теги можуть бути обрізані в будь-якому випадку, якщо вони також є місцем призначення явної специфікації посилань; див. <span class='synopsis'><code>--prune</code></span>).</p>
+<p>Отримати всі теги з віддаленого сервера (тобто отримати віддалені теги <span class='synopsis'><code>refs/tags/*</code></span> у локальні теги з такою ж назвою), на додаток до всього іншого, що було б отримано в іншому випадку. Використання лише цієї опції не призводить до обрізання тегів, навіть якщо використовується <span class='synopsis'><code>--prune</code></span> (хоча теги можуть бути обрізані в будь-якому випадку, якщо вони також є місцем призначення явної специфікації посилань; див. <span class='synopsis'><code>--prune</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---recurse-submodulesyeson-demandno"> <a class="anchor" href="#git-fetch---recurse-submodulesyeson-demandno"></a>--recurse-submodules[=(yes|on-demand|no)] </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--recurse-submodulescodecodecodecodeyescodecodeon-demandcodecodenocodespan"> <a class="anchor" href="#git-fetch---recurse-submodulesyeson-demandno"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--recurse-submodulescodecodecodecodeyescodecodeon-demandcodecodenocodespan"></a><span class='synopsis'><code>--recurse-submodules</code>[<code>=</code>(<code>yes</code>|<code>on-demand</code>|<code>no</code>)]</span> </dt>
 <dd>
-<p>Цей параметр контролює, чи слід також отримувати нові коміти підмодулів і за яких умов. Під час рекурсії через підмодулі, <span class='synopsis'><code>git</code> <code>fetch</code></span> завжди намагається отримати "змінені" підмодулі, тобто підмодуль, який містить коміти, на які посилається щойно отриманий коміт суперпроекту, але відсутні в локальному клоні підмодуля. Змінений підмодуль можна отримати, якщо він присутній локально, наприклад, у <span class='synopsis'><code>$GIT_DIR/modules/</code></span> (див. <a href='{{< relurl "docs/gitsubmodules/uk" >}}'>gitsubmodules[7]</a>); якщо основний твір додає новий підмодуль, цей підмодуль не можна отримати, доки він не буде клонований, наприклад, за допомогою <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>.</p>
+<p>Контролюйте, чи слід також отримувати нові коміти підмодулів і за яких умов. Під час рекурсії через підмодулі, <span class='synopsis'><code>git</code> <code>fetch</code></span> завжди намагається отримати "змінені" підмодулі, тобто підмодуль, який містить коміти, на які посилається щойно отриманий коміт суперпроекту, але відсутні в локальному клоні підмодуля. Змінений підмодуль можна отримати, якщо він присутній локально, наприклад, у <span class='synopsis'><code>$GIT_DIR/modules/</code></span> (див. <a href='{{< relurl "docs/gitsubmodules/uk" >}}'>gitsubmodules[7]</a>); якщо основний твір додає новий підмодуль, цей підмодуль не можна отримати, доки він не буде клонований, наприклад, за допомогою <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>.</p>
 <div class="paragraph">
-<p>Якщо встановлено значення «на вимогу», отримуються лише змінені підмодулі. Якщо встановлено значення «так», отримуються всі заповнені підмодулі, а також ті, що є як незаповненими, так і зміненими. Якщо встановлено значення «ні», підмодулі ніколи не отримуються.</p>
+<p>Якщо встановлено значення <span class='synopsis'><code>on-demand</code></span>, отримуються лише змінені підмодулі. Якщо встановлено значення <span class='synopsis'><code>yes</code></span>, отримуються всі заповнені підмодулі, а також ті, що є як незаповненими, так і зміненими. Якщо встановлено значення <span class='synopsis'><code>no</code></span>, підмодулі ніколи не отримуються.</p>
 </div>
 <div class="paragraph">
-<p>Якщо не вказано значення, використовується значення <span class='synopsis'><code>fetch.recurseSubmodules</code></span>, якщо воно встановлено (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>), за замовчуванням використовується значення <em>on-demand</em>, якщо не встановлено. Коли цей параметр використовується без значення, значення за замовчуванням використовується значення <em>yes</em>.</p>
+<p>Якщо не вказано значення, використовується значення <span class='synopsis'><code>fetch.recurseSubmodules</code></span>, якщо воно встановлено (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>), за замовчуванням використовується значення <span class='synopsis'><code>on-demand</code></span>, якщо не встановлено. Коли цей параметр використовується без значення, за замовчуванням використовується значення <span class='synopsis'><code>yes</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch--j"> <a class="anchor" href="#git-fetch--j"></a>-j </dt>
-<dt class="hdlist1" id="git-fetch---jobsltngt"> <a class="anchor" href="#git-fetch---jobsn"></a> <a class="anchor" href="#git-fetch---jobsltngt"></a>--jobs=&lt;n&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-jcodeemltngtemspan"> <a class="anchor" href="#git-fetch--jn"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-jcodeemltngtemspan"></a><span class='synopsis'><code>-j</code> <em>&lt;n&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--jobscodeemltngtemspan"> <a class="anchor" href="#git-fetch---jobsn"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--jobscodeemltngtemspan"></a><span class='synopsis'><code>--jobs=</code><em>&lt;n&gt;</em></span> </dt>
 <dd>
-<p>Кількість паралельних дочірніх об&#8217;єктів, які будуть використовуватися для всіх форм вибірки.</p>
+<p>Паралелізуйте всі форми отримання до <em>&lt;n&gt;</em> завдань одночасно.</p>
 <div class="paragraph">
 <p>Якщо було вказано опцію <span class='synopsis'><code>--multiple</code></span>, різні віддалені модулі будуть завантажуватися паралельно. Якщо вибирається кілька підмодулів, вони будуть завантажуватися паралельно. Щоб керувати ними незалежно, використовуйте налаштування конфігурації <span class='synopsis'><code>fetch.parallel</code></span> та <span class='synopsis'><code>submodule.fetchJobs</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>
 </div>
@@ -244,65 +250,65 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 <p>Зазвичай паралельні рекурсивні та багатовіддалені вибірки будуть швидшими. За замовчуванням вибірки виконуються послідовно, а не паралельно.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch---no-recurse-submodules"> <a class="anchor" href="#git-fetch---no-recurse-submodules"></a>--no-recurse-submodules </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-recurse-submodulescodespan"> <a class="anchor" href="#git-fetch---no-recurse-submodules"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-recurse-submodulescodespan"></a><span class='synopsis'><code>--no-recurse-submodules</code></span> </dt>
 <dd>
 <p>Вимкнути рекурсивне отримання підмодулів (це має той самий ефект, що й використання опції <span class='synopsis'><code>--recurse-submodules=no</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---set-upstream"> <a class="anchor" href="#git-fetch---set-upstream"></a>--set-upstream </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--set-upstreamcodespan"> <a class="anchor" href="#git-fetch---set-upstream"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--set-upstreamcodespan"></a><span class='synopsis'><code>--set-upstream</code></span> </dt>
 <dd>
 <p>Якщо віддалений доступ успішно отримано, додайте посилання на вихідний код (відстеження), яке використовується командою <a href='{{< relurl "docs/git-pull/uk" >}}'>git-pull[1]</a> без аргументів та іншими командами. Для отримання додаткової інформації див. <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> та <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.remote</code></span> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---submodule-prefixltpathgt"> <a class="anchor" href="#git-fetch---submodule-prefixpath"></a> <a class="anchor" href="#git-fetch---submodule-prefixltpathgt"></a>--submodule-prefix=&lt;path&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--submodule-prefixcodeemltpathgtemspan"> <a class="anchor" href="#git-fetch---submodule-prefixpath"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--submodule-prefixcodeemltpathgtemspan"></a><span class='synopsis'><code>--submodule-prefix=</code><em>&lt;path&gt;</em></span> </dt>
 <dd>
-<p>Додати &lt;шлях&gt; до шляхів, що виводяться в інформативних повідомленнях, таких як "Отримання підмодуля foo". Ця опція використовується внутрішньо під час рекурсії по підмодулях.</p>
+<p>Додати <em>&lt;шлях&gt;</em> до шляхів, що виводяться в інформативних повідомленнях, таких як "Отримання підмодуля foo". Ця опція використовується внутрішньо під час рекурсії по підмодулях.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---recurse-submodules-defaultyeson-demand"> <a class="anchor" href="#git-fetch---recurse-submodules-defaultyeson-demand"></a>--recurse-submodules-default=[yes|on-demand] </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--recurse-submodules-defaultcodecodeyescodecodeon-demandcodespan"> <a class="anchor" href="#git-fetch---recurse-submodules-defaultyeson-demand"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--recurse-submodules-defaultcodecodeyescodecodeon-demandcodespan"></a><span class='synopsis'><code>--recurse-submodules-default=</code>(<code>yes</code>|<code>on-demand</code>)</span> </dt>
 <dd>
-<p>Цей параметр використовується внутрішньо для тимчасового надання невід&#8217;ємного значення за замовчуванням для параметра --recurse-submodules. Усі інші методи налаштування рекурсії підмодулів fetch (такі як налаштування в <a href='{{< relurl "docs/gitmodules/uk" >}}'>gitmodules[5]</a> та <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>) перевизначають цей параметр, як і безпосереднє визначення ---[no-]recurse-submodules.</p>
+<p>Цей параметр використовується внутрішньо для тимчасового надання невід&#8217;ємного значення за замовчуванням для параметра <span class='synopsis'><code>--recurse-submodules</code></span>. Усі інші методи налаштування рекурсії підмодулів fetch (такі як налаштування в <a href='{{< relurl "docs/gitmodules/uk" >}}'>gitmodules[5]</a> та <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>) перевизначають цей параметр, як і безпосереднє визначення <span class='synopsis'><code>--</code>[<code>no-</code>]<code>recurse-submodules</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--u"> <a class="anchor" href="#git-fetch--u"></a>-u </dt>
-<dt class="hdlist1" id="git-fetch---update-head-ok"> <a class="anchor" href="#git-fetch---update-head-ok"></a>--update-head-ok </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-ucodespan"> <a class="anchor" href="#git-fetch--u"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-ucodespan"></a><span class='synopsis'><code>-u</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--update-head-okcodespan"> <a class="anchor" href="#git-fetch---update-head-ok"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--update-head-okcodespan"></a><span class='synopsis'><code>--update-head-ok</code></span> </dt>
 <dd>
-<p>За замовчуванням «git fetch» відмовляється оновлювати заголовок, який відповідає поточній гілці. Цей прапорець вимикає перевірку. Це виключно для внутрішнього використання «git pull» для взаємодії з «git fetch», і якщо ви не реалізуєте власний Porcelain, вам не слід його використовувати.</p>
+<p>За замовчуванням <span class='synopsis'><code>git</code> <code>fetch</code></span> відмовляється оновлювати заголовок, який відповідає поточній гілці. Цей прапорець вимикає перевірку. Це виключно для внутрішнього використання <span class='synopsis'><code>git</code> <code>pull</code></span> для взаємодії з <span class='synopsis'><code>git</code> <code>fetch</code></span>, і якщо ви не реалізуєте власний Porcelain, вам не слід його використовувати.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---upload-packltupload-packgt"> <a class="anchor" href="#git-fetch---upload-packupload-pack"></a> <a class="anchor" href="#git-fetch---upload-packltupload-packgt"></a>--upload-pack &lt;upload-pack&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--upload-packcodeemltupload-packgtemspan"> <a class="anchor" href="#git-fetch---upload-packupload-pack"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--upload-packcodeemltupload-packgtemspan"></a><span class='synopsis'><code>--upload-pack</code> <em>&lt;upload-pack&gt;</em></span> </dt>
 <dd>
-<p>Якщо задано, і репозиторій для отримання даних обробляється <em>git fetch-pack</em>, то команді передається <span class='synopsis'><code>--exec=</code><em>&lt;upload-pack&gt;</em></span>, щоб вказати шлях, відмінний від стандартного, для виконання команди на іншому кінці.</p>
+<p>Якщо параметр задано, і репозиторій для отримання даних обробляється <span class='synopsis'><code>git</code> <code>fetch-pack</code></span>, то команді передається <span class='synopsis'><code>--exec=</code><em>&lt;upload-pack&gt;</em></span>, щоб вказати шлях, відмінний від шляху за замовчуванням, для виконання команди на іншому кінці.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--q"> <a class="anchor" href="#git-fetch--q"></a>-q </dt>
-<dt class="hdlist1" id="git-fetch---quiet"> <a class="anchor" href="#git-fetch---quiet"></a>--quiet </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-qcodespan"> <a class="anchor" href="#git-fetch--q"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-qcodespan"></a><span class='synopsis'><code>-q</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--quietcodespan"> <a class="anchor" href="#git-fetch---quiet"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--quietcodespan"></a><span class='synopsis'><code>--quiet</code></span> </dt>
 <dd>
-<p>Передати --quiet до git-fetch-pack та вивести на мовчання будь-які інші внутрішньо використовувані команди git. Прогрес не повідомляється до стандартного потоку помилок.</p>
+<p>Передайте <span class='synopsis'><code>--quiet</code></span> до <span class='synopsis'><code>git-fetch-pack</code></span> та заглушіть будь-які інші внутрішньо використовувані команди git. Прогрес не повідомляється у стандартний потік помилок.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--v"> <a class="anchor" href="#git-fetch--v"></a>-v </dt>
-<dt class="hdlist1" id="git-fetch---verbose"> <a class="anchor" href="#git-fetch---verbose"></a>--verbose </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-fetch--v"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-fetch---verbose"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
 <p>Будьте багатослівними.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---progress"> <a class="anchor" href="#git-fetch---progress"></a>--progress </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--progresscodespan"> <a class="anchor" href="#git-fetch---progress"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--progresscodespan"></a><span class='synopsis'><code>--progress</code></span> </dt>
 <dd>
-<p>Стан виконання за замовчуванням повідомляється у стандартному потоці помилок, коли він підключений до терміналу, якщо не вказано -q. Цей прапорець примусово повідомляє про стан виконання, навіть якщо стандартний потік помилок не спрямований до терміналу.</p>
+<p>За замовчуванням статус виконання повідомляється у стандартному потоці помилок, коли він підключений до терміналу, якщо не вказано <span class='synopsis'><code>-q</code></span>. Цей прапорець примусово повідомляє про статус виконання, навіть якщо стандартний потік помилок не спрямований до терміналу.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--oltoptiongt"> <a class="anchor" href="#git-fetch--ooption"></a> <a class="anchor" href="#git-fetch--oltoptiongt"></a>-o &lt;option&gt; </dt>
-<dt class="hdlist1" id="git-fetch---server-optionltgt"> <a class="anchor" href="#git-fetch---server-option"></a> <a class="anchor" href="#git-fetch---server-optionltgt"></a>--server-option=&lt;опція&gt; </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-ocodeemltoptiongtemspan"> <a class="anchor" href="#git-fetch--ooption"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-ocodeemltoptiongtemspan"></a><span class='synopsis'><code>-o</code> <em>&lt;option&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--server-optioncodeemltgtemspan"> <a class="anchor" href="#git-fetch---server-option"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--server-optioncodeemltgtemspan"></a><span class='synopsis'><code>--server-option=</code><em>&lt;опція&gt;</em></span> </dt>
 <dd>
-<p>Передати заданий рядок на сервер під час зв&#8217;язку за протоколом версії 2. Заданий рядок не повинен містити символів NUL або LF. Обробка сервером параметрів сервера, включаючи невідомі, залежить від сервера. Якщо задано кілька параметрів <span class='synopsis'><code>--server-option=</code><em>&lt;опція&gt;</em></span>, усі вони надсилаються іншій стороні в порядку, зазначеному в командному рядку. Якщо параметр <span class='synopsis'><code>--server-option=</code><em>&lt;опція&gt;</em></span> не задано в командному рядку, замість нього використовуються значення змінної конфігурації <span class='synopsis'><code>remote.</code><em>&lt;назва&gt;</em><code>.serverOption</code></span>.</p>
+<p>Передати заданий рядок на сервер під час зв&#8217;язку за протоколом версії 2. Заданий рядок не повинен містити символів <em>NUL</em> або <em>LF</em>. Обробка сервером параметрів сервера, включаючи невідомі, залежить від сервера. Якщо задано кілька параметрів <span class='synopsis'><code>--server-option=</code><em>&lt;опція&gt;</em></span>, усі вони надсилаються іншій стороні в порядку, зазначеному в командному рядку. Якщо параметр <span class='synopsis'><code>--server-option=</code><em>&lt;опція&gt;</em></span> не задано в командному рядку, замість нього використовуються значення змінної конфігурації <span class='synopsis'><code>remote.</code><em>&lt;назва&gt;</em><code>.serverOption</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---show-forced-updates"> <a class="anchor" href="#git-fetch---show-forced-updates"></a>--show-forced-updates </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--show-forced-updatescodespan"> <a class="anchor" href="#git-fetch---show-forced-updates"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--show-forced-updatescodespan"></a><span class='synopsis'><code>--show-forced-updates</code></span> </dt>
 <dd>
-<p>За замовчуванням git перевіряє, чи гілка примусово оновлюється під час fetch. Це можна вимкнути за допомогою fetch.showForcedUpdates, але опція --show-forced-updates гарантує виконання цієї перевірки. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>За замовчуванням git перевіряє, чи гілка примусово оновлюється під час fetch. Це можна вимкнути за допомогою <span class='synopsis'><code>fetch.showForcedUpdates</code></span>, але опція <span class='synopsis'><code>--show-forced-updates</code></span> гарантує, що ця перевірка відбудеться. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch---no-show-forced-updates"> <a class="anchor" href="#git-fetch---no-show-forced-updates"></a>--no-show-forced-updates </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-show-forced-updatescodespan"> <a class="anchor" href="#git-fetch---no-show-forced-updates"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-show-forced-updatescodespan"></a><span class='synopsis'><code>--no-show-forced-updates</code></span> </dt>
 <dd>
-<p>За замовчуванням git перевіряє, чи гілка примусово оновлюється під час fetch. Передайте --no-show-forced-updates або встановіть fetch.showForcedUpdates на false, щоб пропустити цю перевірку з міркувань продуктивності. Якщо використовувати під час <em>git-pull</em>, опція --ff-only все одно перевірятиме наявність примусових оновлень перед спробою швидкого оновлення. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>За замовчуванням git перевіряє, чи гілка примусово оновлюється під час fetch. Передайте <span class='synopsis'><code>--no-show-forced-updates</code></span> або встановіть <span class='synopsis'><code>fetch.showForcedUpdates</code></span> на false, щоб пропустити цю перевірку з міркувань продуктивності. Якщо використовувати під час <span class='synopsis'><code>git-pull</code></span>, опція <span class='synopsis'><code>--ff-only</code></span> все одно перевірятиме наявність примусових оновлень перед спробою швидкого оновлення. Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--4"> <a class="anchor" href="#git-fetch--4"></a>-4 </dt>
-<dt class="hdlist1" id="git-fetch---ipv4"> <a class="anchor" href="#git-fetch---ipv4"></a>--ipv4 </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-4codespan"> <a class="anchor" href="#git-fetch--4"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-4codespan"></a><span class='synopsis'><code>-4</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--ipv4codespan"> <a class="anchor" href="#git-fetch---ipv4"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--ipv4codespan"></a><span class='synopsis'><code>--ipv4</code></span> </dt>
 <dd>
 <p>Використовуйте лише адреси IPv4, ігноруючи адреси IPv6.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--6"> <a class="anchor" href="#git-fetch--6"></a>-6 </dt>
-<dt class="hdlist1" id="git-fetch---ipv6"> <a class="anchor" href="#git-fetch---ipv6"></a>--ipv6 </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode-6codespan"> <a class="anchor" href="#git-fetch--6"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode-6codespan"></a><span class='synopsis'><code>-6</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--ipv6codespan"> <a class="anchor" href="#git-fetch---ipv6"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--ipv6codespan"></a><span class='synopsis'><code>--ipv6</code></span> </dt>
 <dd>
 <p>Використовуйте лише адреси IPv6, ігноруючи адреси IPv4.</p>
 </dd>
@@ -310,32 +316,36 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch-ltrepositorygt"> <a class="anchor" href="#git-fetch-repository"></a> <a class="anchor" href="#git-fetch-ltrepositorygt"></a>&lt;repository&gt; </dt>
+<dt class="hdlist1" id="git-fetch-emltgtem"> <a class="anchor" href="#git-fetch-"></a> <a class="anchor" href="#git-fetch-emltgtem"></a><em>&lt;репозиторій&gt;</em> </dt>
 <dd>
 <p>«Віддалене» сховище, яке є джерелом операції fetch або pull. Цей параметр може бути або URL-адресою (див. розділ <a href="#URLS">GIT URLS</a> нижче), або іменем віддаленого сховища (див. розділ <a href="#REMOTES">REMOTES</a> нижче).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-ltgroupgt"> <a class="anchor" href="#git-fetch-group"></a> <a class="anchor" href="#git-fetch-ltgroupgt"></a>&lt;group&gt; </dt>
+<dt class="hdlist1" id="git-fetch-emltgroupgtem"> <a class="anchor" href="#git-fetch-group"></a> <a class="anchor" href="#git-fetch-emltgroupgtem"></a><em>&lt;group&gt;</em> </dt>
 <dd>
-<p>Ім&#8217;я, що посилається на список репозиторіїв як значення remotes.&lt;group&gt; у файлі конфігурації. (Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>
+<p>Ім&#8217;я, що посилається на список репозиторіїв як значення <span class='synopsis'><code>remotes.</code><em>&lt;group&gt;</em></span> у файлі конфігурації. (Див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-ltrefspecgt"> <a class="anchor" href="#git-fetch-refspec"></a> <a class="anchor" href="#git-fetch-ltrefspecgt"></a>&lt;refspec&gt; </dt>
+</dl>
+</div>
+<div id="fetch-refspec" class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fetch-emltrefspecgtem"> <a class="anchor" href="#git-fetch-refspec"></a> <a class="anchor" href="#git-fetch-emltrefspecgtem"></a><em>&lt;refspec&gt;</em> </dt>
 <dd>
-<p>Визначає, які посилання потрібно отримати, а які локальні посилання потрібно оновити. Якщо в командному рядку немає &lt;refspec&gt;, посилання для отримання зчитуються зі змінних <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span>
+<p>Визначає, які посилання потрібно отримати, а які локальні посилання потрібно оновити. Якщо в командному рядку немає змінних <em>&lt;refspec&gt;</em>s, посилання для отримання зчитуються зі змінних <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span>
 (see <a href="#CRTB">CONFIGURED REMOTE-TRACKING BRANCHES</a> below).</p>
 <div class="paragraph">
-<p>Формат параметра &lt;refspec&gt; – це необов&#8217;язковий символ плюса <span class='synopsis'><code>+</code></span>, за яким іде джерело &lt;src&gt;, далі двокрапка <span class='synopsis'><code>:</code></span>, а потім кінцевий &lt;dst&gt;. Двокрапку можна пропустити, якщо &lt;dst&gt; порожній. &lt;src&gt; зазвичай є посиланням або шаблоном глобального типу з однією символом <span class='synopsis'><code>*</code></span>, який використовується для зіставлення набору посилань, але також може бути повним шістнадцятковим ім&#8217;ям об&#8217;єкта, написаним у вигляді назви.</p>
+<p>Формат параметра <em>&lt;refspec&gt;</em> – це необов&#8217;язковий символ плюса <span class='synopsis'><code>+</code></span>, за яким іде джерело <em>&lt;src&gt;</em>, далі двокрапка <span class='synopsis'><code>:</code></span>, а потім місце призначення <em>&lt;dst&gt;</em>. Двокрапку можна пропустити, якщо <em>&lt;dst&gt;</em> порожнє. <em>&lt;src&gt;</em> зазвичай є посиланням або шаблоном глобального типу з однією символом <span class='synopsis'><code>*</code></span>, який використовується для зіставлення набору посилань, але це також може бути повне шістнадцяткове ім&#8217;я об&#8217;єкта, написане в шістнадцятковій системі.</p>
 </div>
 <div class="paragraph">
-<p>&lt;refspec&gt; може містити <span class='synopsis'><code>*</code></span> у своєму &lt;src&gt;, щоб вказати просте збігання зі зразком. Така специфікація посилань функціонує як глобальний об&#8217;єкт, який зіставляє будь-яке посилання зі зразком. Шаблон &lt;refspec&gt; повинен мати одну і тільки одну <span class='synopsis'><code>*</code></span> як у &lt;src&gt;, так і в &lt;dst&gt;. Вона зіставлятиме посилання з місцем призначення, замінюючи <span class='synopsis'><code>*</code></span> вмістом, що збігається з джерелом.</p>
+<p><em>&lt;refspec&gt;</em> може містити <span class='synopsis'><code>*</code></span> у своєму <em>&lt;src&gt;</em>, щоб вказати просте збігання зі зразком. Така специфікація посилань функціонує як глобальний об&#8217;єкт, який збігає будь-яке посилання зі зразком. Шаблон <em>&lt;refspec&gt;</em> повинен мати одну і тільки одну <span class='synopsis'><code>*</code></span> як у <em>&lt;src&gt;</em>, так і в <em>&lt;dst&gt;</em>. Він зіставлятиме посилання з місцем призначення, замінюючи <span class='synopsis'><code>*</code></span> вмістом, що збігається з джерелом.</p>
 </div>
 <div class="paragraph">
-<p>Якщо специфікація посилань починається з префікса <span class='synopsis'><code>^</code></span>, вона буде інтерпретована як негативна специфікація посилань. Замість того, щоб вказувати, які посилання потрібно вибрати або які локальні посилання потрібно оновити, така специфікація посилань натомість визначатиме посилання, які потрібно виключити. Посилання вважатиметься таким, що відповідає, якщо воно відповідає принаймні одній позитивній специфікації посилань і не відповідає жодній негативній специфікації посилань. Негативні специфікації посилань можуть бути корисними для обмеження області дії специфікації посилань шаблону, щоб вона не включала певні посилання. Негативні специфікації посилань самі по собі можуть бути специфікаціями посилань шаблону. Однак вони можуть містити лише &lt;src&gt; і не вказувати &lt;dst&gt;. Повністю написані шістнадцяткові імена об&#8217;єктів також не підтримуються.</p>
+<p>Якщо специфікація посилань починається з префікса <span class='synopsis'><code>^</code></span>, вона буде інтерпретована як негативна специфікація посилань. Замість того, щоб вказувати, які посилання потрібно вибрати або які локальні посилання потрібно оновити, така специфікація посилань натомість визначатиме посилання, які потрібно виключити. Посилання вважатиметься таким, що відповідає, якщо воно відповідає принаймні одній позитивній специфікації посилань і не відповідає жодній негативній специфікації посилань. Негативні специфікації посилань можуть бути корисними для обмеження області дії специфікації посилань шаблону, щоб вона не включала певні посилання. Негативні специфікації посилань самі по собі можуть бути специфікаціями посилань шаблону. Однак вони можуть містити лише <em>&lt;source&gt;</em> і не вказувати <em>&lt;dst&gt;</em>. Повністю написані шістнадцяткові назви об&#8217;єктів також не підтримуються.</p>
 </div>
 <div class="paragraph">
 <p><span class='synopsis'><code>tag</code> <em>&lt;tag&gt;</em></span> означає те саме, що <span class='synopsis'><code>refs/tags/</code><em>&lt;tag&gt;</em><code>:refs/tags/</code><em>&lt;tag&gt;</em></span>; він запитує отримання всього до заданого тегу.</p>
 </div>
 <div class="paragraph">
-<p>Вибирається віддалене посилання, яке відповідає &lt;src&gt;, і якщо &lt;dst&gt; не є порожнім рядком, робиться спроба оновити локальне посилання, яке йому відповідає.</p>
+<p>Вибирається віддалене посилання, яке відповідає <em>&lt;src&gt;</em>, і якщо <em>&lt;dst&gt;</em> не є порожнім рядком, робиться спроба оновити локальне посилання, яке йому відповідає.</p>
 </div>
 <div class="paragraph">
 <p>Чи дозволено це оновлення без <span class='synopsis'><code>--force</code></span>, залежить від простору імен посилань, до якого воно вибирається, типу об&#8217;єкта, що вибирається, та від того, чи вважається оновлення перемотуванням вперед. Загалом, для вибирання застосовуються ті самі правила, що й під час надсилання, див. розділ <span class='synopsis'><em>&lt;refspec&gt;</em>...</span> у <a href='{{< relurl "docs/git-push/uk" >}}'>git-push[1]</a>, щоб дізнатися, що це таке. Винятки з цих правил, що стосуються <span class='synopsis'><code>git</code> <code>fetch</code></span>, наведено нижче.</p>
@@ -369,9 +379,9 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch---stdin"> <a class="anchor" href="#git-fetch---stdin"></a>--stdin </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--stdincodespan"> <a class="anchor" href="#git-fetch---stdin"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--stdincodespan"></a><span class='synopsis'><code>--stdin</code></span> </dt>
 <dd>
-<p>Зчитує специфікації посилань, по одній на рядок, зі stdin на додаток до тих, що надані як аргументи. Формат "tag &lt;назва&gt;" не підтримується.</p>
+<p>Зчитує специфікації посилань, по одній на рядок, зі stdin на додаток до тих, що надані як аргументи. Формат "tag <em>&lt;назва&gt;</em>" не підтримується.</p>
 </dd>
 </dl>
 </div>
@@ -514,7 +524,7 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 <h2 id="_пульти_керування"><a class="anchor" href="#_пульти_керування"></a>ПУЛЬТИ КЕРУВАННЯ<a id="REMOTES"></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Замість URL-адреси як аргумент <span class='synopsis'><em>&lt;repository&gt;</em></span> можна використовувати назву одного з наступних:</p>
+<p>Замість URL-адреси як аргумент <em>&lt;репозиторій&gt;</em> можна використовувати назву одного з наступних:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -547,7 +557,7 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 </div>
 </div>
 <div class="paragraph">
-<p><span class='synopsis'><em>&lt;pushurl&gt;</em></span> використовується лише для надсилання змін. Він необов&#8217;язковий і за замовчуванням має значення <span class='synopsis'><em>&lt;URL&gt;</em></span>. Надсилання змін на віддалений сервер впливає на всі визначені адреси pushurl або всі визначені URL-адреси, якщо жодної адреси pushurl не визначено. Однак Fetch буде отримувати дані лише з першої визначеної URL-адреси, якщо визначено кілька URL-адрес.</p>
+<p><em>&lt;pushurl&gt;</em> використовується лише для надсилання змін. Він необов&#8217;язковий і за замовчуванням має значення <em>&lt;URL&gt;</em>. Надсилання змін на віддалений сервер впливає на всі визначені адреси pushurl або всі визначені URL-адреси, якщо жодної адреси pushurl не визначено. Однак Fetch буде отримувати дані лише з першої визначеної URL-адреси, якщо визначено кілька URL-адрес.</p>
 </div>
 </div>
 <div class="sect2">
@@ -563,7 +573,7 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 </div>
 </div>
 <div class="paragraph">
-<p>Рядки <span class='synopsis'><code>Push:</code></span> використовуються командами <em>git push</em>, а рядки <span class='synopsis'><code>Pull:</code></span> використовуються командами <em>git pull</em> та <em>git fetch</em>. Для додаткових зіставлень гілок можна вказати кілька рядків <span class='synopsis'><code>Push:</code></span> та <span class='synopsis'><code>Pull:</code></span>.</p>
+<p>Рядки <span class='synopsis'><code>Push:</code></span> використовуються командами <span class='synopsis'><code>git</code> <code>push</code></span>, а рядки <span class='synopsis'><code>Pull:</code></span> використовуються командами <span class='synopsis'><code>git</code> <code>pull</code></span> та <span class='synopsis'><code>git</code> <code>fetch</code></span>. Для додаткових зіставлень гілок можна вказати кілька рядків <span class='synopsis'><code>Push:</code></span> та <span class='synopsis'><code>Pull:</code></span>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -577,10 +587,10 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 </div>
 </div>
 <div class="paragraph">
-<p><span class='synopsis'><em>&lt;URL&gt;</em></span> is required; <span class='synopsis'><code>#</code><em>&lt;head&gt;</em></span> є необов&#8217;язковим.</p>
+<p><em>&lt;URL&gt;</em> обов&#8217;язковий; <span class='synopsis'><code>#</code><em>&lt;head&gt;</em></span> необов&#8217;язковий.</p>
 </div>
 <div class="paragraph">
-<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <span class='synopsis'><em>&lt;branch&gt;</em></span> – це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а <span class='synopsis'><em>&lt;head&gt;</em></span> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
+<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <em>&lt;branch&gt; – це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а _&lt;head&gt;</em> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>git fetch uses:</p>
@@ -602,7 +612,66 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_налаштувані_гілки_дистанційного_відстеження"><a class="anchor" href="#_налаштувані_гілки_дистанційного_відстеження"></a>НАЛАШТУВАНІ ГІЛКИ ДИСТАНЦІЙНОГО ВІДСТЕЖЕННЯ<a id="CRTB"></a></h2>
+<h2 id="UPSTREAM-BRANCHES"><a class="anchor" href="#UPSTREAM-BRANCHES"></a>ВИГЛЯДНІ ФІЛІЇ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Гілки в Git можуть за бажанням мати віддалену гілку, що знаходиться вище за тегом. Git за замовчуванням використовує гілку, що знаходиться вище за тегом, для віддалених операцій, наприклад:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Це значення за замовчуванням для <span class='synopsis'><code>git</code> <code>pull</code></span> або <span class='synopsis'><code>git</code> <code>fetch</code></span> без аргументів.</p>
+</li>
+<li>
+<p>Це значення за замовчуванням для <span class='synopsis'><code>git</code> <code>push</code></span> без аргументів, за деякими винятками. Наприклад, ви можете використовувати опцію <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.pushRemote</code></span> для надсилання даних на інший віддалений сервер, ніж той, з якого ви отримуєте дані, і за замовчуванням з <span class='synopsis'><code>push.default=simple</code></span> гілка, яку ви налаштовуєте, повинна мати таку саму назву.</p>
+</li>
+<li>
+<p>Різні команди, зокрема <span class='synopsis'><code>git</code> <code>checkout</code></span> та <span class='synopsis'><code>git</code> <code>status</code></span>, покажуть вам, скільки комітів було додано до вашої поточної гілки та основної гілки з моменту відгалуження від неї, наприклад, «Ваша гілка та <em>origin/main</em> розійшлися та мають 2 та 3 різні коміти відповідно».</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Дані про вихідний код зберігаються у файлі <span class='synopsis'><code>.git/config</code></span>, у полях "remote" та "merge". Наприклад, якщо вихідним кодом <span class='synopsis'><code>main</code></span> є <span class='synopsis'><code>origin/main</code></span>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[branch "main"]
+   remote = origin
+   merge = refs/heads/main</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ви можете явно встановити гілку upstream за допомогою <span class='synopsis'><code>git</code> <code>push</code> <code>--set-upstream</code> <em>&lt;віддалена&gt;</em> <em>&lt;гілка&gt;</em></span>, але Git часто автоматично встановить її за вас, наприклад:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Коли ви клонуєте репозиторій, Git автоматично встановить основний напрямок (upstream) для гілки за замовчуванням.</p>
+</li>
+<li>
+<p>Якщо у вас встановлено опцію конфігурації <span class='synopsis'><code>push.autoSetupRemote</code></span>, <span class='synopsis'><code>git</code> <code>push</code></span> автоматично встановить розгортання під час першого надсилання гілки.</p>
+</li>
+<li>
+<p>Перевірка гілки віддаленого відстеження за допомогою <span class='synopsis'><code>git</code> <code>checkout</code> <em>&lt;branch&gt;</em></span> автоматично створить локальну гілку з цією назвою та встановить основний хід (upstream) на віддалену гілку.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Гілки вище за течією іноді називають «інформацією відстеження», наприклад, «встановити інформацію відстеження гілки».
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="CRTB"><a class="anchor" href="#CRTB"></a>НАЛАШТУВАНІ ВІДДІЛЕННЯ ДИСТАНЦІЙНОГО ВІДСТЕЖЕННЯ</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Ви часто взаємодієте з одним і тим самим віддаленим репозиторієм, регулярно та неодноразово витягуючи з нього дані. Щоб відстежувати прогрес такого віддаленого репозиторію, <span class='synopsis'><code>git</code> <code>fetch</code></span> дозволяє налаштувати змінні конфігурації <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span>.</p>
@@ -625,7 +694,7 @@ in the <span class='synopsis'><em>&lt;refspec&gt;</em></span> part below.
 <p>Коли <span class='synopsis'><code>git</code> <code>fetch</code></span> виконується без вказівки, які гілки та/або теги отримувати в командному рядку, наприклад, <span class='synopsis'><code>git</code> <code>fetch</code> <code>origin</code></span> або <span class='synopsis'><code>git</code> <code>fetch</code></span>, значення <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span> використовуються як специфікації посилань – вони вказують, які посилання отримувати та які локальні посилання оновлювати. У наведеному вище прикладі буде отримано всі гілки, що існують в <span class='synopsis'><code>origin</code></span> (тобто будь-яке посилання, що відповідає лівій частині значення <span class='synopsis'><code>refs/heads/*</code></span>), та оновлено відповідні гілки віддаленого відстеження в ієрархії <span class='synopsis'><code>refs/remotes/origin/*</code></span>.</p>
 </li>
 <li>
-<p>Коли <span class='synopsis'><code>git</code> <code>fetch</code></span> запускається з явними гілками та/або тегами для вибірки в командному рядку, наприклад, <span class='synopsis'><code>git</code> <code>fetch</code> <code>origin</code> <code>master</code></span>, &lt;refspec&gt;, задані в командному рядку, визначають, що потрібно вибрати (наприклад, <span class='synopsis'><code>master</code></span> у прикладі, що є скороченням від <span class='synopsis'><code>master:</code></span>, що, у свою чергу, означає "отримати гілку <em>master</em>, але я не вказую явно, яку гілку віддаленого відстеження оновлювати нею з командного рядка"), і команда прикладу отримає <em>лише</em> гілку <em>master</em>. Значення <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span> визначають, яка гілка віддаленого відстеження, якщо така є, оновлюється. При такому використанні значення <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span> не мають жодного впливу на визначення того, <em>що</em> потрібно вибрати (тобто значення не використовуються як refspecs, коли командний рядок перераховує refspecs); вони використовуються лише для визначення <em>де</em> зберігаються вибрані посилання, діючи як відображення.</p>
+<p>Коли <span class='synopsis'><code>git</code> <code>fetch</code></span> запускається з явними гілками та/або тегами для вибірки в командному рядку, наприклад, <span class='synopsis'><code>git</code> <code>fetch</code> <code>origin</code> <code>master</code></span>, <em>&lt;refspec&gt;</em>, задані в командному рядку, визначають, що потрібно вибрати (наприклад, <span class='synopsis'><code>master</code></span> у прикладі, що є скороченням від <span class='synopsis'><code>master:</code></span>, що, у свою чергу, означає "отримати гілку <span class='synopsis'><code>master</code></span>, але я не вказую явно, яку гілку віддаленого відстеження оновлювати нею з командного рядка"), і команда прикладу отримає <em>лише</em> гілку <span class='synopsis'><code>master</code></span>. Значення <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span> визначають, яка гілка віддаленого відстеження, якщо така є, оновлюється. При такому використанні значення <span class='synopsis'><code>remote.</code><em>&lt;repository&gt;</em><code>.fetch</code></span> не мають жодного впливу на визначення того, <em>що</em> потрібно вибрати (тобто значення не використовуються як специфікації посилань, коли командний рядок перераховує специфікації посилань); вони використовуються лише для визначення <em>де</em> зберігаються вибрані посилання, діючи як відображення.</p>
 </li>
 </ul>
 </div>
@@ -665,7 +734,7 @@ $ git remote prune &lt;name&gt;</pre>
 <p>Тому, якщо специфікація посилань для віддаленого комп&#8217;ютера містить, наприклад, <span class='synopsis'><code>refs/tags/*:refs/tags/*</code></span>, або ви вручну виконуєте, наприклад, <span class='synopsis'><code>git</code> <code>fetch</code> <code>--prune</code> <em>&lt;назва&gt;</em> <code>"refs/tags/*:refs/tags/*"</code></span>, то видалятимуться не застарілі гілки відстеження віддаленого комп&#8217;ютера, а будь-який локальний тег, якого не існує на віддаленому комп&#8217;ютері.</p>
 </div>
 <div class="paragraph">
-<p>Можливо, ви цього не очікуєте, тобто ви хочете видалити віддалений <span class='synopsis'><em>&lt;name&gt;</em></span>, але також явно отримати з нього теги, тому під час отримання з нього ви видаляєте всі свої локальні теги, більшість з яких могли взагалі не походити з віддаленого <span class='synopsis'><em>&lt;name&gt;</em></span>.</p>
+<p>Це може бути не те, чого ви очікуєте, тобто ви хочете обрізати віддалений <em>&lt;name&gt;</em>, але також явно отримувати з нього теги, тому під час отримання з нього ви видаляєте всі свої локальні теги, більшість з яких могли взагалі не надходити з віддаленого <em>&lt;name&gt;</em>.</p>
 </div>
 <div class="paragraph">
 <p>Тож будьте обережні, використовуючи це зі специфікацією посилань, такою як <span class='synopsis'><code>refs/tags/*:refs/tags/*</code></span>, або будь-якою іншою специфікацією посилань, яка може відображати посилання з кількох віддалених серверів на один локальний простір імен.</p>
@@ -725,23 +794,23 @@ $ git fetch &lt;url-of-origin&gt; --prune 'refs/tags/*:refs/tags/*'</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Стан актуальних посилань відображається лише за наявності опції --verbose.</p>
+<p>Статус актуальних посилань відображається лише за наявності опції <span class='synopsis'><code>--verbose</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>У компактному режимі виводу, заданому за допомогою змінної конфігурації fetch.output, якщо в іншому рядку знайдено цілий <span class='synopsis'><em>&lt;from&gt;</em></span> або <span class='synopsis'><em>&lt;to&gt;</em></span>, він буде замінений на <span class='synopsis'><code>*</code></span> в іншому рядку. Наприклад, <span class='synopsis'><em>master -&gt; origin/master</em></span> стає <span class='synopsis'><em>master -&gt; origin/*</em></span>.</p>
+<p>У компактному режимі виводу, заданому за допомогою змінної конфігурації fetch.output, якщо в іншому рядку знайдено цілий рядок <em>&lt;from&gt;</em> або <em>&lt;to&gt;</em>, він буде замінений на <span class='synopsis'><code>*</code></span> в іншому рядку. Наприклад, <span class='synopsis'><em>master -&gt; origin/master</em></span> стає <span class='synopsis'><em>master -&gt; origin/*</em></span>.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch-"> <a class="anchor" href="#git-fetch-"></a>прапор </dt>
+<dt class="hdlist1" id="git-fetch--1"> <a class="anchor" href="#git-fetch--1"></a>прапор </dt>
 <dd>
 <p>Один символ, що вказує на статус посилання:</p>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-fetch--1"> <a class="anchor" href="#git-fetch--1"></a>(простір) </dt>
+<dt class="hdlist1" id="git-fetch--1-1"> <a class="anchor" href="#git-fetch--1-1"></a>(простір) </dt>
 <dd>
 <p>для успішно отриманого швидкого перемотування вперед;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan"> <a class="anchor" href="#git-fetch--1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan"></a><span class='synopsis'><code>+</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan"> <a class="anchor" href="#git-fetch--1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan"></a><span class='synopsis'><code>+</code></span> </dt>
 <dd>
 <p>для успішного примусового оновлення;</p>
 </dd>
@@ -753,34 +822,34 @@ $ git fetch &lt;url-of-origin&gt; --prune 'refs/tags/*:refs/tags/*'</pre>
 <dd>
 <p>для успішного оновлення тегу;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan-1"> <a class="anchor" href="#git-fetch--1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan-1"></a><span class='synopsis'><code>*</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan-1"> <a class="anchor" href="#git-fetch--1-1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan-1"></a><span class='synopsis'><code>*</code></span> </dt>
 <dd>
 <p>для успішно отриманого нового посилання;</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan-1-1"></a><span class='synopsis'><code>!</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan-1-1"></a><span class='synopsis'><code>!</code></span> </dt>
 <dd>
 <p>для посилання, яке було відхилено або не вдалося оновити; та</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan-1-1-1"></a><span class='synopsis'><code>=</code></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscodecodespan-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscodecodespan-1-1-1"></a><span class='synopsis'><code>=</code></span> </dt>
 <dd>
 <p>для актуального посилання, яке не потребувало отримання.</p>
 </dd>
 </dl>
 </div>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1"></a>короткий зміст </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1"></a>короткий зміст </dt>
 <dd>
 <p>Для успішно отриманого посилання, зведення показує старі та нові значення посилання у формі, придатній для використання як аргумент <span class='synopsis'><code>git</code> <code>log</code></span> (у більшості випадків це <span class='synopsis'><em>&lt;old&gt;</em><code>..</code><em>&lt;new&gt;</em></span>, а <span class='synopsis'><em>&lt;old&gt;</em><code>...</code><em>&lt;new&gt;</em></span> для примусових оновлень без перемотування вперед).</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1"></a>з </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1"></a>з </dt>
 <dd>
 <p>Ім&#8217;я віддаленого посилання, з якого вибирається посилання, мінус його префікс <span class='synopsis'><code>refs/</code><em>&lt;тип&gt;</em><code>/</code></span>. У разі видалення ім&#8217;я віддаленого посилання — "(none)".</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1"></a>до </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1"></a>до </dt>
 <dd>
 <p>Назва локального посилання, що оновлюється, мінус його префікс <span class='synopsis'><code>refs/</code><em>&lt;тип&gt;</em><code>/</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1"></a>причина </dt>
+<dt class="hdlist1" id="git-fetch--1-1-1-1-1-1-1-1-1-1"> <a class="anchor" href="#git-fetch--1-1-1-1-1-1-1-1-1-1"></a>причина </dt>
 <dd>
 <p>Пояснення, зрозуміле для людини. У випадку успішно отриманих посилань пояснення не потрібні. Для невдалого посилання описується причина невдачі.</p>
 </dd>
@@ -884,7 +953,7 @@ $ git log FETCH_HEAD</pre>
 <h2 id="_помилки"><a class="anchor" href="#_помилки"></a>ПОМИЛКИ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Використання --recurse-submodules може отримувати нові коміти лише в тих підмодулях, які присутні локально, наприклад, у <span class='synopsis'><code>$GIT_DIR/modules/</code></span>. Якщо основний розробник додає новий підмодуль, цей підмодуль не може бути отриманий, доки його не буде клоновано, наприклад, за допомогою <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>. Очікується, що це буде виправлено в майбутній версії Git.</p>
+<p>Використання <span class='synopsis'><code>--recurse-submodules</code></span> може отримувати нові коміти лише в тих підмодулях, які присутні локально, наприклад, у <span class='synopsis'><code>$GIT_DIR/modules/</code></span>. Якщо основний розробник додає новий підмодуль, цей підмодуль не може бути отриманий, доки його не буде клоновано, наприклад, за допомогою <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>. Очікується, що це буде виправлено в майбутній версії Git.</p>
 </div>
 </div>
 </div>

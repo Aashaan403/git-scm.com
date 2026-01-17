@@ -46,7 +46,7 @@ headings:
 	  [<span class='synopsis'><code>--depth</code></span> <em>&lt;depth&gt;</em>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>single-branch</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>tags</code></span>]
 	  [<span class='synopsis'><code>--recurse-submodules</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;pathspec&gt;</em>]] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>shallow-submodules</code></span>]
 	  [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>remote-submodules</code></span>] [<span class='synopsis'><code>--jobs</code></span> <em>&lt;n&gt;</em>] [<span class='synopsis'><code>--sparse</code></span>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>reject-shallow</code></span>]
-	  [<span class='synopsis'><code>--filter=</code></span><em>&lt;filter-spec&gt;</em>] [<span class='synopsis'><code>--also-filter-submodules</code></span>]] [<span class='synopsis'><code>--</code></span>] <em>&lt;repository&gt;</em>
+	  [<span class='synopsis'><code>--filter=</code></span><em>&lt;filter-spec&gt;</em> [<span class='synopsis'><code>--also-filter-submodules</code></span>]] [<span class='synopsis'><code>--</code></span>] <em>&lt;repository&gt;</em>
 	  [<em>&lt;directory&gt;</em>]</pre>
 </div>
 </div>
@@ -145,7 +145,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-clone-spanclasssynopsiscode--barecodespan"> <a class="anchor" href="#git-clone---bare"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--barecodespan"></a><span class='synopsis'><code>--bare</code></span> </dt>
 <dd>
-<p>Створіть «голий» Git-репозиторій. Тобто, замість створення <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em> та розміщення адміністративних файлів у <span class='synopsis'><em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em><code>/.git</code></span>, зробіть сам <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em> як <span class='synopsis'><code>$GIT_DIR</code></span>. Це, очевидно, передбачає <span class='synopsis'><code>--no-checkout</code></span>, оскільки немає ніде для перевірки робочого дерева. Також заголовки гілок на віддаленому сервері копіюються безпосередньо до відповідних локальних заголовків гілок, без зіставлення їх з <span class='synopsis'><code>refs/remotes/origin/</code></span>. Коли використовується ця опція, не створюються ні гілки віддаленого відстеження, ні пов&#8217;язані змінні конфігурації.</p>
+<p>Створіть «голий» Git-репозиторій. Тобто, замість створення <em>&lt;каталог&gt;</em> та розміщення адміністративних файлів у <span class='synopsis'><em>&lt;каталог&gt;</em><code>/.git</code></span>, зробіть сам <em>&lt;каталог&gt;</em> як <span class='synopsis'><code>$GIT_DIR</code></span>. Це, очевидно, передбачає <span class='synopsis'><code>--no-checkout</code></span>, оскільки немає ніде для перевірки робочого дерева. Також заголовки гілок на віддаленому сервері копіюються безпосередньо до відповідних локальних заголовків гілок, без зіставлення їх з <span class='synopsis'><code>refs/remotes/origin/</code></span>. Коли використовується ця опція, не створюються ні гілки віддаленого відстеження, ні пов&#8217;язані змінні конфігурації.</p>
 </dd>
 <dt class="hdlist1" id="git-clone-spanclasssynopsiscode--sparsecodespan"> <a class="anchor" href="#git-clone---sparse"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--sparsecodespan"></a><span class='synopsis'><code>--sparse</code></span> </dt>
 <dd>
@@ -202,15 +202,17 @@ headings:
 <dd>
 <p>Створити поверхневий клон з історією після зазначеного часу.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-clone---shallow-exclude"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em><span class="hover-term" data-term="посилання">&lt;посилання&gt;</span></em></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-clone---shallow-exclude"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em>&lt;посилання&gt;</em></span> </dt>
 <dd>
 <p>Створити поверхневий клон з історією, виключаючи коміти, доступні з вказаної віддаленої гілки або тегу. Цей параметр можна вказати кілька разів.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodesingle-branchcodespan"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodesingle-branchcodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>single-branch</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--single-branchcodespan"> <a class="anchor" href="#git-clone---single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--single-branchcodespan"></a><span class='synopsis'><code>--single-branch</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-single-branchcodespan"> <a class="anchor" href="#git-clone---no-single-branch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-single-branchcodespan"></a><span class='synopsis'><code>--no-single-branch</code></span> </dt>
 <dd>
 <p>Клонувати лише історію, що веде до кінчика однієї гілки, або зазначеної опцією <span class='synopsis'><code>--branch</code></span>, або віддаленою гілкою, на яку вказує <span class='synopsis'><code>HEAD</code></span> первинної гілки. Подальші вибірки до результуючого репозиторію оновлюватимуть лише гілку віддаленого відстеження для тієї гілки, для якої ця опція використовувалася для початкового клонування. Якщо <span class='synopsis'><code>HEAD</code></span> на віддаленій гілці не вказував на жодну гілку під час створення клону <span class='synopsis'><code>--single-branch</code></span>, гілка віддаленого відстеження не створюється.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodetagscodespan"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodetagscodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>tags</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--tagscodespan"> <a class="anchor" href="#git-clone---tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--tagscodespan"></a><span class='synopsis'><code>--tags</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-tagscodespan"> <a class="anchor" href="#git-clone---no-tags"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-tagscodespan"></a><span class='synopsis'><code>--no-tags</code></span> </dt>
 <dd>
 <p>Контролюйте, чи будуть клоновані теги. Якщо задано параметр <span class='synopsis'><code>--no-tags</code></span>, цей параметр стане постійним шляхом встановлення конфігурації <span class='synopsis'><code>remote.</code><em>&lt;remote&gt;</em><code>.tagOpt=--no-tags</code></span>. Це гарантує, що майбутні операції <span class='synopsis'><code>git</code> <code>pull</code></span> та <span class='synopsis'><code>git</code> <code>fetch</code></span> не йтимуть за жодними тегами. Наступні явні вибірки тегів все одно працюватимуть (див. <a href='{{< relurl "docs/git-fetch/uk" >}}'>git-fetch[1]</a>).</p>
 <div class="paragraph">
@@ -220,18 +222,20 @@ headings:
 <p>Може використовуватися разом з <span class='synopsis'><code>--single-branch</code></span> для клонування та підтримки гілки без посилань, окрім однієї клонованої гілки. Це корисно, наприклад, для підтримки мінімальних клонів гілки за замовчуванням деякого репозиторію для індексації пошуку.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"> <a class="anchor" href="#git-clone---recurse-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"></a><span class='synopsis'><em>--recurse-submodules[=<span class="hover-term" data-term="специфікація шляху">&lt;специфікація шляху&gt;</span>]</em></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"> <a class="anchor" href="#git-clone---recurse-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"></a><span class='synopsis'><em>--recurse-submodules[=&lt;специфікація шляху&gt;]</em></span> </dt>
 <dd>
 <p>Після створення клону, ініціалізуйте та клонуйте підмодулі всередині нього на основі наданої специфікації шляху (<em>&lt;pathspec&gt;</em>). Якщо не вказано параметр <span class='synopsis'><code>=</code><em>&lt;pathspec&gt;</em></span>, усі підмодулі ініціалізуються та клонуються. Цей параметр можна використовувати кілька разів для специфікацій шляху, що складаються з кількох записів. У результуючому клоні <span class='synopsis'><code>submodule.active</code></span> встановлено на надану специфікацію шляху або "<span class='synopsis'><code>.</code></span>" (тобто всі підмодулі), якщо специфікація шляху не вказана.</p>
 <div class="paragraph">
 <p>Підмодулі ініціалізуються та клонуються з використанням їхніх налаштувань за замовчуванням. Це еквівалентно запуску <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code> <code>--init</code> <code>--recursive</code> <em>&lt;pathspec&gt;</em></span> одразу після завершення клонування. Цей параметр ігнорується, якщо клонований репозиторій не має робочого дерева/видачі (тобто, якщо вказано будь-який з параметрів <span class='synopsis'><code>--no-checkout</code></span>/<span class='synopsis'><code>-n</code></span>, <span class='synopsis'><code>--bare</code></span> або <span class='synopsis'><code>--mirror</code></span>)</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecodeshallow-submodulescodespan"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecodeshallow-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>shallow-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-submodulescodespan"> <a class="anchor" href="#git-clone---shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-submodulescodespan"></a><span class='synopsis'><code>--shallow-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-shallow-submodulescodespan"> <a class="anchor" href="#git-clone---no-shallow-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-shallow-submodulescodespan"></a><span class='synopsis'><code>--no-shallow-submodules</code></span> </dt>
 <dd>
 <p>Усі клоновані підмодулі будуть поверхневими з глибиною 1.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--codecodeno-codecoderemote-submodulescodespan"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--codecodeno-codecoderemote-submodulescodespan"></a><span class='synopsis'><code>--</code>[<code>no-</code>]<code>remote-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--remote-submodulescodespan"> <a class="anchor" href="#git-clone---remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--remote-submodulescodespan"></a><span class='synopsis'><code>--remote-submodules</code></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--no-remote-submodulescodespan"> <a class="anchor" href="#git-clone---no-remote-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--no-remote-submodulescodespan"></a><span class='synopsis'><code>--no-remote-submodules</code></span> </dt>
 <dd>
 <p>Усі клоновані підмодулі використовуватимуть статус гілки віддаленого відстеження підмодуля для оновлення підмодуля, а не записаний SHA-1 суперпроекту. Еквівалентно передачі <span class='synopsis'><code>--remote</code></span> до <span class='synopsis'><code>git</code> <code>submodule</code> <code>update</code></span>.</p>
 </dd>
@@ -268,7 +272,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-clone-emltgtem-1"> <a class="anchor" href="#git-clone--1"></a> <a class="anchor" href="#git-clone-emltgtem-1"></a><em>&lt;католог&gt;</em> </dt>
 <dd>
-<p>Назва нового каталогу для клонування. Частина "humanish" вихідного репозиторію використовується, якщо явно не вказано <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em> (<span class='synopsis'><code>repo</code></span> для <span class='synopsis'><em>/шлях/до/repo.git</em></span> та <span class='synopsis'><code>foo</code></span> для <span class='synopsis'><code>host.xz:foo/.git</code></span>). Клонування в існуючий каталог дозволено, лише якщо каталог порожній.</p>
+<p>Назва нового каталогу для клонування. Частина "humanish" вихідного репозиторію використовується, якщо явно не вказано <em>&lt;каталог&gt;</em> (<span class='synopsis'><code>repo</code></span> для <span class='synopsis'><em>/шлях/до/repo.git</em></span> та <span class='synopsis'><code>foo</code></span> для <span class='synopsis'><code>host.xz:foo/.git</code></span>). Клонування в існуючий каталог дозволено, лише якщо каталог порожній.</p>
 </dd>
 <dt class="hdlist1" id="git-clone-spanclasssynopsiscode--bundle-uricodeemlturigtemspan"> <a class="anchor" href="#git-clone---bundle-uriuri"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--bundle-uricodeemlturigtemspan"></a><span class='synopsis'><code>--bundle-uri=</code><em>&lt;uri&gt;</em></span> </dt>
 <dd>

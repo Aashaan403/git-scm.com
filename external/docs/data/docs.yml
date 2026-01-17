@@ -3727,15 +3727,15 @@ pages:
       - 0
     languages:
       de: 60a0a8b03b4ab574a5a7aeefd0ede2650e0ea09d
-      es: 9f3bad9b2542a8eaebb87b01500550601d0931cd
+      es: eda7dbb469e4db44896f8fd1c0f348e4f880d1e0
       fr: fd5a549df68640d44017cacd7f4734a5bca4addc
       is: 9f654b0b92614e3857162466c6786229aa13caff
       ja: bae34344ad93608571c863631ae76a03f31892dc
       pt_BR: 1b91512611a574b94ffdc8f99a7db6dad12ea7e1
       ro: 8a9b8e5bbf41a51a8bbeb8179dbac91ef4915061
-      zh_HANS-CN: bd8bcffc090c63b63e083a448243d22228bbe15c
-      ru: 6a14f64d4a5b3956aac8df78be2e6e51115c5542
-      uk: 51a4747d7d062f193f98f23c1fe4da1fb0fd50ff
+      zh_HANS-CN: 81b38ce6d847156950eb8c8cd682aa02df93c8a7
+      ru: 5ef947896e513ff24e633307224cf5e702b5d6c6
+      uk: f17bbc95edf6c7c28d70078f171d35a007c1e0c9
   git-am:
     version-map:
       2.0.5: c91313806dd44524d1028c60fac598eb82bd2fc7
@@ -4158,10 +4158,10 @@ pages:
       - 5
     languages:
       fr: b2ae48c4e4070c42a101e30c2d6b467b4b652d14
-      pt_BR: c876db1d1a10ebb0ea650804fccb8f48c638377e
-      zh_HANS-CN: 8c64d6d43cbd78c3106ca43505301417fbfaa2ae
+      pt_BR: cdaf63933be35c27d0466083231af2cd77adb803
+      zh_HANS-CN: ce4524449c1bb9292d06eb00e67932f866366403
       ja: 416aac431fe5a91c558623d42c4c166b69b706d5
-      uk: 47eb3f31ea1bd9fdd909a42875085422b7c34bf2
+      uk: 52ef5ae344266dca7485acf81c83eec630d401d2
   git-annotate:
     version-map:
       2.0.5: 8aa83c9ba6b9bc5f962b1fe622a491cfe3900f66
@@ -4528,10 +4528,10 @@ pages:
       - 5
     languages:
       fr: d648b9c7bdcc5f00979f9121b8588084545cff76
-      pt_BR: a6d5cbfdd99d7dbd6e0dc4cfd0caf5f1c21c095b
-      ru: 9c295f8130163f4164cd68968377c88b9fe52a7c
-      zh_HANS-CN: '0008be635601706137d690b5ee7fbc6f14cbbb89'
-      uk: 26404881bb580f28f0192f4c0c92a30777ea5ce1
+      pt_BR: c0f56e5afc8e127b3ae27e06f1f264338bfcd858
+      ru: 061f3104be307493402560f78abe98c00e83d66d
+      zh_HANS-CN: 234058f832625cad81a49af2a6a65a5b01d98626
+      uk: 00ed3ec6ab65766c33f6c88045b6f9700782d1b0
       ja: 57fb22c080ee536aa286b60a018083a3a1f4093c
   git-apply:
     version-map:
@@ -6463,10 +6463,10 @@ pages:
       - 5
     languages:
       fr: 4fb10b984531ab7855a31d92048479805115a413
-      pt_BR: 11496733c91642a39383514ee9215185aa14c2a3
-      zh_HANS-CN: 134fd122cba5d4a8150bb321be1e7b1124e1e39f
+      pt_BR: 4d40bd2c63c76a7ffb0a056592585db253b4e343
+      zh_HANS-CN: ddf15ba2e6b00f09b2e3b46976aa036aade8a6b4
       ja: 8ae314fafc9ded8ee35bc8a48e11ed6e5cfdb387
-      uk: b7ecae34006569e0edc210720d74050937e2ecad
+      uk: 41fe643c58dd74a472c5076e2af73a09842ad17a
   git-branch:
     version-map:
       2.0.5: 3a8d919ba4a38f05d349a3e6de87d3cc36102974
@@ -7263,7 +7263,7 @@ pages:
       fr: 584723dcdd9cc14a7580898b6b16c7065122d9bd
       pt_BR: 164f69eb0a1d2321cd8fa8c11db24dcabea7ed6f
       zh_HANS-CN: 7947c66cbf20e51921ab086e976a1b55adb952bf
-      uk: 988724648cefc56856d71745d395c9aacaaee8fa
+      uk: 8f65f966ad298256d0990096fe94b48128bd9e84
   git-cat-file:
     version-map:
       2.0.5: ac2de97308193195c178115dfe33182fdc651efa
@@ -7647,9 +7647,9 @@ pages:
       - 2
     languages:
       fr: 460d90bd7e7f1637d414f6d762a639842fab02c6
-      pt_BR: 376f14e26dbc02ae52bd95655b2a2451349f4fea
-      zh_HANS-CN: 3d644e06121f285e9afe78651d0dbb2bc9e1330b
-      uk: 6850d783a8b3f766267ed3c41dfde0eac5cac8fb
+      pt_BR: 831bdde3e36b809931aa5fa12b3a1f0f16dee7de
+      zh_HANS-CN: 1dffdb74e9433ae7f5d5798af3137f717910c602
+      uk: ffe193fe3b6ad64dfe8742663d27b639fd119976
   git-check-attr:
     version-map:
       2.0.5: 51e1c4267280c154b1def60f54e41e94387e516d
@@ -7931,10 +7931,10 @@ pages:
       - 5
     languages:
       fr: 1b44f47c594a9371c1966c79228fc34984f4726a
-      pt_BR: 21fb0680a9111ab37313d254d47e3afd717a5338
-      zh_HANS-CN: a2d05ac4f9999e58ffd80b80484ce429d501d2ff
+      pt_BR: 4f2b1b912b41e8af77e5a5d5b75b422a61d5a846
+      zh_HANS-CN: 57fc8792a868b95ffbbfa20db6933f10f812799e
       ja: 9f2b31905a1a891c36f0487e0e6b5f03ccc07496
-      uk: 56139a42cb0fdc335188c65565546a1a801d9884
+      uk: 7284a4efa416eddc1831ad58bc0f3d828dc8a05a
   git-check-ignore:
     version-map:
       2.0.5: 9ade63dfee3ff43ce2cf7df683622cd0d0370e64
@@ -8239,10 +8239,10 @@ pages:
       - 0
     languages:
       fr: b401ccf1d2f88f72212d85ae751c49e0ab59b818
-      pt_BR: 7b140fe6fe7b4fa1bfd161fed9e7f5ceebd5413b
-      zh_HANS-CN: c83b44e355fc13ecf545aed71a7429c4df30f89a
+      pt_BR: 2489b1391da0496beb70b94a1904ece29ebd4c2d
+      zh_HANS-CN: 75e728ffc326ee78a625d4dfad45fb7914323c01
       ja: 581ebe720535121e9e4a5ae6585a8532e629224f
-      uk: 2ce42abc8a0bf15fa4c2f5738bd342c0ce1ac96a
+      uk: fe6f287f53ad265cdba78a612e61aa6fba5d41b3
   git-check-mailmap:
     version-map:
       2.0.5: 5d69f63780a99ad9a77d15fc06f5a347ea8552b2
@@ -8492,7 +8492,7 @@ pages:
       - 2
       - 0
     languages:
-      fr: ab22dd537c56401b212e78dead907eb9fa09c6be
+      fr: c8ff77dfc5df8ecd595b3671df0900bf1e6662ba
       pt_BR: a69e0977a69684ebcc2f6b0c7c69e2fa6ac1cfaf
       zh_HANS-CN: 80de8689f20dd1cbcdcddc8ff58cc776d2e4f256
       ja: c174045dcf13ddd54818e4a604c6c0cecd9b06b0
@@ -8785,9 +8785,9 @@ pages:
       - 5
     languages:
       fr: 07d1dd22eff1cca48086dbe127bc5f9dba329176
-      pt_BR: f41f6ecf7dd0106db8192cec00e39e8743042e73
-      zh_HANS-CN: '09a1ce5168661e2393205e1c772405fd1f77fea5'
-      uk: 6b2af43a2623e4e6ab55307fc43b9adfc4cf6931
+      pt_BR: 294776e4246e2d9fd025f40bf51395d8e096ee27
+      zh_HANS-CN: d0885950c61c335f144f0b47a46a64abc0df583d
+      uk: 1d5478b4e0a7208d8e5bb3fa65e5047b3d0be511
   git-checkout-index:
     version-map:
       2.0.5: d2203eca20696e15a59b60c71037a02bdb9cda67
@@ -9497,7 +9497,7 @@ pages:
       fr: 7a3aa2c1485eec742eaf65d67d46dbb48abe0363
       pt_BR: 7372b02766c960c21b311e3355fdfc652fe3b552
       zh_HANS-CN: e54f7ed9611633cff1b51a99669c6c4c6b361644
-      uk: ee02f7638fdabb6487632f89757ac1c406048300
+      uk: 04b089a879eac9012b855edbd1af18c1186c4a76
   git-cherry-pick:
     version-map:
       2.0.5: 5b82405987613b78dcb39b85d5b32c765aaa12a6
@@ -11106,14 +11106,14 @@ pages:
     languages:
       de: 828a8d4d85cdf5a6c77bb353f4114828b31f7193
       es: e682b4b5c14b7e5e49f2abc091532b08dbb46ed1
-      fr: a240d50f535ee235f11d0dd3abcd0bd466ebbe03
+      fr: 727e658729484e9c8dfb0e7c781e6532fcca54a2
       is: c2c1bbe556c4c2eccf1be3af0bb6356b85317828
       ja: bb63dfcb0576ec14db2348451449d62dc381ab4b
       pt_BR: 1d7d8052d235d1d43bf2ac575bf7ab90ec03782f
       ro: 8ded464d33c381d7b68117eab06ef62d9409cc9c
-      zh_HANS-CN: fb6c7688d488bce943cf7efcf3e8f5a273897480
-      ru: c0ac2f6c86c5d8c8c19ef022243ae3606aae4e36
-      uk: 5c055a71dcd8c2b06757c207d68c73165849507a
+      zh_HANS-CN: f710ef255222141063edd01cd43f0d4fad29a85a
+      ru: a4a2d697dacad1151204d648fdfbf0c3b0de96b0
+      uk: 5359c9d9971106942a4a7674801eafb3f31e8894
   git-column:
     version-map:
       2.0.5: ba1de8b8d51a2402e9229d59be33bc28e1882474
@@ -12189,12 +12189,12 @@ pages:
       - 1
       - 4
     languages:
-      es: 0da35fced341443de4ac150ea674f7ced080b74e
+      es: 0a567be48fa4efc0144d6bce417ad17d8e9a5b9b
       fr: adfc9472c7c373607531faa3a56c908e32827657
       pt_BR: a48c67913b006b6da615e3fb388c89d6be073250
       zh_HANS-CN: 71d920f51d7fe4050c552228960c5d1363ffd835
-      ru: 2026972628df9fb944d0e75dc012d665078e6b9f
-      uk: b1b36c142725711b62fae974597a2fd729686336
+      ru: ef7fac6beab12092edefcf3ae31ebff3d823ed9c
+      uk: cd5146e58da24dcae5f7a5f9b4159ff2cca6447b
   git-config:
     version-map:
       2.0.5: 49a84c3d8643880219cb14be501054538f2fd330
@@ -13261,8 +13261,8 @@ pages:
       de: cfc4dde585cd604b17807e748698ba0e59d518ae
       fr: 36f4a218eb84c4cdb0d13a486bb4f0b4639a438f
       pt_BR: e26dfc5f9a850958aee479ad9c2320215274dfde
-      zh_HANS-CN: 73143c8e9e6c2b745919991216e73b2a871fc1ef
-      uk: e140af60ee8ba7d8fb0b196c39affd5515a0b403
+      zh_HANS-CN: 2fbf6ffef09abd3bc49813dc9a2f7a2f28170812
+      uk: 4b15f13ceb1ce476c86d351ba6dce89615997bc9
   git-count-objects:
     version-map:
       2.0.5: 3f2d9a9fc764eb5e2dedd3f7e8371ae0333724ec
@@ -13513,9 +13513,9 @@ pages:
       - 6
     languages:
       fr: 949f2f777d86df7588512675524873959d9186b2
-      pt_BR: 0f6636737f5bdcfd4af73186cc0d0502286090a2
-      zh_HANS-CN: 3c4dc2a59bd21d5c2642d8113c432a12172115ec
-      uk: 0de1f65fb646d2f8690a6fb6b3de185bcfbd4426
+      pt_BR: 95f67839bb3b6231f122b56aeec725f3a2f4ca89
+      zh_HANS-CN: 8baf9b30acfbb9241f215735f343800791c2f7dc
+      uk: b2e0d0e67a8f27d2c7839259fac5099156b7cbe9
   git-credential-cache--daemon:
     version-map:
       2.0.5: 2141d7a17ab97fe4083d1b9d4a19c7bfc1c1babb
@@ -16649,8 +16649,8 @@ pages:
       fr: 437252647e4fa4f6776425acf115e300ff397ce3
       pt_BR: 6da34ef18cf53b7076608931b455c9d17b318058
       zh_HANS-CN: 19a3feedf27a8371bf41edcd981586f7f98816fe
-      ru: 1d0511cbedd7218f1afdacbc25563100ba35f150
-      uk: 72e5b9e9d94d0e310962a9e4fa54a3e869bb8b97
+      ru: a3cdaa980a1dfe5c2c641f571f439d8b987bf25e
+      uk: 1c621f902c7ae0616de2efd2c76daf5e2cf1e56a
   git-diff-index:
     version-map:
       2.0.5: f764923b82c207a1f2f066d4edf77bdd4dc09a33
@@ -17213,8 +17213,8 @@ pages:
     languages:
       pt_BR: 80df317dca60c98802daf0b346b8b80b3bad200d
       zh_HANS-CN: b79c48caee58b4373b403b48e3e34383f057b067
-      ru: d4a2496aea26b89ee6e240d48492dc4a8480c390
-      uk: 48cb4a7309211ab9abeda80fb67a11aa14d1f07a
+      ru: 2ed8faf2edd73ca01c41abc2ebb98b8b815fed53
+      uk: e75ce31124d6cce440b96ccc2f60d436e440ca42
   git-diff-tree:
     version-map:
       2.0.5: e84b4176322ec592236fdd185543407edef0e5e4
@@ -17849,8 +17849,8 @@ pages:
       fr: 2fcca4a46d3bcda002174136771d0fd706f2d261
       pt_BR: fe52ce8d420f608f3a5d9d578460973156a1123e
       zh_HANS-CN: 95d7a8e695f755f27584b718df3b87f620eb7fe4
-      ru: 27274ad609db8f94c9e09d9f07af28fda96b3e7e
-      uk: c628921c417a36ca9a869d0f7170749ffef4551a
+      ru: c220776fc54725e27d06e6a2569a778c6ca6e4fd
+      uk: 67949e0f70e2b7a6048534e2a60d20652fca2e31
   git-diff:
     version-map:
       2.0.5: 463303afa15bb42b5f4bf0a373e4d2be2ddc923f
@@ -18466,9 +18466,9 @@ pages:
       fr: afbf96d271fa8b3a17d3dea3e018531cfd570350
       pt_BR: 13ea4c7a18d8df440f7b342430b732cd04592835
       zh_HANS-CN: 7004dd720882b8a39df9ae1e0cd36419206e8d89
-      ru: f4eda7da204a2b0c38be70c3196d5e87f5b06ea7
-      es: 1a24ba9271ccf5c70aec58877cfb89daee7d2170
-      uk: ce396a068e9ad614c1339d3515f8109dc2682f77
+      ru: 7ffb8dd723bff844b67af37ea8828ffce5655bba
+      es: ff07ff574323ee4670aec65623b7b9ea76190242
+      uk: 8ea2c52cd41b099226282b777be801a29a22ca58
   git-difftool:
     version-map:
       2.0.5: 8fa55a94be9047cacb35ea83f28a9450d6cc9d74
@@ -18798,10 +18798,10 @@ pages:
       - 0
     languages:
       fr: c6b76dbd1458d1b2e604c2146fe7177b90415afc
-      pt_BR: fd92d20dfa4965a787fcde13228ce1ff15fbfd21
-      zh_HANS-CN: 9b5aa544aa24625dd538052fc69c47e1c08f4581
-      ru: 2d5561ee46355c3427ca778f916710c359fd173e
-      uk: 7b912970fc7e9f415647d8141aba737c09cb54f4
+      pt_BR: 665de7bc8808a560cbcfd41197a8809e3582b1ec
+      zh_HANS-CN: 3e101a2ce2d00dc3c61376ad6adf3eb4438d3fd6
+      ru: 7037a0780ef81d5e81159dcdb46ca421d6c56eb2
+      uk: 6be2c187fba3f17fcdd3fa13adcef5eece3c16c7
   git-fast-export:
     version-map:
       2.0.5: 4d26aa545fc2ac16652aafd01312c1393703a9a1
@@ -19617,9 +19617,9 @@ pages:
       - 0
     languages:
       fr: 58170dbf468b0bf862f070cc606f5c09ecfae19d
-      pt_BR: 38e50041597b23185ce9d5abc418f783c0709557
-      zh_HANS-CN: 9de7470e19e7e4035b1046b19eef22c46f0459d6
-      uk: 237ac6a67d03e7cc76a866c819acd9a5d38504ce
+      pt_BR: 92dcd61f88f74699e85a4c943e92b2eeb88db96e
+      zh_HANS-CN: '08fcc7550f5d631fe5384e19283199aff4eaf1db'
+      uk: 88811eab2c08381c0243c4c310d6a5984435ccc8
   git-fetch-pack:
     version-map:
       2.0.5: e14e27758ecdf4239f02101fdeac2916aa08a83e
@@ -20440,10 +20440,10 @@ pages:
       - 1
       - 0
     languages:
-      fr: 5ad5e24d1862a9aa98cce320780c605ef39f510b
-      pt_BR: 8a9e28bb7cf222a1f1c003cead0aa7ccaeac6ef4
-      zh_HANS-CN: 22df78d0e418d7e4a126e424fede2cf924e72557
-      uk: bd2ba3456a2419df762a64680b560d9ef3f6434c
+      fr: 04fa6ef3639a249880d087935a26c2ecc4fef19a
+      pt_BR: eb4d37e2608d587312b4df865b0b8393b2da5b75
+      zh_HANS-CN: 9ac8b800b6b99ba4c1c104010264b68643a0a459
+      uk: 4461d224624153bbd1969b51ccb37bb03ab1312d
   git-filter-branch:
     version-map:
       2.0.5: 8451115c0dfbcdd405550880e16fd7441c5322ec
@@ -21068,9 +21068,9 @@ pages:
       - 5
     languages:
       fr: ab0ae8aa6ed80246c158c90f106c0e8467cab0d9
-      pt_BR: 381f12a5663d371c744069cbd5f08be3825d42aa
-      zh_HANS-CN: de7fa97b2dcf4fc4eabd94c8c418e0e2a26f17c9
-      uk: 48feea5801de577dda12c268e2ed337fbbca1408
+      pt_BR: 00b6ae1a7ce2db2aaf3aa4139ed1e59f764fa6c6
+      zh_HANS-CN: 257f9c1b2784c62a0bc69877308e58e0dfc9c605
+      uk: 2c21ffc756f24906f3c64318c4531630fb1ce1d8
   git-for-each-ref:
     version-map:
       2.0.5: 5ec84ba527b22d3f2dc9daa04350d61f1bbf426d
@@ -21491,7 +21491,7 @@ pages:
     languages:
       pt_BR: 87be7e2727027b53d5f312a3eff99de692f4c004
       zh_HANS-CN: e777cd9bb110844ccccadb428c8b8cd0e4ae175c
-      uk: 2d90e04f1f77b4672be5eeea6948e9f3393e1448
+      uk: 1307154cac799b4161d01dd16ea732553deb9880
   git-format-patch:
     version-map:
       2.0.5: 01bf00127cc9649e648f2e4ab8d678751c5e47b3
@@ -22089,9 +22089,9 @@ pages:
       - 0
     languages:
       fr: 97ec042cb82256a853f9de00c2af03fdd4bef700
-      pt_BR: c12a14ce88010af560e1f1c8e4b8bcfe4b65289a
-      zh_HANS-CN: a5a919eb40549d9cc9e332eb542fdec523a7438f
-      uk: 6eada1d57f4973099de335c9e48702a8e4537a96
+      pt_BR: 36376ed8c4e3de7ba67e029d3342f8918e5c69fd
+      zh_HANS-CN: 5583a020c2cb556748d32f934d81452631d56213
+      uk: d1249c5598a2cef87870be2c2da3a1af0dd36f97
   git-fsck-objects:
     version-map:
       2.0.5: 2f75bacdf9c0336458ce7b44afd983ca0b5f956d
@@ -22746,9 +22746,9 @@ pages:
       - 0
     languages:
       fr: dddf6414ad695ccf1790fe507c28f3dacb79efb9
-      pt_BR: fdce44ec77b4e40ed230a5193f77927d28ca1168
-      zh_HANS-CN: 297da0ddc7d32335d6b8cd9100b9cb910c24a986
-      uk: 78362707ab60dc7b8f2ad8ca99f14b02f09bce9c
+      pt_BR: 1d82e3f406e11bd4fc915bdf71ce5d4a7ab88f68
+      zh_HANS-CN: cd50febfde95954f6638bf51a537c6f3c742e719
+      uk: 9de236b8af3afd1e7ee26e9d649f25e4f5766def
   git-gc:
     version-map:
       2.0.5: aa46d834846c3489f6c2a1e6501f6ef2a034f05c
@@ -23141,9 +23141,9 @@ pages:
       - 2
     languages:
       fr: f0c9d894c5efe9cc686e2ee71b04e478d04fdd9f
-      pt_BR: 31a952e5c5f71025c3d5323cfeb5f1952c4720a0
-      zh_HANS-CN: d14e3b75d0a1ea8b0beae5010cfa061ddbc77b6f
-      uk: 7b2c69fceaefac98fc082770eed073ea1e17010b
+      pt_BR: f19f2ac15b01918ab498665117b825105eaadc6c
+      zh_HANS-CN: 29664c5a500419b0b04a0972d88d257d587fdd54
+      uk: 8ff90272a3359d3c8f0fab7ea71636d7a85d2005
   git-get-tar-commit-id:
     version-map:
       2.0.5: fb7d1672dcf26321f75ea3d5635ef40fb17e25d5
@@ -25212,9 +25212,9 @@ pages:
       - 3
     languages:
       fr: a5ad1fc174a3f45002c481dd49ab86d6a53a4769
-      pt_BR: 95b23fbbd42e718ea0bf7e5fdd1840b96bb2fff0
-      zh_HANS-CN: 37e188fd96b3e81ab79c8866fc2500a88e6c1c47
-      uk: edb6b32e6daa35210bccf137c108f7ee9ac74f28
+      pt_BR: 13cba60117b2a6f18b5b792abc01de0b4ac2b8b9
+      zh_HANS-CN: 27ee80fc0df87779219c41873711358ef88cc418
+      uk: 9028c6aeb0bfd296b29a7fc218fe9fc0ce077a05
   git-http-push:
     version-map:
       2.0.5: 52d16d2838c21e4622b807d3ccebf2e7a1514e2c
@@ -25779,7 +25779,7 @@ pages:
       - 1
       - 0
     languages:
-      fr: 31f94d425a97167e30ea7735addf6008a8c21bb3
+      fr: c05fb3cedd7f9bcd36edffc7a76b06db3df6e341
       pt_BR: 1112173b1f560649c4a24a41cd235ec345f748ea
       zh_HANS-CN: 7b2610ff10ee4731c06c78c9c7a930f31dd87873
       uk: 9d23dd758e887a86aad91fc14677025c6ecb7c6c
@@ -26112,9 +26112,9 @@ pages:
       - 5
     languages:
       fr: 0a65cbd80573a1c290dff61de8b03f601b98324f
-      pt_BR: a1b6dc4bfd66f4e08f0165b396e0c055bdf8aa17
-      zh_HANS-CN: e3667b16456cf4be4d94f8dc988f80495940f8da
-      uk: 869312618bb35a64ca9ee40cdf0b49a7ec28fa6c
+      pt_BR: 77a9bd157a0921042e8dc56fd06e3da8458f25de
+      zh_HANS-CN: 1655f5dd0d70e5e2748ae56dea23902422be4e9d
+      uk: da0dbd13607c5df6e1435af4995fa98fd24c11f9
   git-init-db:
     version-map:
       2.0.5: 744bc61172ece93e945d9e17e6e15bee3d91212d
@@ -26730,10 +26730,10 @@ pages:
       ja: be75a9f1280a3ea2b9b56efcf5288bef57f65e47
       pt_BR: 61711be3b5043290643d585da18095d8b02ca0d0
       ro: b1bb11759d6848cb97cf5c273d378d76bfb8eaaa
-      zh_HANS-CN: c39955ec9dcf14dc2a2db06f32baf4d8e0c44063
+      zh_HANS-CN: 4115fd56298678f37d84bc7528597530f31bad46
       zh_HANT: ed7307eb73b82f96bc789435beff0ced34edfa9c
-      ru: 8126fe0eef62803ff028581823d012f42f0cb16c
-      uk: c049a1b73a650ebe71b181117d75861aac9be21d
+      ru: e9fb425cbbe801e5dffc0fc27fae91397f3dd663
+      uk: 897470b538977c72805fe549d40ecc8a1bc27ee3
   git-instaweb:
     version-map:
       2.0.5: af495ea56c682a34a4d0f1b6fa05f6291f566775
@@ -27668,7 +27668,7 @@ pages:
       fr: 98174cfb7c33a3eb58f331141cb27b9f15dffe34
       pt_BR: 6fe57c7dbee12ebb2218673d311ce704f16c401c
       zh_HANS-CN: ef9cdfd8b0abb22cd36e87effcde23c6d6c80d19
-      uk: 45808dcc644f34b75fb51dd08ab6a0b2239856f6
+      uk: f299f5ebb2af578d2cf54d2185a6170a9ac6de42
   git-ls-files:
     version-map:
       2.0.5: f5a29451e18109e8bd480ae33ab1b30c7b10efe5
@@ -30529,10 +30529,10 @@ pages:
       - 1
       - 5
     languages:
-      fr: '0623095d49acb43b232beb001a4a3c966702e674'
-      pt_BR: 84b9b617f531688d1d600daa19126dc7ae82b5ad
-      zh_HANS-CN: c0e7413370dfa240cf5d1a78ccc318d3c62796e3
-      uk: e77febe6a965f1319479501687c52ef55b48c747
+      fr: 47a04a2c46c83c5173629737911d782bec97f853
+      pt_BR: 54bb0d45829c2958660ca19a2a3ad1f7a0c7f00e
+      zh_HANS-CN: e61ae5deab82d178554aaa1e720e42deb7fe6328
+      uk: c936e5419c3a5c79d1b353e9c6aec55d096f8f28
   git-merge:
     version-map:
       2.0.5: b27eaefe63c3068c2711b5d099bd885d83c433cc
@@ -31071,7 +31071,7 @@ pages:
       fr: ad6569685bf4c27e2e26b6ac8e4a069d02ba91c5
       pt_BR: 0072a4143ae85a0370cd23378d93d719369f9be9
       zh_HANS-CN: b2a2d656800df1fb2bc2653ca5390c43887ccf07
-      uk: 640225929be3b19de8cbe83a531d499895a755fc
+      uk: 7ce53abb40dffc52679e1e4cf8f3b28869f1c3ef
   git-mergetool--lib:
     version-map:
       2.0.5: c674fede3a8af805b0a0fe61a9cb3f2cfc355f5d
@@ -33098,7 +33098,7 @@ pages:
       fr: 9e008cd9dbc5b8325e5d293a889e2269a93c899e
       pt_BR: 46acd22d397103ecaf0b19fa6143a04edaae7816
       zh_HANS-CN: a8b68a653f8c2dad2e98c8e8c90437d7812f2ae8
-      es: 156b896dc1f020068b4382629bd0026a54190f3f
+      es: c4375571eee0ea28541c887db297e16d59b24f7a
       uk: f66afb69ef44f560c4c9c580052add164ff7c666
   git-p4:
     version-map:
@@ -33478,9 +33478,9 @@ pages:
       - 0
       - 7
     languages:
-      pt_BR: bac9db2f6bda252a0ceb5c2c361085a9b0698cac
-      zh_HANS-CN: e40ecb5084b1dd3148a6bfd695d0b8ad3a9c5c34
-      uk: 9ff0b215962b3cc9d8598982b9e430dc9f868cda
+      pt_BR: 84eef98438801f301b2bca4fef31e4c966a8eb52
+      zh_HANS-CN: 648345ca58b94b1336678208aea85a614c0f55ba
+      uk: 638e2b5b12cb2039dfe4e9e3f894a489788b2fea
   git-pack-objects:
     version-map:
       2.0.5: 5dfb933f96fdf05027d231a300a44d70330e87ac
@@ -33879,9 +33879,9 @@ pages:
       - 5
     languages:
       fr: e2bb24257f12f8bf20b912c68e56886b0aea9664
-      pt_BR: 0153b7de248bc430bf71df6236132c17222fa33a
-      zh_HANS-CN: 891d443f94b111e1aeef495c41c519e304bd2e33
-      uk: f6fecef79cf83bbf1859ab72cee081e7ff222c3c
+      pt_BR: 60996da46df51add55288468d904f6120b470469
+      zh_HANS-CN: cb8758d5bfd0d353416f740d91178b6547d5b48c
+      uk: 3998fdfc30f1a0c1629d0bf3c3f2ab476b5c8114
   git-pack-redundant:
     version-map:
       2.0.5: ce5ddc7e29c1617e71f064d2bde8937828a723e6
@@ -34400,9 +34400,9 @@ pages:
       - 7
     languages:
       fr: 4c1c681a13df4560f7114ee178341b9d7e3a0c22
-      pt_BR: 077dc7f05595c7ea0030194783bfefaffcc85ed7
-      zh_HANS-CN: 5597c8fb976c58f2d47f509e69579dd89440ab2e
-      uk: b4e83abaf9125b0ef8d91804ff42c9fe3bef9563
+      pt_BR: 4e1f626fed243296c9b76b34253a80373b6e6ec0
+      zh_HANS-CN: 99b5982f108bb22a8ca13fbc017bb55ad7414881
+      uk: a50315acfc2e114357c361ffe97f282553b75fd5
   git-parse-remote:
     version-map:
       2.0.5: 9e80bcc80cae6431199bd679b182cfe7b6329ec7
@@ -34768,9 +34768,9 @@ pages:
       - 0
     languages:
       fr: f0d3e98c30e8a55d6256b9c406ee40f8e8c1ab09
-      pt_BR: d52b77184e8ed9f954c92b3d5558c65baf5c8169
-      zh_HANS-CN: 90f16f249cba8a645f280fb08e13861c8c5e5b2a
-      uk: 9f1a332ec1979a5dd5344ed5d072cd71b5b6cba5
+      pt_BR: c2e9c31c672be6932f2e529b17ac0832b7153b83
+      zh_HANS-CN: ecae646070b0be38706b5473828f323e2a3386d0
+      uk: 908ffa62047bccd9e5809c9f8fd8a5b9d2819033
   git-prune-packed:
     version-map:
       2.0.5: c1a344499e800a88e0a0c83077218a85d6f7d352
@@ -35871,10 +35871,10 @@ pages:
       - 3
       - 0
     languages:
-      fr: 5bd3eda88a9514d62a5d5a2ec7b094132c1b09a4
+      fr: 1f590d10ba6b6c8301b4f4d9b2d6bad19baa1330
       pt_BR: cc38de351b90803dd7c0d50e8a9ec1695cb2f7df
       zh_HANS-CN: d38f5181bc57322893e8e2af28a461ba265e77bf
-      uk: 470c96e731d0318c12351fabb4ad0230938d66bf
+      uk: 84e27195f0134b2c680feeb57fc1dbed3b1cf8ed
   git-push:
     version-map:
       2.0.5: 6b3615c6954ee744b9044a401dc29b005d43c8a1
@@ -36360,10 +36360,10 @@ pages:
       - 3
       - 0
     languages:
-      fr: 37a1794ac31556349718950aa8eca451e97d92ee
-      pt_BR: 8e960262941078829d4ee7c98a7267301565c8ba
-      zh_HANS-CN: 0b0b10e9672032849a4d40095a657113a05c3c04
-      uk: e2352cc7ba538bc3164af7a97ce0093c4bec96d1
+      fr: 6bbe4fa20264cc96ca1293e92f67ac3b8e1bf10a
+      pt_BR: da01ccf43f9af26a3fc944fd09f3bb07f579ec89
+      zh_HANS-CN: 881a1c22d2c7b23e1019546ce4248b7ae12b87ff
+      uk: 90e609227120566a204cf3bc2e8080049ab273c0
   git-quiltimport:
     version-map:
       2.0.5: 3c2c20eb874ad3bbf87b5a9b84479345069d58bc
@@ -36975,9 +36975,9 @@ pages:
       - 1
       - 5
     languages:
-      pt_BR: ad286f3d5e9609cb5adedc8ab8b84a5eb11e4f7e
-      zh_HANS-CN: 15466579f2fcbfed4cc31b65362e09048affcd1c
-      uk: f36f40cebf4c2bdc094094d4493cb216a9b397ab
+      pt_BR: 69c63b8030504b043df5fba7a67184243ea3c87d
+      zh_HANS-CN: 47666035ab3c843de427d211379e47de9e2c341f
+      uk: 7379eae3d7230a6c4ea0abeada84cbf2f5119457
   git-rebase:
     version-map:
       2.0.5: 56eb6ec600131703b0e7c141680fa1dec9fa73e7
@@ -37582,10 +37582,10 @@ pages:
       - 5
       - 0
     languages:
-      pt_BR: 0c6c014f02e0310f0a5b12b29a49518275c5653e
-      zh_HANS-CN: db056173c8575fc2f03cf2e906e81570152fff42
-      fr: fee83f164b891debc6d7175b872388504b47b86d
-      uk: 808fd9137a912fb65711d42f1f55f5a6746a9fbb
+      pt_BR: d87e24beb823593b99106a7326736e0bd087985e
+      zh_HANS-CN: df33857e0026a1db8dc0bbe89b6b3c7931c87225
+      fr: c3db95bf382c203b885701538df48f611abaf50d
+      uk: 9634c580a0b311a2e2677a6ea7d9121a04fafca5
   git-receive-pack:
     version-map:
       2.0.5: 2d14293e7194c688ba3da8bd44266088a0e93654
@@ -38200,9 +38200,9 @@ pages:
       - 0
     languages:
       pt_BR: 822ce86783b96afcde7fd84be4e236e843376d05
-      zh_HANS-CN: 69b848edd1e598b8450ffbef96cee0b3789880a6
+      zh_HANS-CN: c750db454a6bafe63648ccd2542fe1fcb074e4a6
       fr: 12daa49f9309eda12108617e04d0b0a849025b19
-      uk: 417d14f03477368371536a57000b5d8c97d490ec
+      uk: e6672d0a2735cafba66aa2f088318d0fcfb12ac2
   git-relink:
     version-map:
       2.0.5: b3e93233afa8050707b359e4d3c831c0036f3eba
@@ -40338,7 +40338,7 @@ pages:
     languages:
       pt_BR: cdb6708e825745b78622b5a7ad9581b82054edfd
       zh_HANS-CN: 1541a54291961227053438338e118f9afd601ef6
-      fr: fd033039bb60e14715bb0fb6164cc4120c9292ca
+      fr: 2fc74ff9dbb4821003d5bdc7c95f0eca056729ff
       uk: 1df4fca81e4e38fd9adfad4add115459030bcfde
   git-reset:
     version-map:
@@ -40683,9 +40683,10 @@ pages:
       - 5
     languages:
       fr: 7c182d15f1ffb498a5c6ff216c98ddaf14395ebb
-      pt_BR: c4b9a7447fd5b64fb6588c0fca244556acfcd7bb
-      zh_HANS-CN: 5bb5e80dc5f39714a2464ae0f44b080576f77e3d
-      uk: 6f4ede96835a9cba918c064c1a692bf3272e9c73
+      pt_BR: f521ff8bcde529ed0f2466ab504cb08b9b258c9e
+      zh_HANS-CN: 641592ad4ae71394938457a6112a20fa48a1df58
+      uk: cfd2c574eff5a6607f75aa3d6cb990421a1e6ed6
+      es: 2887fb129b3b5c755321d882185ecc1bb05bb5e7
   git-rev-list:
     version-map:
       2.0.5: 16a6ae3c2ccb7eeafef3b7a92ecb2a9be7f41d5b
@@ -41302,7 +41303,7 @@ pages:
       fr: 3326b78f725b55cc6f61c779c5b2cca0cd93ab4e
       pt_BR: 11dc83cab3eabfd19df3f1c2d1571c51a9d280e5
       zh_HANS-CN: 7c4abe919eb0a9d26213c2e5fd68b54f2c756f70
-      uk: c75c3d153a99d08a3c3f67f21b8501cd5bec25f5
+      uk: d364579e62681cdb2797afffae4608f2f50cfdf7
   git-rev-parse:
     version-map:
       2.0.5: a74c0e80e33c8edf6968015bbcba15d52de99f0c
@@ -41781,9 +41782,9 @@ pages:
       - 4
       - 0
     languages:
-      pt_BR: 44f3346c3f01702e7958c5b8a6ea77af63b30b2a
-      zh_HANS-CN: ba43cbd1859546abbb4c79c97931aa1baffd8554
-      uk: 38be8ac3f0ced24095e6b11baf29da522cb1ee77
+      pt_BR: 50ae451ad7bda433501b582c4e5ae7e07a5d0186
+      zh_HANS-CN: 633e95e1cddc699a8ee5b08123a0cc407e5f833d
+      uk: 26f78d3151815bbd3a57618dc28684c8e774605c
   git-revert:
     version-map:
       2.0.5: dd3d82d424ef5401e3795d798187d6e90908b6c5
@@ -42407,6 +42408,7 @@ pages:
       pt_BR: a198bb9a8b2280ac17c43cb4f445c6acfe517fa9
       zh_HANS-CN: 13dbebfaaa1646695a2ed838f40650c5572af0f0
       uk: 4f87a023d9d7685042df7c836cdab5520a08835b
+      es: 687e7eaed1888d7ffba936f5008a28159840a6e9
   git-send-email:
     version-map:
       2.0.5: c91e689d4d6653a9aacd88a2a51a840f59df71c6
@@ -42896,7 +42898,7 @@ pages:
     languages:
       pt_BR: e4a5d37fc3a493f3652a82edd5fc1e047068f10b
       zh_HANS-CN: 36c30474d8a9405a0e1132ce63c0333fe1d11f00
-      uk: 3c69a28bd44d81fbfb0e7b12c146ba50b2e69c7f
+      uk: 287e8c46a5f8d5793b5b8a6680c3b5dbce244e8f
   git-send-pack:
     version-map:
       2.0.5: 9caa3c964104c0f02421ed5dff2bd0e84fd8d816
@@ -43208,9 +43210,9 @@ pages:
       - 1
       - 5
     languages:
-      pt_BR: 517ddd995f0f4ccf7de65a10d471c3c7b51f08aa
-      zh_HANS-CN: 8e87f836f42fe05e69819e91b4cb58e102312184
-      uk: 14dd495c99a40a0b1699559f060e9112ed340726
+      pt_BR: '09acac51759187195d48d2d892cd9597a3bdc1a1'
+      zh_HANS-CN: bedd0bf6df7974dfa903a601cbe3615088502af5
+      uk: bb4fc07e00328fcd6db012f5d37213a4cbd4e95b
   git-sh-i18n--envsubst:
     version-map:
       2.0.5: 95d86d71a3967fdf0cdb94ca56c1ed443ee7ab1d
@@ -44607,9 +44609,9 @@ pages:
       - 0
     languages:
       fr: c40319e36ef35c815cfe258cfbbee11bb662da17
-      pt_BR: 4c21dceae31cebbe5bd21318596cc3763dab5139
-      zh_HANS-CN: afa3b604ad767ede27aec4a8c1c28786b58b4bd4
-      uk: 47ede27c9781d2950adf4a662afbd51d5e31a24b
+      pt_BR: c256c15d1fdf25b6f4e5eec766ed7895f6827972
+      zh_HANS-CN: 8ed236c250ff8280a681af5cae9d37afe02dc5dc
+      uk: 4ae9a820027abe4960a9eecdfb0d26d1cb22c112
   git-show-branch:
     version-map:
       2.0.5: 3bcd1b3059f186cf7bb7593b732e2d8b3ac57db8
@@ -46083,7 +46085,7 @@ pages:
       fr: 3367fd2662da6b1dcef3b7e44c685f052bf17fb9
       pt_BR: c5c0e794f5c0713028adaf6e4345bc3bf43a8b72
       zh_HANS-CN: d8e25beef6ba0db950e2f189278eb284b7187733
-      uk: d27980aac7a10a4e1e7808758b4d3710743e4081
+      uk: d07e9534e66ad5040ffa1871f0b32f7c704bb8e2
   git-stage:
     version-map:
       2.0.5: 73007f76108c4b3d152a10bc8a57ec60e9b54c04
@@ -46713,8 +46715,8 @@ pages:
     languages:
       fr: be89a910e52eabde4d7119a489a6617ddeaf3204
       pt_BR: 81761b98b24a23c0f3fa0dac6bc4272ade2c7438
-      zh_HANS-CN: 6fec4c7c5c017e8109fd3adce7b3cad0a3625907
-      uk: 5207a88651ab6d831ffcf9d092aba28f867c5ddf
+      zh_HANS-CN: fad01d893602a507302cc8882a674d45c63b3486
+      uk: 282b950ef87fa93eca3295ab7f28efadb859afe3
   git-status:
     version-map:
       2.0.5: 9b734cf5fbfb9015e7001bf85eaf83acde51babb
@@ -47802,9 +47804,9 @@ pages:
       - 2
     languages:
       fr: f01af159bd28356c6959734d97bd07d5fe096ca2
-      pt_BR: c6e2f7c22fef33da396a766ecf50ea573cbf37de
-      zh_HANS-CN: a4e7027afdd2f7754cbe8673c41825ac1b4462cf
-      uk: d9d07c3cafb93d3736bd09dc9562e0c6ebfe362e
+      pt_BR: 7937f90ae00d11295ccba91d0893df47a67d6f55
+      zh_HANS-CN: ba740238b00701821ff13f03be0a4bae0cc88af4
+      uk: fb631764a5c841e01328475cbdadcd4c578dcb37
   git-svn:
     version-map:
       2.0.5: 105a812a7093e2a9225d6e00aaf3150fea9f815d
@@ -48198,9 +48200,9 @@ pages:
       - 0
       - 6
     languages:
-      pt_BR: 526b1a3521f6458474db185c02619d082638a53d
-      zh_HANS-CN: f0afeabbf893ae77df93968e663a5c6c3c22ea6e
-      uk: 23ad01348e2ca6d8d3cc88dfff4b22239c044918
+      pt_BR: bf6c08bad4b5ecd86cdc8eb77f1a0b91184807e2
+      zh_HANS-CN: 76ec7d2f8c0dd79664ab8f094740428976866d19
+      uk: b9faa5f3d977f17d5a6e6e2c90e043985cbaae45
   git-symbolic-ref:
     version-map:
       2.0.5: 9750afff5b6e2ae587387dfc9e3f7e8c56acc363
@@ -48903,7 +48905,7 @@ pages:
       fr: '039a916f0615c0288209bebe6282077fc1dfc386'
       pt_BR: f8715cd994c704b23a2156e40e5bf2457efe2d25
       zh_HANS-CN: da6f1fa499845f0ae30c5f7a150601f544cb804e
-      uk: c9b549714c6151c3bc14144853b5c8aa5c7c1a95
+      uk: ce3f751b5608a8e3b55895617c63e4aede5c8588
   git-tools:
     version-map:
       2.0.5: ca4086f39831c4c88ac0ed86a1db954e91a8a9b4
@@ -50013,9 +50015,9 @@ pages:
       - 3
       - 0
     languages:
-      pt_BR: 2ca4380ab75e9a7c4c4cffc116ea77fed768fe6d
-      zh_HANS-CN: c658642d47da7a7e44365c745caccdd6667fa673
-      uk: 3b0873f3fd77a6d75eedb102f44205de7b8aed0d
+      pt_BR: ccd5b4dc6b7aeab572b1b6d971ff4f6c61c755e4
+      zh_HANS-CN: f24533d17a94fcbe3dba4eb1aa746b64ffaf8c04
+      uk: 772ccc8e1d7862de75a3d0de23e49129dcabfac2
   git-update-ref:
     version-map:
       2.0.5: 9bf3451d0c99c841015b9e31c4a69cfba762c977
@@ -51176,9 +51178,9 @@ pages:
       - 1
       - 5
     languages:
-      pt_BR: a9e739ecdadf50db02dee511b24d7ddf3b8994aa
-      zh_HANS-CN: f9dec4bcaf9fcd2a3de0f8e61784a59f9c3fca92
-      uk: 626a5ee64dd83b81493c09939ad8800d0907658a
+      pt_BR: 7be3973f2d5a4927dc85bd822851e2ce10c479c1
+      zh_HANS-CN: 4809ed71a6fe41f45aa24a0b0cb9694139a61a51
+      uk: f3eb444d75bdd0660c49d47df62292483e740b39
   git-var:
     version-map:
       2.0.5: 988d642ecaa69d14281e7da14d1183025a7eef3f
@@ -52501,7 +52503,7 @@ pages:
     languages:
       pt_BR: ddfbda83d3be13e0a6f03e3470d0c35702f7c097
       zh_HANS-CN: 8453c5be5887be55c7f6763dee31071a8da93c4c
-      uk: 7b38590afd7e330f8658afa107eb44af6a3898a9
+      uk: 5cd201fb8dcd71344f6e9a00207bf001053efd1c
   git-write-tree:
     version-map:
       2.0.5: b95d548e6017616485810c7a35d9dabd258b5956
@@ -53478,9 +53480,9 @@ pages:
       de: 3ec6cfaa1793e0bb0406b4fdcf0fdbd298b227b9
       es: ea5684bc41e12682e5e2aa4cb7eccc97651e6269
       fr: 8577ec515cca74d62007d0cec135b508da725f34
-      pt_BR: ab46dc0896341663e02d573793b8a98f720a3b70
-      zh_HANS-CN: 72f931611507426c82659723e2f4d2b10094f123
-      uk: 5c5998285f362054def2f1379744f6a877120445
+      pt_BR: b85370ac4eb31e4bc79451afdadd9a688f6c14cf
+      zh_HANS-CN: 8131a562d76f2728a7f81c361d25a65a81dd7ca2
+      uk: dd818b617a2db1f1efbc88638b9e598cd69c2132
   gitattributes:
     version-map:
       2.0.5: 16d1fb485246d21f3cefd4c2f4d211aea7369492
@@ -55897,10 +55899,10 @@ pages:
       ja: 7bec22165af13d5eb80cb56614a1cb9bc1e023ad
       ko: 15583cb770148a730c1e3620f41415a2ee273028
       pt_BR: 183d3eb1b195f402421f9f939e8371049064a3d8
-      ru: 4b9721b39f835c79f2d998b52769e8fc69afbc2a
+      ru: 8ecf73d3a95a1e8ad7a5ce1280faa7e86c8c7979
       uk: 035ae97c3281d09c70bd76df91e5d88831f8ea5c
       vi: 89f9a18da0b8cda75b9fa9da1bf350e94020cafa
-      zh_HANS-CN: 9fd31a1dd08ab10647e81bead39da08f8b865ea5
+      zh_HANS-CN: 17247ef54bf19fa7a6efe0ae04ce059a88d19bee
       zh_HANT: d65dc04bcdf281e829e4c574df3e7464d1140158
   githooks:
     version-map:
@@ -69797,8 +69799,8 @@ pages:
       - 0
     languages:
       fr: b64d1bfe769fc30fe31e092abe21c536778b2751
-      pt_BR: b1336b5feb52dafbb4473d532f4d4c8dc2f954c0
-      zh_HANS-CN: d77ea82ed6c04edcd0b8b1c2ba7196d595a2db17
+      pt_BR: 6709256be20fdc1cbedac5ca7be75721f5ce729d
+      zh_HANS-CN: '0973fdf4f6b7352f8a0472a6ff97886324fbabb5'
       uk: f0daf5e4f6a842835abf10ec237c402fb2c20bb3
   giteveryday:
     version-map:
@@ -70727,10 +70729,10 @@ pages:
       - 3
       - 0
     languages:
-      fr: 766dd2f85f539c953655896d07bb6ad04e3a6ed1
+      fr: 8880d9d64c6072e76ad9147472b977bc37f06f6e
       pt_BR: 26fc878c7b34ad641d8f87a7d421d0e3b5f9e67b
-      zh_HANS-CN: b75c296beb5a015e8d1b91061daf32c86469c1b5
-      uk: b31d0a9f969a5c94e8c14b237622628a1c123581
+      zh_HANS-CN: db5c051d6d7f5df29a58876ffbe938c7ca414624
+      uk: 49b5d9a4e72e6a6a826ebb2345f7d2a831c2152b
   api-submodule-config:
     version-map:
       2.6.7: ec638aff2b2dacfed3de5236a75129af0a38dd61
@@ -73751,9 +73753,9 @@ pages:
       - 5
     languages:
       fr: 78fb1de3cf738d6511de97c0fe6fd5ac5ff03e78
-      pt_BR: 180d53d8c9188286d3828bccc9c2e83fb19a2b00
-      zh_HANS-CN: f9325d9a9185fb3f58e8b08ff79624c13101ccfc
-      uk: 1c8cef9f6828c2aab0995608de6d32265bcb9461
+      pt_BR: 2b096120324fed7742c5b8f1594b2ea1b604d541
+      zh_HANS-CN: afc995d14a23d4839badeebef1092d469567d49e
+      uk: 481c2d7413bbd0385b34b5cb0cc384fca1704c0b
   directory-rename-detection:
     version-map:
       2.19.0: 9256f59c51a2309c62e3cb31b937f082b77dcecd
@@ -75600,8 +75602,9 @@ pages:
       de: a3d4c7a7b056ad4a658e6d7bce77afb9c86556a1
       fr: 1458564f9f91968b2f97e5609f4eb26e388e7ce8
       pt_BR: 25ee44aa0b4ef7ee5d21c48f08abff015b26c491
-      zh_HANS-CN: 6eebd0a6dfb929bfa9b09518c852ef6cf1801574
+      zh_HANS-CN: 63c42a87833b616bbe66ed0e82cc999d568ef273
       uk: 77782e9561757c303feac7fe39198d0e9c81113f
+      es: 73c53dc7cad88c6a0f9f941749221b664c749660
   git-switch:
     version-map:
       2.23.0: 491e1d09c7884bf7e5d1cdf90b5bbe98f598e29e
@@ -81492,6 +81495,6 @@ pages:
       removed: 0
 latest-version: 2.52.0
 l10n:
-  commit_sha: 6861a5445f1e5b68e5905378b980431404597d92
-  tree_sha: 18f1bdbbc295a5971493ab19750abf1c414943ac
-  committed: 2025-12-12 20:36:09.000000000 +00:00
+  commit_sha: d60101943600fbd7a19e0360171b838dbba98095
+  tree_sha: 5aa153d83616e4f43a9dde6fe0119a882ea0b8d2
+  committed: 2026-01-16 20:28:26.000000000 +00:00

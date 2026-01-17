@@ -268,7 +268,7 @@ headings:
 <dt class="hdlist1" id="git-submodule--f"> <a class="anchor" href="#git-submodule--f"></a>-f </dt>
 <dt class="hdlist1" id="git-submodule---force"> <a class="anchor" href="#git-submodule---force"></a>--force </dt>
 <dd>
-<p>Ця опція дійсна лише для команд add, deinit та update. Під час запуску add дозволяється додавання шляху до підмодуля, який в іншому випадку ігнорується. Під час запуску deinit робочі дерева підмодулів будуть видалені, навіть якщо вони містять локальні зміни. Під час запуску update (діє лише з процедурою checkout) відкидається локальні зміни в підмодулях під час перемикання на інший коміт; та завжди запускається операція checkout у підмодулі, навіть якщо коміт, зазначений в індексі репозиторію, що містить його, збігається з комітом, взятим у підмодулі.</p>
+<p>Ця опція дійсна лише для команд add, deinit та update. Під час виконання команди add дозвольте додавання шляху до підмодуля, який би інакше ігнорувався. Ця опція також використовується для обходу перевірки, чи не використовується ім&#8217;я підмодуля. За замовчуванням команда <em>git submodule add</em> завершиться невдачею, якщо запропоноване ім&#8217;я (яке походить від шляху) вже зареєстровано для іншого підмодуля в репозиторії. Використання <em>--force</em> дозволяє команді продовжувати роботу, автоматично генеруючи унікальне ім&#8217;я, додаючи номер до конфліктуючого імені (наприклад, якщо існує підмодуль з ім&#8217;ям <em>child</em>, буде зроблено спробу <em>child1</em> тощо). Під час виконання deinit робочі дерева підмодулів будуть видалені, навіть якщо вони містять локальні зміни. Під час виконання update (діє лише з процедурою checkout) відкиньте локальні зміни в підмодулях під час перемикання на інший коміт; та завжди запускайте операцію checkout у підмодулі, навіть якщо коміт, зазначений в індексі репозиторію, що містить його, збігається з комітом, взятим у підмодулі.</p>
 </dd>
 <dt class="hdlist1" id="git-submodule---cached"> <a class="anchor" href="#git-submodule---cached"></a>--cached </dt>
 <dd>
@@ -343,7 +343,8 @@ headings:
 <dd>
 <p>Ця опція дійсна для команд додавання та оновлення. Створіть «неглибокий» клон з історією, скороченою до вказаної кількості редакцій. Див. <a href='{{< relurl "docs/git-clone/uk" >}}'>git-clone[1]</a></p>
 </dd>
-<dt class="hdlist1" id="git-submodule---no-recommend-shallow"> <a class="anchor" href="#git-submodule---no-recommend-shallow"></a>--[no-]recommend-shallow </dt>
+<dt class="hdlist1" id="git-submodule---recommend-shallow"> <a class="anchor" href="#git-submodule---recommend-shallow"></a>--recommend-shallow </dt>
+<dt class="hdlist1" id="git-submodule---no-recommend-shallow"> <a class="anchor" href="#git-submodule---no-recommend-shallow"></a>--no-recommend-shallow </dt>
 <dd>
 <p>Цей параметр дійсний лише для команди оновлення. Початковий клон підмодуля використовуватиме рекомендований <span class='synopsis'><code>submodule.</code><em>&lt;name&gt;</em><code>.shallow</code></span>, як зазначено у файлі <span class='synopsis'><code>.gitmodules</code></span> за замовчуванням. Щоб ігнорувати пропозиції, використовуйте <span class='synopsis'><code>--no-recommend-shallow</code></span>.</p>
 </dd>
@@ -352,7 +353,8 @@ headings:
 <dd>
 <p>Цей параметр дійсний лише для команди оновлення. Клонувати нові підмодулі паралельно з якомога більшою кількістю завдань. За замовчуванням використовується параметр <span class='synopsis'><code>submodule.fetchJobs</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-submodule---no-single-branch"> <a class="anchor" href="#git-submodule---no-single-branch"></a>--[no-]single-branch </dt>
+<dt class="hdlist1" id="git-submodule---single-branch"> <a class="anchor" href="#git-submodule---single-branch"></a>--single-branch </dt>
+<dt class="hdlist1" id="git-submodule---no-single-branch"> <a class="anchor" href="#git-submodule---no-single-branch"></a>--no-single-branch </dt>
 <dd>
 <p>Цей параметр дійсний лише для команди оновлення. Клонувати лише одну гілку під час оновлення: HEAD або ту, що визначена параметром --branch.</p>
 </dd>

@@ -16,6 +16,8 @@ headings:
   id: _синопсис
 - text: ОПИС
   id: _опис
+- text: ПЕРЕСАДКА ТЕМАТИЧНОЇ ГІЛКИ ЗА ДОПОМОГОЮ --ONTO
+  id: _пересадка_тематичної_гілки_за_допомогою_onto
 - text: ВАРИАНТИ РЕЖИМУ
   id: _варианти_режиму
 - text: ОПЦІЇ
@@ -65,37 +67,10 @@ headings:
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Якщо вказано <span class='synopsis'><em>&lt;branch&gt;</em></span>, <span class='synopsis'><code>git</code> <code>rebase</code></span> виконає автоматичне <span class='synopsis'><code>git</code> <code>switch</code> <em>&lt;branch&gt;</em></span> перед будь-якими іншими діями. В іншому випадку залишається на поточній гілці.</p>
+<p>Перенесіть серію комітів на іншу початкову точку. Ви також можете використовувати <span class='synopsis'><code>git</code> <code>rebase</code></span> для зміни порядку або об&#8217;єднання комітів: див. ІНТЕРАКТИВНИЙ РЕЖИМ нижче, щоб дізнатися, як це зробити.</p>
 </div>
 <div class="paragraph">
-<p>Якщо <span class='synopsis'><em>&lt;upstream&gt;</em></span> не вказано, буде використано основний потік, налаштований у опціях <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.remote</code></span> та <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> (докладніше див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>), і передбачається опція <span class='synopsis'><code>--fork-point</code></span>. Якщо ви наразі не перебуваєте на жодній гілці або якщо поточна гілка не має налаштованого основного потоку, перебазування буде перервано.</p>
-</div>
-<div class="paragraph">
-<p>Усі зміни, внесені коммітами в поточній гілці, але не в <span class='synopsis'><em>&lt;upstream&gt;</em></span>, зберігаються у тимчасовій області. Це той самий набір комітів, який буде показано за допомогою <span class='synopsis'><code>git</code> <code>log</code> <em>&lt;upstream&gt;</em><code>..HEAD</code></span>; або <span class='synopsis'><code>git</code> <code>log</code> <code>fork_point'..HEAD</code></span>, якщо <span class='synopsis'><code>--fork-point</code></span> активний (див. опис <span class='synopsis'><code>--fork-point</code></span> нижче); або <span class='synopsis'><code>git</code> <code>log</code> <code>HEAD</code></span>, якщо вказано опцію <span class='synopsis'><code>--root</code></span>.</p>
-</div>
-<div class="paragraph">
-<p>Поточна гілка скидається до <span class='synopsis'><em>&lt;upstream&gt;</em></span> або <span class='synopsis'><em>&lt;newbase&gt;</em></span>, якщо було вказано опцію <span class='synopsis'><code>--onto</code></span>. Це має той самий ефект, що й <span class='synopsis'><code>git</code> <code>reset</code> <code>--hard</code> <em>&lt;upstream&gt;</em></span> (або <span class='synopsis'><em>&lt;newbase&gt;</em></span>). <span class='synopsis'><code>ORIG_HEAD</code></span> встановлюється так, щоб вказувати на кінець гілки перед скиданням.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Не гарантовано, що <span class='synopsis'><code>ORIG_HEAD</code></span> все ще вказуватиме на попередню підказку гілки в кінці перебазування, якщо під час перебазування використовуються інші команди, які записують це псевдопосилання (наприклад, <span class='synopsis'><code>git</code> <code>reset</code></span>). Однак, попередня підказка гілки доступна за допомогою журналу перебазування поточної гілки (тобто <span class='synopsis'><code>@{1}</code></span>, див. <a href='{{< relurl "docs/gitrevisions/uk" >}}'>gitrevisions[7]</a>).
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Коміти, які раніше були збережені у тимчасовій області, потім повторно застосовуються до поточної гілки, один за одним, по порядку. Зверніть увагу, що будь-які коміти в <span class='synopsis'><code>HEAD</code></span>, які вносять ті самі текстові зміни, що й коміт у <span class='synopsis'><code>HEAD..</code><em>&lt;upstream&gt;</em></span>, пропускаються (тобто патч, який вже прийнято у верхній теці з іншим повідомленням коміту або міткою часу, буде пропущено).</p>
-</div>
-<div class="paragraph">
-<p>Можливо, що помилка злиття завадить цьому процесу бути повністю автоматичним. Вам доведеться вирішити будь-яку таку помилку злиття та виконати <span class='synopsis'><code>git</code> <code>rebase</code> <code>--continue</code></span>. Інший варіант — обійти коміт, який спричинив помилку злиття, за допомогою <span class='synopsis'><code>git</code> <code>rebase</code> <code>--skip</code></span>. Щоб перевірити оригінальну <span class='synopsis'><em>&lt;branch&gt;</em></span> та видалити робочі файли <span class='synopsis'><code>.git/rebase-apply</code></span>, скористайтеся командою <span class='synopsis'><code>git</code> <code>rebase</code> <code>--abort</code></span>.</p>
-</div>
-<div class="paragraph">
-<p>Припустимо, що існує наступна історія, а поточна гілка — «тема»:</p>
+<p>Наприклад, уявіть, що ви працювали над гілкою <span class='synopsis'><code>topic</code></span> у цій історії, і хочете "надолужити" роботу, виконану над гілкою <span class='synopsis'><code>master</code></span>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -105,16 +80,7 @@ headings:
 </div>
 </div>
 <div class="paragraph">
-<p>З цього моменту результат виконання будь-якої з наступних команд:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git rebase master
-git rebase master topic</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>було б:</p>
+<p>Ви хочете пересадити коміти, які ви зробили для <span class='synopsis'><code>topic</code></span>, оскільки вона відхиляється від <span class='synopsis'><code>master</code></span> (тобто A, B та C), поверх поточної <span class='synopsis'><code>master</code></span>. Ви можете зробити це, запустивши <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code></span>, поки гілка <span class='synopsis'><code>topic</code></span> витягнута. Якщо ви хочете перебазувати <span class='synopsis'><code>topic</code></span>, перебуваючи на іншій гілці, <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code> <code>topic</code></span> – це скорочення для <span class='synopsis'><em>git checkout topic &amp;&amp; git rebase master</em></span>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -124,28 +90,75 @@ git rebase master topic</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>ПРИМІТКА:</strong> Остання форма є скороченим варіантом від <span class='synopsis'><code>git</code> <code>checkout</code> <code>topic</code></span>, за яким слідує <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code></span>. Після завершення rebase <span class='synopsis'><code>topic</code></span> залишиться гілкою, що завершила роботу.</p>
+<p>Якщо під час цього процесу виникне конфлікт злиття, <span class='synopsis'><code>git</code> <code>rebase</code></span> зупиниться на першому проблемному коміті та залишить маркери конфлікту. Якщо це станеться, ви можете зробити одне з наступного:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Вирішіть конфлікт. Ви можете скористатися командою <span class='synopsis'><code>git</code> <code>diff</code></span>, щоб знайти маркери (&lt;&lt;&lt;&lt;&lt;&lt;) та внести зміни для вирішення конфлікту. Для кожного файлу, який ви редагуєте, вам потрібно повідомити Git, що конфлікт вирішено. Ви можете позначити конфлікт як вирішений за допомогою <span class='synopsis'><em>git add &lt;ім'я файлу&gt;</em></span>. Після вирішення всіх конфліктів ви можете продовжити процес перебазування за допомогою</p>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --continue</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Зупиніть <span class='synopsis'><code>git</code> <code>rebase</code></span> та поверніть гілку до початкового стану за допомогою</p>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --abort</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Пропустити коміт, який спричинив конфлікт злиття з</p>
+<div class="literalblock">
+<div class="content">
+<pre>git rebase --skip</pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Якщо гілка upstream вже містить внесені вами зміни (наприклад, через те, що ви надіслали патч, який було застосовано upstream), то цей коміт буде пропущено, і будуть видані попередження (якщо використовується бекенд <em>merge</em>). Наприклад, запуск <span class='synopsis'><code>git</code> <code>rebase</code> <code>master</code></span> для наступної історії (в якій <span class='synopsis'><code>A'</code></span> та <span class='synopsis'><code>A</code></span> вводять однаковий набір змін, але мають різну інформацію про комітера):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>          A---B---C topic
-         /
-    D---E---A'---F master</pre>
-</div>
+<p>Якщо ви не вкажете <span class='synopsis'><em>&lt;upstream&gt;</em></span> для перебазування, буде використано основний потік, налаштований у опціях <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.remote</code></span> та <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> (докладніше див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>), і передбачається опція <span class='synopsis'><code>--fork-point</code></span>. Якщо ви наразі не перебуваєте на жодній гілці або якщо поточна гілка не має налаштованого основного потоку, перебазування буде перервано.</p>
 </div>
 <div class="paragraph">
-<p>призведе до:</p>
+<p>Ось спрощений опис того, що робить <span class='synopsis'><code>git</code> <code>rebase</code> <em>&lt;upstream&gt;</em></span>:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>                   B'---C' topic
-                  /
-    D---E---A'---F master</pre>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Створіть список усіх комітів у вашій поточній гілці, починаючи з моменту відгалуження від <span class='synopsis'><em>&lt;upstream&gt;</em></span>, які не мають еквівалентного коміту в <span class='synopsis'><em>&lt;upstream&gt;</em></span>.</p>
+</li>
+<li>
+<p>Перевірте <span class='synopsis'><em>&lt;upstream&gt;</em></span> за допомогою еквівалента <span class='synopsis'><code>git</code> <code>checkout</code> <code>--detach</code> <em>&lt;upstream&gt;</em></span>.</p>
+</li>
+<li>
+<p>Відтворіть коміти один за одним по порядку. Це схоже на виконання <span class='synopsis'><code>git</code> <code>cherry-pick</code> <em>&lt;commit&gt;</em></span> для кожного коміту. Дивіться ПЕРЕБАЗУВАННЯ ЗЛИТТЯ, щоб дізнатися, як обробляються злиття.</p>
+</li>
+<li>
+<p>Оновіть свою гілку, щоб вона вказувала на фінальний коміт, за допомогою еквівалента <span class='synopsis'><code>git</code> <code>checkout</code> <code>-B</code> <em>&lt;гілка&gt;</em></span>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Під час запуску перебазування, <span class='synopsis'><code>ORIG_HEAD</code></span> встановлюється так, щоб вказувати на коміт у кінчику гілки, яку потрібно перебазувати. Однак, <span class='synopsis'><code>ORIG_HEAD</code></span> не гарантовано все ще вказуватиме на цей коміт у кінці перебазування, якщо під час перебазування використовуються інші команди, що змінюють <span class='synopsis'><code>ORIG_HEAD</code></span> (наприклад, <span class='synopsis'><code>git</code> <code>reset</code></span>). Однак, попередня підказка гілки доступна за допомогою reflog поточної гілки (тобто <span class='synopsis'><code>@{1}</code></span>, див. <a href='{{< relurl "docs/gitrevisions/uk" >}}'>gitrevisions[7]</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_пересадка_тематичної_гілки_за_допомогою_onto"><a class="anchor" href="#_пересадка_тематичної_гілки_за_допомогою_onto"></a>ПЕРЕСАДКА ТЕМАТИЧНОЇ ГІЛКИ ЗА ДОПОМОГОЮ --ONTO</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Ось як ви пересаджуєте тематичну гілку, що базується на одній гілці, на іншу, вдаючи, що ви створили розгалуження тематичної гілки від останньої гілки, використовуючи <span class='synopsis'><code>rebase</code> <code>--onto</code></span>.</p>
 </div>
@@ -243,30 +256,6 @@ git rebase master topic</pre>
 <div class="paragraph">
 <p>Це корисно, якщо F та G мають певні недоліки або не повинні бути частиною теми A. Зверніть увагу, що аргумент <span class='synopsis'><code>--onto</code></span> та параметра <span class='synopsis'><em>&lt;upstream&gt;</em></span> може бути будь-яким коректним аргументом, подібним до коміту.</p>
 </div>
-<div class="paragraph">
-<p>У разі конфлікту, <span class='synopsis'><code>git</code> <code>rebase</code></span> зупиниться на першому проблемному коміті та залишить маркери конфлікту в дереві. Ви можете використовувати <span class='synopsis'><code>git</code> <code>diff</code></span> для пошуку маркерів (&lt;&lt;&lt;&lt;&lt;&lt;) та внесення змін для вирішення конфлікту. Для кожного файлу, який ви редагуєте, вам потрібно повідомити Git, що конфлікт вирішено, зазвичай це робиться за допомогою</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git add &lt;filename&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Після вирішення конфлікту вручну та оновлення індексу з потрібним вирішенням, ви можете продовжити процес перебазування за допомогою</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git rebase --continue</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Або ж ви можете скасувати «git rebase» за допомогою</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git rebase --abort</pre>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -317,6 +306,13 @@ git rebase master topic</pre>
 <p>Як окремий випадок, ви можете використовувати "A...B" як скорочення для бази злиття A та B, якщо існує лише одна база злиття. Ви можете пропустити щонайбільше одну з A та B, і в цьому випадку за замовчуванням використовується HEAD.</p>
 </div>
 </dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Див. приклади вище в розділі ПЕРЕСАДКА ТЕМАТИЧНОЇ ГІЛКИ ЗА ДОПОМОГОЮ --ONTO.</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1" id="git-rebase---keep-base"> <a class="anchor" href="#git-rebase---keep-base"></a>--keep-base </dt>
 <dd>
 <p>Встановіть початкову точку, з якої потрібно створювати нові коміти для бази злиття <span class='synopsis'><em>&lt;upstream&gt;</em></span> та <span class='synopsis'><em>&lt;branch&gt;</em></span>. Виконання <span class='synopsis'><code>git</code> <code>rebase</code> <code>--keep-base</code> <em>&lt;upstream&gt;</em> <em>&lt;branch&gt;</em></span> еквівалентне виконанню <span class='synopsis'><code>git</code> <code>rebase</code> <code>--reapply-cherry-picks</code> <code>--no-fork-point</code> <code>--onto</code> <em>&lt;upstream&gt;</em><code>...</code><em>&lt;branch&gt;</em> <em>&lt;upstream&gt;</em> <em>&lt;branch&gt;</em></span>.</p>

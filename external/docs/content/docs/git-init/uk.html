@@ -124,7 +124,9 @@ headings:
 <dt class="hdlist1" id="git-init-spanclasssynopsiscode-bcodeemlt-gtemspan"> <a class="anchor" href="#git-init--b-"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode-bcodeemlt-gtemspan"></a><span class='synopsis'><code>-b</code> <em>&lt;назва-гілки&gt;</em></span> </dt>
 <dt class="hdlist1" id="git-init-spanclasssynopsiscode--initial-branchcodeemltbranch-namegtemspan"> <a class="anchor" href="#git-init---initial-branchbranch-name"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--initial-branchcodeemltbranch-namegtemspan"></a><span class='synopsis'><code>--initial-branch=</code><em>&lt;branch-name&gt;</em></span> </dt>
 <dd>
-<p>Використовуйте <em>&lt;назва-гілки&gt;</em> для початкової гілки у щойно створеному репозиторії. Якщо не вказано, поверніться до назви за замовчуванням (наразі <span class='synopsis'><code>master</code></span>, але вона може бути змінена в майбутньому; назву можна налаштувати за допомогою змінної конфігурації <span class='synopsis'><code>init.defaultBranch</code></span>).</p>
+<p>Використовуйте <em>&lt;назва-гілки&gt;</em> для початкової гілки у щойно створеному репозиторії. Якщо не вказано, повертайтеся до назви за замовчуванням
+(наразі <span class='synopsis'><code>master</code></span>, але зміниться на <span class='synopsis'><code>main</code></span> після виходу Git 3.0).
+Ім&#8217;я за замовчуванням можна налаштувати за допомогою змінної конфігурації <span class='synopsis'><code>init.defaultBranch</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-init-spanclasssynopsiscode--sharedcodecodecodecodefalsecodecodetruecodecodeumaskcodecodegroupcodecodeallcodecodeworldcodecodeeverybodycodeemltpermgtemspan"> <a class="anchor" href="#git-init---sharedfalsetrueumaskgroupallworldeverybodyperm"></a> <a class="anchor" href="#git-init-spanclasssynopsiscode--sharedcodecodecodecodefalsecodecodetruecodecodeumaskcodecodegroupcodecodeallcodecodeworldcodecodeeverybodycodeemltpermgtemspan"></a><span class='synopsis'><code>--shared</code>[<code>=</code>(<code>false</code>|<code>true</code>|<code>umask</code>|<code>group</code>|<code>all</code>|<code>world</code>|<code>everybody</code>|<em>&lt;perm&gt;</em>)]</span> </dt>
 <dd>
@@ -167,7 +169,7 @@ headings:
 <p>За замовчуванням прапорець конфігурації <span class='synopsis'><code>receive.denyNonFastForwards</code></span> увімкнено у спільних репозиторіях, тому ви не можете примусово надіслати туди дані без швидкого перемотування вперед.</p>
 </div>
 <div class="paragraph">
-<p>Якщо ви вкажете <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em>, команда виконується всередині нього. Якщо цей каталог не існує, його буде створено.</p>
+<p>Якщо ви вкажете <em>&lt;каталог&gt;</em>, команда виконується всередині нього. Якщо цей каталог не існує, його буде створено.</p>
 </div>
 </div>
 </div>
