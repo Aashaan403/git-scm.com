@@ -437,22 +437,17 @@ P - afficher la section actuelle avec un paginateur
 <div class="paragraph">
 <p>Tout ce qui se trouve en dessous de cette ligne dans cette section est inclus de manière sélective à partir de la documentation <a href='{{< relurl "docs/git-config/fr" >}}'>git-config[1]</a>. Le contenu est le même que celui qui s&#8217;y trouve :</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>fr/config/add.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscodeaddignoreErrorscodespan"> <a class="anchor" href="#git-add-addignoreErrors"></a> <a class="anchor" href="#git-add-spanclasssynopsiscodeaddignoreErrorscodespan"></a><span class='synopsis'><code>add.ignoreErrors</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscodeaddignore-errorscodespanobsolte"> <a class="anchor" href="#git-add-addignore-errorsobsolte"></a> <a class="anchor" href="#git-add-spanclasssynopsiscodeaddignore-errorscodespanobsolte"></a><span class='synopsis'><code>add.ignore-errors</code></span> (obsolète) </dt>
+<dd>
+<p>	Indique à <span class='synopsis'><code>git</code> <code>add</code></span> de continuer à ajouter des fichiers lorsque certains fichiers ne peuvent pas être ajoutés en raison d&#8217;erreurs d&#8217;indexation.
+	Équivalent à l&#8217;option <span class='synopsis'><code>--ignore-errors</code></span>.
+	<span class='synopsis'><code>add.ignore-errors</code></span> est obsolète, car il ne suit pas la convention de
+nom habituelle pour les variables de configuration.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

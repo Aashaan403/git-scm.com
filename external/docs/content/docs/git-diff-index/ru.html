@@ -164,6 +164,10 @@ headings:
 <p>В частности, если вы настроили переменную <span class='synopsis'><code>diff.algorithm</code></span> на нестандартное значение и хотите использовать стандартный алгоритм, то следует задать параметр <span class='synopsis'><code>--diff-algorithm=default</code></span>.</p>
 </div>
 </dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1" id="git-diff-index-spanclasssynopsiscode--statcodecodecodeemltgtemcodecodeemlt-gtemcodecodeemltgtemspan"> <a class="anchor" href="#git-diff-index---stat-"></a> <a class="anchor" href="#git-diff-index-spanclasssynopsiscode--statcodecodecodeemltgtemcodecodeemlt-gtemcodecodeemltgtemspan"></a><span class='synopsis'><code>--stat</code>[<code>=</code><em>&lt;ширина&gt;</em>[<code>,</code><em>&lt;ширина-имени&gt;</em>[<code>,</code><em>&lt;число&gt;</em>]]]</span> </dt>
 <dd>
 <p>Генерировать статистику изменений diffstat. По умолчанию для имени файла используется столько места, сколько необходимо, а остаток — для графика. Максимальная <em>&lt;ширина&gt;</em> по умолчанию равна ширине терминала или 80 столбцам, если вывод производится не на терминал. Ширину части, отводящейся под имя файла, можно ограничить, указав <em>&lt;ширину-имени&gt;</em> после запятой или установив переменную конфигурации <span class='synopsis'><code>diff.statNameWidth=</code><em>&lt;ширина-имени&gt;</em></span>. Ширина части, отводящейся под график также можно ограничить с помощью <span class='synopsis'><code>--stat-graph-width=</code><em>&lt;ширина-графика&gt;</em></span> или переменной конфигурации <span class='synopsis'><code>diff.statGraphWidth=</code><em>&lt;ширина-графика&gt;</em></span>. Все команды, генерирующие статистические графики принимают параметры <span class='synopsis'><code>--stat</code></span> или <span class='synopsis'><code>--stat-graph-width</code></span>, а установка переменных <span class='synopsis'><code>diff.statNameWidth</code></span> или <span class='synopsis'><code>diff.statGraphWidth</code></span> влияет на все команды кроме <span class='synopsis'><code>git</code> <code>format-patch</code></span>. При указании третьей части аргумента вывод ограничивается указанным <em>&lt;числом&gt;</em> строк, а при его превышении вместо оставшихся строк будет выведено <span class='synopsis'>...</span>.</p>
@@ -687,10 +691,10 @@ headings:
 </div>
 </div>
 <div class="paragraph">
-<p>If no pathspec is given, the depth is measured as if all top-level entries were specified. Note that this is different than measuring from the root, in that <span class='synopsis'><code>--max-depth=0</code></span> would still return <span class='synopsis'><code>foo</code></span>. This allows you to still limit depth while asking for a subset of the top-level entries.</p>
+<p>Если пути не указаны, глубина измеряется так, как если бы были указаны все элементы верхнего уровня. Обратите внимание, что это отличается от измерения от корня, так как <span class='synopsis'><code>--max-depth=0</code></span> всё равно вернёт <span class='synopsis'><code>foo</code></span>. Это позволяет вам всё ещё ограничивать глубину, запрашивая подмножество элементов верхнего уровня.</p>
 </div>
 <div class="paragraph">
-<p>Note that this option is only supported for diffs between tree objects, not against the index or working tree.</p>
+<p>Обратите внимание, что этот параметр поддерживается только для сравнений между объектами дерева, а не с индексом или рабочим деревом.</p>
 </div>
 </dd>
 </dl>

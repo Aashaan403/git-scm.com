@@ -200,6 +200,18 @@ headings:
 <dt class="hdlist1" id="git-am---committer-date-is-author-date"> <a class="anchor" href="#git-am---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
 <dd>
 <p>É predefinido que o comando registre a data da mensagem do e-mail como a data do autor que fez o commit e utilize a hora da criação como a data do commit. Permite que usuário minta sobre a data do commit utilizando o mesmo valor da data de quem fez o commit.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+The history walking machinery assumes that commits have non-decreasing commit timestamps. You should consider if you really need to use this option. Then you should only use this option to override the committer date when applying commits on top of a base which commit is older (in terms of the commit date) than the oldest patch you are applying.
+</td>
+</tr>
+</table>
+</div>
 </dd>
 <dt class="hdlist1" id="git-am---ignore-date"> <a class="anchor" href="#git-am---ignore-date"></a>--ignore-date </dt>
 <dd>

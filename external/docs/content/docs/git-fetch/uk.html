@@ -113,7 +113,7 @@ headings:
 <dd>
 <p>Поглибити або скоротити історію поверхневого репозиторію, щоб включити всі доступні коміти після <em>&lt;дата&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-fetch---shallow-exclude"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em>&lt;посилання&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-fetch---shallow-exclude"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em><span class="hover-term" data-term="посилання">&lt;посилання&gt;</span></em></span> </dt>
 <dd>
 <p>Поглибити або скоротити історію поверхневого репозиторію, щоб виключити коміти, доступні з вказаної віддаленої гілки або тегу. Цей параметр можна вказати кілька разів.</p>
 </dd>
@@ -177,7 +177,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--multiplecodespan"> <a class="anchor" href="#git-fetch---multiple"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--multiplecodespan"></a><span class='synopsis'><code>--multiple</code></span> </dt>
 <dd>
-<p>Дозволяє вказувати кілька аргументів <em>&lt;репозиторій&gt;</em> та <em>&lt;група&gt;</em>. Не можна вказувати <em>&lt;посилання&gt;</em>s.</p>
+<p>Дозволяє вказувати кілька аргументів <em>&lt;репозиторій&gt;</em> та <em>&lt;група&gt;</em>. Не можна вказувати <em><span class="hover-term" data-term="посилання">&lt;посилання&gt;</span></em>s.</p>
 </dd>
 <dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--auto-maintenancecodespan"> <a class="anchor" href="#git-fetch---auto-maintenance"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--auto-maintenancecodespan"></a><span class='synopsis'><code>--auto-maintenance</code></span> </dt>
 <dt class="hdlist1" id="git-fetch-spanclasssynopsiscode--no-auto-maintenancecodespan"> <a class="anchor" href="#git-fetch---no-auto-maintenance"></a> <a class="anchor" href="#git-fetch-spanclasssynopsiscode--no-auto-maintenancecodespan"></a><span class='synopsis'><code>--no-auto-maintenance</code></span> </dt>
@@ -590,7 +590,7 @@ headings:
 <p><em>&lt;URL&gt;</em> обов&#8217;язковий; <span class='synopsis'><code>#</code><em>&lt;head&gt;</em></span> необов&#8217;язковий.</p>
 </div>
 <div class="paragraph">
-<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <em>&lt;branch&gt; – це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а _&lt;head&gt;</em> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
+<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <em>&lt;branch&gt;</em> це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а <em>&lt;head&gt;</em> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>git fetch uses:</p>
@@ -631,7 +631,7 @@ headings:
 </ul>
 </div>
 <div class="paragraph">
-<p>Дані про вихідний код зберігаються у файлі <span class='synopsis'><code>.git/config</code></span>, у полях "remote" та "merge". Наприклад, якщо вихідним кодом <span class='synopsis'><code>main</code></span> є <span class='synopsis'><code>origin/main</code></span>:</p>
+<p>Дані основного потоку зберігаються у файлі <span class='synopsis'><code>.git/config</code></span>, у полях "<span class='synopsis'><code>remote</code></span>" та "<span class='synopsis'><code>merge</code></span>". Наприклад, якщо основним потоком для <span class='synopsis'><code>main</code></span> є <span class='synopsis'><code>origin/main</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -641,7 +641,7 @@ headings:
 </div>
 </div>
 <div class="paragraph">
-<p>Ви можете явно встановити гілку upstream за допомогою <span class='synopsis'><code>git</code> <code>push</code> <code>--set-upstream</code> <em>&lt;віддалена&gt;</em> <em>&lt;гілка&gt;</em></span>, але Git часто автоматично встановить її за вас, наприклад:</p>
+<p>Ви можете явно встановити гілку upstream за допомогою <span class='synopsis'><code>git</code> <code>push</code> <code>--set-upstream</code> <em>&lt;віддалена&gt;</em> <em><span class="hover-term" data-term="гілка">&lt;гілка&gt;</span></em></span>, але Git часто автоматично встановить її за вас, наприклад:</p>
 </div>
 <div class="ulist">
 <ul>

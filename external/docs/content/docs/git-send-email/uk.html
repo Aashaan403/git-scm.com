@@ -211,7 +211,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-send-email---smtp-domainltFQDNgt"> <a class="anchor" href="#git-send-email---smtp-domainFQDN"></a> <a class="anchor" href="#git-send-email---smtp-domainltFQDNgt"></a>--smtp-domain=&lt;FQDN&gt; </dt>
 <dd>
-<p>Вказує повне доменне ім&#8217;я (FQDN), яке використовується в команді HELO/EHLO для SMTP-сервера. Деякі сервери вимагають, щоб FQDN збігалося з вашою IP-адресою. Якщо не встановлено, <span class='synopsis'><code>git</code> <code>send-email</code></span> намагається визначити ваше FQDN автоматично. Значення за замовчуванням — <span class='synopsis'><code>sendemail.smtpDomain</code></span>.</p>
+<p>Вкажіть повне доменне ім&#8217;я (FQDN), яке використовується в команді HELO/EHLO для SMTP-сервера. Деякі сервери вимагають, щоб FQDN збігалося з вашою IP-адресою. Якщо не встановлено, <span class='synopsis'><code>git</code> <code>send-email</code></span> намагатиметься визначити ваше FQDN автоматично. Значення за замовчуванням — <span class='synopsis'><code>sendemail.smtpDomain</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-send-email---smtp-authltmechanismsgt"> <a class="anchor" href="#git-send-email---smtp-authmechanisms"></a> <a class="anchor" href="#git-send-email---smtp-authltmechanismsgt"></a>--smtp-auth=&lt;mechanisms&gt; </dt>
 <dd>
@@ -238,18 +238,18 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-send-email---smtp-serverlthostgt"> <a class="anchor" href="#git-send-email---smtp-serverhost"></a> <a class="anchor" href="#git-send-email---smtp-serverlthostgt"></a>--smtp-server=&lt;host&gt; </dt>
 <dd>
-<p>Якщо встановлено, вказує вихідний SMTP-сервер для використання (наприклад, <span class='synopsis'><code>smtp.example.com</code></span> або необроблену IP-адресу). Якщо не вказано, а також якщо <span class='synopsis'><code>--sendmail-cmd</code></span> не вказано, за замовчуванням <span class='synopsis'><code>sendmail</code></span> шукається в <span class='synopsis'><code>/usr/sbin</code></span>, <span class='synopsis'><code>/usr/lib</code></span> та <span class='synopsis'><code>$PATH</code></span>, якщо така програма доступна, в іншому випадку повертається до <span class='synopsis'><code>localhost</code></span>.</p>
+<p>Вкажіть вихідний SMTP-сервер для використання (наприклад, <span class='synopsis'><code>smtp.example.com</code></span> або необроблену IP-адресу). Якщо не вказано, а також не вказано <span class='synopsis'><code>--sendmail-cmd</code></span>, за замовчуванням <span class='synopsis'><code>sendmail</code></span> шукатиметься в <span class='synopsis'><code>/usr/sbin</code></span>, <span class='synopsis'><code>/usr/lib</code></span> та <span class='synopsis'><code>$PATH</code></span>, якщо така програма доступна, в іншому випадку повертатиметься до <span class='synopsis'><code>localhost</code></span>.</p>
 <div class="paragraph">
 <p>Для зворотної сумісності цей параметр також може вказувати повний шлях до програми, подібної до sendmail; програма повинна підтримувати параметр <span class='synopsis'><code>-i</code></span>. Цей метод не підтримує передачу аргументів або використання простих імен команд. У таких випадках використання розгляньте можливість використання <span class='synopsis'><code>--sendmail-cmd</code></span>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="git-send-email---smtp-server-portltportgt"> <a class="anchor" href="#git-send-email---smtp-server-portport"></a> <a class="anchor" href="#git-send-email---smtp-server-portltportgt"></a>--smtp-server-port=&lt;port&gt; </dt>
 <dd>
-<p>Вказує порт, відмінний від порту за замовчуванням (SMTP-сервери зазвичай прослуховують smtp-порт 25, але також можуть прослуховувати порт надсилання 587 або загальний SSL-smtp-порт 465); також приймаються символічні назви портів (наприклад, <span class='synopsis'><code>submission</code></span> замість 587). Порт також можна встановити за допомогою змінної конфігурації <span class='synopsis'><code>sendemail.smtpServerPort</code></span>.</p>
+<p>Вкажіть порт, відмінний від порту за замовчуванням (SMTP-сервери зазвичай прослуховують smtp-порт 25, але можуть також прослуховувати порт надсилання 587 або поширений SSL-smtp-порт 465); також приймаються символічні назви портів (наприклад, <span class='synopsis'><code>submission</code></span> замість 587). Порт також можна встановити за допомогою змінної конфігурації <span class='synopsis'><code>sendemail.smtpServerPort</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-send-email---smtp-server-optionltoptiongt"> <a class="anchor" href="#git-send-email---smtp-server-optionoption"></a> <a class="anchor" href="#git-send-email---smtp-server-optionltoptiongt"></a>--smtp-server-option=&lt;option&gt; </dt>
 <dd>
-<p>Якщо встановлено, вказує на опцію вихідного SMTP-сервера, яку слід використовувати. Значення за замовчуванням можна вказати за допомогою опції конфігурації <span class='synopsis'><code>sendemail.smtpServerOption</code></span>.</p>
+<p>Вкажіть параметр вихідного SMTP-сервера, який потрібно використовувати. Значення за замовчуванням можна вказати за допомогою параметра конфігурації <span class='synopsis'><code>sendemail.smtpServerOption</code></span>.</p>
 <div class="paragraph">
 <p>Опцію <span class='synopsis'><code>--smtp-server-option</code></span> потрібно повторити для кожної опції, яку потрібно передати серверу. Аналогічно, для кожної опції потрібно використовувати різні рядки у файлах конфігурації.</p>
 </div>
@@ -258,7 +258,7 @@ headings:
 <dd>
 <p>Застарілий псевдонім для <span class='synopsis'><code>--smtp-encryption</code> <code>ssl</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-send-email---smtp-ssl-cert-path"> <a class="anchor" href="#git-send-email---smtp-ssl-cert-path"></a>--smtp-ssl-cert-path </dt>
+<dt class="hdlist1" id="git-send-email---smtp-ssl-cert-pathltpathgt"> <a class="anchor" href="#git-send-email---smtp-ssl-cert-pathpath"></a> <a class="anchor" href="#git-send-email---smtp-ssl-cert-pathltpathgt"></a>--smtp-ssl-cert-path &lt;path&gt; </dt>
 <dd>
 <p>Шлях до сховища довірених сертифікатів CA для перевірки сертифікатів SMTP SSL/TLS (або каталог, оброблений <span class='synopsis'><code>c_rehash</code></span>, або окремий файл, що містить один або кілька сертифікатів формату PEM, об&#8217;єднаних разом: див. опис опцій <span class='synopsis'><code>-CAfile</code></span> <em>&lt;file&gt;</em> та <span class='synopsis'><code>-CApath</code></span> <em>&lt;dir&gt;</em> на <a href="https://docs.openssl.org/master/man1/openssl-verify/" class="bare">https://docs.openssl.org/master/man1/openssl-verify/</a> [сторінка довідника OpenSSL verify(1)] для отримання додаткової інформації про них). Встановіть значення порожнього рядка, щоб вимкнути перевірку сертифіката. За замовчуванням використовується значення змінної конфігурації <span class='synopsis'><code>sendemail.smtpSSLCertPath</code></span>, якщо вона встановлена, або скомпільоване значення за замовчуванням бібліотеки SSL, якщо воно не встановлено (що має бути найкращим вибором на більшості платформ).</p>
 </dd>
@@ -304,11 +304,11 @@ headings:
 <dt class="hdlist1" id="git-send-email---no-cc"> <a class="anchor" href="#git-send-email---no-cc"></a>--no-cc </dt>
 <dt class="hdlist1" id="git-send-email---no-bcc"> <a class="anchor" href="#git-send-email---no-bcc"></a>--no-bcc </dt>
 <dd>
-<p>Очищає будь-який список адрес "Кому:", "Копія:", "Прихована копія:", попередньо встановлений через конфігурацію.</p>
+<p>Очистити будь-який список адрес "Кому:", "Копія:", "Прихована копія:", раніше встановлений через конфігурацію.</p>
 </dd>
 <dt class="hdlist1" id="git-send-email---no-identity"> <a class="anchor" href="#git-send-email---no-identity"></a>--no-identity </dt>
 <dd>
-<p>Очищає раніше зчитане значення <span class='synopsis'><code>sendemail.identity</code></span>, встановлене через конфігурацію, якщо таке є.</p>
+<p>Очистити раніше зчитане значення <span class='synopsis'><code>sendemail.identity</code></span>, встановлене через конфігурацію, якщо таке є.</p>
 </dd>
 <dt class="hdlist1" id="git-send-email---to-cmdltcommandgt"> <a class="anchor" href="#git-send-email---to-cmdcommand"></a> <a class="anchor" href="#git-send-email---to-cmdltcommandgt"></a>--to-cmd=&lt;command&gt; </dt>
 <dd>
@@ -475,11 +475,7 @@ headings:
 <p>Викликати гачок sendemail-validate, якщо він є (див. <a href='{{< relurl "docs/githooks/uk" >}}'>githooks[5]</a>).</p>
 </li>
 <li>
-<p>Попереджати про латки, що містять лінії, довші за
-998 символів, якщо не використовується відповідне кодування для передачі
-(<span class='synopsis'><code>auto</code></span>, <span class='synopsis'><code>base64</code></span> або <span class='synopsis'><code>quoted-printable</code></span>);
-це пов&#8217;язано з обмеженнями SMTP, як описано в
-<a href="https://www.ietf.org/rfc/rfc5322.txt" class="bare">https://www.ietf.org/rfc/rfc5322.txt</a>.</p>
+<p>Попереджати про патчі, що містять рядки довжиною понад 998 символів, якщо не використовується відповідне кодування передачі (<span class='synopsis'><code>auto</code></span>, <span class='synopsis'><code>base64</code></span> або <span class='synopsis'><code>quoted-printable</code></span>); це пов&#8217;язано з обмеженнями SMTP, як описано в <a href="https://www.ietf.org/rfc/rfc5322.txt" class="bare">https://www.ietf.org/rfc/rfc5322.txt</a>.</p>
 </li>
 </ul>
 </div>

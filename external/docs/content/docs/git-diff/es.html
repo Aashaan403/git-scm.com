@@ -110,7 +110,7 @@ headings:
 </dl>
 </div>
 <div class="paragraph">
-<p>Sólo en caso que hagas algo exótico, debe notarse que toda <em>&lt;confirmación&gt;</em> en la descripción anterior, exceptuando el caso <span class='synopsis'><code>--merge-base</code></span> y las últimas dos formas que usan la notación <span class='synopsis'><code>..</code></span>, puede ser cualquier <em>&lt;árbol&gt;</em>. Un árbol de interés es al que apunta la referencia nombrada <span class='synopsis'><code>AUTO_MERGE</code></span>, la cual se escribe por la estrategia de fusión <span class='synopsis'><code>ort</code></span> al darse conflictos de fusión (ver <a href='{{< relurl "docs/git-merge/es" >}}'>git-merge[1]</a>). Comparar el árbol de trabajo con <span class='synopsis'><code>AUTO_MERGE</code></span> mostrará los cambios que has hecho hasta el momento para resolver los conflictos textuales (ver los ejemplos abajo).</p>
+<p>Sólo en caso que hagas algo exótico, debe notarse que toda <em>&lt;confirmación&gt;</em> en la descripción anterior, exceptuando el caso <span class='synopsis'><code>--merge-base</code></span> y las últimas dos formas que usan la notación <span class='synopsis'><code>..</code></span>, puede ser cualquier <em><span class="hover-term" data-term="árbol">&lt;árbol&gt;</span></em>. Un árbol de interés es al que apunta la referencia nombrada <span class='synopsis'><code>AUTO_MERGE</code></span>, la cual se escribe por la estrategia de fusión <span class='synopsis'><code>ort</code></span> al darse conflictos de fusión (ver <a href='{{< relurl "docs/git-merge/es" >}}'>git-merge[1]</a>). Comparar el árbol de trabajo con <span class='synopsis'><code>AUTO_MERGE</code></span> mostrará los cambios que has hecho hasta el momento para resolver los conflictos textuales (ver los ejemplos abajo).</p>
 </div>
 <div class="paragraph">
 <p>Para una lista mas completa de las maneras de invocar <em>&lt;confirmación&gt;</em>, ver la sección "ESPECIFICANDO REVISIONES" en <a href='{{< relurl "docs/gitrevisions/es" >}}'>gitrevisions[7]</a>. Sin embargo, <span class='synopsis'><code>diff</code></span> a para comparar dos <em>endpoints</em>, no rangos, y las notaciones de rangos (<span class='synopsis'><em>&lt;confirmación&gt;</em><code>..</code><em>&lt;confirmación&gt;</em></span> y <span class='synopsis'><em>&lt;confirmación&gt;</em><code>...</code><em>&lt;confirmación&gt;</em></span>) no significan un rango como se define en la sección "ESPECIFICANDO RANGOS" en <a href='{{< relurl "docs/gitrevisions/es" >}}'>gitrevisions[7]</a>.</p>
@@ -228,6 +228,10 @@ Implica <span class='synopsis'><code>--patch</code></span>.</p>
 <p>Por lo tanto, si configuraste la variable <span class='synopsis'><code>diff.algorithm</code></span> a un valor no predeterminado y quieres usar el predeterminado, entonces tienes que usar la opción <span class='synopsis'><code>--diff-algorithm=default</code></span>.</p>
 </div>
 </dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscode--statcodecodecodeemltanchuragtemcodecodeemltanchura-nombregtemcodecodeemltrecuentogtemspan"> <a class="anchor" href="#git-diff---statanchuraanchura-nombrerecuento"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode--statcodecodecodeemltanchuragtemcodecodeemltanchura-nombregtemcodecodeemltrecuentogtemspan"></a><span class='synopsis'><code>--stat</code>[<code>=</code><em>&lt;anchura&gt;</em>[<code>,</code><em>&lt;anchura-nombre&gt;</em>[<code>,</code><em>&lt;recuento&gt;</em>]]]</span> </dt>
 <dd>
 <p>Genera estadísticas de diferencia. Predeterminadamente, tanto espacio como sea necesario para la parte del nombre del fichero, y el resto para la parte del grafo. El ancho máximo se predetermina al ancho de la terminal, o a 80 columnas si no esta conectado a una, y puede ser anulada con <em>&lt;ancho&gt;</em>. El ancho del nombre del archivo puede limitarse dando otro ancho <em>&lt;ancho-de-nombre&gt;</em> después de una coma, o asignando <span class='synopsis'><code>diff.statNameWidth=</code><em>&lt;ancho-de-nombre&gt;</em></span>. El ancho del grafo puede limitarse con <span class='synopsis'><code>--stat-graph-width=</code><em>&lt;ancho-de-grafo&gt;</em></span> o asignando <span class='synopsis'><code>diff.statGraphWidth=</code><em>&lt;ancho-de-grafo&gt;</em></span>. Usar <span class='synopsis'><code>--stat</code></span> o <span class='synopsis'><code>--stat-graph-width</code></span> afecta a todos los comandos que generan una gráfica de estadísticas, mientras que <span class='synopsis'><code>diff.statNameWidth</code></span> y <span class='synopsis'><code>diff.statGraphWidth</code></span> no afectan <span class='synopsis'><code>git</code> <code>format-patch</code></span>. Dando un tercer parámetro <em>&lt;conteo&gt;</em>, puedes limitar la salida a las primeras <em>&lt;conteo&gt;</em> líneas, seguida por <span class='synopsis'>...</span> si hay mas.</p>
@@ -547,9 +551,9 @@ use <span class='synopsis'><code>-M100%</code></span>. El índice de semejanza p
 <p>Nota que no todos los diffs pueden presentar todos los tipos. Por lo tanto, entradas copiadas y renombradas no pueden aparecer si la detección para esos tipos está deshabilitada.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-diff-spanclasssynopsiscode-Scodeemltcadenagtemspan"> <a class="anchor" href="#git-diff--Scadena"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode-Scodeemltcadenagtemspan"></a><span class='synopsis'><code>-S</code><em>&lt;cadena&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscode-Scodeemltcadenagtemspan"> <a class="anchor" href="#git-diff--Scadena"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode-Scodeemltcadenagtemspan"></a><span class='synopsis'><code>-S</code><em><span class="hover-term" data-term="cadena">&lt;cadena&gt;</span></em></span> </dt>
 <dd>
-<p>Busca diferencias que cambian el número de ocurrencias de la <em>&lt;cadena&gt;</em> especificada (ej. adición/eliminación) en un fichero. Destinada para el uso de creadores de scripts.</p>
+<p>Busca diferencias que cambian el número de ocurrencias de la <em><span class="hover-term" data-term="cadena">&lt;cadena&gt;</span></em> especificada (ej. adición/eliminación) en un fichero. Destinada para el uso de creadores de scripts.</p>
 <div class="paragraph">
 <p>Es útil cuando buscas un bloque exacto de código (como un struct), y quieres conocer el historial de ese bloque desde la primera vez que entró en existencia: use la característica iterativamente para alimentar el bloque de interés de vuelta a la preimagen <span class='synopsis'><code>-S</code></span>, y seguir hasta que obtengas la primera versión del bloque.</p>
 </div>
@@ -589,11 +593,11 @@ use <span class='synopsis'><code>-M100%</code></span>. El índice de semejanza p
 </dd>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscode--pickaxe-allcodespan"> <a class="anchor" href="#git-diff---pickaxe-all"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode--pickaxe-allcodespan"></a><span class='synopsis'><code>--pickaxe-all</code></span> </dt>
 <dd>
-<p>Cuando <span class='synopsis'><code>-S</code></span> o <span class='synopsis'><code>-G</code></span> encuentra un cambio, muestra todos los cambios en ese conjunto de cambios, no sólo los ficheros que contienen el cambio en <em>&lt;cadena&gt;</em>.</p>
+<p>Cuando <span class='synopsis'><code>-S</code></span> o <span class='synopsis'><code>-G</code></span> encuentra un cambio, muestra todos los cambios en ese conjunto de cambios, no sólo los ficheros que contienen el cambio en <em><span class="hover-term" data-term="cadena">&lt;cadena&gt;</span></em>.</p>
 </dd>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscode--pickaxe-regexcodespan"> <a class="anchor" href="#git-diff---pickaxe-regex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode--pickaxe-regexcodespan"></a><span class='synopsis'><code>--pickaxe-regex</code></span> </dt>
 <dd>
-<p>Trata la <em>&lt;cadena&gt;</em> dada en <span class='synopsis'><code>-S</code></span> como una expresión regular extendida de POSIX para coincidir.</p>
+<p>Trata la <em><span class="hover-term" data-term="cadena">&lt;cadena&gt;</span></em> dada en <span class='synopsis'><code>-S</code></span> como una expresión regular extendida de POSIX para coincidir.</p>
 </dd>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscode-Ocodeemltfichero-de-ordenamientogtemspan"> <a class="anchor" href="#git-diff--Ofichero-de-ordenamiento"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode-Ocodeemltfichero-de-ordenamientogtemspan"></a><span class='synopsis'><code>-O</code><em>&lt;fichero-de-ordenamiento&gt;</em></span> </dt>
 <dd>
@@ -1048,7 +1052,7 @@ unmerged       :000000 000000 0000000 0000000 U fichero6</pre>
 <span class='synopsis'><code>rename</code></span> <span class='synopsis'><code>to</code></span> <em>&lt;ruta&gt;</em>
 <span class='synopsis'><code>similarity</code></span> <span class='synopsis'><code>index</code></span> <em>&lt;número&gt;</em>
 <span class='synopsis'><code>dissimilarity</code></span> <span class='synopsis'><code>index</code></span> <em>&lt;número&gt;</em>
-<span class='synopsis'><code>index</code></span> <em>&lt;hash&gt;</em><span class='synopsis'><code>..</code></span><em>&lt;hash&gt;</em> <em>&lt;modo&gt;</em></pre>
+<span class='synopsis'><code>index</code></span> <em><span class="hover-term" data-term="hash">&lt;hash&gt;</span></em><span class='synopsis'><code>..</code></span><em><span class="hover-term" data-term="hash">&lt;hash&gt;</span></em> <em>&lt;modo&gt;</em></pre>
 </div>
 <div class="paragraph">
 <p>Modos de fichero <em>&lt;modo&gt;</em> se imprimen como números octales de 6 dígitos incluyendo el tipo de fichero y los bits de permiso de fichero.</p>
@@ -1147,7 +1151,7 @@ index fabadb8,cc95eb0..4866510
 <li>
 <p>Es seguido por uno o mas líneas de encabezado extendido (este ejemplo muestra una fusión con dos padres):</p>
 <div class="verseblock">
-<pre class="content"><span class='synopsis'><code>index</code></span> <em>&lt;hash&gt;</em><span class='synopsis'><code>,</code></span><em>&lt;hash&gt;</em><span class='synopsis'><code>..</code></span><em>&lt;hash&gt;</em>
+<pre class="content"><span class='synopsis'><code>index</code></span> <em><span class="hover-term" data-term="hash">&lt;hash&gt;</span></em><span class='synopsis'><code>,</code></span><em><span class="hover-term" data-term="hash">&lt;hash&gt;</span></em><span class='synopsis'><code>..</code></span><em><span class="hover-term" data-term="hash">&lt;hash&gt;</span></em>
 <span class='synopsis'><code>mode</code></span> <em>&lt;modo&gt;</em><span class='synopsis'><code>,</code></span><em>&lt;modo&gt;</em><span class='synopsis'><code>..</code></span><em>&lt;modo&gt;</em>
 <span class='synopsis'><code>new</code></span> <span class='synopsis'><code>file</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;modo&gt;</em>
 <span class='synopsis'><code>deleted</code></span> <span class='synopsis'><code>file</code></span> <span class='synopsis'><code>mode</code></span> <em>&lt;modo&gt;</em><span class='synopsis'><code>,</code></span><em>&lt;modo&gt;</em></pre>
@@ -1435,22 +1439,228 @@ $ git diff -R                          <b class="conum">(2)</b></pre>
 <div class="paragraph">
 <p>Todo debajo de ésta línea en ésta sección es incluido selectivamente de la documentación de <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>. El contenido es el mismo al que se encuentra ahí:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>es/config/diff.adoc</code></span></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffautoRefreshIndexcodespan"> <a class="anchor" href="#git-diff-diffautoRefreshIndex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffautoRefreshIndexcodespan"></a><span class='synopsis'><code>diff.autoRefreshIndex</code></span> </dt>
+<dd>
+<p>Cuando se usa <span class='synopsis'><code>git-diff</code></span> para comparar con ficheros del árbol de trabajo, no considera cambios stat-only como changed. En su lugar, ejecuta silenciosamente <span class='synopsis'><code>git</code> <code>update-index</code> <code>--refresh</code></span> para actualizar la información estadística en antememoria para rutas cuyo contenido en el árbol de trabajo coincide con el contenido en el índice. Ésta opción se predetermina a <span class='synopsis'><code>true</code></span>. Nota que esto afecta sólo a <span class='synopsis'><code>git</code> <code>diff</code></span> porcelana, y no a comandos <span class='synopsis'><code>diff</code></span> de mas bajo nivel como <span class='synopsis'><code>git</code> <code>diff-files</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffdirstatcodespan"> <a class="anchor" href="#git-diff-diffdirstat"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffdirstatcodespan"></a><span class='synopsis'><code>diff.dirstat</code></span> </dt>
+<dd>
+<p>Una lista separada por comas de parámetros de <span class='synopsis'><code>--dirstat</code></span> especificando el
+comportamiento predeterminado de la opción <span class='synopsis'><code>--dirstat</code></span> para <span class='synopsis'><code>git</code> <code>diff</code></span> y sus amigos.
+Los predeterminados pueden ser anulados en la línea de comandos
+(usando <span class='synopsis'><code>--dirstat=</code><em>&lt;parámetro&gt;</em><code>,...</code></span>). Los predeterminados por omisión
+(cuando no son modificados por <span class='synopsis'><code>diff.dirstat</code></span>) son <span class='synopsis'><code>changes,noncumulative,3</code></span>.
+Esta disponibles los parámetros siguientes:</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodechangescodespan-1"> <a class="anchor" href="#git-diff-changes-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodechangescodespan-1"></a><span class='synopsis'><code>changes</code></span> </dt>
+<dd>
+<p>Calcula los números de dirstat contando las líneas que han sido eliminadas del origen, o agregadas en el destino. Esto ignora la cantidad de movimientos de código puro dentro del fichero. En otras palabras, el reacomodo de líneas en un fichero no cuenta tanto como otros cambios. Este es el comportamiento predeterminado cuando no se dan parámetros.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodelinescodespan-1"> <a class="anchor" href="#git-diff-lines-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodelinescodespan-1"></a><span class='synopsis'><code>lines</code></span> </dt>
+<dd>
+<p>Calcula los números de dirstat haciendo el análisis de diferencias regular basado en líneas, y sumando los conteos de líneas quitadas/agregadas. (Para ficheros binarios, cuenta en cambio pedazos de 64 bytes, ya que los ficheros binarios no tienen el concepto natural de líneas). Este es un funcionamiento de <span class='synopsis'><code>--dirstat</code></span> mas costoso que <span class='synopsis'><code>changes</code></span>, pero el re-acomodo de líneas dentro de un fichero cuenta tanto como otros cambios. La salida resultante es consistente con lo que obtienes de las otras opciones <span class='synopsis'><code>--*stat</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodefilescodespan-1"> <a class="anchor" href="#git-diff-files-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodefilescodespan-1"></a><span class='synopsis'><code>files</code></span> </dt>
+<dd>
+<p>Calcula los números de dirstat contando el número de ficheros modificados. Cada fichero modificado cuenta igualmente en el análisis de dirstat. Este es el funcionamiento <span class='synopsis'><code>--dirstat</code></span> computacionalmente más barato, ya que no tiene que mirar el contenido del fichero en absoluto.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodecumulativecodespan-1"> <a class="anchor" href="#git-diff-cumulative-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodecumulativecodespan-1"></a><span class='synopsis'><code>cumulative</code></span> </dt>
+<dd>
+<p>Cuenta cambios en un directorio hijo también para el directorio padre. Nota que cuando se usa <span class='synopsis'><code>cumulative</code></span>, la suma de los porcentajes reportados puede exceder 100%. El comportamiento predeterminado (no-acumulativo) se puede especificar con el parámetro <span class='synopsis'><code>noncumulative</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emltlmitegtem-1"> <a class="anchor" href="#git-diff-lmite-1"></a> <a class="anchor" href="#git-diff-emltlmitegtem-1"></a><em>&lt;límite&gt;</em> </dt>
+<dd>
+<p>Un parámetro entero especifica un porcentaje de corte (predeterminado a 3%). Directorios que contribuyan menos que éste porcentaje de cambios no se muestran en la salida.</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>See original version for this content.</p>
+<p>Ejemplo: El siguiente contará ficheros modificados, ignorando directorios con menos del 10% de la cantidad total de ficheros modificados, y acumulando conteos en directorios hijo en los directorios padre: <span class='synopsis'><code>files,10,cumulative</code></span>.</p>
 </div>
-</td>
-</tr>
-</table>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffstatNameWidthcodespan"> <a class="anchor" href="#git-diff-diffstatNameWidth"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffstatNameWidthcodespan"></a><span class='synopsis'><code>diff.statNameWidth</code></span> </dt>
+<dd>
+<p>Limita el ancho de la parte del nombre de fichero en la salida de <span class='synopsis'><code>--stat</code></span>. Si se asigna, aplica a todos los comandos que generan salida <span class='synopsis'><code>--sta</code><code>t</code> <code>exceptuando</code> <code>format-patch</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffstatGraphWidthcodespan"> <a class="anchor" href="#git-diff-diffstatGraphWidth"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffstatGraphWidthcodespan"></a><span class='synopsis'><code>diff.statGraphWidth</code></span> </dt>
+<dd>
+<p>Limita el ancho de la parte del grafo en la salida de <span class='synopsis'><code>--stat</code></span>. Si se asigna, aplica a todos los comandos que generan salida de <span class='synopsis'><code>--stat</code></span> exceptuando <span class='synopsis'><code>format-patch</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcontextcodespan"> <a class="anchor" href="#git-diff-diffcontext"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcontextcodespan"></a><span class='synopsis'><code>diff.context</code></span> </dt>
+<dd>
+<p>Genera diffs con <em>&lt;n&gt;</em> líneas de contexto en lugar de las 3 predeterminadas. El valor es anulado con la opción <span class='synopsis'><code>-U</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffinterHunkContextcodespan"> <a class="anchor" href="#git-diff-diffinterHunkContext"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffinterHunkContextcodespan"></a><span class='synopsis'><code>diff.interHunkContext</code></span> </dt>
+<dd>
+<p>Muestra el contexto entre pedazos de diferencia, hasta el número especificado de líneas, a modo de fusionar los pedazos cercanos. Este valor sirve como predeterminado para la opción de línea de comandos <span class='synopsis'><code>--inter-hunk-context</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffexternalcodespan"> <a class="anchor" href="#git-diff-diffexternal"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffexternalcodespan"></a><span class='synopsis'><code>diff.external</code></span> </dt>
+<dd>
+<p>Si se asigna esta variable de configuración, las generación de diferencias no se hace con la maquinaria interna de diferencias, sino usando el comando dado. Puede ser anulado con la variable de ambiente <span class='synopsis'><code>GIT_EXTERNAL_DIFF</code></span>. El comando es llamado con parámetros como se describe en "Diferencias de Git" en <a href='{{< relurl "docs/git/es" >}}'>git[1]</a>. Nota: si quieres usar un programa de diferencias externo sólo en un subconjunto de tus ficheros, en su lugar querrías usar <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodedifftrustExitCodecodespan"> <a class="anchor" href="#git-diff-difftrustExitCode"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodedifftrustExitCodecodespan"></a><span class='synopsis'><code>diff.trustExitCode</code></span> </dt>
+<dd>
+<p>Si a este valor booleano se le asigna <span class='synopsis'><code>true</code></span> entonces se espera que el comando <span class='synopsis'><code>diff.external</code></span> regrese un código de salida 0 si considera que los ficheros de entrada son iguales, o 1 si considera que son diferentes, como <span class='synopsis'><code>diff</code></span>(1). Si se le asigna <span class='synopsis'><code>false</code></span>, el cual es el predeterminado, entonces se espera que el comando regrese un código de salida <span class='synopsis'><code>0</code></span> independientemente de la igualdad. Cualquier otro código de salida provoca a Git a reportar un error fatal.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffignoreSubmodulescodespan"> <a class="anchor" href="#git-diff-diffignoreSubmodules"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffignoreSubmodulescodespan"></a><span class='synopsis'><code>diff.ignoreSubmodules</code></span> </dt>
+<dd>
+<p>Asigna el valor predeterminado de <span class='synopsis'><code>--ignore-submodules</code></span>. Nota que esto afecta sólo a la porcelana <span class='synopsis'><code>git</code> <code>diff</code></span>, y no a los comandos <span class='synopsis'><code>diff</code></span> de mas bajo nivel como <span class='synopsis'><code>git</code> <code>diff-files</code></span>. <span class='synopsis'><code>git</code> <code>checkout</code></span> y <span class='synopsis'><code>git</code> <code>switch</code></span> también respetan esta configuración cuando se reportan cambios sin confirmar. Asignándole <span class='synopsis'><code>all</code></span> deshabilita el resumen de sub-módulos normalmente mostrado por <span class='synopsis'><code>git</code> <code>commit</code></span> y <span class='synopsis'><code>git</code> <code>status</code></span> cuando se asigna <span class='synopsis'><code>status.submoduleSummary</code></span> a menos que sea anulado por la opción de línea de comando <span class='synopsis'><code>--ignore-submodules</code></span>. Los comandos <span class='synopsis'><code>git</code> <code>submodule</code></span> no son afectados por esta configuración. Predeterminadamente se le asigna untracked, de tal manera que cualquier sub-módulo sin rastreo es ignorado.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffmnemonicPrefixcodespan"> <a class="anchor" href="#git-diff-diffmnemonicPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffmnemonicPrefixcodespan"></a><span class='synopsis'><code>diff.mnemonicPrefix</code></span> </dt>
+<dd>
+<p>Si se asigna, <span class='synopsis'><code>git</code> <code>diff</code></span> usa un par de prefijos distintos a los estándar <span class='synopsis'><code>a/</code></span> y <span class='synopsis'><code>b/</code></span> dependiendo de lo que se esté comparando. Cuando ésta configuración está en efecto, la salida de la diferencia inversa también intercambia el orden de los prefijos:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodespan"> <a class="anchor" href="#git-diff-gitdiff"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodespan"></a><span class='synopsis'><code>git</code> <code>diff</code></span> </dt>
+<dd>
+<p>compara el índice (i) y árbol de trabajo (w);</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecodeHEADcodespan"> <a class="anchor" href="#git-diff-gitdiffHEAD"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecodeHEADcodespan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>HEAD</code></span> </dt>
+<dd>
+<p>compara una (c)onfirmación y el árbol de trabajo (w);</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecode--cachedcodespan"> <a class="anchor" href="#git-diff-gitdiff--cached"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecode--cachedcodespan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span> </dt>
+<dd>
+<p>compara una (c)onfirmación y el índice (i);</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsisemgitdiffHEADltfichero1gtltfichero2gtemspan"> <a class="anchor" href="#git-diff-gitdiffHEADfichero1fichero2"></a> <a class="anchor" href="#git-diff-spanclasssynopsisemgitdiffHEADltfichero1gtltfichero2gtemspan"></a><span class='synopsis'><em>git diff HEAD:&lt;fichero1&gt;&lt; fichero2&gt;</em></span> </dt>
+<dd>
+<p>compara un (o)bjeto y una entidad de árbol de trabajo (w);</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecode--no-indexcodeemltagtememltbgtemspan"> <a class="anchor" href="#git-diff-gitdiff--no-indexab"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecode--no-indexcodeemltagtememltbgtemspan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>--no-index</code> <em>&lt;a&gt;</em> <em>&lt;b&gt;</em></span> </dt>
+<dd>
+<p>compara dos cosas no-git <em>&lt;a&gt;</em> y <em>&lt;b&gt;</em>.</p>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffnoPrefixcodespan"> <a class="anchor" href="#git-diff-diffnoPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffnoPrefixcodespan"></a><span class='synopsis'><code>diff.noPrefix</code></span> </dt>
+<dd>
+<p>Si se asigna, <span class='synopsis'><code>git</code> <code>diff</code></span> no muestra ningún prefijo de origen o de destino.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffsrcPrefixcodespan"> <a class="anchor" href="#git-diff-diffsrcPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffsrcPrefixcodespan"></a><span class='synopsis'><code>diff.srcPrefix</code></span> </dt>
+<dd>
+<p>Si se asigna, <span class='synopsis'><code>git</code> <code>diff</code></span> usa este prefijo de origen. Predeterminado a <span class='synopsis'><code>a/</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffdstPrefixcodespan"> <a class="anchor" href="#git-diff-diffdstPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffdstPrefixcodespan"></a><span class='synopsis'><code>diff.dstPrefix</code></span> </dt>
+<dd>
+<p>Si se asigna, <span class='synopsis'><code>git</code> <code>diff</code></span> usa este prefijo de destino. Predeterminado a <span class='synopsis'><code>b/</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffrelativecodespan"> <a class="anchor" href="#git-diff-diffrelative"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffrelativecodespan"></a><span class='synopsis'><code>diff.relative</code></span> </dt>
+<dd>
+<p>Si se le asigna <span class='synopsis'><code>true</code></span>, <span class='synopsis'><code>git</code> <code>diff</code></span> no muestra cambios fuera del directorio y muestra nombres de ruta relativos al directorio actual.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodedifforderFilecodespan"> <a class="anchor" href="#git-diff-difforderFile"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodedifforderFilecodespan"></a><span class='synopsis'><code>diff.orderFile</code></span> </dt>
+<dd>
+<p>Fichero que indica cómo ordenar los ficheros dentro de una diff.
+Ver la opción <span class='synopsis'><code>-O</code></span> para detalles.
+Si <span class='synopsis'><code>diff.orderFile</code></span> es un nombre de ruta relativo, es tratado como
+relativo al tope del árbol de trabajo.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffrenameLimitcodespan"> <a class="anchor" href="#git-diff-diffrenameLimit"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffrenameLimitcodespan"></a><span class='synopsis'><code>diff.renameLimit</code></span> </dt>
+<dd>
+<p>El número de ficheros a considerar en la porción exhaustiva de detección de copia/cambio de nombre; equivalente a la opción <span class='synopsis'><code>-l</code></span> de <span class='synopsis'><code>git</code> <code>diff</code></span>. Si no se asigna, el valor predeterminado actualmente es 1000. Esta configuración no tiene efecto si la detección de cambio de nombre esta apagada.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffrenamescodespan"> <a class="anchor" href="#git-diff-diffrenames"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffrenamescodespan"></a><span class='synopsis'><code>diff.renames</code></span> </dt>
+<dd>
+<p>Si y cómo Git detecta cambios de nombre. Si se le asigna <span class='synopsis'><code>false</code></span>, se deshabilita la detección de cambios de nombre. Si se le asigna <span class='synopsis'><em>true, se habilita la detección básica de cambios de nombre. Si se le asigna `copies</em></span> o <span class='synopsis'><code>copy</code></span>, Git detectará también copias. Predeterminado a <span class='synopsis'><code>true</code></span>. Nota que esto sólo afecta a <span class='synopsis'><code>git</code> <code>diff</code></span> porcelanas como <a href='{{< relurl "docs/git-diff/es" >}}'>git-diff[1]</a> y <a href='{{< relurl "docs/git-log/es" >}}'>git-log[1]</a>, y no a comandos de nivel mas bajo como <a href='{{< relurl "docs/git-diff-files/es" >}}'>git-diff-files[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffsuppressBlankEmptycodespan"> <a class="anchor" href="#git-diff-diffsuppressBlankEmpty"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffsuppressBlankEmptycodespan"></a><span class='synopsis'><code>diff.suppressBlankEmpty</code></span> </dt>
+<dd>
+<p>Un booleano para inhibir la comportamiento estándar de imprimir un espacio antes de cada línea de salida vacía. Predeterminado a <span class='synopsis'><code>false</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffsubmodulecodespan"> <a class="anchor" href="#git-diff-diffsubmodule"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffsubmodulecodespan"></a><span class='synopsis'><code>diff.submodule</code></span> </dt>
+<dd>
+<p>Especifica el formato en el que se muestran las diferencias en submódulos. El formato <span class='synopsis'><code>short</code></span> sólo muestra nombres de las confirmaciones al principio y al fin del rango. El formato <span class='synopsis'><code>log</code></span> lista las confirmaciones en el rango como lo hace <a href='{{< relurl "docs/git-submodule/es" >}}'>git-submodule[1]</a> <span class='synopsis'><code>summary</code></span>. El formato <span class='synopsis'><code>diff</code></span> muestra un diff en-linea de los contenidos modificados del submódulo. Se predetermina a <span class='synopsis'><code>short</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffwordRegexcodespan"> <a class="anchor" href="#git-diff-diffwordRegex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffwordRegexcodespan"></a><span class='synopsis'><code>diff.wordRegex</code></span> </dt>
+<dd>
+<p>Una Expresión Regular Extendida de POSIX usada para determinar qué es una "palabra" cuando se calculan diferencias palabra por palabra. Secuencias de caracteres que coincidan con la expresión regular son "palabras", todos los demás caracteres son espacios en blanco <strong>ignorables</strong>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodecommandcodespan"> <a class="anchor" href="#git-diff-diffcontroladorcommand"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodecommandcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.command</code></span> </dt>
+<dd>
+<p>El comando de controlador de diff personalizado. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a> para detalles.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodecodecodetrustExitCodecodespan"> <a class="anchor" href="#git-diff-diffcontroladortrustExitCode"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodecodecodetrustExitCodecodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.</code> <code>trustExitCode</code></span> </dt>
+<dd>
+<p>Si a este valor booleano se le asigna <span class='synopsis'><code>true</code></span> entonces se espera que el comando <span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.command</code></span> regrese un código de salida 0 si considera que los ficheros de entrada son iguales, o 1 si considera que son diferentes, como <span class='synopsis'><code>diff</code></span>(1). Si se le asigna <span class='synopsis'><code>false</code></span>, el cual es el predeterminado, entonces se espera que el comando regrese un código de salida 0 independientemente de la igualdad. Cualquier otro código de salida provoca a Git a reportar un error fatal.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodexfuncnamecodespan"> <a class="anchor" href="#git-diff-diffcontroladorxfuncname"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodexfuncnamecodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.xfuncname</code></span> </dt>
+<dd>
+<p>La expresión regular que el controlador de diff puede usar para reconocer el encabezado de bloque. También se puede usar un patrón inter-construido. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a> para detalles.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodebinarycodespan"> <a class="anchor" href="#git-diff-diffcontroladorbinary"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodebinarycodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.binary</code></span> </dt>
+<dd>
+<p>Asigne a esta opción <span class='synopsis'><code>true</code></span> para hacer que el controlador de diferencias trate a los ficheros como binarios. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a> para detalles.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodetextconvcodespan"> <a class="anchor" href="#git-diff-diffcontroladortextconv"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodetextconvcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.textconv</code></span> </dt>
+<dd>
+<p>El comando al que el controlador de diferencias debe llamar para generar la versión convertida a texto de un fichero. El resultado de la conversión es usado para generar una diferencia legible al humano. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a> para detalles.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodewordRegexcodespan"> <a class="anchor" href="#git-diff-diffcontroladorwordRegex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodewordRegexcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.wordRegex</code></span> </dt>
+<dd>
+<p>La expresión regular que el controlador de diferencias debe usar para dividir palabras en una línea. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a> para detalles.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodecachetextconvcodespan"> <a class="anchor" href="#git-diff-diffcontroladorcachetextconv"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltcontroladorgtemcodecachetextconvcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;controlador&gt;</em><code>.cachetextconv</code></span> </dt>
+<dd>
+<p>Asigne a esta opción <span class='synopsis'><code>true</code></span> para hacer que el controlador de diferencias antememorice las salidas de conversión de texto. Ver <a href='{{< relurl "docs/gitattributes/es" >}}'>gitattributes[5]</a> para detalles.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffindentHeuristiccodespan"> <a class="anchor" href="#git-diff-diffindentHeuristic"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffindentHeuristiccodespan"></a><span class='synopsis'><code>diff.indentHeuristic</code></span> </dt>
+<dd>
+<p>Asignar a esta opción <span class='synopsis'><code>false</code></span> para deshabilitar la heurística predeterminada que aumenta los límites de fragmentos de diff para facilitar la lectura de los parches.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffalgorithmcodespan"> <a class="anchor" href="#git-diff-diffalgorithm"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffalgorithmcodespan"></a><span class='synopsis'><code>diff.algorithm</code></span> </dt>
+<dd>
+<p>Elige un algoritmo de diff. La variantes son las siguientes:</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodedefaultcodespan-1-1"> <a class="anchor" href="#git-diff-default-1-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodedefaultcodespan-1-1"></a><span class='synopsis'><code>default</code></span> </dt>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodemyerscodespan-1"> <a class="anchor" href="#git-diff-myers-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodemyerscodespan-1"></a><span class='synopsis'><code>myers</code></span> </dt>
+<dd>
+<p>El algoritmo diff básico avaro. Actualmente, éste es el predeterminado.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodeminimalcodespan-1"> <a class="anchor" href="#git-diff-minimal-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodeminimalcodespan-1"></a><span class='synopsis'><code>minimal</code></span> </dt>
+<dd>
+<p>Ocupa tiempo extra para asegurarse que se produce el diff más pequeño posible.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodepatiencecodespan-1"> <a class="anchor" href="#git-diff-patience-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodepatiencecodespan-1"></a><span class='synopsis'><code>patience</code></span> </dt>
+<dd>
+<p>Usa el algoritmo "diff paciente" al generar parches.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodehistogramcodespan-1"> <a class="anchor" href="#git-diff-histogram-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodehistogramcodespan-1"></a><span class='synopsis'><code>histogram</code></span> </dt>
+<dd>
+<p>Este algoritmo extiende el algoritmo paciente para "soportar elementos comunes de baja ocurrencia".</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffwsErrorHighlightcodespan"> <a class="anchor" href="#git-diff-diffwsErrorHighlight"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffwsErrorHighlightcodespan"></a><span class='synopsis'><code>diff.wsErrorHighlight</code></span> </dt>
+<dd>
+<p>Resalta errores de espacio en blanco en las líneas <span class='synopsis'><code>context</code></span>, <span class='synopsis'><code>old</code>  <code>o</code> <code>new</code></span> del diff. Valores múltiples se separan con coma, <span class='synopsis'><code>none</code></span> restablece valores previos, <span class='synopsis'><code>default</code></span> restablece la lista a <span class='synopsis'><code>new</code></span> y <span class='synopsis'><code>all</code></span> es una forma corta de <span class='synopsis'><code>old,new,context</code></span>. Los errores de espacio en blanco se colorean con <span class='synopsis'><code>color.diff.whitespace</code></span>. La opción de línea de comandos `--ws-error-highlight=&lt;tipo&gt;`anula ésta configuración.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcolorMovedcodespan"> <a class="anchor" href="#git-diff-diffcolorMoved"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcolorMovedcodespan"></a><span class='synopsis'><code>diff.colorMoved</code></span> </dt>
+<dd>
+<p>Ya sea que se le asigne un <em>&lt;modo&gt;</em> válido o el valor <span class='synopsis'><code>true</code></span>, las líneas movidas en una diferencia se colorean diferente.
+Para detalles de modos válidos ver <span class='synopsis'><code>--color-moved</code></span>.
+Si se asigna simplemente <span class='synopsis'><code>true</code></span> se usará el modo de color predeterminado. Cuando
+se asigna <span class='synopsis'><code>false</code></span>, las líneas movidas no serán coloreadas.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcolorMovedWScodespan"> <a class="anchor" href="#git-diff-diffcolorMovedWS"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcolorMovedWScodespan"></a><span class='synopsis'><code>diff.colorMovedWS</code></span> </dt>
+<dd>
+<p>Cuando las líneas movidas son coloreadas, usando por ejemplo la configuración <span class='synopsis'><code>diff.colorMoved</code></span>, esta opción controla cómo el modo trata a los espacios. Para detalles de los modos válidos ver <span class='synopsis'><code>--color-moved-ws</code></span> en <a href='{{< relurl "docs/git-diff/es" >}}'>git-diff[1]</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

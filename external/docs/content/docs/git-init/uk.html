@@ -169,7 +169,7 @@ headings:
 <p>За замовчуванням прапорець конфігурації <span class='synopsis'><code>receive.denyNonFastForwards</code></span> увімкнено у спільних репозиторіях, тому ви не можете примусово надіслати туди дані без швидкого перемотування вперед.</p>
 </div>
 <div class="paragraph">
-<p>Якщо ви вкажете <em>&lt;каталог&gt;</em>, команда виконується всередині нього. Якщо цей каталог не існує, його буде створено.</p>
+<p>Якщо ви вкажете <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em>, команда виконується всередині нього. Якщо цей каталог не існує, його буде створено.</p>
 </div>
 </div>
 </div>
@@ -248,22 +248,25 @@ $ git commit    <b class="conum">(3)</b></pre>
 <div class="paragraph">
 <p>Все, що знаходиться нижче цього рядка в цьому розділі, вибірково включено з документації <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Вміст такий самий, як і там:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>uk/config/init.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinittemplateDircodespan"> <a class="anchor" href="#git-init-inittemplateDir"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinittemplateDircodespan"></a><span class='synopsis'><code>init.templateDir</code></span> </dt>
+<dd>
+<p>Вкажіть каталог, з якого будуть скопійовані шаблони. </p>
+</dd>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinitdefaultBranchcodespan"> <a class="anchor" href="#git-init-initdefaultBranch"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinitdefaultBranchcodespan"></a><span class='synopsis'><code>init.defaultBranch</code></span> </dt>
+<dd>
+<p>Дозволяє перевизначити назву гілки за замовчуванням, наприклад, під час ініціалізації нового репозиторію.</p>
+</dd>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"> <a class="anchor" href="#git-init-initdefaultObjectFormat"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"></a><span class='synopsis'><code>init.defaultObjectFormat</code></span> </dt>
+<dd>
+<p>Дозволяє перевизначати формат об&#8217;єктів за замовчуванням для нових репозиторіїв. Див. <span class='synopsis'><code>--object-format=</code></span> у <a href='{{< relurl "docs/git-init/uk" >}}'>git-init[1]</a>. Як параметр командного рядка, так і змінна середовища <span class='synopsis'><code>GIT_DEFAULT_HASH</code></span> мають пріоритет над цією конфігурацією.</p>
+</dd>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinitdefaultRefFormatcodespan"> <a class="anchor" href="#git-init-initdefaultRefFormat"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinitdefaultRefFormatcodespan"></a><span class='synopsis'><code>init.defaultRefFormat</code></span> </dt>
+<dd>
+<p>Дозволяє перевизначити формат зберігання посилань за замовчуванням для нових репозиторіїв. Див. <span class='synopsis'><code>--ref-format=</code></span> у <a href='{{< relurl "docs/git-init/uk" >}}'>git-init[1]</a>. Як параметр командного рядка, так і змінна середовища <span class='synopsis'><code>GIT_DEFAULT_REF_FORMAT</code></span> мають пріоритет над цією конфігурацією.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

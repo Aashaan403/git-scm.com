@@ -971,22 +971,17 @@ http.sslverify false</pre>
 <div class="paragraph">
 <p>其他与 git 相关的工具可能也确实使用了他们自己的变量。 当发明新的变量用于自己的工具时，要确保它们的名字不与 Git 本身和其他流行的工具所使用的名字冲突，并在你的文档中描述它们。</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/add.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeaddignoreErrorscodespan"> <a class="anchor" href="#git-config-addignoreErrors"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeaddignoreErrorscodespan"></a><span class='synopsis'><code>add.ignoreErrors</code></span> </dt>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeaddignore-errorscodespandeprecated"> <a class="anchor" href="#git-config-addignore-errorsdeprecated"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeaddignore-errorscodespandeprecated"></a><span class='synopsis'><code>add.ignore-errors</code></span> (deprecated 弃用) </dt>
+<dd>
+<p>当某些文件由于索引错误而无法添加时，使用 <span class='synopsis'><code>git</code> <code>add</code></span> 以继续添加文件。
+等同于 <a href='{{< relurl "docs/git-add/zh_HANS-CN" >}}'>git-add[1]</a> 的 <span class='synopsis'><code>--ignore-errors</code></span> 选项。
+<span class='synopsis'><code>add.ignore-errors</code></span> 已经被弃用，
+因为它不符合配置变量的常规命名约定。</p>
+</dd>
+</dl>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1192,22 +1187,24 @@ http.sslverify false</pre>
 </tr>
 </table>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/clone.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"> <a class="anchor" href="#git-config-clonedefaultRemoteName"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"></a><span class='synopsis'><code>clone.defaultRemoteName</code></span> </dt>
+<dd>
+<p>克隆仓库时创建的远程仓库的名称。默认为 <span class='synopsis'><code>--origin</code></span>。
+它可以通过向 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a>
+传递 <span class='synopsis'><code>--origin</code></span> 命令行选项来覆盖。</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeclonerejectShallowcodespan"> <a class="anchor" href="#git-config-clonerejectShallow"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeclonerejectShallowcodespan"></a><span class='synopsis'><code>clone.rejectShallow</code></span> </dt>
+<dd>
+<p>如果是浅层仓库，则拒绝克隆；可以通过在命令行中传递 <span class='synopsis'><code>--reject-shallow</code></span> 选项来重写。
+参见 <a href='{{< relurl "docs/git-clone/zh_HANS-CN" >}}'>git-clone[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeclonefilterSubmodulescodespan"> <a class="anchor" href="#git-config-clonefilterSubmodules"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeclonefilterSubmodulescodespan"></a><span class='synopsis'><code>clone.filterSubmodules</code></span> </dt>
+<dd>
+<p>如果提供了部分克隆过滤器（参见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a> 中的 <span class='synopsis'><code>--filter</code></span> 选项），并且如果使用了 <span class='synopsis'><code>--recurse-submodules</code></span> 选项，也会将过滤器应用于子模块。</p>
+</dd>
+</dl>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -1719,22 +1716,25 @@ http.sslverify false</pre>
 </tr>
 </table>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/init.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeinittemplateDircodespan"> <a class="anchor" href="#git-config-inittemplateDir"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeinittemplateDircodespan"></a><span class='synopsis'><code>init.templateDir</code></span> </dt>
+<dd>
+<p>指定将要复制模板的目录。(See the "TEMPLATE DIRECTORY" section of <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a>.)</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeinitdefaultBranchcodespan"> <a class="anchor" href="#git-config-initdefaultBranch"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeinitdefaultBranchcodespan"></a><span class='synopsis'><code>init.defaultBranch</code></span> </dt>
+<dd>
+<p>允许覆盖默认分支名称，例如在初始化新仓库时。</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"> <a class="anchor" href="#git-config-initdefaultObjectFormat"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"></a><span class='synopsis'><code>init.defaultObjectFormat</code></span> </dt>
+<dd>
+<p>允许覆写新仓库的对象格式。参见 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 中的 <span class='synopsis'><code>--object-format=</code></span>。并且，命令行选项和环境变量 <span class='synopsis'><code>GIT_DEFAULT_HASH</code></span> 都优先于该配置。</p>
+</dd>
+<dt class="hdlist1" id="git-config-spanclasssynopsiscodeinitdefaultRefFormatcodespan"> <a class="anchor" href="#git-config-initdefaultRefFormat"></a> <a class="anchor" href="#git-config-spanclasssynopsiscodeinitdefaultRefFormatcodespan"></a><span class='synopsis'><code>init.defaultRefFormat</code></span> </dt>
+<dd>
+<p>允许覆写新仓库的引用存储格式。参见 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 中的 <span class='synopsis'><code>--ref-format=</code></span>。命令行选项和环境变量 <span class='synopsis'><code>GIT_DEFAULT_REF_FORMAT</code></span> 都优先于该配置。</p>
+</dd>
+</dl>
 </div>
 <div class="admonitionblock warning">
 <table>

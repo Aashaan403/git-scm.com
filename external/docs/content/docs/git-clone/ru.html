@@ -477,39 +477,43 @@ $ cd my-linux</pre>
 <div class="paragraph">
 <p>Дальнейшее содержание этого раздела, повторяет то, что может быть найдено в <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>ru/config/init.adoc</code></span></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinittemplateDircodespan"> <a class="anchor" href="#git-clone-inittemplateDir"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinittemplateDircodespan"></a><span class='synopsis'><code>init.templateDir</code></span> </dt>
+<dd>
+<p>Задаёт каталог, из которого будут копироваться шаблоны. (See the "TEMPLATE DIRECTORY" section of <a href='{{< relurl "docs/git-init/ru" >}}'>git-init[1]</a>.)</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultBranchcodespan"> <a class="anchor" href="#git-clone-initdefaultBranch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultBranchcodespan"></a><span class='synopsis'><code>init.defaultBranch</code></span> </dt>
+<dd>
+<p>Позволяет переопределить имя ветки по умолчанию, которое, например, используется при инициализации нового репозитория.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"> <a class="anchor" href="#git-clone-initdefaultObjectFormat"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"></a><span class='synopsis'><code>init.defaultObjectFormat</code></span> </dt>
+<dd>
+<p>Позволяет переопределить формат объектов по умолчанию для новых репозиториев. См. <span class='synopsis'><code>--object-format=</code></span> в <a href='{{< relurl "docs/git-init/ru" >}}'>git-init[1]</a>. Как этот параметр командной строки, так и переменная среды <span class='synopsis'><code>GIT_DEFAULT_HASH</code></span> являются более приоритетными, чем данная переменная конфигурации.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultRefFormatcodespan"> <a class="anchor" href="#git-clone-initdefaultRefFormat"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultRefFormatcodespan"></a><span class='synopsis'><code>init.defaultRefFormat</code></span> </dt>
+<dd>
+<p>Позволяет переопределить формат хранения ссылок по умолчанию для новых репозиториев. См. <span class='synopsis'><code>--ref-format=</code></span> в <a href='{{< relurl "docs/git-init/ru" >}}'>git-init[1]</a>. Как этот параметр командной строки, так и переменная среды <span class='synopsis'><code>GIT_DEFAULT_REF_FORMAT</code></span> являются более приоритетными, чем данная переменная конфигурации.</p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>ru/config/clone.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"> <a class="anchor" href="#git-clone-clonedefaultRemoteName"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"></a><span class='synopsis'><code>clone.defaultRemoteName</code></span> </dt>
+<dd>
+<p>Имя, которое будет использоваться для удалённого репозитория при его клонировании. По умолчанию: <span class='synopsis'><code>origin</code></span>.
+Его можно переопределить, передав параметр командной строки
+<span class='synopsis'><code>--origin</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonerejectShallowcodespan"> <a class="anchor" href="#git-clone-clonerejectShallow"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonerejectShallowcodespan"></a><span class='synopsis'><code>clone.rejectShallow</code></span> </dt>
+<dd>
+<p>Отказаться от клонирования репозитория, если он является частичным (shallow); это поведение можно переопределить, передав параметр командной строки <span class='synopsis'><code>--reject-shallow</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonefilterSubmodulescodespan"> <a class="anchor" href="#git-clone-clonefilterSubmodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonefilterSubmodulescodespan"></a><span class='synopsis'><code>clone.filterSubmodules</code></span> </dt>
+<dd>
+<p>Если задан фильтр частичного клонирования (см. <span class='synopsis'><code>--filter</code></span> в <a href='{{< relurl "docs/git-rev-list/ru" >}}'>git-rev-list[1]</a>) и используется <span class='synopsis'><code>--recurse-submodules</code></span>, то применять фильтр также и к подмодулям.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

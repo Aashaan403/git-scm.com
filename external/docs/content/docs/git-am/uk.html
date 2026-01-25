@@ -200,6 +200,18 @@ headings:
 <dt class="hdlist1" id="git-am---committer-date-is-author-date"> <a class="anchor" href="#git-am---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
 <dd>
 <p>За замовчуванням команда записує дату з електронного повідомлення як дату автора коміту, а час створення коміту використовує як дату комітера. Це дозволяє користувачеві приховувати дату комітера, використовуючи те саме значення, що й дату автора.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Механізм перегляду історії припускає, що коміти мають незменшувальні позначки часу комітів. Вам слід подумати, чи дійсно вам потрібно використовувати цю опцію. Тоді вам слід використовувати її лише для перевизначення дати коміта під час застосування комітів поверх базового коміта, коміт якого старший (з точки зору дати коміта), ніж найстаріший патч, який ви застосовуєте.
+</td>
+</tr>
+</table>
+</div>
 </dd>
 <dt class="hdlist1" id="git-am---ignore-date"> <a class="anchor" href="#git-am---ignore-date"></a>--ignore-date </dt>
 <dd>

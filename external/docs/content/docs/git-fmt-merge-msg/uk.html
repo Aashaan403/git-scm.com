@@ -78,7 +78,7 @@ headings:
 <dd>
 <p>Використовуйте &lt;message&gt; замість назв гілок для першого рядка повідомлення журналу. Для використання з <span class='synopsis'><code>--log</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-fmt-merge-msg---into-nameltgt"> <a class="anchor" href="#git-fmt-merge-msg---into-name"></a> <a class="anchor" href="#git-fmt-merge-msg---into-nameltgt"></a>--into-name &lt;гілка&gt; </dt>
+<dt class="hdlist1" id="git-fmt-merge-msg---into-nameltgt"> <a class="anchor" href="#git-fmt-merge-msg---into-name"></a> <a class="anchor" href="#git-fmt-merge-msg---into-nameltgt"></a>--into-name <span class="hover-term" data-term="гілка">&lt;гілка&gt;</span> </dt>
 <dd>
 <p>Підготуйте повідомлення про злиття так, ніби злиття здійснюється з гілкою <span class='synopsis'><em>&lt;branch&gt;</em></span>, замість назви реальної гілки, з якою виконується злиття.</p>
 </dd>
@@ -94,22 +94,24 @@ headings:
 <div class="sect1">
 <h2 id="_конфігурація"><a class="anchor" href="#_конфігурація"></a>КОНФІГУРАЦІЯ</h2>
 <div class="sectionbody">
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-fmt-merge-msg-spanclasssynopsiscodemergebranchdesccodespan"> <a class="anchor" href="#git-fmt-merge-msg-mergebranchdesc"></a> <a class="anchor" href="#git-fmt-merge-msg-spanclasssynopsiscodemergebranchdesccodespan"></a><span class='synopsis'><code>merge.branchdesc</code></span> </dt>
+<dd>
+<p>Окрім назв гілок, заповніть повідомлення журналу текстом опису гілок, пов’язаним із ними. Значення за замовчуванням – false.</p>
+</dd>
+<dt class="hdlist1" id="git-fmt-merge-msg-spanclasssynopsiscodemergelogcodespan"> <a class="anchor" href="#git-fmt-merge-msg-mergelog"></a> <a class="anchor" href="#git-fmt-merge-msg-spanclasssynopsiscodemergelogcodespan"></a><span class='synopsis'><code>merge.log</code></span> </dt>
+<dd>
+<p>Окрім назв гілок, заповніть повідомлення журналу щонайбільше вказаною кількістю однорядкових описів з фактичних комітів, що об&#8217;єднуються. За замовчуванням встановлено значення false, а true є синонімом 20.</p>
+</dd>
+<dt class="hdlist1" id="git-fmt-merge-msg-spanclasssynopsiscodemergesuppressDestcodespan"> <a class="anchor" href="#git-fmt-merge-msg-mergesuppressDest"></a> <a class="anchor" href="#git-fmt-merge-msg-spanclasssynopsiscodemergesuppressDestcodespan"></a><span class='synopsis'><code>merge.suppressDest</code></span> </dt>
+<dd>
+<p>Додаючи глобальний об&#8217;єкт, який відповідає назвам гілок інтеграції, до цієї багатозначної змінної конфігурації, повідомлення про злиття за замовчуванням, обчислене для злиття в ці гілки інтеграції, пропускатиме "into <em>&lt;назва-гілки&gt;</em>" у своєму заголовку.</p>
 <div class="paragraph">
-<p>Missing <span class='synopsis'><code>uk/config/fmt-merge-msg.adoc</code></span></p>
+<p>Елемент із порожнім значенням можна використовувати для очищення списку глобусів, накопичених з попередніх записів конфігурації. Якщо змінна <span class='synopsis'><code>merge.suppressDest</code></span> не визначена, для зворотної сумісності використовується значення <span class='synopsis'><code>master</code></span> за замовчуванням.</p>
 </div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+</dd>
+</dl>
 </div>
 <div class="dlist">
 <dl>

@@ -149,7 +149,7 @@ headings:
 <div class="title">Note</div>
 </td>
 <td class="content">
-When starting the rebase, <span class='synopsis'><code>ORIG_HEAD</code></span> is set to point to the commit at the tip of the to-be-rebased branch. However, <span class='synopsis'><code>ORIG_HEAD</code></span> is not guaranteed to still point to that commit at the end of the rebase if other commands that change <span class='synopsis'><code>ORIG_HEAD</code></span> (like <span class='synopsis'><code>git</code> <code>reset</code></span>) are used during the rebase. The previous branch tip, however, is accessible using the reflog of the current branch (i.e. <span class='synopsis'><code>@{1}</code></span>, see <a href='{{< relurl "docs/gitrevisions/zh_HANS-CN" >}}'>gitrevisions[7]</a>.
+When starting the rebase, <span class='synopsis'><code>ORIG_HEAD</code></span> is set to point to the commit at the tip of the to-be-rebased branch. However, <span class='synopsis'><code>ORIG_HEAD</code></span> is not guaranteed to still point to that commit at the end of the rebase if other commands that change <span class='synopsis'><code>ORIG_HEAD</code></span> (like <span class='synopsis'><code>git</code> <code>reset</code></span>) are used during the rebase. The previous branch tip, however, is accessible using the reflog of the current branch (i.e. <span class='synopsis'><code>@{1}</code></span>, see <a href='{{< relurl "docs/gitrevisions/zh_HANS-CN" >}}'>gitrevisions[7]</a>).
 </td>
 </tr>
 </table>
@@ -538,6 +538,18 @@ When starting the rebase, <span class='synopsis'><code>ORIG_HEAD</code></span> i
 <dt class="hdlist1" id="git-rebase---committer-date-is-author-date"> <a class="anchor" href="#git-rebase---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
 <dd>
 <p>不使用当前时间作为提交者日期，而是使用被重定向的提交的作者日期作为提交者日期。该选项暗含 <span class='synopsis'><code>--force-rebase</code></span> 选项。</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+The history walking machinery assumes that commits have non-decreasing commit timestamps. You should consider if you really need to use this option. Then you should only use this option to override the committer date when rebasing commits on top of a base which commit is older (in terms of the commit date) than the oldest commit you are applying (in terms of the author date).
+</td>
+</tr>
+</table>
+</div>
 </dd>
 <dt class="hdlist1" id="git-rebase---ignore-date"> <a class="anchor" href="#git-rebase---ignore-date"></a>--ignore-date </dt>
 <dt class="hdlist1" id="git-rebase---reset-author-date"> <a class="anchor" href="#git-rebase---reset-author-date"></a>--reset-author-date </dt>

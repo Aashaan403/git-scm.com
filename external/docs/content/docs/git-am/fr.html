@@ -46,7 +46,7 @@ headings:
 <pre class="content"><em>git am</em> [--signoff] [--keep] [--[no-]keep-cr] [--[no-]utf8]] [--no-verify]
 	 [--[no-]3way] [--interactive] [--committer-date-is-author-date]
 	 [--ignore-date] [--ignore-space-change | --ignore-whitespace]
-	 [--whitespace=&lt;action&gt;] [-C&lt;n&gt;] [-p&lt;n&gt;] [--directory=&lt;répertoire&gt;]
+	 [--whitespace=&lt;action&gt;] [-C&lt;n&gt;] [-p&lt;n&gt;] [--directory=<span class="hover-term" data-term="répertoire">&lt;répertoire&gt;</span>]
 	 [--exclude=&lt;path&gt;] [--include=&lt;path&gt;] [--reject] [-q | --quiet]
 	 [--[no-]scissors] [-S[&lt;idclé&gt;]] [--patch-format=&lt;format&gt;]
 	 [--quoted-cr=&lt;action&gt;]
@@ -202,6 +202,18 @@ headings:
 <dt class="hdlist1" id="git-am---committer-date-is-author-date"> <a class="anchor" href="#git-am---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
 <dd>
 <p>Par défaut, la commande enregistre la date du message électronique comme date de l&#8217;auteur du commit, et utilise l&#8217;heure de création du commit comme date du validateur. Cela permet à l&#8217;utilisateur de mentir sur la date du validateur en utilisant la même valeur que la date de l&#8217;auteur.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+La machinerie de parcours de l&#8217;historique suppose que les commits ont des horodatages de commit non-décroissants. Vous devriez considérer si vous avez vraiment besoin d&#8217;utiliser cette option. Ensuite, vous ne devriez utiliser cette option que pour surcharger la date de validateur lors de l&#8217;application des commits par dessus une base dont le commit est plus ancien (en termes de la date du commit) que la rustine la plus ancienne que vous appliquez.
+</td>
+</tr>
+</table>
+</div>
 </dd>
 <dt class="hdlist1" id="git-am---ignore-date"> <a class="anchor" href="#git-am---ignore-date"></a>--ignore-date </dt>
 <dd>

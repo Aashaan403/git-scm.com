@@ -43,7 +43,7 @@ headings:
 	[<span class='synopsis'><code>--separate-git-dir</code></span> <em>&lt;directorio-git&gt;</em>] [<span class='synopsis'><code>--object-format=</code></span><em>&lt;formato&gt;</em>]
 	[<span class='synopsis'><code>--ref-format=</code></span><em>&lt;formato&gt;</em>]
 	[<span class='synopsis'><code>-b</code></span> <em>&lt;nombre-de-rama&gt;</em> | <span class='synopsis'><code>--initial-branch=</code></span><em>&lt;nombre-de-rama&gt;</em>]
-	[<span class='synopsis'><code>--shared</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;permisos&gt;</em>]] [<em>&lt;directorio&gt;</em>]</pre>
+	[<span class='synopsis'><code>--shared</code></span>[<span class='synopsis'><code>=</code></span><em>&lt;permisos&gt;</em>]] [<em><span class="hover-term" data-term="directorio">&lt;directorio&gt;</span></em>]</pre>
 </div>
 </div>
 </div>
@@ -170,7 +170,7 @@ headings:
 <p>Predeterminadamente, la bandera de configuración <span class='synopsis'><code>receive.denyNonFastForwards</code></span> está habilitada en repositorios compartidos, de tal manera que no se pueda forzar un push no-fast-forward en él.</p>
 </div>
 <div class="paragraph">
-<p>Si se proporciona un <em>&lt;directorio&gt;</em>, el comando se ejecuta dentro de éste. Si éste directorio no existe, se creará.</p>
+<p>Si se proporciona un <em><span class="hover-term" data-term="directorio">&lt;directorio&gt;</span></em>, el comando se ejecuta dentro de éste. Si éste directorio no existe, se creará.</p>
 </div>
 </div>
 </div>
@@ -249,22 +249,25 @@ $ git commit    <b class="conum">(3)</b></pre>
 <div class="paragraph">
 <p>Todo debajo de ésta línea en ésta sección es incluido selectivamente de la documentación de <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>. El contenido es el mismo al que se encuentra ahí:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>es/config/init.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinittemplateDircodespan"> <a class="anchor" href="#git-init-inittemplateDir"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinittemplateDircodespan"></a><span class='synopsis'><code>init.templateDir</code></span> </dt>
+<dd>
+<p>Especifica el directorio de donde se copiarán las plantillas. </p>
+</dd>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinitdefaultBranchcodespan"> <a class="anchor" href="#git-init-initdefaultBranch"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinitdefaultBranchcodespan"></a><span class='synopsis'><code>init.defaultBranch</code></span> </dt>
+<dd>
+<p>Permite anular el nombre de rama predeterminado, por ejemplo, cuando se inicializa un repositorio nuevo.</p>
+</dd>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"> <a class="anchor" href="#git-init-initdefaultObjectFormat"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"></a><span class='synopsis'><code>init.defaultObjectFormat</code></span> </dt>
+<dd>
+<p>Permite anular el formato de objeto predeterminado para nuevos repositorios. Ver <span class='synopsis'><code>--object-format=</code></span> en <a href='{{< relurl "docs/git-init/es" >}}'>git-init[1]</a>. Tanto la opción de la línea de comando como la variable de entorno <span class='synopsis'><code>GIT_DEFAULT_HASH</code></span> tienen prioridad sobre esta configuración.</p>
+</dd>
+<dt class="hdlist1" id="git-init-spanclasssynopsiscodeinitdefaultRefFormatcodespan"> <a class="anchor" href="#git-init-initdefaultRefFormat"></a> <a class="anchor" href="#git-init-spanclasssynopsiscodeinitdefaultRefFormatcodespan"></a><span class='synopsis'><code>init.defaultRefFormat</code></span> </dt>
+<dd>
+<p>Permite anular el formato predeterminado de almacenamiento de referencias en repositorios nuevos. Ver <span class='synopsis'><code>--ref-format=</code></span> en <a href='{{< relurl "docs/git-init/es" >}}'>git-init[1]</a>. Tanto la opción de línea de comandos como la variable de ambiente <span class='synopsis'><code>GIT_DEFAULT_REF_FORMAT</code></span> toman precedencia sobre ésta configuración.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

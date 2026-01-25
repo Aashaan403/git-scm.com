@@ -138,7 +138,7 @@ headings:
 <p>Відтворіть коміти один за одним по порядку. Це схоже на виконання <span class='synopsis'><code>git</code> <code>cherry-pick</code> <em>&lt;commit&gt;</em></span> для кожного коміту. Дивіться ПЕРЕБАЗУВАННЯ ЗЛИТТЯ, щоб дізнатися, як обробляються злиття.</p>
 </li>
 <li>
-<p>Оновіть свою гілку, щоб вона вказувала на фінальний коміт, за допомогою еквівалента <span class='synopsis'><code>git</code> <code>checkout</code> <code>-B</code> <em>&lt;гілка&gt;</em></span>.</p>
+<p>Оновіть свою гілку, щоб вона вказувала на фінальний коміт, за допомогою еквівалента <span class='synopsis'><code>git</code> <code>checkout</code> <code>-B</code> <em><span class="hover-term" data-term="гілка">&lt;гілка&gt;</span></em></span>.</p>
 </li>
 </ol>
 </div>
@@ -149,7 +149,7 @@ headings:
 <div class="title">Note</div>
 </td>
 <td class="content">
-Під час запуску перебазування, <span class='synopsis'><code>ORIG_HEAD</code></span> встановлюється так, щоб вказувати на коміт у кінчику гілки, яку потрібно перебазувати. Однак, <span class='synopsis'><code>ORIG_HEAD</code></span> не гарантовано все ще вказуватиме на цей коміт у кінці перебазування, якщо під час перебазування використовуються інші команди, що змінюють <span class='synopsis'><code>ORIG_HEAD</code></span> (наприклад, <span class='synopsis'><code>git</code> <code>reset</code></span>). Однак, попередня підказка гілки доступна за допомогою reflog поточної гілки (тобто <span class='synopsis'><code>@{1}</code></span>, див. <a href='{{< relurl "docs/gitrevisions/uk" >}}'>gitrevisions[7]</a>.
+Під час запуску перебазування, <span class='synopsis'><code>ORIG_HEAD</code></span> встановлюється так, щоб вказувати на коміт у кінчику гілки, яку потрібно перебазувати. Однак, <span class='synopsis'><code>ORIG_HEAD</code></span> не гарантовано все ще вказуватиме на цей коміт у кінці перебазування, якщо під час перебазування використовуються інші команди, що змінюють <span class='synopsis'><code>ORIG_HEAD</code></span> (наприклад, <span class='synopsis'><code>git</code> <code>reset</code></span>). Однак, попередня підказка гілки доступна за допомогою reflog поточної гілки (тобто <span class='synopsis'><code>@{1}</code></span>, див. <a href='{{< relurl "docs/gitrevisions/uk" >}}'>gitrevisions[7]</a>).
 </td>
 </tr>
 </table>
@@ -538,6 +538,18 @@ headings:
 <dt class="hdlist1" id="git-rebase---committer-date-is-author-date"> <a class="anchor" href="#git-rebase---committer-date-is-author-date"></a>--committer-date-is-author-date </dt>
 <dd>
 <p>Замість використання поточного часу як дати коміта, використовуйте дату авторства коміта, який перебазується. Ця опція передбачає використання <span class='synopsis'><code>--force-rebase</code></span>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Механізм перегляду історії припускає, що коміти мають незменшувальні позначки часу комітів. Вам слід подумати, чи дійсно вам потрібно використовувати цю опцію. Тоді ви повинні використовувати її лише для перевизначення дати коміта під час перебазування комітів поверх базового коміта, коміт якого старший (з точки зору дати коміта), ніж найстаріший коміт, який ви застосовуєте (з точки зору дати автора).
+</td>
+</tr>
+</table>
+</div>
 </dd>
 <dt class="hdlist1" id="git-rebase---ignore-date"> <a class="anchor" href="#git-rebase---ignore-date"></a>--ignore-date </dt>
 <dt class="hdlist1" id="git-rebase---reset-author-date"> <a class="anchor" href="#git-rebase---reset-author-date"></a>--reset-author-date </dt>

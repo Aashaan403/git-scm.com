@@ -59,22 +59,45 @@ headings:
 <div class="sect1">
 <h2 id="_选项"><a class="anchor" href="#_选项"></a>选项</h2>
 <div class="sectionbody">
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-pack-refs---all"> <a class="anchor" href="#git-pack-refs---all"></a>--all </dt>
+<dd>
+<p>该命令默认打包所有已打包的标签和引用，而不打包其他引用。 这是因为分支会被积极开发，打包它们的提示无助于提高性能。 该选项会导致所有 引用也被打包，但隐藏引用、破损引用和符号引用除外。对于有许多具有历史意义的分支的仓库来说非常有用。</p>
+</dd>
+<dt class="hdlist1" id="git-pack-refs---no-prune"> <a class="anchor" href="#git-pack-refs---no-prune"></a>--no-prune </dt>
+<dd>
+<p>该命令通常在打包后删除 <span class='synopsis'><code>$GIT_DIR/refs</code></span> 层次下的松散引用。 这个选项告诉它不要这样做。</p>
+</dd>
+<dt class="hdlist1" id="git-pack-refs---auto"> <a class="anchor" href="#git-pack-refs---auto"></a>--auto </dt>
+<dd>
+<p>根据引用数据库的当前状态按需打包引用。行为取决于仓库使用的引用格式，并可能在将来发生变化。</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"files": Loose references are packed into the <span class='synopsis'><code>packed-refs</code></span> file based on the ratio of loose references to the size of the <span class='synopsis'><code>packed-refs</code></span> file. The bigger the <span class='synopsis'><code>packed-refs</code></span> file, the more loose references need to exist before we repack.</p>
+</li>
+<li>
+<p>"reftable"：表被压缩，使得它们形成一个几何序列。对于两个表 N 和 N+1，其中 N+1 较新，这保持了 N 至少是 N+1 两倍大的属性。只有违反这个属性的表才会被压缩。</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1" id="git-pack-refs---includeltgt"> <a class="anchor" href="#git-pack-refs---include"></a> <a class="anchor" href="#git-pack-refs---includeltgt"></a>--include &lt;模式&gt; </dt>
+<dd>
+<p>根据 <span class='synopsis'><code>glob</code>(<code>7</code>)</span> 模式打包引用。重复使用该选项会累积包含模式。如果一个引用同时包含在 <span class='synopsis'><code>--include</code></span> 和 <span class='synopsis'><code>--exclude</code></span> 中，则 <span class='synopsis'><code>--exclude</code></span> 优先。使用 <span class='synopsis'><code>--include</code></span> 会默认排除所有标记。符号引用和断开的引用将永远不会被打包。与 <span class='synopsis'><code>--all</code></span> 一起使用时，它将是一个 空操作。使用 <span class='synopsis'><code>--no-include</code></span> 清除并重置模式列表。</p>
+</dd>
+<dt class="hdlist1" id="git-pack-refs---excludeltgt"> <a class="anchor" href="#git-pack-refs---exclude"></a> <a class="anchor" href="#git-pack-refs---excludeltgt"></a>--exclude &lt;模式&gt; </dt>
+<dd>
+<p>不打包与给定的 <span class='synopsis'><code>glob</code>(<code>7</code>)</span> 模式匹配的引用。重复使用此选项会累积排除模式。使用 <span class='synopsis'><code>--no-exclude</code></span> 可以清除并重置模式列表。如果一个引用已经打包，使用 `--exclude`不会将其解包。</p>
 <div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/pack-refs-options.adoc</code></span></p>
+<p>与 <span class='synopsis'><code>--all</code></span> 一起使用时，只打包与所提供的 <span class='synopsis'><code>--exclude</code></span> 模式不匹配的松散引用。</p>
 </div>
 <div class="paragraph">
-<p>See original version for this content.</p>
+<p>当与 <span class='synopsis'><code>--include</code></span> 一起使用时，提供给 <span class='synopsis'><code>--include</code></span> 的引用减去提供给 <span class='synopsis'><code>--exclude</code></span> 的引用将被打包。</p>
 </div>
-</td>
-</tr>
-</table>
+</dd>
+</dl>
 </div>
 </div>
 </div>

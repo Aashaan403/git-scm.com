@@ -87,7 +87,7 @@ headings:
 <p>Ви також можете встановити параметри конфігурації <span class='synopsis'><code>pull.rebase</code></span>, <span class='synopsis'><code>pull.squash</code></span> або <span class='synopsis'><code>pull.ff</code></span> з бажаною поведінкою.</p>
 </div>
 <div class="paragraph">
-<p>Якщо під час злиття або перебазування виник конфлікт злиття, який ви не хочете обробляти, ви можете безпечно перервати його за допомогою <span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> або <span class='synopsis'><code>git</code> <code>--rebase</code> <code>abort</code></span>.</p>
+<p>Якщо під час злиття або перебазування виник конфлікт злиття, який ви не хочете обробляти, ви можете безпечно перервати його за допомогою <span class='synopsis'><code>git</code> <code>merge</code> <code>--abort</code></span> або <span class='synopsis'><code>git</code> <code>rebase</code> <code>--abort</code></span>.</p>
 </div>
 </div>
 </div>
@@ -198,6 +198,9 @@ headings:
 <p>Додайте трейлер «Підписано» коміттером в кінці повідомлення журналу комітів. Значення підпису залежить від проекту, в який ви робите коміт. Наприклад, він може засвідчувати, що коміттер має права надсилати роботу за ліцензією проекту або погоджується на певні заяви учасників, такі як Сертифікат походження розробника. (Див. <a href="https://developercertificate.org" class="bare">https://developercertificate.org</a> для отримання інформації про той, що використовується проектами ядра Linux та Git.) Зверніться до документації або керівництва проекту, в який ви робите внесок, щоб зрозуміти, як підписи використовуються в цьому проекті.</p>
 <div class="paragraph">
 <p>Опцію <span class='synopsis'><code>--no-signoff</code></span> можна використовувати для скасування попередньої опції <span class='synopsis'><code>--signoff</code></span> у командному рядку.</p>
+</div>
+<div class="paragraph">
+<p>Git не має (і не матиме) змінної конфігурації для ввімкнення опції командного рядка <span class='synopsis'><code>--signoff</code></span> за замовчуванням; див. запис <span class='synopsis'><code>commit.signoff</code></span> у <a href='{{< relurl "docs/gitfaq/uk" >}}'>gitfaq[7]</a> для отримання додаткової інформації.</p>
 </div>
 </dd>
 </dl>
@@ -355,7 +358,7 @@ headings:
 <dd>
 <p>Поглибити або скоротити історію поверхневого репозиторію, щоб включити всі доступні коміти після <em>&lt;дата&gt;</em>.</p>
 </dd>
-<dt class="hdlist1" id="git-pull-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-pull---shallow-exclude"></a> <a class="anchor" href="#git-pull-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em>&lt;посилання&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-pull-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-pull---shallow-exclude"></a> <a class="anchor" href="#git-pull-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em><span class="hover-term" data-term="посилання">&lt;посилання&gt;</span></em></span> </dt>
 <dd>
 <p>Поглибити або скоротити історію поверхневого репозиторію, щоб виключити коміти, доступні з вказаної віддаленої гілки або тегу. Цей параметр можна вказати кілька разів.</p>
 </dd>
@@ -760,7 +763,7 @@ in <a href='{{< relurl "docs/git-fetch/uk" >}}'>git-fetch[1]</a>).</p>
 <p><em>&lt;URL&gt;</em> обов&#8217;язковий; <span class='synopsis'><code>#</code><em>&lt;head&gt;</em></span> необов&#8217;язковий.</p>
 </div>
 <div class="paragraph">
-<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <em>&lt;branch&gt; – це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а _&lt;head&gt;</em> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
+<p>Залежно від операції, git використовуватиме одну з наступних специфікацій refspecs, якщо ви не вкажете її в командному рядку. <em>&lt;branch&gt;</em> це назва цього файлу в <span class='synopsis'><code>$GIT_DIR/branches</code></span>, а <em>&lt;head&gt;</em> за замовчуванням має значення <span class='synopsis'><code>master</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>git fetch uses:</p>
@@ -801,7 +804,7 @@ in <a href='{{< relurl "docs/git-fetch/uk" >}}'>git-fetch[1]</a>).</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Дані про вихідний код зберігаються у файлі <span class='synopsis'><code>.git/config</code></span>, у полях "remote" та "merge". Наприклад, якщо вихідним кодом <span class='synopsis'><code>main</code></span> є <span class='synopsis'><code>origin/main</code></span>:</p>
+<p>Дані основного потоку зберігаються у файлі <span class='synopsis'><code>.git/config</code></span>, у полях "<span class='synopsis'><code>remote</code></span>" та "<span class='synopsis'><code>merge</code></span>". Наприклад, якщо основним потоком для <span class='synopsis'><code>main</code></span> є <span class='synopsis'><code>origin/main</code></span>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -811,7 +814,7 @@ in <a href='{{< relurl "docs/git-fetch/uk" >}}'>git-fetch[1]</a>).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Ви можете явно встановити гілку upstream за допомогою <span class='synopsis'><code>git</code> <code>push</code> <code>--set-upstream</code> <em>&lt;віддалена&gt;</em> <em>&lt;гілка&gt;</em></span>, але Git часто автоматично встановить її за вас, наприклад:</p>
+<p>Ви можете явно встановити гілку upstream за допомогою <span class='synopsis'><code>git</code> <code>push</code> <code>--set-upstream</code> <em>&lt;віддалена&gt;</em> <em><span class="hover-term" data-term="гілка">&lt;гілка&gt;</span></em></span>, але Git часто автоматично встановить її за вас, наприклад:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -988,7 +991,7 @@ in <a href='{{< relurl "docs/git-fetch/uk" >}}'>git-fetch[1]</a>).</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Якщо конфігурація <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> для поточної гілки <span class='synopsis'><em>&lt;name&gt;</em></span> існує, це назва гілки на віддаленому сайті, яка об&#8217;єднується.</p>
+<p>Якщо конфігурація <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span> для поточної гілки <em>&lt;name&gt;</em> існує, це назва гілки на віддаленому сайті, яка об&#8217;єднується.</p>
 </li>
 <li>
 <p>Якщо специфікація посилань є глобальною, нічого не об&#8217;єднується.</p>
@@ -1014,7 +1017,7 @@ $ git pull origin</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Зазвичай гілка, в яку здійснюється об&#8217;єднання, є HEAD віддаленого репозиторію, але вибір визначається опціями branch.&lt;name&gt;.remote та branch.&lt;name&gt;.merge; див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> для отримання детальної інформації.</p>
+<p>Зазвичай гілка, з якою здійснюється об&#8217;єднання, є <span class='synopsis'><code>HEAD</code></span> віддаленого репозиторію, але вибір визначається опціями <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.remote</code></span> та <span class='synopsis'><code>branch.</code><em>&lt;name&gt;</em><code>.merge</code></span>; див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> для отримання детальної інформації.</p>
 </div>
 </li>
 <li>
@@ -1025,7 +1028,7 @@ $ git pull origin</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Це тимчасово залишає копію <span class='synopsis'><code>next</code></span> у FETCH_HEAD та оновлює гілку віддаленого відстеження <span class='synopsis'><code>origin/next</code></span>. Те саме можна зробити, викликавши fetch та merge:</p>
+<p>Це тимчасово залишає копію <span class='synopsis'><code>next</code></span> у <span class='synopsis'><code>FETCH_HEAD</code></span> та оновлює гілку віддаленого відстеження <span class='synopsis'><code>origin/next</code></span>. Те саме можна зробити, викликавши fetch та merge:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1037,7 +1040,7 @@ $ git merge origin/next</pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Якщо ви спробували витягнути дані, що призвело до складних конфліктів, і хочете почати спочатку, ви можете відновити їх за допомогою <em>git reset</em>.</p>
+<p>Якщо ви спробували витягнути дані, що призвело до складних конфліктів, і хочете почати спочатку, ви можете відновити їх за допомогою <span class='synopsis'><code>git</code> <code>reset</code></span>.</p>
 </div>
 </div>
 </div>
@@ -1066,7 +1069,7 @@ $ git merge origin/next</pre>
 <h2 id="_помилки"><a class="anchor" href="#_помилки"></a>ПОМИЛКИ</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Використання --recurse-submodules може отримувати нові коміти лише у вже отриманих підмодулях на даний момент. Наприклад, коли основний розробник додає новий підмодуль у щойно отримані коміти суперпроекту, сам підмодуль не може бути отриманий, що унеможливлює отримання цього підмодуля пізніше без необхідності повторного виконання отримання. Очікується, що це буде виправлено в майбутній версії Git.</p>
+<p>Використання <span class='synopsis'><code>--recurse-submodules</code></span> може отримувати нові коміти лише у вже отриманих підмодулях на даний момент. Наприклад, коли основний розробник додає новий підмодуль у щойно отримані коміти суперпроекту, сам підмодуль не може бути отриманий, що унеможливлює отримання цього підмодуля пізніше без необхідності повторного виконання отримання. Очікується, що це буде виправлено в майбутній версії Git.</p>
 </div>
 </div>
 </div>

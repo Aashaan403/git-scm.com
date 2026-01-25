@@ -228,6 +228,10 @@ Implies <span class='synopsis'><code>--patch</code></span>.</p>
 <p>Наприклад, якщо ви налаштували змінну <span class='synopsis'><code>diff.algorithm</code></span> на значення, відмінне від значення за замовчуванням, і хочете використовувати значення за замовчуванням, тоді вам потрібно використовувати опцію <span class='synopsis'><code>--diff-algorithm=default</code></span>.</p>
 </div>
 </dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1" id="git-diff-spanclasssynopsiscode--statcodecodecodeemltwidthgtemcodecodeemltname-widthgtemcodecodeemltcountgtemspan"> <a class="anchor" href="#git-diff---statwidthname-widthcount"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscode--statcodecodecodeemltwidthgtemcodecodeemltname-widthgtemcodecodeemltcountgtemspan"></a><span class='synopsis'><code>--stat</code>[<code>=</code><em>&lt;width&gt;</em>[<code>,</code><em>&lt;name-width&gt;</em>[<code>,</code><em>&lt;count&gt;</em>]]]</span> </dt>
 <dd>
 <p>Згенерувати diffstat. За замовчуванням для частини імені файлу буде використано стільки місця, скільки потрібно, а решта – для частини графу. Максимальна ширина за замовчуванням дорівнює ширині терміналу або 80 стовпців, якщо не підключено до терміналу, і може бути перевизначена за допомогою <em>&lt;width&gt;</em>. Ширину частини імені файлу можна обмежити, вказавши іншу ширину <em>&lt;name-width&gt;</em> після коми або встановивши <span class='synopsis'><code>diff.statNameWidth=</code><em>&lt;name-width&gt;</em></span>. Ширину частини графу можна обмежити за допомогою <span class='synopsis'><code>--stat-graph-width=</code><em>&lt;graph-width&gt;</em></span> або встановивши <span class='synopsis'><code>diff.statGraphWidth=</code><em>&lt;graph-width&gt;</em></span>. Використання <span class='synopsis'><code>--stat</code></span> або <span class='synopsis'><code>--stat-graph-width</code></span> впливає на всі команди, що генерують графік статистики, тоді як встановлення <span class='synopsis'><code>diff.statNameWidth</code></span> або <span class='synopsis'><code>diff.statGraphWidth</code></span> не впливає на <span class='synopsis'><code>git</code> <code>format-patch</code></span>. Надаючи третій параметр <em>&lt;count&gt;</em>, ви можете обмежити вивід першими рядками <em>&lt;count&gt;</em>, а потім <span class='synopsis'>...</span>, якщо їх більше.</p>
@@ -1048,7 +1052,7 @@ unmerged       :000000 000000 0000000 0000000 U file6</pre>
 <em>перейменувати в &lt;шлях&gt;</em>
 <em>індекс подібності &lt;номер&gt;</em>
 <em>індекс несхожості &lt;номер&gt;</em>
-<em>індекс &lt;хеш&gt;..&lt;хеш&gt; &lt;режим&gt;</em></pre>
+<em>індекс <span class="hover-term" data-term="хеш">&lt;хеш&gt;</span>..<span class="hover-term" data-term="хеш">&lt;хеш&gt;</span> &lt;режим&gt;</em></pre>
 </div>
 <div class="paragraph">
 <p>Режими файлів <em>&lt;режим&gt;</em> друкуються як 6-значні вісімкові числа, включаючи тип файлу та біти прав доступу до файлу.</p>
@@ -1435,22 +1439,228 @@ $ git diff -R                          <b class="conum">(2)</b></pre>
 <div class="paragraph">
 <p>Все, що знаходиться нижче цього рядка в цьому розділі, вибірково включено з документації <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Вміст такий самий, як і там:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>uk/config/diff.adoc</code></span></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffautoRefreshIndexcodespan"> <a class="anchor" href="#git-diff-diffautoRefreshIndex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffautoRefreshIndexcodespan"></a><span class='synopsis'><code>diff.autoRefreshIndex</code></span> </dt>
+<dd>
+<p>Під час використання <span class='synopsis'><code>git</code> <code>diff</code></span> для порівняння з файлами робочого дерева не вважайте зміни лише зі статистикою зміненими. Натомість, виконайте тиху команду <span class='synopsis'><code>git</code> <code>update-index</code> <code>--refresh</code></span>, щоб оновити кешовану статистичну інформацію для шляхів, вміст яких у робочому дереві відповідає вмісту індексу. Цей параметр за замовчуванням має значення <span class='synopsis'><code>true</code></span>. Зверніть увагу, що це впливає лише на <span class='synopsis'><code>git</code> <code>diff</code></span> Porcelain, а не на команди <span class='synopsis'><code>diff</code></span> нижчого рівня, такі як <span class='synopsis'><code>git</code> <code>diff-files</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffdirstatcodespan"> <a class="anchor" href="#git-diff-diffdirstat"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffdirstatcodespan"></a><span class='synopsis'><code>diff.dirstat</code></span> </dt>
+<dd>
+<p>Список параметрів <span class='synopsis'><code>--dirstat</code></span>, розділених комами, що визначають
+поведінка за замовчуванням опції <span class='synopsis'><code>--dirstat</code></span> для <span class='synopsis'><code>git</code> <code>diff</code></span> та друзів.
+Значення за замовчуванням можна змінити в командному рядку
+(використовуючи <span class='synopsis'><code>--dirstat=</code><em>&lt;параметр&gt;</em><code>,...</code></span>). Резервні значення за замовчуванням
+(якщо не змінено за допомогою <span class='synopsis'><code>diff.dirstat</code></span>), це <span class='synopsis'><code>changes,noncumulative,3</code></span>.
+Доступні такі параметри:</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodechangescodespan-1"> <a class="anchor" href="#git-diff-changes-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodechangescodespan-1"></a><span class='synopsis'><code>changes</code></span> </dt>
+<dd>
+<p>Обчисліть числа dirstat, підрахувавши рядки, які були видалені з джерела або додані до місця призначення. Це ігнорує кількість чистих переміщень коду у файлі. Іншими словами, перестановка рядків у файлі враховується не так часто, як інші зміни. Це поведінка за замовчуванням, коли не задано параметр.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodelinescodespan-1"> <a class="anchor" href="#git-diff-lines-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodelinescodespan-1"></a><span class='synopsis'><code>lines</code></span> </dt>
+<dd>
+<p>Обчисліть числа dirstat, виконавши звичайний рядковий аналіз різниці та підсумувавши кількість видалених/доданих рядків. (Для бінарних файлів рахуйте 64-байтові фрагменти, оскільки бінарні файли не мають природного поняття рядків). Це дорожча поведінка <span class='synopsis'><code>--dirstat</code></span>, ніж поведінка <span class='synopsis'><code>changes</code></span>, але вона враховує переставлені рядки у файлі так само, як і інші зміни. Отриманий результат узгоджується з тим, що ви отримуєте від інших опцій <span class='synopsis'><code>--*stat</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodefilescodespan-1"> <a class="anchor" href="#git-diff-files-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodefilescodespan-1"></a><span class='synopsis'><code>files</code></span> </dt>
+<dd>
+<p>Обчисліть числа dirstat, підрахувавши кількість змінених файлів. Кожен змінений файл враховується однаково в аналізі dirstat. Це найдешевша з точки зору обчислень поведінка <span class='synopsis'><code>--dirstat</code></span>, оскільки взагалі не потрібно переглядати вміст файлу.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodecumulativecodespan-1"> <a class="anchor" href="#git-diff-cumulative-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodecumulativecodespan-1"></a><span class='synopsis'><code>cumulative</code></span> </dt>
+<dd>
+<p>Також підраховуйте зміни в дочірньому каталозі для батьківського каталогу. Зверніть увагу, що під час використання <span class='synopsis'><code>cumulative</code></span> сума відсотків, що повідомляються, може перевищувати 100%. Поведінку за замовчуванням (некумулятивну) можна вказати за допомогою параметра <span class='synopsis'><code>noncumulative</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-emltlimitgtem-1"> <a class="anchor" href="#git-diff-limit-1"></a> <a class="anchor" href="#git-diff-emltlimitgtem-1"></a><em>&lt;limit&gt;</em> </dt>
+<dd>
+<p>Цілочисельний параметр визначає граничний відсоток (за замовчуванням 3%). Каталоги, що вносять менше змін, ніж цей відсоток, не відображаються у виводі.</p>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>See original version for this content.</p>
+<p>Приклад: Наведений нижче код підраховуватиме змінені файли, ігноруючи каталоги з кількістю змінених файлів менше 10% від загальної кількості, та накопичуючи кількість дочірніх каталогів у батьківських каталогах: <span class='synopsis'><code>files,10,cumulative</code></span>.</p>
 </div>
-</td>
-</tr>
-</table>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffstatNameWidthcodespan"> <a class="anchor" href="#git-diff-diffstatNameWidth"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffstatNameWidthcodespan"></a><span class='synopsis'><code>diff.statNameWidth</code></span> </dt>
+<dd>
+<p>Обмежує ширину частини імені файлу у виводі <span class='synopsis'><code>--stat</code></span>. Якщо встановлено, застосовується до всіх команд, що генерують вивід <span class='synopsis'><code>--stat</code></span>, окрім <span class='synopsis'><code>format-patch</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffstatGraphWidthcodespan"> <a class="anchor" href="#git-diff-diffstatGraphWidth"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffstatGraphWidthcodespan"></a><span class='synopsis'><code>diff.statGraphWidth</code></span> </dt>
+<dd>
+<p>Обмежує ширину частини графіка у виводі <span class='synopsis'><code>--stat</code></span>. Якщо встановлено, застосовується до всіх команд, що генерують вивід <span class='synopsis'><code>--stat</code></span>, окрім <span class='synopsis'><code>format-patch</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcontextcodespan"> <a class="anchor" href="#git-diff-diffcontext"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcontextcodespan"></a><span class='synopsis'><code>diff.context</code></span> </dt>
+<dd>
+<p>Генерувати різниці з <em>&lt;n&gt;</em> рядками контексту замість 3 за замовчуванням. Це значення перевизначається опцією <span class='synopsis'><code>-U</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffinterHunkContextcodespan"> <a class="anchor" href="#git-diff-diffinterHunkContext"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffinterHunkContextcodespan"></a><span class='synopsis'><code>diff.interHunkContext</code></span> </dt>
+<dd>
+<p>Показує контекст між різницями (diff hanks) до вказаної кількості рядків, об&#8217;єднуючи таким чином ті ханки, що знаходяться поруч. Це значення слугує значенням за замовчуванням для параметра командного рядка <span class='synopsis'><code>--inter-hunk-context</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffexternalcodespan"> <a class="anchor" href="#git-diff-diffexternal"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffexternalcodespan"></a><span class='synopsis'><code>diff.external</code></span> </dt>
+<dd>
+<p>Якщо ця змінна конфігурації встановлена, генерація різниці (diff) виконується не за допомогою внутрішнього механізму різниці, а за допомогою заданої команди. Цю команду можна перевизначити змінною середовища <span class='synopsis'><code>GIT_EXTERNAL_DIFF</code></span>. Команда викликається з параметрами, як описано в розділі "git Diffs" у <a href='{{< relurl "docs/git/uk" >}}'>git[1]</a>. Примітка: якщо ви хочете використовувати зовнішню програму різниці лише для підмножини ваших файлів, ви можете використовувати <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodedifftrustExitCodecodespan"> <a class="anchor" href="#git-diff-difftrustExitCode"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodedifftrustExitCodecodespan"></a><span class='synopsis'><code>diff.trustExitCode</code></span> </dt>
+<dd>
+<p>Якщо це логічне значення встановлено на <span class='synopsis'><code>true</code></span>, то команда <span class='synopsis'><code>diff.external</code></span> має повернути код виходу 0, якщо вона вважає вхідні файли рівними, або 1, якщо вона вважає їх різними, як-от <span class='synopsis'><code>diff</code></span>(1). Якщо ж встановлено на <span class='synopsis'><code>false</code></span>, що є значенням за замовчуванням, то команда має повернути код виходу <span class='synopsis'><code>0</code></span> незалежно від рівності. Будь-який інший код виходу призводить до того, що Git повідомлятиме про фатальну помилку.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffignoreSubmodulescodespan"> <a class="anchor" href="#git-diff-diffignoreSubmodules"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffignoreSubmodulescodespan"></a><span class='synopsis'><code>diff.ignoreSubmodules</code></span> </dt>
+<dd>
+<p>Встановлює значення за замовчуванням <span class='synopsis'><code>--ignore-submodules</code></span>. Зверніть увагу, що це впливає лише на <span class='synopsis'><code>git</code> <code>diff</code></span> Porcelain, а не на команди нижчого рівня <span class='synopsis'><code>diff</code></span>, такі як <span class='synopsis'><code>git</code> <code>diff-files</code></span>. <span class='synopsis'><code>git</code> <code>checkout</code></span> та <span class='synopsis'><code>git</code> <code>switch</code></span> також враховують цей параметр під час звітування про незакомічені зміни. Встановлення значення <span class='synopsis'><code>all</code></span> вимикає зведення підмодулів, яке зазвичай відображається <span class='synopsis'><code>git</code> <code>commit</code></span> та <span class='synopsis'><code>git</code> <code>status</code></span>, коли встановлено <span class='synopsis'><code>status.submoduleSummary</code></span>, якщо його не перевизначити за допомогою параметра командного рядка <span class='synopsis'><code>--ignore-submodules</code></span>. Команди <span class='synopsis'><code>git</code> <code>submodule</code></span> не залежать від цього параметра. За замовчуванням встановлено значення untracked, тому будь-які невідстежувані підмодулі ігноруються.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffmnemonicPrefixcodespan"> <a class="anchor" href="#git-diff-diffmnemonicPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffmnemonicPrefixcodespan"></a><span class='synopsis'><code>diff.mnemonicPrefix</code></span> </dt>
+<dd>
+<p>Якщо встановлено, <span class='synopsis'><code>git</code> <code>diff</code></span> використовує пару префіксів, яка відрізняється від стандартних <span class='synopsis'><code>a/</code></span> та <span class='synopsis'><code>b/</code></span>, залежно від того, що порівнюється. Коли ця конфігурація діє, зворотний вивід diff також змінює порядок префіксів:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodespan"> <a class="anchor" href="#git-diff-gitdiff"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodespan"></a><span class='synopsis'><code>git</code> <code>diff</code></span> </dt>
+<dd>
+<p>порівнює (і)ндекс та дерево (робочих) робіт;</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecodeHEADcodespan"> <a class="anchor" href="#git-diff-gitdiffHEAD"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecodeHEADcodespan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>HEAD</code></span> </dt>
+<dd>
+<p>порівнює (c)ommit та дерево (робочих) операцій;</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecode--cachedcodespan"> <a class="anchor" href="#git-diff-gitdiff--cached"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecode--cachedcodespan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span> </dt>
+<dd>
+<p>порівнює (c)ommit та (i)ndex;</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecodeHEADcodeemlt1gtememlt2gtemspan"> <a class="anchor" href="#git-diff-gitdiffHEAD12"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecodeHEADcodeemlt1gtememlt2gtemspan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>HEAD:</code><em>&lt;файл1&gt;</em> <em>&lt;файл2&gt;</em></span> </dt>
+<dd>
+<p>порівнює (о)б&#8217;єкт та сутність (робочого) дерева;</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodegitcodecodediffcodecode--no-indexcodeemltagtememltbgtemspan"> <a class="anchor" href="#git-diff-gitdiff--no-indexab"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodegitcodecodediffcodecode--no-indexcodeemltagtememltbgtemspan"></a><span class='synopsis'><code>git</code> <code>diff</code> <code>--no-index</code> <em>&lt;a&gt;</em> <em>&lt;b&gt;</em></span> </dt>
+<dd>
+<p>порівнює дві не-git-речі <em>&lt;a&gt;</em> та <em>&lt;b&gt;</em>.</p>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffnoPrefixcodespan"> <a class="anchor" href="#git-diff-diffnoPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffnoPrefixcodespan"></a><span class='synopsis'><code>diff.noPrefix</code></span> </dt>
+<dd>
+<p>Якщо встановлено, <span class='synopsis'><code>git</code> <code>diff</code></span> не показує жодного префікса джерела чи призначення.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffsrcPrefixcodespan"> <a class="anchor" href="#git-diff-diffsrcPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffsrcPrefixcodespan"></a><span class='synopsis'><code>diff.srcPrefix</code></span> </dt>
+<dd>
+<p>Якщо встановлено, <span class='synopsis'><code>git</code> <code>diff</code></span> використовуватиме цей префікс джерела. За замовчуванням <span class='synopsis'><code>a/</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffdstPrefixcodespan"> <a class="anchor" href="#git-diff-diffdstPrefix"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffdstPrefixcodespan"></a><span class='synopsis'><code>diff.dstPrefix</code></span> </dt>
+<dd>
+<p>Якщо встановлено, <span class='synopsis'><code>git</code> <code>diff</code></span> використовуватиме цей префікс призначення. За замовчуванням <span class='synopsis'><code>b/</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffrelativecodespan"> <a class="anchor" href="#git-diff-diffrelative"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffrelativecodespan"></a><span class='synopsis'><code>diff.relative</code></span> </dt>
+<dd>
+<p>Якщо встановлено значення <span class='synopsis'><code>true</code></span>, <span class='synopsis'><code>git</code> <code>diff</code></span> не показує зміни поза каталогом та показує шляхи відносно поточного каталогу.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodedifforderFilecodespan"> <a class="anchor" href="#git-diff-difforderFile"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodedifforderFilecodespan"></a><span class='synopsis'><code>diff.orderFile</code></span> </dt>
+<dd>
+<p>Файл, що вказує, як упорядкувати файли в межах різниці.
+Дивіться опцію <span class='synopsis'><code>-O</code></span> для отримання детальної інформації.
+Якщо <span class='synopsis'><code>diff.orderFile</code></span> є відносним шляхом, він розглядається як
+відносно вершини робочого дерева.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffrenameLimitcodespan"> <a class="anchor" href="#git-diff-diffrenameLimit"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffrenameLimitcodespan"></a><span class='synopsis'><code>diff.renameLimit</code></span> </dt>
+<dd>
+<p>Кількість файлів, які слід враховувати у вичерпній частині виявлення копіювання/перейменування; еквівалент опції <span class='synopsis'><code>-l</code></span> команди <span class='synopsis'><code>git</code> <code>diff</code></span>. Якщо не встановлено, значення за замовчуванням наразі дорівнює 1000. Цей параметр не діє, якщо виявлення перейменування вимкнено.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffrenamescodespan"> <a class="anchor" href="#git-diff-diffrenames"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffrenamescodespan"></a><span class='synopsis'><code>diff.renames</code></span> </dt>
+<dd>
+<p>Чи і як Git виявляє перейменування. Якщо встановлено значення <span class='synopsis'><code>false</code></span>, виявлення перейменування вимкнено. Якщо встановлено значення <span class='synopsis'><code>true</code></span>, базове виявлення перейменування ввімкнено. Якщо встановлено значення <span class='synopsis'><code>copies</code></span> або <span class='synopsis'><code>copy</code></span>, Git також виявлятиме копії. За замовчуванням значення <span class='synopsis'><code>true</code></span>. Зверніть увагу, що це впливає лише на команди <span class='synopsis'><code>git</code> <code>diff</code></span> Porcelain, такі як <a href='{{< relurl "docs/git-diff/uk" >}}'>git-diff[1]</a> та <a href='{{< relurl "docs/git-log/uk" >}}'>git-log[1]</a>, а не на команди нижчого рівня, такі як <a href='{{< relurl "docs/git-diff-files/uk" >}}'>git-diff-files[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffsuppressBlankEmptycodespan"> <a class="anchor" href="#git-diff-diffsuppressBlankEmpty"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffsuppressBlankEmptycodespan"></a><span class='synopsis'><code>diff.suppressBlankEmpty</code></span> </dt>
+<dd>
+<p>Логічне значення, яке забороняє стандартну поведінку друку пробілу перед кожним порожнім рядком виводу. За замовчуванням має значення <span class='synopsis'><code>false</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffsubmodulecodespan"> <a class="anchor" href="#git-diff-diffsubmodule"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffsubmodulecodespan"></a><span class='synopsis'><code>diff.submodule</code></span> </dt>
+<dd>
+<p>Вкажіть формат, у якому відображаються відмінності в підмодулях. Формат <span class='synopsis'><code>short</code></span> показує лише назви комітів на початку та в кінці діапазону. Формат <span class='synopsis'><code>log</code></span> перелічує коміти в діапазоні, як це робить <a href='{{< relurl "docs/git-submodule/uk" >}}'>git-submodule[1]</a> <span class='synopsis'><code>summary</code></span>. Формат <span class='synopsis'><code>diff</code></span> показує вбудовану різницю зміненого вмісту підмодуля. За замовчуванням <span class='synopsis'><code>short</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffwordRegexcodespan"> <a class="anchor" href="#git-diff-diffwordRegex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffwordRegexcodespan"></a><span class='synopsis'><code>diff.wordRegex</code></span> </dt>
+<dd>
+<p>Розширений регулярний вираз POSIX, який використовується для визначення того, що є «словом» під час виконання послівних обчислень різниці. Послідовності символів, що відповідають регулярному виразу, є «словами», усі інші символи є <strong>ігнорованими</strong> пробілами.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodecommandcodespan"> <a class="anchor" href="#git-diff-diffdrivercommand"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodecommandcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.command</code></span> </dt>
+<dd>
+<p>Команда власного драйвера diff. Див. <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a> для отримання детальної інформації.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodetrustExitCodecodespan"> <a class="anchor" href="#git-diff-diffdrivertrustExitCode"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodetrustExitCodecodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.trustExitCode</code></span> </dt>
+<dd>
+<p>Якщо це логічне значення встановлено на <span class='synopsis'><code>true</code></span>, то команда <span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.command</code></span> має повернути код виходу 0, якщо вона вважає вхідні файли рівними, або 1, якщо вона вважає їх різними, як-от <span class='synopsis'><code>diff</code></span>(1). Якщо ж встановлено на <span class='synopsis'><code>false</code></span>, що є значенням за замовчуванням, то команда має повернути код виходу 0 незалежно від рівності. Будь-який інший код виходу призводить до того, що Git повідомлятиме про фатальну помилку.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodexfuncnamecodespan"> <a class="anchor" href="#git-diff-diffdriverxfuncname"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodexfuncnamecodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.xfuncname</code></span> </dt>
+<dd>
+<p>Регулярний вираз, який драйвер diff повинен використовувати для розпізнавання заголовка ханка. Також може використовуватися вбудований шаблон. Див. <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a> для отримання детальної інформації.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodebinarycodespan"> <a class="anchor" href="#git-diff-diffdriverbinary"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodebinarycodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.binary</code></span> </dt>
+<dd>
+<p>Встановіть для цього параметра значення <span class='synopsis'><code>true</code></span>, щоб драйвер diff обробляв файли як двійкові. Див. <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a> для отримання детальної інформації.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodetextconvcodespan"> <a class="anchor" href="#git-diff-diffdrivertextconv"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodetextconvcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.textconv</code></span> </dt>
+<dd>
+<p>Команда, яку драйвер diff має викликати для створення текстової версії файлу. Результат перетворення використовується для створення зручного для читання різниці. Див. <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a> для отримання детальної інформації.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodewordRegexcodespan"> <a class="anchor" href="#git-diff-diffdriverwordRegex"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodewordRegexcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.wordRegex</code></span> </dt>
+<dd>
+<p>Регулярний вираз, який драйвер diff має використовувати для розділення слів у рядку. Див. <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a> для отримання детальної інформації.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodecachetextconvcodespan"> <a class="anchor" href="#git-diff-diffdrivercachetextconv"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcodeemltdrivergtemcodecachetextconvcodespan"></a><span class='synopsis'><code>diff.</code><em>&lt;driver&gt;</em><code>.cachetextconv</code></span> </dt>
+<dd>
+<p>Встановіть для цього параметра значення <span class='synopsis'><code>true</code></span>, щоб драйвер diff кешував вивідні дані перетворення тексту. Див. <a href='{{< relurl "docs/gitattributes/uk" >}}'>gitattributes[5]</a> для отримання детальної інформації.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffindentHeuristiccodespan"> <a class="anchor" href="#git-diff-diffindentHeuristic"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffindentHeuristiccodespan"></a><span class='synopsis'><code>diff.indentHeuristic</code></span> </dt>
+<dd>
+<p>Встановіть для цього параметра значення <span class='synopsis'><code>false</code></span>, щоб вимкнути евристику за замовчуванням, яка зміщує межі різниці фрагментів, щоб зробити патчі легшими для читання.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffalgorithmcodespan"> <a class="anchor" href="#git-diff-diffalgorithm"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffalgorithmcodespan"></a><span class='synopsis'><code>diff.algorithm</code></span> </dt>
+<dd>
+<p>Виберіть алгоритм порівняння. Варіанти такі:</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodedefaultcodespan-1-1"> <a class="anchor" href="#git-diff-default-1-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodedefaultcodespan-1-1"></a><span class='synopsis'><code>default</code></span> </dt>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodemyerscodespan-1"> <a class="anchor" href="#git-diff-myers-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodemyerscodespan-1"></a><span class='synopsis'><code>myers</code></span> </dt>
+<dd>
+<p>Базовий алгоритм жадібного різниці. Наразі це алгоритм за замовчуванням.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodeminimalcodespan-1"> <a class="anchor" href="#git-diff-minimal-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodeminimalcodespan-1"></a><span class='synopsis'><code>minimal</code></span> </dt>
+<dd>
+<p>Витратьте додатковий час, щоб переконатися, що отримано найменшу можливу різницю.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodepatiencecodespan-1"> <a class="anchor" href="#git-diff-patience-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodepatiencecodespan-1"></a><span class='synopsis'><code>patience</code></span> </dt>
+<dd>
+<p>Використовуйте алгоритм "різниця терпіння" під час створення патчів.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodehistogramcodespan-1"> <a class="anchor" href="#git-diff-histogram-1"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodehistogramcodespan-1"></a><span class='synopsis'><code>histogram</code></span> </dt>
+<dd>
+<p>Цей алгоритм розширює алгоритм терпіння для «підтримки рідко зустрічаються поширених елементів».</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffwsErrorHighlightcodespan"> <a class="anchor" href="#git-diff-diffwsErrorHighlight"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffwsErrorHighlightcodespan"></a><span class='synopsis'><code>diff.wsErrorHighlight</code></span> </dt>
+<dd>
+<p>Виділяє помилки пробілів у рядках <span class='synopsis'><code>context</code></span>, <span class='synopsis'><code>old</code></span> або <span class='synopsis'><code>new</code></span> різниці. Кілька значень розділяються комами, <span class='synopsis'><code>none</code></span> скидає попередні значення, <span class='synopsis'><code>default</code></span> скидає список до <span class='synopsis'><code>new</code></span>, а <span class='synopsis'><code>all</code></span> – це скорочення від <span class='synopsis'><code>old,new,context</code></span>. Помилки пробілів забарвлюються за допомогою <span class='synopsis'><code>color.diff.whitespace</code></span>. Параметр командного рядка <span class='synopsis'><code>--ws-error-highlight=</code><em>&lt;kind&gt;</em></span> замінює цей параметр.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcolorMovedcodespan"> <a class="anchor" href="#git-diff-diffcolorMoved"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcolorMovedcodespan"></a><span class='synopsis'><code>diff.colorMoved</code></span> </dt>
+<dd>
+<p>Якщо встановлено дійсне значення <em>&lt;mode&gt;</em> або <span class='synopsis'><code>true</code></span>, переміщені рядки в різниці матимуть інший колір.
+Детальніше про допустимі режими див. у розділі <span class='synopsis'><code>--color-moved</code></span>.
+Якщо просто встановити значення <span class='synopsis'><code>true</code></span>, буде використано колірний режим за замовчуванням. Коли
+Якщо встановлено значення <span class='synopsis'><code>false</code></span>, переміщені лінії не забарвлюються.</p>
+</dd>
+<dt class="hdlist1" id="git-diff-spanclasssynopsiscodediffcolorMovedWScodespan"> <a class="anchor" href="#git-diff-diffcolorMovedWS"></a> <a class="anchor" href="#git-diff-spanclasssynopsiscodediffcolorMovedWScodespan"></a><span class='synopsis'><code>diff.colorMovedWS</code></span> </dt>
+<dd>
+<p>Коли переміщені рядки забарвлюються, наприклад, за допомогою параметра <span class='synopsis'><code>diff.colorMoved</code></span>, цей параметр контролює режим обробки пробілів. Докладніше про допустимі режими див. у <span class='synopsis'><code>--color-moved-ws</code></span> у <a href='{{< relurl "docs/git-diff/uk" >}}'>git-diff[1]</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

@@ -477,39 +477,43 @@ $ cd my-linux</pre>
 <div class="paragraph">
 <p>本节中这一行以下的内容都是从 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 文档中摘录的。其内容与那里的内容相同：</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/init.adoc</code></span></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinittemplateDircodespan"> <a class="anchor" href="#git-clone-inittemplateDir"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinittemplateDircodespan"></a><span class='synopsis'><code>init.templateDir</code></span> </dt>
+<dd>
+<p>指定将要复制模板的目录。(See the "TEMPLATE DIRECTORY" section of <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a>.)</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultBranchcodespan"> <a class="anchor" href="#git-clone-initdefaultBranch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultBranchcodespan"></a><span class='synopsis'><code>init.defaultBranch</code></span> </dt>
+<dd>
+<p>允许覆盖默认分支名称，例如在初始化新仓库时。</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"> <a class="anchor" href="#git-clone-initdefaultObjectFormat"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"></a><span class='synopsis'><code>init.defaultObjectFormat</code></span> </dt>
+<dd>
+<p>允许覆写新仓库的对象格式。参见 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 中的 <span class='synopsis'><code>--object-format=</code></span>。并且，命令行选项和环境变量 <span class='synopsis'><code>GIT_DEFAULT_HASH</code></span> 都优先于该配置。</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultRefFormatcodespan"> <a class="anchor" href="#git-clone-initdefaultRefFormat"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultRefFormatcodespan"></a><span class='synopsis'><code>init.defaultRefFormat</code></span> </dt>
+<dd>
+<p>允许覆写新仓库的引用存储格式。参见 <a href='{{< relurl "docs/git-init/zh_HANS-CN" >}}'>git-init[1]</a> 中的 <span class='synopsis'><code>--ref-format=</code></span>。命令行选项和环境变量 <span class='synopsis'><code>GIT_DEFAULT_REF_FORMAT</code></span> 都优先于该配置。</p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/clone.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"> <a class="anchor" href="#git-clone-clonedefaultRemoteName"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"></a><span class='synopsis'><code>clone.defaultRemoteName</code></span> </dt>
+<dd>
+<p>克隆仓库时创建的远程仓库的名称。默认为 <span class='synopsis'><code>--origin</code></span>。
+可在命令行传入 <span class='synopsis'><code>--origin</code></span> 参数
+覆盖该配置。</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonerejectShallowcodespan"> <a class="anchor" href="#git-clone-clonerejectShallow"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonerejectShallowcodespan"></a><span class='synopsis'><code>clone.rejectShallow</code></span> </dt>
+<dd>
+<p>如果是浅层仓库，则拒绝克隆；可以通过在命令行中传递 <span class='synopsis'><code>--reject-shallow</code></span> 选项来重写。</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonefilterSubmodulescodespan"> <a class="anchor" href="#git-clone-clonefilterSubmodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonefilterSubmodulescodespan"></a><span class='synopsis'><code>clone.filterSubmodules</code></span> </dt>
+<dd>
+<p>如果提供了部分克隆过滤器（参见 <a href='{{< relurl "docs/git-rev-list/zh_HANS-CN" >}}'>git-rev-list[1]</a> 中的 <span class='synopsis'><code>--filter</code></span> 选项），并且如果使用了 <span class='synopsis'><code>--recurse-submodules</code></span> 选项，也会将过滤器应用于子模块。</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

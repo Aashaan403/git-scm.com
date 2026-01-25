@@ -37,32 +37,25 @@ headings:
 <h2 id="_синопсис"><a class="anchor" href="#_синопсис"></a>СИНОПСИС</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git bisect</em> &lt;subcommand&gt; &lt;options&gt;</pre>
+<pre class="content"><em>git bisect</em> start [--term-(bad|new)=&lt;term-new&gt; --term-(good|old)=&lt;term-old&gt;]
+		   [--no-checkout] [--first-parent] [&lt;bad&gt; [&lt;good&gt;&#8230;&#8203;]] [--] [&lt;pathspec&gt;&#8230;&#8203;]
+<em>git bisect</em> (bad|new|&lt;term-new&gt;) [&lt;rev&gt;]
+<em>git bisect</em> (good|old|&lt;term-old&gt;) [&lt;rev&gt;&#8230;&#8203;]
+<em>git bisect</em> terms [--term-(good|old) | --term-(bad|new)]
+<em>git bisect</em> skip [(&lt;rev&gt;|&lt;range&gt;)&#8230;&#8203;]
+<em>git bisect</em> next
+<em>git bisect</em> reset [&lt;commit&gt;]
+<em>git bisect</em> (visualize|view)
+<em>git bisect</em> replay &lt;logfile&gt;
+<em>git bisect</em> log
+<em>git bisect</em> run &lt;cmd&gt; [&lt;arg&gt;&#8230;&#8203;]
+<em>git bisect</em> help</pre>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Команда приймає різні підкоманди та різні опції залежно від підкоманди:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>git bisect start [--term-(bad|new)=&lt;term-new&gt; --term-(good|old)=&lt;term-old&gt;]
-	  [--no-checkout] [--first-parent] [&lt;bad&gt; [&lt;good&gt;...]] [--] [&lt;pathspec&gt;...]
-git bisect (bad|new|&lt;term-new&gt;) [&lt;rev&gt;]
-git bisect (good|old|&lt;term-old&gt;) [&lt;rev&gt;...]
-git bisect terms [--term-(good|old) | --term-(bad|new)]
-git bisect skip [(&lt;rev&gt;|&lt;range&gt;)...]
-git bisect reset [&lt;commit&gt;]
-git bisect (visualize|view)
-git bisect replay &lt;logfile&gt;
-git bisect log
-git bisect run &lt;cmd&gt; [&lt;arg&gt;...]
-git bisect help</pre>
-</div>
-</div>
 <div class="paragraph">
 <p>Ця команда використовує алгоритм бінарного пошуку, щоб знайти коміт в історії вашого проєкту, який вніс помилку. Ви використовуєте його, спочатку повідомляючи їй "поганий" коміт, який, як відомо, містить помилку, і "хороший" коміт, який, як відомо, існував до появи помилки. Потім <span class='synopsis'><code>git</code> <code>bisect</code></span> вибирає коміт між цими двома кінцевими точками та запитує вас, чи є вибраний коміт "хорошим" чи "поганим". Він продовжує звужувати діапазон, доки не знайде саме той коміт, який вніс зміну.</p>
 </div>
@@ -311,6 +304,20 @@ $ git reset --hard HEAD~3		# спробуйте 3 ревізії перед чи
 </div>
 <div class="paragraph">
 <p>Це повідомляє процесу bisect, що коміти між версіями <span class='synopsis'><code>v2.5</code></span> та <span class='synopsis'><code>v2.6</code></span> (включно) слід пропустити.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_розділити_далі"><a class="anchor" href="#_розділити_далі"></a>Розділити далі</h3>
+<div class="paragraph">
+<p>Зазвичай, після позначення ревізії як хорошої чи поганої, Git автоматично обчислює та перевіряє наступну ревізію для тестування. Однак, якщо вам потрібно явно запросити наступний крок поділу на дві частини, ви можете використовувати:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git bisect next</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ви можете використовувати це для відновлення процесу поділу на дві частини після його переривання шляхом перевірки іншої редакції.</p>
 </div>
 </div>
 <div class="sect2">

@@ -145,7 +145,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-clone-spanclasssynopsiscode--barecodespan"> <a class="anchor" href="#git-clone---bare"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--barecodespan"></a><span class='synopsis'><code>--bare</code></span> </dt>
 <dd>
-<p>Створіть «голий» Git-репозиторій. Тобто, замість створення <em>&lt;каталог&gt;</em> та розміщення адміністративних файлів у <span class='synopsis'><em>&lt;каталог&gt;</em><code>/.git</code></span>, зробіть сам <em>&lt;каталог&gt;</em> як <span class='synopsis'><code>$GIT_DIR</code></span>. Це, очевидно, передбачає <span class='synopsis'><code>--no-checkout</code></span>, оскільки немає ніде для перевірки робочого дерева. Також заголовки гілок на віддаленому сервері копіюються безпосередньо до відповідних локальних заголовків гілок, без зіставлення їх з <span class='synopsis'><code>refs/remotes/origin/</code></span>. Коли використовується ця опція, не створюються ні гілки віддаленого відстеження, ні пов&#8217;язані змінні конфігурації.</p>
+<p>Створіть «голий» Git-репозиторій. Тобто, замість створення <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em> та розміщення адміністративних файлів у <span class='synopsis'><em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em><code>/.git</code></span>, зробіть сам <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em> як <span class='synopsis'><code>$GIT_DIR</code></span>. Це, очевидно, передбачає <span class='synopsis'><code>--no-checkout</code></span>, оскільки немає ніде для перевірки робочого дерева. Також заголовки гілок на віддаленому сервері копіюються безпосередньо до відповідних локальних заголовків гілок, без зіставлення їх з <span class='synopsis'><code>refs/remotes/origin/</code></span>. Коли використовується ця опція, не створюються ні гілки віддаленого відстеження, ні пов&#8217;язані змінні конфігурації.</p>
 </dd>
 <dt class="hdlist1" id="git-clone-spanclasssynopsiscode--sparsecodespan"> <a class="anchor" href="#git-clone---sparse"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--sparsecodespan"></a><span class='synopsis'><code>--sparse</code></span> </dt>
 <dd>
@@ -202,7 +202,7 @@ headings:
 <dd>
 <p>Створити поверхневий клон з історією після зазначеного часу.</p>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-clone---shallow-exclude"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em>&lt;посилання&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"> <a class="anchor" href="#git-clone---shallow-exclude"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--shallow-excludecodeemltgtemspan"></a><span class='synopsis'><code>--shallow-exclude=</code><em><span class="hover-term" data-term="посилання">&lt;посилання&gt;</span></em></span> </dt>
 <dd>
 <p>Створити поверхневий клон з історією, виключаючи коміти, доступні з вказаної віддаленої гілки або тегу. Цей параметр можна вказати кілька разів.</p>
 </dd>
@@ -222,7 +222,7 @@ headings:
 <p>Може використовуватися разом з <span class='synopsis'><code>--single-branch</code></span> для клонування та підтримки гілки без посилань, окрім однієї клонованої гілки. Це корисно, наприклад, для підтримки мінімальних клонів гілки за замовчуванням деякого репозиторію для індексації пошуку.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"> <a class="anchor" href="#git-clone---recurse-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"></a><span class='synopsis'><em>--recurse-submodules[=&lt;специфікація шляху&gt;]</em></span> </dt>
+<dt class="hdlist1" id="git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"> <a class="anchor" href="#git-clone---recurse-submodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsisem--recurse-submodulesltgtemspan"></a><span class='synopsis'><em>--recurse-submodules[=<span class="hover-term" data-term="специфікація шляху">&lt;специфікація шляху&gt;</span>]</em></span> </dt>
 <dd>
 <p>Після створення клону, ініціалізуйте та клонуйте підмодулі всередині нього на основі наданої специфікації шляху (<em>&lt;pathspec&gt;</em>). Якщо не вказано параметр <span class='synopsis'><code>=</code><em>&lt;pathspec&gt;</em></span>, усі підмодулі ініціалізуються та клонуються. Цей параметр можна використовувати кілька разів для специфікацій шляху, що складаються з кількох записів. У результуючому клоні <span class='synopsis'><code>submodule.active</code></span> встановлено на надану специфікацію шляху або "<span class='synopsis'><code>.</code></span>" (тобто всі підмодулі), якщо специфікація шляху не вказана.</p>
 <div class="paragraph">
@@ -272,7 +272,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-clone-emltgtem-1"> <a class="anchor" href="#git-clone--1"></a> <a class="anchor" href="#git-clone-emltgtem-1"></a><em>&lt;католог&gt;</em> </dt>
 <dd>
-<p>Назва нового каталогу для клонування. Частина "humanish" вихідного репозиторію використовується, якщо явно не вказано <em>&lt;каталог&gt;</em> (<span class='synopsis'><code>repo</code></span> для <span class='synopsis'><em>/шлях/до/repo.git</em></span> та <span class='synopsis'><code>foo</code></span> для <span class='synopsis'><code>host.xz:foo/.git</code></span>). Клонування в існуючий каталог дозволено, лише якщо каталог порожній.</p>
+<p>Назва нового каталогу для клонування. Частина "humanish" вихідного репозиторію використовується, якщо явно не вказано <em><span class="hover-term" data-term="каталог">&lt;каталог&gt;</span></em> (<span class='synopsis'><code>repo</code></span> для <span class='synopsis'><em>/шлях/до/repo.git</em></span> та <span class='synopsis'><code>foo</code></span> для <span class='synopsis'><code>host.xz:foo/.git</code></span>). Клонування в існуючий каталог дозволено, лише якщо каталог порожній.</p>
 </dd>
 <dt class="hdlist1" id="git-clone-spanclasssynopsiscode--bundle-uricodeemlturigtemspan"> <a class="anchor" href="#git-clone---bundle-uriuri"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscode--bundle-uricodeemlturigtemspan"></a><span class='synopsis'><code>--bundle-uri=</code><em>&lt;uri&gt;</em></span> </dt>
 <dd>
@@ -477,39 +477,43 @@ $ cd my-linux</pre>
 <div class="paragraph">
 <p>Все, що знаходиться нижче цього рядка в цьому розділі, вибірково включено з документації <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>. Вміст такий самий, як і там:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>uk/config/init.adoc</code></span></p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinittemplateDircodespan"> <a class="anchor" href="#git-clone-inittemplateDir"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinittemplateDircodespan"></a><span class='synopsis'><code>init.templateDir</code></span> </dt>
+<dd>
+<p>Вкажіть каталог, з якого будуть скопійовані шаблони. (See the "TEMPLATE DIRECTORY" section of <a href='{{< relurl "docs/git-init/uk" >}}'>git-init[1]</a>.)</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultBranchcodespan"> <a class="anchor" href="#git-clone-initdefaultBranch"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultBranchcodespan"></a><span class='synopsis'><code>init.defaultBranch</code></span> </dt>
+<dd>
+<p>Дозволяє перевизначити назву гілки за замовчуванням, наприклад, під час ініціалізації нового репозиторію.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"> <a class="anchor" href="#git-clone-initdefaultObjectFormat"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultObjectFormatcodespan"></a><span class='synopsis'><code>init.defaultObjectFormat</code></span> </dt>
+<dd>
+<p>Дозволяє перевизначати формат об&#8217;єктів за замовчуванням для нових репозиторіїв. Див. <span class='synopsis'><code>--object-format=</code></span> у <a href='{{< relurl "docs/git-init/uk" >}}'>git-init[1]</a>. Як параметр командного рядка, так і змінна середовища <span class='synopsis'><code>GIT_DEFAULT_HASH</code></span> мають пріоритет над цією конфігурацією.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeinitdefaultRefFormatcodespan"> <a class="anchor" href="#git-clone-initdefaultRefFormat"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeinitdefaultRefFormatcodespan"></a><span class='synopsis'><code>init.defaultRefFormat</code></span> </dt>
+<dd>
+<p>Дозволяє перевизначити формат зберігання посилань за замовчуванням для нових репозиторіїв. Див. <span class='synopsis'><code>--ref-format=</code></span> у <a href='{{< relurl "docs/git-init/uk" >}}'>git-init[1]</a>. Як параметр командного рядка, так і змінна середовища <span class='synopsis'><code>GIT_DEFAULT_REF_FORMAT</code></span> мають пріоритет над цією конфігурацією.</p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>uk/config/clone.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"> <a class="anchor" href="#git-clone-clonedefaultRemoteName"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonedefaultRemoteNamecodespan"></a><span class='synopsis'><code>clone.defaultRemoteName</code></span> </dt>
+<dd>
+<p>Ім&#8217;я віддаленого сервера, який потрібно створити під час клонування репозиторію. За замовчуванням <span class='synopsis'><code>origin</code></span>.
+Його можна перевизначити, передавши команду <span class='synopsis'><code>--origin</code></span> у командному рядку
+опція.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonerejectShallowcodespan"> <a class="anchor" href="#git-clone-clonerejectShallow"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonerejectShallowcodespan"></a><span class='synopsis'><code>clone.rejectShallow</code></span> </dt>
+<dd>
+<p>Відхилити клонування репозиторію, якщо він поверхневий; це можна змінити, передавши опцію <span class='synopsis'><code>--reject-shallow</code></span> у командному рядку.</p>
+</dd>
+<dt class="hdlist1" id="git-clone-spanclasssynopsiscodeclonefilterSubmodulescodespan"> <a class="anchor" href="#git-clone-clonefilterSubmodules"></a> <a class="anchor" href="#git-clone-spanclasssynopsiscodeclonefilterSubmodulescodespan"></a><span class='synopsis'><code>clone.filterSubmodules</code></span> </dt>
+<dd>
+<p>Якщо надано фільтр часткового клонування (див. <span class='synopsis'><code>--filter</code></span> у <a href='{{< relurl "docs/git-rev-list/uk" >}}'>git-rev-list[1]</a>) та використовується <span class='synopsis'><code>--recurse-submodules</code></span>, також застосуйте фільтр до підмодулів.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

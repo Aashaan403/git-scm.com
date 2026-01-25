@@ -443,22 +443,17 @@ P - print the current hunk using the pager
 <div class="paragraph">
 <p>このセクションのこの行以下は、 <a href='{{< relurl "docs/git-config/ja" >}}'>git-config[1]</a> のドキュメントから抜粋して含まれています。内容は同ドキュメントにあるものと同じです:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>ja/config/add.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscodeaddignoreErrorscodespan"> <a class="anchor" href="#git-add-addignoreErrors"></a> <a class="anchor" href="#git-add-spanclasssynopsiscodeaddignoreErrorscodespan"></a><span class='synopsis'><code>add.ignoreErrors</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscodeaddignore-errorscodespan"> <a class="anchor" href="#git-add-addignore-errors"></a> <a class="anchor" href="#git-add-spanclasssynopsiscodeaddignore-errorscodespan"></a><span class='synopsis'><code>add.ignore-errors</code></span> (非推奨) </dt>
+<dd>
+<p>インデックス作成エラーにより一部のファイルを追加できない場合でも、<span class='synopsis'><code>git</code> <code>add</code></span> がファイルの追加を続けるように指示します。
+<span class='synopsis'><code>--ignore-errors</code></span> オプションと同等です。
+<span class='synopsis'><code>add.ignore-errors</code></span> は、設定変数の通常の命名規則に従っていないため
+非推奨です。</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

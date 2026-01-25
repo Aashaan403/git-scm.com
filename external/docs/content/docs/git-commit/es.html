@@ -170,7 +170,7 @@ sin hacer algún otro cambio.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--branchcodespan"> <a class="anchor" href="#git-commit---branch"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--branchcodespan"></a><span class='synopsis'><code>--branch</code></span> </dt>
 <dd>
-<p>Muestra la rama y la información de rastreo también en formato corto.</p>
+<p>Muestra la rama y la información de seguimiento también en formato corto. Ver <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> para detalles.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--porcelaincodespan"> <a class="anchor" href="#git-commit---porcelain"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--porcelaincodespan"></a><span class='synopsis'><code>--porcelain</code></span> </dt>
 <dd>
@@ -178,12 +178,12 @@ sin hacer algún otro cambio.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--longcodespan"> <a class="anchor" href="#git-commit---long"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--longcodespan"></a><span class='synopsis'><code>--long</code></span> </dt>
 <dd>
-<p>Cuando se corre en seco, da la salida en el formato largo. Implica <span class='synopsis'><code>--dry-run</code></span>.</p>
+<p>Cuando se corre en seco, da la salida en formato largo. Esta es la salida predeterminada de <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a>. Implica <span class='synopsis'><code>--dry-run</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-zcodespan"> <a class="anchor" href="#git-commit--z"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-zcodespan"></a><span class='synopsis'><code>-z</code></span> </dt>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--nullcodespan"> <a class="anchor" href="#git-commit---null"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--nullcodespan"></a><span class='synopsis'><code>--null</code></span> </dt>
 <dd>
-<p>Cuando se muestra el estatus de salida <span class='synopsis'><code>short</code></span> o <span class='synopsis'><code>porcelain</code></span>, imprime el nombre del fichero verbosamente y termina las entradas con <em>NUL</em>, en lugar de con <em>LF</em>. Si no se da un formato, implica el formato de salida <span class='synopsis'><code>--porcelain</code></span>. Sin la opción <span class='synopsis'><code>-z</code></span>, los nombre de fichero con caracteres "inusuales" son entrecomillados como se explica para la variable de configuración <span class='synopsis'><code>core.quotePath</code></span> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>).</p>
+<p>Cuando se muestra el <a href='{{< relurl "docs/git-status/es" >}}'>git-status[1]</a> de salida <span class='synopsis'><code>short</code></span> o <span class='synopsis'><code>porcelain</code></span>, imprime el nombre del fichero verbosamente y termina las entradas con <em>NUL</em>, en lugar de con <em>LF</em>. Si no se da un formato, implica el formato de salida <span class='synopsis'><code>--porcelain</code></span>. Sin la opción <span class='synopsis'><code>-z</code></span>, los nombre de fichero con caracteres "inusuales" son entrecomillados como se explica para la variable de configuración <span class='synopsis'><code>core.quotePath</code></span> (ver <a href='{{< relurl "docs/git-config/es" >}}'>git-config[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Fcodeemltficherogtemspan"> <a class="anchor" href="#git-commit--Ffichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Fcodeemltficherogtemspan"></a><span class='synopsis'><code>-F</code> <em>&lt;fichero&gt;</em></span> </dt>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--filecodeemltficherogtemspan"> <a class="anchor" href="#git-commit---filefichero"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--filecodeemltficherogtemspan"></a><span class='synopsis'><code>--file=</code><em>&lt;fichero&gt;</em></span> </dt>
@@ -630,22 +630,29 @@ Adicionalmente, la parte de fecha se acepta en los formatos siguientes: <span cl
 </tr>
 </table>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>es/config/commit.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitcleanupcodespan"> <a class="anchor" href="#git-commit-commitcleanup"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitcleanupcodespan"></a><span class='synopsis'><code>commit.cleanup</code></span> </dt>
+<dd>
+<p>Esta configuración anula el predeterminado de la opción <span class='synopsis'><code>--cleanup</code></span> en <span class='synopsis'><code>git</code> <code>commit</code></span>.  Cambiar el predeterminado puede ser útil cuando quieres siempre mantener líneas que comiencen con el caracter (<span class='synopsis'><code>core.commentChar</code></span>, predeterminado a`#<span class='synopsis'><em>) en tu mensaje de bitácora, en cuyo caso harías `git config commit.cleanup whitespace</em></span> (nota que, si haces esto, tendrás que quitar por ti mismo las líneas de ayuda que comienzan con el caracter de comentario en la plantilla de bitácora de confirmación).</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitgpgSigncodespan"> <a class="anchor" href="#git-commit-commitgpgSign"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitgpgSigncodespan"></a><span class='synopsis'><code>commit.gpgSign</code></span> </dt>
+<dd>
+<p>Un booleano para especificar si todas las confirmaciones deben ser firmadas con GPG. Usar esta opción cuando se hagan operaciones como rebase que puedan resultar en un número elevado de confirmaciones a firmar. Puede ser conveniente usar un agente para evitar teclear tu contraseña GPG varias veces.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitstatuscodespan"> <a class="anchor" href="#git-commit-commitstatus"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitstatuscodespan"></a><span class='synopsis'><code>commit.status</code></span> </dt>
+<dd>
+<p>Un booleano para habilitar/deshabilitar la inclusión de información de estado en la plantilla de mensaje de confirmación cuando se usa un editor para preparar el mensaje de confirmación. Es predeterminado a <span class='synopsis'><code>true</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommittemplatecodespan"> <a class="anchor" href="#git-commit-committemplate"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommittemplatecodespan"></a><span class='synopsis'><code>commit.template</code></span> </dt>
+<dd>
+<p>Especifica el nombre de ruta de un fichero que será usado como plantilla de nuevos mensajes de confirmación.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitverbosecodespan"> <a class="anchor" href="#git-commit-commitverbose"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitverbosecodespan"></a><span class='synopsis'><code>commit.verbose</code></span> </dt>
+<dd>
+<p>Un booleano o entero para especificar el nivel de verbosidad con <span class='synopsis'><code>git</code> <code>commit</code></span>. </p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

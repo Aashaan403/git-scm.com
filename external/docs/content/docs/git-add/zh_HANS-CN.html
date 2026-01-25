@@ -435,22 +435,17 @@ P - print the current hunk using the pager
 <div class="paragraph">
 <p>本节中这一行以下的内容都是从 <a href='{{< relurl "docs/git-config/zh_HANS-CN" >}}'>git-config[1]</a> 文档中摘录的。其内容与那里的内容相同：</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>zh_HANS-CN/config/add.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscodeaddignoreErrorscodespan"> <a class="anchor" href="#git-add-addignoreErrors"></a> <a class="anchor" href="#git-add-spanclasssynopsiscodeaddignoreErrorscodespan"></a><span class='synopsis'><code>add.ignoreErrors</code></span> </dt>
+<dt class="hdlist1" id="git-add-spanclasssynopsiscodeaddignore-errorscodespandeprecated"> <a class="anchor" href="#git-add-addignore-errorsdeprecated"></a> <a class="anchor" href="#git-add-spanclasssynopsiscodeaddignore-errorscodespandeprecated"></a><span class='synopsis'><code>add.ignore-errors</code></span> (deprecated 弃用) </dt>
+<dd>
+<p>当某些文件由于索引错误而无法添加时，使用 <span class='synopsis'><code>git</code> <code>add</code></span> 以继续添加文件。
+与`--ignore-errors`选项作用相同。
+<span class='synopsis'><code>add.ignore-errors</code></span> 已经被弃用，
+因为它不符合配置变量的常规命名约定。</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

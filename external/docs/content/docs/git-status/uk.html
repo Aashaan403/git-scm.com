@@ -43,7 +43,7 @@ headings:
 <h2 id="_синопсис"><a class="anchor" href="#_синопсис"></a>СИНОПСИС</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><em>git status</em> [&lt;options&gt;] [--] [&lt;pathspec&gt;&#8230;&#8203;]</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>status</code></span> [<em>&lt;options&gt;</em>] [<span class='synopsis'><code>--</code></span>] [<em>&lt;pathspec&gt;</em>&#8230;&#8203;]</pre>
 </div>
 </div>
 </div>
@@ -51,7 +51,7 @@ headings:
 <h2 id="_опис"><a class="anchor" href="#_опис"></a>ОПИС</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Відображає шляхи, що відрізняються між індексним файлом та поточним комітом HEAD, шляхи, що відрізняються між робочим деревом та індексним файлом, а також шляхи в робочому дереві, які не відстежуються Git (і не ігноруються <a href='{{< relurl "docs/gitignore/uk" >}}'>gitignore[5]</a>). Перші - це те, що ви <em>б</em> закомітили, виконавши <span class='synopsis'><code>git</code> <code>commit</code></span>; другий і третій - це те, що ви <em>могли б</em> закомітити, виконавши <span class='synopsis'><em>git add' перед запуском `git commit</em></span>.</p>
+<p>Відображає шляхи, що відрізняються між індексним файлом та поточним комітом HEAD, шляхи, що відрізняються між робочим деревом та індексним файлом, а також шляхи в робочому дереві, які не відстежуються Git (і не ігноруються <a href='{{< relurl "docs/gitignore/uk" >}}'>gitignore[5]</a>). Перші - це те, що ви <em>б</em> закомітили, виконавши <span class='synopsis'><code>git</code> <code>commit</code></span>; другий і третій - це те, що ви <em>могли б</em> закомітити, виконавши <span class='synopsis'><code>git</code> <code>add</code></span> перед запуском <span class='synopsis'><code>git</code> <code>commit</code></span>.</p>
 </div>
 </div>
 </div>
@@ -60,132 +60,157 @@ headings:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-status--s"> <a class="anchor" href="#git-status--s"></a>-s </dt>
-<dt class="hdlist1" id="git-status---short"> <a class="anchor" href="#git-status---short"></a>--short </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode-scodespan"> <a class="anchor" href="#git-status--s"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode-scodespan"></a><span class='synopsis'><code>-s</code></span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--shortcodespan"> <a class="anchor" href="#git-status---short"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--shortcodespan"></a><span class='synopsis'><code>--short</code></span> </dt>
 <dd>
 <p>Надайте результат у скороченому форматі.</p>
 </dd>
-<dt class="hdlist1" id="git-status--b"> <a class="anchor" href="#git-status--b"></a>-b </dt>
-<dt class="hdlist1" id="git-status---branch"> <a class="anchor" href="#git-status---branch"></a>--branch </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode-bcodespan"> <a class="anchor" href="#git-status--b"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode-bcodespan"></a><span class='synopsis'><code>-b</code></span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--branchcodespan"> <a class="anchor" href="#git-status---branch"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--branchcodespan"></a><span class='synopsis'><code>--branch</code></span> </dt>
 <dd>
 <p>Відображати відділення та інформацію про відстеження навіть у скороченому форматі.</p>
 </dd>
-<dt class="hdlist1" id="git-status---show-stash"> <a class="anchor" href="#git-status---show-stash"></a>--show-stash </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--show-stashcodespan"> <a class="anchor" href="#git-status---show-stash"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--show-stashcodespan"></a><span class='synopsis'><code>--show-stash</code></span> </dt>
 <dd>
 <p>Показати кількість записів, що наразі зберігаються в сховищі.</p>
 </dd>
-<dt class="hdlist1" id="git-status---porcelainltversiongt"> <a class="anchor" href="#git-status---porcelainversion"></a> <a class="anchor" href="#git-status---porcelainltversiongt"></a>--porcelain[=&lt;version&gt;] </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--porcelaincodecodecodeemltversiongtemspan"> <a class="anchor" href="#git-status---porcelainversion"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--porcelaincodecodecodeemltversiongtemspan"></a><span class='synopsis'><code>--porcelain</code>[<code>=</code><em>&lt;version&gt;</em>]</span> </dt>
 <dd>
 <p>Вивід надайте у форматі, зручному для розбору для скриптів. Це схоже на короткий вивід, але залишатиметься стабільним у різних версіях Git та незалежно від конфігурації користувача. Детальніше дивіться нижче.</p>
 <div class="paragraph">
-<p>Параметр version використовується для визначення версії формату. Це необов&#8217;язково, і за замовчуванням використовується формат оригінальної версії <em>v1</em>.</p>
+<p>Параметр <em>&lt;версія&gt;</em> використовується для визначення версії формату. Це необов&#8217;язково та за замовчуванням використовується формат оригінальної версії <span class='synopsis'><code>v1</code></span>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-status---long"> <a class="anchor" href="#git-status---long"></a>--long </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--longcodespan"> <a class="anchor" href="#git-status---long"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--longcodespan"></a><span class='synopsis'><code>--long</code></span> </dt>
 <dd>
 <p>Виведіть результат у довгому форматі. Це значення за замовчуванням.</p>
 </dd>
-<dt class="hdlist1" id="git-status--v"> <a class="anchor" href="#git-status--v"></a>-v </dt>
-<dt class="hdlist1" id="git-status---verbose"> <a class="anchor" href="#git-status---verbose"></a>--verbose </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode-vcodespan"> <a class="anchor" href="#git-status--v"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode-vcodespan"></a><span class='synopsis'><code>-v</code></span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--verbosecodespan"> <a class="anchor" href="#git-status---verbose"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--verbosecodespan"></a><span class='synopsis'><code>--verbose</code></span> </dt>
 <dd>
 <p>Окрім назв файлів, які було змінено, також покажіть текстові зміни, які підготовлені для фіксації (тобто, як у виводі <span class='synopsis'><code>git</code> <code>diff</code> <code>--cached</code></span>). Якщо <span class='synopsis'><code>-v</code></span> вказано двічі, тоді також покажіть зміни в робочому дереві, які ще не були підготовлені (тобто, як у виводі <span class='synopsis'><code>git</code> <code>diff</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="git-status--ultmodegt"> <a class="anchor" href="#git-status--umode"></a> <a class="anchor" href="#git-status--ultmodegt"></a>-u[&lt;mode&gt;] </dt>
-<dt class="hdlist1" id="git-status---untracked-filesltmodegt"> <a class="anchor" href="#git-status---untracked-filesmode"></a> <a class="anchor" href="#git-status---untracked-filesltmodegt"></a>--untracked-files[=&lt;mode&gt;] </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode-ucodeemltgtemspan"> <a class="anchor" href="#git-status--u"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode-ucodeemltgtemspan"></a><span class='synopsis'><code>-u</code>[<em>&lt;режим&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--untracked-filescodecodecodeemltgtemspan"> <a class="anchor" href="#git-status---untracked-files"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--untracked-filescodecodecodeemltgtemspan"></a><span class='synopsis'><code>--untracked-files</code>[<code>=</code><em>&lt;режим&gt;</em>]</span> </dt>
 <dd>
 <p>Показати невідстежувані файли.</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>Параметр mode використовується для визначення обробки невідстежуваних файлів. Він необов&#8217;язковий: за замовчуванням має значення «all», і якщо його вказано, він має бути пов&#8217;язаний з опцією (наприклад, <span class='synopsis'><code>-uno</code></span>, але не <span class='synopsis'><code>-u</code> <code>no</code></span>).</p>
+<p>Параметр mode використовується для визначення обробки невідстежуваних файлів. Він необов&#8217;язковий: за замовчуванням має значення <span class='synopsis'><code>all</code></span>, а якщо його вказано, то він має бути прив&#8217;язаний до опції (наприклад, <span class='synopsis'><code>-uno</code></span>, але не <span class='synopsis'><code>-u</code> <code>no</code></span>).</p>
 </div>
 <div class="paragraph">
 <p>Можливі варіанти:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><em>no</em> - Не показувати невідстежувані файли.</p>
-</li>
-<li>
-<p><em>normal</em> - Показує невідстежувані файли та каталоги.</p>
-</li>
-<li>
-<p><em>all</em> - Також показує окремі файли в невідстежуваних каталогах.</p>
-</li>
-</ul>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodenocodespan"> <a class="anchor" href="#git-status-no"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodenocodespan"></a><span class='synopsis'><code>no</code></span> </dt>
+<dd>
+<p>Не показувати невідстежувані файли.</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodenormalcodespan"> <a class="anchor" href="#git-status-normal"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodenormalcodespan"></a><span class='synopsis'><code>normal</code></span> </dt>
+<dd>
+<p>Показує невідстежувані файли та каталоги.</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeallcodespan"> <a class="anchor" href="#git-status-all"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeallcodespan"></a><span class='synopsis'><code>all</code></span> </dt>
+<dd>
+<p>Також показувати окремі файли в невідстежуваних каталогах.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
 <p>Коли опція <span class='synopsis'><code>-u</code></span> не використовується, відображаються невідстежувані файли та каталоги (тобто те саме, що й при визначенні <span class='synopsis'><code>normal</code></span>), щоб допомогти вам не забути додати щойно створені файли. Оскільки пошук невідстежуваних файлів у файловій системі потребує додаткової роботи, цей режим може зайняти деякий час у великому робочому дереві. Спробуйте ввімкнути невідстежуваний кеш та розділений індекс, якщо вони підтримуються (див. <span class='synopsis'><code>git</code> <code>update-index</code> <code>--untracked-cache</code></span> та <span class='synopsis'><code>git</code> <code>update-index</code> <code>--split-index</code></span>). В іншому випадку ви можете використовувати <span class='synopsis'><code>no</code></span>, щоб <span class='synopsis'><code>git</code> <code>status</code></span> повертав дані швидше, не показуючи невідстежувані файли. Усі звичайні варіанти написання логічного значення <span class='synopsis'><code>true</code></span> сприймаються як <span class='synopsis'><code>normal</code></span>, а <span class='synopsis'><code>false</code></span> як <span class='synopsis'><code>no</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Значення за замовчуванням можна змінити за допомогою змінної конфігурації status.showUntrackedFiles, задокументованої в <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
+<p>Значення за замовчуванням можна змінити за допомогою змінної конфігурації <span class='synopsis'><code>status.showUntrackedFiles</code></span>, задокументованої в <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>.</p>
 </div>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-status---ignore-submodulesltwhengt"> <a class="anchor" href="#git-status---ignore-submoduleswhen"></a> <a class="anchor" href="#git-status---ignore-submodulesltwhengt"></a>--ignore-submodules[=&lt;when&gt;] </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--ignore-submodulescodecodecodeemltwhengtemspan"> <a class="anchor" href="#git-status---ignore-submoduleswhen"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--ignore-submodulescodecodecodeemltwhengtemspan"></a><span class='synopsis'><code>--ignore-submodules</code>[<code>=</code><em>&lt;when&gt;</em>]</span> </dt>
 <dd>
-<p>Ігноруйте зміни в підмодулях під час пошуку змін. &lt;when&gt; може мати значення "none", "untracked", "dirty" або "all", що є значенням за замовчуванням. Використання "none" вважатиме підмодуль зміненим, якщо він містить невідстежувані або змінені файли, або його HEAD відрізняється від коміту, записаного в суперпроекті, і може бути використано для перевизначення будь-яких налаштувань опції <em>ignore</em> у <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> або <a href='{{< relurl "docs/gitmodules/uk" >}}'>gitmodules[5]</a>. Коли використовується "untracked", підмодулі не вважаються брудними, якщо вони містять лише невідстежуваний контент (але вони все одно скануються на наявність зміненого контенту). Використання "dirty" ігнорує всі зміни в робочому дереві підмодулів, відображаються лише зміни в коммітах, що зберігаються в суперпроекті (така поведінка була до версії 1.7.0). Використання "all" приховує всі зміни в підмодулях (і пригнічує вивід зведень підмодулів, коли встановлено опцію конфігурації <span class='synopsis'><code>status.submoduleSummary</code></span>).</p>
+<p>Ігнорувати зміни в підмодулях під час пошуку змін. <em>&lt;when&gt;</em> може мати значення <span class='synopsis'><code>none</code></span>, <span class='synopsis'><code>untracked</code></span>, <span class='synopsis'><code>dirty</code></span> або <span class='synopsis'><code>all</code></span>, що є значенням за замовчуванням.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodenonecodespan"> <a class="anchor" href="#git-status-none"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodenonecodespan"></a><span class='synopsis'><code>none</code></span> </dt>
+<dd>
+<p>вважатиме підмодуль зміненим, якщо він містить невідстежувані або змінені файли, або його HEAD відрізняється від коміта, записаного в суперпроекті, і може бути використаний для перевизначення будь-яких налаштувань опції <span class='synopsis'><code>ignore</code></span> в <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a> або <a href='{{< relurl "docs/gitmodules/uk" >}}'>gitmodules[5]</a>.</p>
 </dd>
-<dt class="hdlist1" id="git-status---ignoredltmodegt"> <a class="anchor" href="#git-status---ignoredmode"></a> <a class="anchor" href="#git-status---ignoredltmodegt"></a>--ignored[=&lt;mode&gt;] </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeuntrackedcodespan"> <a class="anchor" href="#git-status-untracked"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeuntrackedcodespan"></a><span class='synopsis'><code>untracked</code></span> </dt>
+<dd>
+<p>Підмодулі не вважаються брудними, якщо вони містять лише невідстежуваний контент (але вони все одно скануються на наявність зміненого контенту).</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodedirtycodespan"> <a class="anchor" href="#git-status-dirty"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodedirtycodespan"></a><span class='synopsis'><code>dirty</code></span> </dt>
+<dd>
+<p>ігнорувати всі зміни в робочому дереві підмодулів, відображаються лише зміни в коммітах, що зберігаються в суперпроекті (така поведінка була до версії 1.7.0).</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeallcodespan-1"> <a class="anchor" href="#git-status-all-1"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeallcodespan-1"></a><span class='synopsis'><code>all</code></span> </dt>
+<dd>
+<p>приховує всі зміни в підмодулях (і пригнічує вивід зведених даних підмодулів, коли встановлено параметр конфігурації <span class='synopsis'><code>status.submoduleSummary</code></span>).</p>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--ignoredcodecodecodeemltmodegtemspan"> <a class="anchor" href="#git-status---ignoredmode"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--ignoredcodecodecodeemltmodegtemspan"></a><span class='synopsis'><code>--ignored</code>[<code>=</code><em>&lt;mode&gt;</em>]</span> </dt>
 <dd>
 <p>Також показувати ігноровані файли.</p>
 <div class="openblock">
 <div class="content">
 <div class="paragraph">
-<p>Параметр mode використовується для визначення обробки ігнорованих файлів. Він необов&#8217;язковий: за замовчуванням використовується значення «traditional».</p>
+<p>Параметр mode використовується для визначення обробки ігнорованих файлів. Він необов&#8217;язковий: за замовчуванням використовується значення <span class='synopsis'><code>traditional</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Можливі варіанти:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><em>traditional</em> - Показує ігноровані файли та каталоги, окрім випадків
---untracked-files=all вказано, і в цьому випадку
-відображаються
-окремі файли в ігнорованих каталогах.</p>
-</li>
-<li>
-<p><em>no</em>	        - Не показувати ігноровані файли.</p>
-</li>
-<li>
-<p><em>matching</em>    - Показує ігноровані файли та каталоги, що відповідають
-ігнорувати шаблон.</p>
-</li>
-</ul>
-</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodetraditionalcodespan"> <a class="anchor" href="#git-status-traditional"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodetraditionalcodespan"></a><span class='synopsis'><code>traditional</code></span> </dt>
+<dd>
+<p>Показувати ігноровані файли та каталоги, якщо
+не вказано <span class='synopsis'><code>--untracked-files=all</code></span>, у такому разі
+відображаються окремі
+файли в ігнорованих каталогах.</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodenocodespan-1"> <a class="anchor" href="#git-status-no-1"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodenocodespan-1"></a><span class='synopsis'><code>no</code></span> </dt>
+<dd>
+<p>Не показувати ігноровані файли.</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodematchingcodespan"> <a class="anchor" href="#git-status-matching"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodematchingcodespan"></a><span class='synopsis'><code>matching</code></span> </dt>
+<dd>
+<p>Показати ігноровані файли та каталоги, що відповідають шаблону ігнорування.</p>
 <div class="paragraph">
-<p>Коли вказано режим «зіставлення», відображаються шляхи, які явно відповідають ігнорованому шаблону. Якщо каталог відповідає шаблону ігнорування, то відображається він, але не шляхи, що містяться в ігнорованому каталозі. Якщо каталог не відповідає шаблону ігнорування, але весь його вміст ігнорується, то каталог не відображається, але відображається весь його вміст.</p>
+<p>Відображаються шляхи, які явно відповідають ігнорованому шаблону. Якщо каталог відповідає шаблону ігнорування, то відображається він, але не шляхи, що містяться в ігнорованому каталозі. Якщо каталог не відповідає шаблону ігнорування, але весь його вміст ігнорується, то каталог не відображається, але відображається весь його вміст.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="git-status--z"> <a class="anchor" href="#git-status--z"></a>-z </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode-zcodespan"> <a class="anchor" href="#git-status--z"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode-zcodespan"></a><span class='synopsis'><code>-z</code></span> </dt>
 <dd>
-<p>Завершуйте записи символом NUL замість LF. Це означає вихідний формат <span class='synopsis'><code>--porcelain=v1</code></span>, якщо не вказано інший формат.</p>
+<p>Завершуйте записи символом <em>NUL</em> замість <em>LF</em>. Це означає вихідний формат <span class='synopsis'><code>--porcelain=v1</code></span>, якщо не вказано інший формат.</p>
 </dd>
-<dt class="hdlist1" id="git-status---columnltoptionsgt"> <a class="anchor" href="#git-status---columnoptions"></a> <a class="anchor" href="#git-status---columnltoptionsgt"></a>--column[=&lt;options&gt;] </dt>
-<dt class="hdlist1" id="git-status---no-column"> <a class="anchor" href="#git-status---no-column"></a>--no-column </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--columncodecodecodeemltgtemspan"> <a class="anchor" href="#git-status---column"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--columncodecodecodeemltgtemspan"></a><span class='synopsis'><code>--column</code>[<code>=</code><em>&lt;опція&gt;</em>]</span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--no-columncodespan"> <a class="anchor" href="#git-status---no-column"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--no-columncodespan"></a><span class='synopsis'><code>--no-column</code></span> </dt>
 <dd>
-<p>Відображати невідстежувані файли у стовпцях. Синтаксис опцій дивіться у змінній конфігурації <span class='synopsis'><code>column.status</code></span>. <span class='synopsis'><code>--column</code></span> та <span class='synopsis'><code>--no-column</code></span> без опцій еквівалентні «always» та «never» відповідно.</p>
+<p>Відображати невідстежувані файли у стовпцях. Синтаксис опцій дивіться у змінній конфігурації <span class='synopsis'><code>column.status</code></span>. <span class='synopsis'><code>--column</code></span> та <span class='synopsis'><code>--no-column</code></span> без опцій еквівалентні <span class='synopsis'><code>always</code></span> та <span class='synopsis'><code>never</code></span> відповідно.</p>
 </dd>
-<dt class="hdlist1" id="git-status---ahead-behind"> <a class="anchor" href="#git-status---ahead-behind"></a>--ahead-behind </dt>
-<dt class="hdlist1" id="git-status---no-ahead-behind"> <a class="anchor" href="#git-status---no-ahead-behind"></a>--no-ahead-behind </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--ahead-behindcodespan"> <a class="anchor" href="#git-status---ahead-behind"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--ahead-behindcodespan"></a><span class='synopsis'><code>--ahead-behind</code></span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--no-ahead-behindcodespan"> <a class="anchor" href="#git-status---no-ahead-behind"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--no-ahead-behindcodespan"></a><span class='synopsis'><code>--no-ahead-behind</code></span> </dt>
 <dd>
-<p>Відображати або не відображати детальну кількість пропущених/відсталих етапів для гілки відносно її гілки вище за течією. За замовчуванням встановлено значення «true».</p>
+<p>Відображати або не відображати детальну кількість пропущених/відсталих етапів для гілки відносно її гілки вище за течією. За замовчуванням <span class='synopsis'><code>true</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-status---renames"> <a class="anchor" href="#git-status---renames"></a>--renames </dt>
-<dt class="hdlist1" id="git-status---no-renames"> <a class="anchor" href="#git-status---no-renames"></a>--no-renames </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--renamescodespan"> <a class="anchor" href="#git-status---renames"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--renamescodespan"></a><span class='synopsis'><code>--renames</code></span> </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--no-renamescodespan"> <a class="anchor" href="#git-status---no-renames"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--no-renamescodespan"></a><span class='synopsis'><code>--no-renames</code></span> </dt>
 <dd>
 <p>Увімкнути/вимкнути виявлення перейменування незалежно від конфігурації користувача. Див. також <a href='{{< relurl "docs/git-diff/uk" >}}'>git-diff[1]</a> <span class='synopsis'><code>--no-renames</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-status---find-renamesltngt"> <a class="anchor" href="#git-status---find-renamesn"></a> <a class="anchor" href="#git-status---find-renamesltngt"></a>--find-renames[=&lt;n&gt;] </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscode--find-renamescodecodecodeemltngtemspan"> <a class="anchor" href="#git-status---find-renamesn"></a> <a class="anchor" href="#git-status-spanclasssynopsiscode--find-renamescodecodecodeemltngtemspan"></a><span class='synopsis'><code>--find-renames</code>[<code>=</code><em>&lt;n&gt;</em>]</span> </dt>
 <dd>
 <p>Увімкнути виявлення перейменування, за бажанням встановити поріг подібності. Див. також <a href='{{< relurl "docs/git-diff/uk" >}}'>git-diff[1]</a> <span class='synopsis'><code>--find-renames</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="git-status-ltpathspecgt82308203"> <a class="anchor" href="#git-status-pathspec"></a> <a class="anchor" href="#git-status-ltpathspecgt82308203"></a>&lt;pathspec&gt;&#8230;&#8203; </dt>
+<dt class="hdlist1" id="git-status-spanclasssynopsisemltpathspecgtemspan"> <a class="anchor" href="#git-status-pathspec"></a> <a class="anchor" href="#git-status-spanclasssynopsisemltpathspecgtemspan"></a><span class='synopsis'><em>&lt;pathspec&gt;</em>...</span> </dt>
 <dd>
 <p>Див. запис «pathspec» у <a href='{{< relurl "docs/gitglossary/uk" >}}'>gitglossary[7]</a>.</p>
 </dd>
@@ -209,18 +234,18 @@ headings:
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>XY PATH
-XY ORIG_PATH -&gt; PATH</pre>
+<pre>&lt;xy&gt; &lt;path&gt;
+&lt;xy&gt; &lt;orig-path&gt; -&gt; &lt;path&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>де <span class='synopsis'><code>ORIG_PATH</code></span> – це походження перейменованого/скопійованого вмісту. <span class='synopsis'><code>ORIG_PATH</code></span> відображається лише тоді, коли запис перейменовано або скопійовано. <span class='synopsis'><code>XY</code></span> – це дволітерний код стану.</p>
+<p>де <em>&lt;шлях-початку&gt;</em> – це походження перейменованого/скопійованого вмісту. <em>&lt;шлях-початку&gt;</em> відображається лише тоді, коли запис перейменовано або скопійовано. <em>&lt;xy&gt;</em> – це дволітерний код стану <span class='synopsis'><code>XY</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Поля (включно з <span class='synopsis'><em>-&gt;</em></span>) розділені одне від одного одним пробілом. Якщо ім&#8217;я файлу містить пробіли або інші недруковані символи, це поле буде взято в лапки як рядковий літерал C: оточене подвійними лапками ASCII (34) та з внутрішніми спеціальними символами, екранованими зворотною скісну рискою.</p>
 </div>
 <div class="paragraph">
-<p>У цьому форматі відображаються три різні типи станів, і кожен з них використовує синтаксис <span class='synopsis'><code>XY</code></span> по-різному:</p>
+<p>Існує три різні типи станів, що відображаються за допомогою цього формату, і кожен з них використовує синтаксис <em>&lt;xy&gt;</em> по-різному:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -244,94 +269,198 @@ XY ORIG_PATH -&gt; PATH</pre>
 <div class="paragraph">
 <p>У наступній таблиці ці три класи показано в окремих розділах, а ці символи використовуються для полів <span class='synopsis'><code>X</code></span> та <span class='synopsis'><code>Y</code></span> для перших двох розділів, які показують відстежувані шляхи:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>' ' = unmodified</p>
-</li>
-<li>
-<p><em>M</em> = modified</p>
-</li>
-<li>
-<p><em>T</em> = тип файлу змінено (звичайний файл, символічне посилання або підмодуль)</p>
-</li>
-<li>
-<p><em>A</em> = додано</p>
-</li>
-<li>
-<p><em>D</em> = видалено</p>
-</li>
-<li>
-<p><em>R</em> = перейменовано</p>
-</li>
-<li>
-<p><em>C</em> = скопійовано (якщо для параметра конфігурації status.renames встановлено значення "копії")</p>
-</li>
-<li>
-<p><em>U</em> = оновлено, але не об&#8217;єднано</p>
-</li>
-</ul>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-status-"> <a class="anchor" href="#git-status-"></a>' ' </dt>
+<dd>
+<p>незмінений</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeMcodespan"> <a class="anchor" href="#git-status-M"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeMcodespan"></a><span class='synopsis'><code>M</code></span> </dt>
+<dd>
+<p>модифікований</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeTcodespan"> <a class="anchor" href="#git-status-T"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeTcodespan"></a><span class='synopsis'><code>T</code></span> </dt>
+<dd>
+<p>тип файлу змінено (звичайний файл, символічне посилання або підмодуль)</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeAcodespan"> <a class="anchor" href="#git-status-A"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeAcodespan"></a><span class='synopsis'><code>A</code></span> </dt>
+<dd>
+<p>додано</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeDcodespan"> <a class="anchor" href="#git-status-D"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeDcodespan"></a><span class='synopsis'><code>D</code></span> </dt>
+<dd>
+<p>видалено</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeRcodespan"> <a class="anchor" href="#git-status-R"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeRcodespan"></a><span class='synopsis'><code>R</code></span> </dt>
+<dd>
+<p>перейменовано</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeCcodespan"> <a class="anchor" href="#git-status-C"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeCcodespan"></a><span class='synopsis'><code>C</code></span> </dt>
+<dd>
+<p>скопійовано (якщо для параметра конфігурації status.renames встановлено значення "копії")</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeUcodespan"> <a class="anchor" href="#git-status-U"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeUcodespan"></a><span class='synopsis'><code>U</code></span> </dt>
+<dd>
+<p>оновлено, але не об&#8217;єднано</p>
+</dd>
+</dl>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>X          Y     Значення
--------------------------------------------------
-	 [AMD]   не оновлено
-M        [ MTD]  оновлено в індексі
-T        [ MTD]  тип змінено в індексі
-A        [ MTD]  додано до індексу
-D                видалено з індексу
-R        [ MTD]  перейменовано в індексі
-C        [ MTD]  скопійовано в індекс
-[MTARC]          збіги індексу та робочого дерева
-[ MTARC]    M    Робоче дерево змінилося з моменту індексування
-[ MTARC]    T    тип змінено в робочому дереві з моменту індексування
-[ MTARC]    D    видалено в дереві робіт
-	    R    перейменовано в дереві робіт
-	    C    скопійовано в робоче дерево
--------------------------------------------------
-D           D    роз’єднано, обидва видалено
-A           U    роз’єднано, додані нами
-U           D    роз’єднано, видалені ними
-U           A    роз’єднано, додані ними
-D           U    роз’єднано, видалено нами
-A           A     роз’єднано, обидва додані
-U           U    роз’єднано, обидва змінені
--------------------------------------------------
-?           ?    невідстежений
-!           !    ігнорується
--------------------------------------------------</pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">X</th>
+<th class="tableblock halign-center valign-top">Y</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[<code>AMD</code>]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not updated</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>M</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTD</code>]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">updated in index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>T</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTD</code>]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type changed in index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>A</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTD</code>]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">added to index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>D</code></span></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deleted from index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>R</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTD</code>]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">renamed in index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>C</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTD</code>]</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copied in index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[<code>MTARC</code>]</span></p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">index and work tree matches</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTARC</code>]</span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>M</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">work tree changed since index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTARC</code>]</span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>T</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type changed in work tree since index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'>[ <code>MTARC</code>]</span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>D</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deleted in work tree</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>R</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">renamed in work tree</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>C</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copied in work tree</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>D</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>D</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, both deleted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>A</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>U</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, added by us</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>U</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>D</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, deleted by them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>U</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>A</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, added by them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>D</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>U</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, deleted by us</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>A</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>A</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, both added</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>U</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>U</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmerged, both modified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><em>?</em></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><em>?</em></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">untracked</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>!</code></span></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><span class='synopsis'><code>!</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ignored</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Підмодулі мають більше станів і натомість звітують</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><em>M</em> = підмодуль має значення HEAD, відмінне від записаного в індексі</p>
-</li>
-<li>
-<p><em>m</em> = підмодуль має змінений вміст</p>
-</li>
-<li>
-<p><em>?</em> = підмодуль містить невідстежувані файли</p>
-</li>
-</ul>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodeMcodespan-1"> <a class="anchor" href="#git-status-M-1"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodeMcodespan-1"></a><span class='synopsis'><code>M</code></span> </dt>
+<dd>
+<p>підмодуль має значення HEAD, відмінне від записаного в індексі</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsiscodemcodespan"> <a class="anchor" href="#git-status-m"></a> <a class="anchor" href="#git-status-spanclasssynopsiscodemcodespan"></a><span class='synopsis'><code>m</code></span> </dt>
+<dd>
+<p>підмодуль має змінений вміст</p>
+</dd>
+<dt class="hdlist1" id="git-status-spanclasssynopsisememspan"> <a class="anchor" href="#git-status--1"></a> <a class="anchor" href="#git-status-spanclasssynopsisememspan"></a><span class='synopsis'><em>?</em></span> </dt>
+<dd>
+<p>підмодуль містить невідстежувані файли</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
 <p>Це пояснюється тим, що змінений контент або невідстежувані файли в підмодулі не можна додати через <span class='synopsis'><code>git</code> <code>add</code></span> у суперпроекті для підготовки коміту.</p>
 </div>
 <div class="paragraph">
-<p><em>m</em> та <em>?</em> застосовуються рекурсивно. Наприклад, якщо вкладений підмодуль у підмодулі містить невідстежуваний файл, це також повідомляється як <em>?</em>.</p>
+<p><span class='synopsis'><code>m</code></span> та <span class='synopsis'><em>?</em></span> застосовуються рекурсивно. Наприклад, якщо вкладений підмодуль у підмодулі містить невідстежуваний файл, це також повідомляється як <span class='synopsis'><em>?</em></span>.</p>
 </div>
 <div class="paragraph">
-<p>If -b використовується, статусу короткого формату передує рядок</p>
+<p>If <span class='synopsis'><code>-b</code></span> використовується, статусу короткого формату передує рядок</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>## інформація про відстеження назви філії</pre>
-</div>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>{empty}##</code></span> <em>&lt;branchname&gt;</em> <em>&lt;tracking-info&gt;</em></pre>
 </div>
 </div>
 <div class="sect2">
@@ -342,15 +471,15 @@ U           U    роз’єднано, обидва змінені
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Конфігурація color.status користувача не враховується; колір завжди буде вимкнено.</p>
+<p>Конфігурація <span class='synopsis'><code>color.status</code></span> користувача не враховується; колір завжди буде вимкнено.</p>
 </li>
 <li>
-<p>Конфігурація status.relativePaths користувача не враховується; показані шляхи завжди будуть відносними до кореневого каталогу репозиторію.</p>
+<p>Конфігурація <span class='synopsis'><code>status.relativePaths</code></span> користувача не враховується; показані шляхи завжди будуть відносними до кореневого каталогу репозиторію.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Також існує альтернативний формат -z, рекомендований для машинного розбору. У цьому форматі поле стану залишається тим самим, але деякі інші речі змінюються. По-перше, <em>-&gt;</em> пропускається з записів перейменування, а порядок полів змінюється на протилежний (наприклад, <em>from -&gt; to</em> стає <em>to from</em>). По-друге, після кожного імені файлу йде NUL (ASCII 0), який замінює пробіл як роздільник полів та символ нового рядка в кінці (але пробіл все ще відокремлює поле стану від першого імені файлу). По-третє, імена файлів, що містять спеціальні символи, не форматуються спеціально; лапки та екранування зворотною скісну рискою не виконуються.</p>
+<p>Також існує альтернативний формат <span class='synopsis'><code>-z</code></span>, рекомендований для машинного розбору. У цьому форматі поле стану те саме, але деякі інші речі змінюються. По-перше, <span class='synopsis'><em>-&gt;</em></span> пропускається з записів перейменування, а порядок полів змінюється на протилежний (наприклад, <span class='synopsis'><em>from -&gt; to</em></span> стає <span class='synopsis'><code>to</code> <code>from</code></span>). По-друге, після кожного імені файлу йде <em>NUL</em> (ASCII 0), який замінює пробіл як роздільник полів та символ нового рядка (але пробіл все ще відокремлює поле стану від першого імені файлу). По-третє, імена файлів, що містять спеціальні символи, не форматуються спеціально; лапки та екранування зворотною скісну рискою не виконуються.</p>
 </div>
 <div class="paragraph">
 <p>Будь-які зміни підмодулів повідомляються як модифікований <span class='synopsis'><code>M</code></span> замість <span class='synopsis'><code>m</code></span> або одинарного <span class='synopsis'><em>?</em></span>.</p>
@@ -362,25 +491,44 @@ U           U    роз’єднано, обидва змінені
 <p>Формат версії 2 додає детальнішу інформацію про стан робочого дерева та змінені елементи. Версія 2 також визначає розширюваний набір простих для розбору додаткових заголовків.</p>
 </div>
 <div class="paragraph">
-<p>Заголовки починаються з символу "#" і додаються у відповідь на певні аргументи командного рядка. Парсери повинні ігнорувати заголовки, які вони не розпізнають.</p>
+<p>Заголовки починаються з символу <span class='synopsis'><code>#</code></span> та додаються у відповідь на певні аргументи командного рядка. Парсери повинні ігнорувати заголовки, які вони не розпізнають.</p>
 </div>
 <div class="sect3">
 <h4 id="_заголовки_гілок"><a class="anchor" href="#_заголовки_гілок"></a>Заголовки гілок</h4>
 <div class="paragraph">
 <p>Якщо вказано <span class='synopsis'><code>--branch</code></span>, виводиться серія рядків заголовка з інформацією про поточну гілку.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Лінія                                     Нотатки
-------------------------------------------------------------
-# branch.oid &lt;commit&gt; | (initial)        Поточний коміт.
-# branch.head &lt;branch&gt; | (detached)      Поточна гілка.
-# branch.upstream &lt;upstream-branch&gt;      Якщо встановлено вихідний сигнал.
-# branch.ab +&lt;ahead&gt; -&lt;behind&gt;           Якщо встановлено вихідний сигнал та
-					 коміт присутній.
-------------------------------------------------------------</pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Line</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class='synopsis'><code>#</code> <code>branch.oid</code> <em>&lt;commit&gt;</em> | (<code>initial</code>)</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current commit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class='synopsis'><code>#</code> <code>branch.head</code> <em>&lt;branch&gt;</em> | (<code>detached</code>)</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current branch.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class='synopsis'><code>#</code> <code>branch.upstream</code> <em>&lt;upstream-branch&gt;</em></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If upstream is set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class='synopsis'><code>#</code> <code>branch.ab</code> <code>+</code><em>&lt;ahead&gt;</em> <code>-</code><em>&lt;behind&gt;</em></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If upstream is set and
+					  the commit is present.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_інформація_про_схованку"><a class="anchor" href="#_інформація_про_схованку"></a>Інформація про схованку</h4>
@@ -401,79 +549,198 @@ U           U    роз’єднано, обидва змінені
 <div class="paragraph">
 <p>Звичайні змінені записи мають такий формат:</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>1 &lt;XY&gt; &lt;sub&gt; &lt;mH&gt; &lt;mI&gt; &lt;mW&gt; &lt;hH&gt; &lt;hI&gt; &lt;path&gt;</pre>
-</div>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>1</code></span> <em>&lt;XY&gt;</em> <em>&lt;sub&gt;</em> <em>&lt;mH&gt;</em> <em>&lt;mI&gt;</em> <em>&lt;mW&gt;</em> <em>&lt;hH&gt;</em> <em>&lt;hI&gt;</em> <em>&lt;path&gt;</em></pre>
 </div>
 <div class="paragraph">
 <p>Перейменовані або скопійовані записи мають такий формат:</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>2 &lt;XY&gt; &lt;sub&gt; &lt;mH&gt; &lt;mI&gt; &lt;mW&gt; &lt;hH&gt; &lt;hI&gt; &lt;X&gt;&lt;score&gt; &lt;path&gt;&lt;sep&gt;&lt;origPath&gt;</pre>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>2</code></span> <em>&lt;XY&gt;</em> <em>&lt;sub&gt;</em> <em>&lt;mH&gt;</em> <em>&lt;mI&gt;</em> <em>&lt;mW&gt;</em> <em>&lt;hH&gt;</em> <em>&lt;hI&gt;</em> <em>&lt;X&gt;</em><em>&lt;score&gt;</em> <em>&lt;path&gt;</em><em>&lt;sep&gt;</em><em>&lt;origPath&gt;</em></pre>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Поле</th>
+<th class="tableblock halign-left valign-top">Значення</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;XY&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>2-символьне поле, що містить проміжні та
+непроміжні значення XY, описані в короткому форматі,
+причому "." замість пробілу
+позначено як ".".</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;sub&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>4-символьне поле, що описує стан підмодуля.
+"N&#8230;&#8203;", якщо запис не є підмодулем.
+<span class='synopsis'><code>S</code><em>&lt;c&gt;</em><em>&lt;m&gt;</em><em>&lt;u&gt;</em></span>, якщо запис є підмодулем.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Значення.     поля
---------------------------------------------------------
-&lt;XY&gt;        Поле з 2 символів, що містить проміжні та
-	    неіндексовані значення XY, описані у скороченому форматі,
-	    з незмінним, позначеним символом "." замість
-	    простір.
-&lt;sub&gt;       Поле з 4 символів, що описує стан підмодуля.
-	    "N..." коли запис не є підмодулем.
-	    "S&lt;c&gt;&lt;m&gt;&lt;u&gt;" коли запис є підмодулем.
-	    &lt;c&gt; "C", якщо коміт змінився; інакше ".".
-	    &lt;m&gt; має значення «M», якщо відстежені зміни; інакше — «.».
-	    &lt;u&gt; «U», якщо є невідстежені зміни; інакше «.».
-&lt;mH&gt;        Вісімковий режим файлу в HEAD.
-&lt;mI&gt;        Вісімковий режим файлу в індексі.
-&lt;mW&gt;        Вісімковий режим файлу в робочому дереві.
-&lt;hH&gt;        Ім'я об'єкта в HEAD.
-&lt;hI&gt;        Ім'я об'єкта в індексі.
-&lt;X&gt;&lt;score&gt;  Оцінка перейменування або копіювання (що позначає відсоток
-	    подібності між джерелом та цільовою аудиторією
-	    переміщення або копіювання). Наприклад, «R100» або «C75».
-&lt;path&gt;      Шлях. У перейменованому/скопійованому записі це
-	    цільовий шлях.
-&lt;sep&gt;       Коли використовується опція `-z`, два шляхи розділяються
-	    з байтом NUL (ASCII 0x00); інакше, символ табуляції (ASCII 0x09)
-	    байт розділяє їх.
-&lt;origPath&gt;  Шлях у коміті в HEAD або в індексі.
-	    Це присутнє лише у перейменованому/скопійованому записі, та
-	    повідомляє, звідки взявся перейменований/скопійований вміст.
---------------------------------------------------------</pre>
-</div>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>&lt;c&gt;</em> є "C" якщо коміт змінився; інакше ".".</p>
+</li>
+<li>
+<p><em>&lt;m&gt;</em> дорівнює "M", якщо відстежуються зміни; інакше ".".</p>
+</li>
+<li>
+<p><em>&lt;u&gt;</em> дорівнює "U", якщо є невідстежені зміни; інакше ".".</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;mH&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу в HEAD.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;mI&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу в індексі.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;mW&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу в робочому дереві.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;hH&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я об&#8217;єкта в HEAD.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;hI&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я об&#8217;єкта в індексі.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;X&gt;&lt;score&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Оцінка перейменування або копіювання (що позначає відсоток
+  подібності між джерелом та цільовим об&#8217;єктом
+  переміщення або копіювання). Наприклад, "R100" або "C75".</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;path&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я шляху. У перейменованому/скопійованому записі це цільовий шлях.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;sep&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Коли використовується параметр <span class='synopsis'><code>-z</code></span>, 2 імена шляхів розділяються
+  байтом <em>NUL</em> (ASCII 0x00);  інакше їх розділяє <em>TAB</em> (ASCII 0x09).</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;origPath&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Шлях у коміті в HEAD або в індексі.
+  Це присутнє лише у перейменованому/скопійованому записі та
+  вказує, звідки взявся перейменований/скопійований вміст.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>Необ&#8217;єднані записи мають такий формат; перший символ — це «u», щоб відрізнити їх від звичайних змінених записів.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>u &lt;XY&gt; &lt;sub&gt; &lt;m1&gt; &lt;m2&gt; &lt;m3&gt; &lt;mW&gt; &lt;h1&gt; &lt;h2&gt; &lt;h3&gt; &lt;path&gt;</pre>
+<div class="verseblock">
+<pre class="content"><span class='synopsis'><code>u</code></span> <em>&lt;XY&gt;</em> <em>&lt;sub&gt;</em> <em>&lt;m1&gt;</em> <em>&lt;m2&gt;</em> <em>&lt;m3&gt;</em> <em>&lt;mW&gt;</em> <em>&lt;h1&gt;</em> <em>&lt;h2&gt;</em> <em>&lt;h3&gt;</em> <em>&lt;path&gt;</em></pre>
 </div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Значення      поля
---------------------------------------------------------
-&lt;XY&gt;        Двосимвольне поле, що описує тип конфлікту
-	    як описано в скороченому форматі.
-&lt;sub&gt;       Поле з 4 символів, що описує стан підмодуля
-	    як описано вище.
-&lt;m1&gt;        Вісімковий режим файлу на етапі 1.
-&lt;m2&gt;        Вісімковий режим файлу на етапі 2.
-&lt;m3&gt;        Вісімковий режим файлу на етапі 3.
-&lt;mW&gt;        Вісімковий режим файлу в робочому дереві.
-&lt;h1&gt;        Ім'я об'єкта на етапі 1.
-&lt;h2&gt;        Ім'я об'єкта на етапі 2.
-&lt;h3&gt;        Ім'я об'єкта на етапі 3.
-&lt;path&gt;      Назва шляху.
---------------------------------------------------------</pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Поле</th>
+<th class="tableblock halign-left valign-top">Значення</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;XY&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>2-символьне поле, що описує тип конфлікту як описано в короткому форматі.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;sub&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>4-символьне поле, що описує стан підмодуля як описано вище.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;m1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу на етапі 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;m2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу на етапі 2.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;m3&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу на етапі 3.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;mW&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Вісімковий режим файлу в робочому дереві.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;h1&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я об&#8217;єкта на етапі 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;h2&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я об&#8217;єкта на етапі 2.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;h3&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я об&#8217;єкта на етапі 3.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>&lt;шлях&gt;</em></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ім&#8217;я шляху.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect3">
 <h4 id="_інші_товари"><a class="anchor" href="#_інші_товари"></a>Інші товари</h4>
@@ -500,7 +767,7 @@ U           U    роз’єднано, обидва змінені
 <div class="sect3">
 <h4 id="_примітки_щодо_формату_імені_шляху_та_z"><a class="anchor" href="#_примітки_щодо_формату_імені_шляху_та_z"></a>Примітки щодо формату імені шляху та -z</h4>
 <div class="paragraph">
-<p>Коли вказано опцію <span class='synopsis'><code>-z</code></span>, шляхи виводяться як є та без лапок, а рядки завершуються байтом NUL (ASCII 0x00).</p>
+<p>Коли вказано опцію <span class='synopsis'><code>-z</code></span>, шляхи виводяться як є та без лапок, а рядки завершуються байтом <em>NUL</em> (ASCII 0x00).</p>
 </div>
 <div class="paragraph">
 <p>Без опції <span class='synopsis'><code>-z</code></span> шляхи з "незвичайними" символами взяті в лапки, як пояснено для змінної конфігурації <span class='synopsis'><code>core.quotePath</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>).</p>
@@ -519,7 +786,7 @@ U           U    роз’єднано, обидва змінені
 <p>Якщо змінна конфігурації <span class='synopsis'><code>status.relativePaths</code></span> має значення false, то всі показані шляхи відносні до кореневого каталогу репозиторію, а не до поточного каталогу.</p>
 </div>
 <div class="paragraph">
-<p>Якщо для <span class='synopsis'><code>status.submoduleSummary</code></span> встановлено значення, відмінне від нуля, або значення true (ідентичне -1 або необмеженому числу), зведення підмодуля буде ввімкнено для довгого формату, а також буде показано зведення комітів для змінених підмодулів (див. опцію --summary-limit у <a href='{{< relurl "docs/git-submodule/uk" >}}'>git-submodule[1]</a>). Зверніть увагу, що вивід зведення з команди status буде приховано для всіх підмодулів, коли для <span class='synopsis'><code>diff.ignoreSubmodules</code></span> встановлено значення <em>all</em> або лише для тих підмодулів, де <span class='synopsis'><code>submodule.</code><em>&lt;назва&gt;</em><code>.ignore=all</code></span>. Щоб також переглянути зведення для ігнорованих підмодулів, ви можете скористатися опцією командного рядка --ignore-submodules=dirty або командою <em>git submodule summary</em>, яка показує подібний вивід, але не враховує ці налаштування.</p>
+<p>Якщо для <span class='synopsis'><code>status.submoduleSummary</code></span> встановлено значення, відмінне від нуля, або значення true (ідентичне -1 або необмеженому числу), зведення підмодуля буде ввімкнено для довгого формату, а також буде показано зведення комітів для змінених підмодулів (див. опцію <span class='synopsis'><code>--summary-limit</code></span> у <a href='{{< relurl "docs/git-submodule/uk" >}}'>git-submodule[1]</a>). Зверніть увагу, що вивід зведення з команди status буде приховано для всіх підмодулів, коли <span class='synopsis'><code>diff.ignoreSubmodules</code></span> встановлено на <span class='synopsis'><code>all</code></span>, або лише для тих підмодулів, де <span class='synopsis'><code>submodule.</code><em>&lt;назва&gt;</em><code>.ignore=all</code></span>. Щоб також переглянути зведення для ігнорованих підмодулів, ви можете скористатися опцією командного рядка <span class='synopsis'><code>--ignore-submodules=dirty</code></span> або командою <em>git submodule summary</em>, яка показує подібний вивід, але не враховує ці налаштування.</p>
 </div>
 </div>
 </div>
@@ -545,7 +812,7 @@ U           U    роз’єднано, обидва змінені
 </li>
 <li>
 <p><span class='synopsis'><code>advice.statusUoption=false</code></span> (див. <a href='{{< relurl "docs/git-config/uk" >}}'>git-config[1]</a>):
-Встановлення цієї змінної на <span class='synopsis'><code>false</code></span> вимикає попередження, яке виводиться, коли перерахування невідстежуваних файлів займає більше 2 секунд. У великому проекті це може зайняти більше часу, і користувач, можливо, вже погодився на компроміс (наприклад, використання "-uno" може бути неприйнятним варіантом для користувача), і в такому випадку немає сенсу видавати попередження, і в такому випадку вимкнення попередження може бути найкращим варіантом.</p>
+Встановлення цієї змінної на <span class='synopsis'><code>false</code></span> вимикає попередження, яке виводиться, коли перерахування невідстежуваних файлів займає більше 2 секунд. У великому проекті це може зайняти більше часу, і користувач, можливо, вже погодився на компроміс (наприклад, використання <span class='synopsis'><code>-uno</code></span> може бути неприйнятним варіантом для користувача), і в такому випадку немає сенсу видавати попередження, і в такому випадку вимкнення попередження може бути найкращим варіантом.</p>
 </li>
 <li>
 <p><span class='synopsis'><code>core.untrackedCache=true</code></span> (see <a href='{{< relurl "docs/git-update-index/uk" >}}'>git-update-index[1]</a>):

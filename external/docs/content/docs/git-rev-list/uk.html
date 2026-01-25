@@ -907,7 +907,7 @@ $ git rev-list A...B</pre>
 <p>Форма <span class='synopsis'><code>--filter=blob:limit=</code><em>&lt;n&gt;</em>[<code>kmg</code>]</span> пропускає блоби розміром щонайменше <em>&lt;n&gt;</em> байтів або одиниць. <em>&lt;n&gt;</em> може дорівнювати нулю. Суфікси <span class='synopsis'><code>k</code></span>, <span class='synopsis'><code>m</code></span> та <span class='synopsis'><code>g</code></span> можна використовувати для найменування одиниць у KiB, MiB або GiB. Наприклад, <span class='synopsis'><code>blob:limit=1k</code></span> те саме, що й <em>blob:limit=1024</em>.</p>
 </div>
 <div class="paragraph">
-<p>Форма <span class='synopsis'><code>--filter=object:type=</code>(<code>tag</code>|<code>commit</code>|<code>tree</code>|<code>blob</code>)</span> пропускає всі об&#8217;єкти, які не належать до запитуваного типу.</p>
+<p>Форма <span class='synopsis'><code>--filter=object:type=</code>(<code>tag</code>|<code>commit</code>|<code>tree</code>|<code>blob</code>)</span> пропускає всі об&#8217;єкти, які не належать до запитуваного типу. Зверніть увагу, що явно задані об&#8217;єкти ігнорують фільтри та завжди виводяться, якщо також не вказано <span class='synopsis'><code>--filter-provided-objects</code></span>.</p>
 </div>
 <div class="paragraph">
 <p>Форма <span class='synopsis'><code>--filter=sparse:oid=</code><em>&lt;blob-ish&gt;</em></span> використовує специфікацію розрідженого отримання, що міститься в блобі (або блоб-виразі) <em>&lt;blob-ish&gt;</em>, щоб пропустити блоби, які не потрібні для розрідженого отримання на запитуваних посиланнях.</p>

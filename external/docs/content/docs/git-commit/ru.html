@@ -50,7 +50,7 @@ headings:
 <div class="sectionbody">
 <div class="verseblock">
 <pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>commit</code></span> [<span class='synopsis'><code>-a</code></span> | <span class='synopsis'><code>--interactive</code></span> | <span class='synopsis'><code>--patch</code></span>] [<span class='synopsis'><code>-s</code></span>] [<span class='synopsis'><code>-v</code></span>] [<span class='synopsis'><code>-u</code></span>[<em>&lt;режим&gt;</em>]] [<span class='synopsis'><code>--amend</code></span>]
-	   [<span class='synopsis'><code>--dry-run</code></span>] <em class="(<span class='synopsis'><code>-c</code></span> | <span class='synopsis'><code>-C</code></span> | <span class='synopsis'><code>--squash</code></span>) <em>_&lt;коммит&gt;_</em> | <span class='synopsis'><code>--fixup</code></span> [(<span class='synopsis'><code>amend</code></span>|<span class='synopsis'><code>reword</code></span>)<span class='synopsis'><code>:</code></span>">&lt;коммит&gt;</em>]
+	   [<span class='synopsis'><code>--dry-run</code></span>] <em class="(<span class='synopsis'><code>-c</code></span> | <span class='synopsis'><code>-C</code></span> | <span class='synopsis'><code>--squash</code></span>) <em>_<span class="hover-term" data-term="коммит">&lt;коммит&gt;</span>_</em> | <span class='synopsis'><code>--fixup</code></span> [(<span class='synopsis'><code>amend</code></span>|<span class='synopsis'><code>reword</code></span>)<span class='synopsis'><code>:</code></span>"><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em>]
 	   [<span class='synopsis'><code>-F</code></span> <em>&lt;файл&gt;</em> | <span class='synopsis'><code>-m</code></span> <em>&lt;сообщение&gt;</em>] [<span class='synopsis'><code>--reset-author</code></span>] [<span class='synopsis'><code>--allow-empty</code></span>]
 	   [<span class='synopsis'><code>--allow-empty-message</code></span>] [<span class='synopsis'><code>--no-verify</code></span>] [<span class='synopsis'><code>-e</code></span>] [<span class='synopsis'><code>--author=</code></span><em>&lt;автор&gt;</em>]
 	   [<span class='synopsis'><code>--date=</code></span><em>&lt;дата&gt;</em>] [<span class='synopsis'><code>--cleanup=</code></span><em>&lt;режим&gt;</em>] [<span class='synopsis'><code>--</code></span>[<span class='synopsis'><code>no-</code></span>]<span class='synopsis'><code>status</code></span>]
@@ -114,7 +114,7 @@ headings:
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Ucodeemltngtemspan"> <a class="anchor" href="#git-commit--Un"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Ucodeemltngtemspan"></a><span class='synopsis'><code>-U</code><em>&lt;n&gt;</em></span> </dt>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--unifiedcodeemltngtemspan"> <a class="anchor" href="#git-commit---unifiedn"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--unifiedcodeemltngtemspan"></a><span class='synopsis'><code>--unified=</code><em>&lt;n&gt;</em></span> </dt>
 <dd>
-<p>Generate diffs with <em>&lt;n&gt;</em> lines of context. Defaults to <span class='synopsis'><code>diff.context</code></span> or 3 if the config option is unset.</p>
+<p>Создать списки изменений с <em>&lt;n&gt;</em> строками контекста. По умолчанию <span class='synopsis'><code>diff.context</code></span> или 3, если переменная конфигурации не задана.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"> <a class="anchor" href="#git-commit---inter-hunk-contextn"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--inter-hunk-contextcodeemltngtemspan"></a><span class='synopsis'><code>--inter-hunk-context=</code><em>&lt;n&gt;</em></span> </dt>
 <dd>
@@ -124,33 +124,33 @@ headings:
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Ccodeemltgtemspan"> <a class="anchor" href="#git-commit--C"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Ccodeemltgtemspan"></a><span class='synopsis'><code>-C</code> <em>&lt;коммит&gt;</em></span> </dt>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reuse-messagecodeemltgtemspan"> <a class="anchor" href="#git-commit---reuse-message"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reuse-messagecodeemltgtemspan"></a><span class='synopsis'><code>--reuse-message=</code><em>&lt;коммит&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Ccodeemltgtemspan"> <a class="anchor" href="#git-commit--C"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Ccodeemltgtemspan"></a><span class='synopsis'><code>-C</code> <em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reuse-messagecodeemltgtemspan"> <a class="anchor" href="#git-commit---reuse-message"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reuse-messagecodeemltgtemspan"></a><span class='synopsis'><code>--reuse-message=</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> </dt>
 <dd>
-<p>Взять существующий <em>&lt;коммит&gt;</em> и повторно использовать его сообщение и информацию об авторе (включая метку времени) при создании нового коммита.</p>
+<p>Взять существующий <em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em> и повторно использовать его сообщение и информацию об авторе (включая метку времени) при создании нового коммита.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ccodeemltgtemspan"> <a class="anchor" href="#git-commit--c"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ccodeemltgtemspan"></a><span class='synopsis'><code>-c</code> <em>&lt;коммит&gt;</em></span> </dt>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reedit-messagecodeemltgtemspan"> <a class="anchor" href="#git-commit---reedit-message"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reedit-messagecodeemltgtemspan"></a><span class='synopsis'><code>--reedit-message=</code><em>&lt;коммит&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ccodeemltgtemspan"> <a class="anchor" href="#git-commit--c"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ccodeemltgtemspan"></a><span class='synopsis'><code>-c</code> <em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--reedit-messagecodeemltgtemspan"> <a class="anchor" href="#git-commit---reedit-message"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--reedit-messagecodeemltgtemspan"></a><span class='synopsis'><code>--reedit-message=</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> </dt>
 <dd>
 <p>Как и <span class='synopsis'><code>-C</code></span>, но с <span class='synopsis'><code>-c</code></span> будет запущен редактор, так что пользователь может дополнительно отредактировать сообщение коммита.</p>
 </dd>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--fixupcodecodeamendcodecoderewordcodecodecodeemltgtemspan"> <a class="anchor" href="#git-commit---fixupamendreword"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--fixupcodecodeamendcodecoderewordcodecodecodeemltgtemspan"></a><span class='synopsis'><code>--fixup=</code>[(<code>amend</code>|<code>reword</code>)<code>:</code>]<em>&lt;коммит&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--fixupcodecodeamendcodecoderewordcodecodecodeemltgtemspan"> <a class="anchor" href="#git-commit---fixupamendreword"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--fixupcodecodeamendcodecoderewordcodecodecodeemltgtemspan"></a><span class='synopsis'><code>--fixup=</code>[(<code>amend</code>|<code>reword</code>)<code>:</code>]<em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> </dt>
 <dd>
-<p>Создаёт новый коммит, который «подправляет» уже существующий <em>&lt;коммит&gt;</em>, при совместном использовании с <span class='synopsis'><em>git rebase» --autosquash</em></span>. Просто <span class='synopsis'><code>--fixup=</code><em>&lt;коммит&gt;</em></span> создаёт "fixup!"-коммит, что изменит содержимое <em>&lt;коммита&gt;</em>, но не затронет его сообщение. <span class='synopsis'><code>--fixup=amend:</code><em>&lt;коммит&gt;</em></span> аналогичен, но создаёт "amend!"-коммит, который также заменяет сообщение <em>&lt;коммита&gt;</em> на сообщение "amend!"-коммита. <span class='synopsis'><code>--fixup=reword:</code><em>&lt;коммит&gt;</em></span> также создаёт "amend!"-коммит, но который заменяет только сообщение <em>&lt;коммита&gt;</em> на собственное, но не вносит никаких изменений в содержимое самого <em>&lt;коммита&gt;</em>.</p>
+<p>Создаёт новый коммит, который «подправляет» уже существующий <em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em>, при совместном использовании с <span class='synopsis'><em>git rebase» --autosquash</em></span>. Просто <span class='synopsis'><code>--fixup=</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> создаёт "fixup!"-коммит, что изменит содержимое <em>&lt;коммита&gt;</em>, но не затронет его сообщение. <span class='synopsis'><code>--fixup=amend:</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> аналогичен, но создаёт "amend!"-коммит, который также заменяет сообщение <em>&lt;коммита&gt;</em> на сообщение "amend!"-коммита. <span class='synopsis'><code>--fixup=reword:</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> также создаёт "amend!"-коммит, но который заменяет только сообщение <em>&lt;коммита&gt;</em> на собственное, но не вносит никаких изменений в содержимое самого <em>&lt;коммита&gt;</em>.</p>
 <div class="paragraph">
-<p>У коммитов, созданных простым <span class='synopsis'><code>--fixup=</code><em>&lt;коммит&gt;</em></span>, в качестве заголовка (первой строки коммита) используется строка, состоящая из "fixup!", за которым следует строка заголовка <em>&lt;коммита&gt;</em>, которую <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> обрабатывает специальным образом. С помощью параметра <span class='synopsis'><code>-m</code></span> можно добавить какое-либо сообщение к создаваемому коммиту, но этот дополнительный комментарий будет отброшен, как только "fixup!"-коммит будет объединён с <em>&lt;коммитом&gt;</em> при выполнении <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>.</p>
+<p>У коммитов, созданных простым <span class='synopsis'><code>--fixup=</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span>, в качестве заголовка (первой строки коммита) используется строка, состоящая из "fixup!", за которым следует строка заголовка <em>&lt;коммита&gt;</em>, которую <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> обрабатывает специальным образом. С помощью параметра <span class='synopsis'><code>-m</code></span> можно добавить какое-либо сообщение к создаваемому коммиту, но этот дополнительный комментарий будет отброшен, как только "fixup!"-коммит будет объединён с <em>&lt;коммитом&gt;</em> при выполнении <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>.</p>
 </div>
 <div class="paragraph">
-<p>Коммит, созданный <span class='synopsis'><code>--fixup=amend:</code><em>&lt;коммит&gt;</em></span>, аналогичен, но в начале его заголовка добавляется "amend!". Сообщение <em>&lt;коммита&gt;</em> копируется в сообщение "amend!"-коммита и открывается редактор, в котором это сообщение можно изменить. Когда <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> объединяет "amend!"-коммит с <em>&lt;коммитом&gt;</em>, сообщение <em>&lt;коммита&gt;</em> заменяется отредактированным сообщением "amend!"-коммита. Пустое сообщение в "amend!"-коммите является ошибкой, если только не указан параметр <span class='synopsis'><code>--allow-empty-message</code></span>.</p>
+<p>Коммит, созданный <span class='synopsis'><code>--fixup=amend:</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span>, аналогичен, но в начале его заголовка добавляется "amend!". Сообщение <em>&lt;коммита&gt;</em> копируется в сообщение "amend!"-коммита и открывается редактор, в котором это сообщение можно изменить. Когда <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> объединяет "amend!"-коммит с <em>&lt;коммитом&gt;</em>, сообщение <em>&lt;коммита&gt;</em> заменяется отредактированным сообщением "amend!"-коммита. Пустое сообщение в "amend!"-коммите является ошибкой, если только не указан параметр <span class='synopsis'><code>--allow-empty-message</code></span>.</p>
 </div>
 <div class="paragraph">
-<p><span class='synopsis'><code>--fixup=reword:</code><em>&lt;коммит&gt;</em></span> является короткой записью для <span class='synopsis'><code>--fixup=amend:</code><em>&lt;коммит&gt;</em> <code>--only</code></span>. Он создаёт "amend!"-коммит, содержащий только сообщение коммита (игнорирую любые изменения, внесённые в индекс). Когда <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> объединит его с исходным <em>&lt;коммитом&gt;</em>, он заменит сообщение <em>&lt;коммита&gt;</em>, но не произведёт никаких других изменений.</p>
+<p><span class='synopsis'><code>--fixup=reword:</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> является короткой записью для <span class='synopsis'><code>--fixup=amend:</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em> <code>--only</code></span>. Он создаёт "amend!"-коммит, содержащий только сообщение коммита (игнорирую любые изменения, внесённые в индекс). Когда <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span> объединит его с исходным <em>&lt;коммитом&gt;</em>, он заменит сообщение <em>&lt;коммита&gt;</em>, но не произведёт никаких других изменений.</p>
 </div>
 <div class="paragraph">
 <p>При выполнении <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>, ни "fixup!", ни "amend!" не изменяют информацию об авторстве <em>&lt;коммита&gt;</em>. См. подробности в <a href='{{< relurl "docs/git-rebase/ru" >}}'>git-rebase[1]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--squashcodeemltgtemspan"> <a class="anchor" href="#git-commit---squash"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--squashcodeemltgtemspan"></a><span class='synopsis'><code>--squash=</code><em>&lt;коммит&gt;</em></span> </dt>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscode--squashcodeemltgtemspan"> <a class="anchor" href="#git-commit---squash"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--squashcodeemltgtemspan"></a><span class='synopsis'><code>--squash=</code><em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span> </dt>
 <dd>
 <p>Создать сообщение коммита для использования в <span class='synopsis'><code>git</code> <code>rebase</code> <code>--autosquash</code></span>. Строка заголовка коммита берётся из указанного коммита и дополняется префиксом "squash!". Этот параметр можно использовать совместно с параметрами, изменяющими сообщение коммита (<span class='synopsis'><code>-m</code></span>/<span class='synopsis'><code>-c</code></span>/<span class='synopsis'><code>-C</code></span>/<span class='synopsis'><code>-F</code></span>). См. подробности в <a href='{{< relurl "docs/git-rebase/ru" >}}'>git-rebase[1]</a>.</p>
 </dd>
@@ -164,7 +164,7 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--branchcodespan"> <a class="anchor" href="#git-commit---branch"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--branchcodespan"></a><span class='synopsis'><code>--branch</code></span> </dt>
 <dd>
-<p>Показывать ветку (и какую внешнюю ветку она отслеживает) даже в коротком формате.</p>
+<p>Показывать ветку (и какую внешнюю ветку она отслеживает) даже в коротком формате. Подробности см. в <a href='{{< relurl "docs/git-status/ru" >}}'>git-status[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--porcelaincodespan"> <a class="anchor" href="#git-commit---porcelain"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--porcelaincodespan"></a><span class='synopsis'><code>--porcelain</code></span> </dt>
 <dd>
@@ -172,12 +172,12 @@ headings:
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--longcodespan"> <a class="anchor" href="#git-commit---long"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--longcodespan"></a><span class='synopsis'><code>--long</code></span> </dt>
 <dd>
-<p>При выполнении пробного запуска, выводить информацию в длинном формате. Подразумевает <span class='synopsis'><code>--dry-run</code></span>.</p>
+<p>При выполнении пробного запуска выводить результаты в длинном формате. Это стандартный вывод <a href='{{< relurl "docs/git-status/ru" >}}'>git-status[1]</a>. Подразумевает <span class='synopsis'><code>--dry-run</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-zcodespan"> <a class="anchor" href="#git-commit--z"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-zcodespan"></a><span class='synopsis'><code>-z</code></span> </dt>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--nullcodespan"> <a class="anchor" href="#git-commit---null"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--nullcodespan"></a><span class='synopsis'><code>--null</code></span> </dt>
 <dd>
-<p>При выводе информации в коротком (<span class='synopsis'><code>short</code></span>) или машиночитаемом (<span class='synopsis'><code>porcelain</code></span>) формате, печатать имя файла дословно и завершать вывод символом <em>NUL</em> вместо <em>LF</em>. Если формат вывода на был указан, то подразумевается <span class='synopsis'><code>--porcelain</code></span>. Без параметра <span class='synopsis'><code>-z</code></span> «необычные» символы в именах файлов берутся в кавычки, как это описано для переменной конфигурации <span class='synopsis'><code>core.quotePath</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
+<p>При выводе информации в коротком (<span class='synopsis'><code>short</code></span>) или машиночитаемом (<span class='synopsis'><code>porcelain</code></span>) формате <a href='{{< relurl "docs/git-status/ru" >}}'>git-status[1]</a>, печатать имя файла дословно и завершать вывод символом <em>NUL</em> вместо <em>LF</em>. Если формат вывода на был указан, то подразумевается <span class='synopsis'><code>--porcelain</code></span>. Без параметра <span class='synopsis'><code>-z</code></span> «необычные» символы в именах файлов берутся в кавычки, как это описано для переменной конфигурации <span class='synopsis'><code>core.quotePath</code></span> (см. <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-Fcodeemltgtemspan"> <a class="anchor" href="#git-commit--F"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-Fcodeemltgtemspan"></a><span class='synopsis'><code>-F</code> <em>&lt;файл&gt;</em></span> </dt>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--filecodeemltgtemspan"> <a class="anchor" href="#git-commit---file"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--filecodeemltgtemspan"></a><span class='synopsis'><code>--file=</code><em>&lt;файл&gt;</em></span> </dt>
@@ -212,6 +212,9 @@ headings:
 <p>Добавить завершитель <span class='synopsis'><code>Signed-off-by</code></span> в конец сообщения коммита. Смысл этого действия зависит от проекта, с которым вы сотрудничаете. Например, это может удостоверять, что коммиттер имеет все права на то, чтобы предоставить данную работу в проект под его лицензией, или что он соглашается с каким-нибудь соглашением участника, вроде Сертификата Происхождения Разработчика (тот что используется в проектах Linux и Git см. в <a href="https://developercertificate.org" class="bare">https://developercertificate.org</a>). Проконсультируйтесь с документацией или руководством проекта, в который вы хотите внести свой вклад, чтобы понять, какой именно смысл эта приписка имеет в конкретном проекте.</p>
 <div class="paragraph">
 <p>С помощью параметра <span class='synopsis'><code>--no-signoff</code></span> можно отменить параметр <span class='synopsis'><code>--signoff</code></span>, указанный раннее в командной строке.</p>
+</div>
+<div class="paragraph">
+<p>Git does not (and will not) have a configuration variable to enable the <span class='synopsis'><code>--signoff</code></span> command line option by default; see the <span class='synopsis'><code>commit.signoff</code></span> entry in <a href='{{< relurl "docs/gitfaq/ru" >}}'>gitfaq[7]</a> for more details.</p>
 </div>
 </dd>
 </dl>
@@ -279,7 +282,7 @@ headings:
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode-ecodespan"> <a class="anchor" href="#git-commit--e"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode-ecodespan"></a><span class='synopsis'><code>-e</code></span> </dt>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--editcodespan"> <a class="anchor" href="#git-commit---edit"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--editcodespan"></a><span class='synopsis'><code>--edit</code></span> </dt>
 <dd>
-<p>Позволить пользователю дополнительно редактировать сообщение, взятое из <em>&lt;файла&gt;</em> с помощью <span class='synopsis'><code>-F</code> <em>&lt;файл&gt;</em></span>, из командной строки с <span class='synopsis'><code>-m</code> <em>&lt;сообщение&gt;</em></span> или из коммита с <span class='synopsis'><code>-C</code> <em>&lt;коммит&gt;</em></span>.</p>
+<p>Позволить пользователю дополнительно редактировать сообщение, взятое из <em>&lt;файла&gt;</em> с помощью <span class='synopsis'><code>-F</code> <em>&lt;файл&gt;</em></span>, из командной строки с <span class='synopsis'><code>-m</code> <em>&lt;сообщение&gt;</em></span> или из коммита с <span class='synopsis'><code>-C</code> <em><span class="hover-term" data-term="коммит">&lt;коммит&gt;</span></em></span>.</p>
 </dd>
 <dt class="hdlist1" id="git-commit-spanclasssynopsiscode--no-editcodespan"> <a class="anchor" href="#git-commit---no-edit"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscode--no-editcodespan"></a><span class='synopsis'><code>--no-edit</code></span> </dt>
 <dd>
@@ -638,22 +641,29 @@ $ git add hello.c</pre>
 <div class="paragraph">
 <p>Дальнейшее содержание этого раздела (в отличие от того, что было описано до данной строки), повторяет то, что может быть найдено в <a href='{{< relurl "docs/git-config/ru" >}}'>git-config[1]</a>:</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Missing <span class='synopsis'><code>ru/config/commit.adoc</code></span></p>
-</div>
-<div class="paragraph">
-<p>See original version for this content.</p>
-</div>
-</td>
-</tr>
-</table>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitcleanupcodespan"> <a class="anchor" href="#git-commit-commitcleanup"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitcleanupcodespan"></a><span class='synopsis'><code>commit.cleanup</code></span> </dt>
+<dd>
+<p>This setting overrides the default of the <span class='synopsis'><code>--cleanup</code></span> option in <span class='synopsis'><code>git</code> <code>commit</code></span>.  Changing the default can be useful when you always want to keep lines that begin with the comment character (<span class='synopsis'><code>core.commentChar</code></span>, default <span class='synopsis'><code>#</code></span>) in your log message, in which case you would do <span class='synopsis'><code>git</code> <code>config</code> <code>commit.cleanup</code> <code>whitespace</code></span> (note that you will have to remove the help lines that begin with the comment character in the commit log template yourself, if you do this).</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitgpgSigncodespan"> <a class="anchor" href="#git-commit-commitgpgSign"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitgpgSigncodespan"></a><span class='synopsis'><code>commit.gpgSign</code></span> </dt>
+<dd>
+<p>Логическое значение, указывающее, должны ли все коммиты подписываться с помощью GPG. Использование этого параметра при выполнении таких операций как перемещение на другую ветку (rebase), может привести к тому, что подпись потребуется сразу большому количеству коммитов. Так что дабы избежать необходимости вводить пароль GPG по несколько раз, может быть удобно использовать GPG-агент.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitstatuscodespan"> <a class="anchor" href="#git-commit-commitstatus"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitstatuscodespan"></a><span class='synopsis'><code>commit.status</code></span> </dt>
+<dd>
+<p>Логическое значение, для включения/отключения вывода информации о состоянии в шаблоне сообщения коммита при использовании редактора для подготовки сообщения. По умолчанию: <span class='synopsis'><code>true</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommittemplatecodespan"> <a class="anchor" href="#git-commit-committemplate"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommittemplatecodespan"></a><span class='synopsis'><code>commit.template</code></span> </dt>
+<dd>
+<p>Указывает путь к файлу, который будет использоваться в качестве шаблона для новых сообщений коммитов.</p>
+</dd>
+<dt class="hdlist1" id="git-commit-spanclasssynopsiscodecommitverbosecodespan"> <a class="anchor" href="#git-commit-commitverbose"></a> <a class="anchor" href="#git-commit-spanclasssynopsiscodecommitverbosecodespan"></a><span class='synopsis'><code>commit.verbose</code></span> </dt>
+<dd>
+<p>Логическое или целочисленное значение, задающее уровень подробностей, добавляемых <span class='synopsis'><code>git</code> <code>commit</code></span> в шаблон сообщений коммитов. </p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
