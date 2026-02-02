@@ -232,7 +232,7 @@ var Search = {
       if(term != Search.currentSearch) {
         Search.currentSearch = term;
         const language = document.querySelector("html")?.getAttribute("lang");
-        const allResultsURL = `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`;
+        const allResultsURL = `${baseURLPrefix}search/results?search=${encodeURIComponent(term)}${language && `&language=${encodeURIComponent(language)}`}`;
         $("#search-results").html(`
           <header> Search Results </header>
           <table>
@@ -242,7 +242,7 @@ var Search = {
                 <td class="matches">
                   <ul>
                     <li>
-                      <a class="highlight" id="show-results-label" href="${allResultsURL}">
+                      <a class="highlight" id="show-results-label">
                         Searching for <span id="search-term">&nbsp;</span>...
                       </a>
                     </li>
@@ -273,6 +273,9 @@ var Search = {
           </table>
         `);
         $("#search-term").text(term);
+        // Set the link target safely (no HTML parsing).
+        $("#show-results-label").attr("href", allResultsURL);
+
         this.initializeSearchIndex(async () => {
           const results = await Search.pagefind.debouncedSearch(term);
           if (results === null || results.results.length === 0) {
@@ -362,7 +365,7 @@ var Search = {
       const term = $('#search-text').val();
       if (!term) return;
       const language = document.querySelector("html")?.getAttribute("lang");
-      url = `${baseURLPrefix}search/results?search=${term}${language && `&language=${language}`}`;
+      url = `${baseURLPrefix}search/results?search=${encodeURIComponent(term)}${language && `&language=${encodeURIComponent(language)}`}`;
     }
     window.location.href = url;
     selectedIndex = 0;
