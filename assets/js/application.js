@@ -328,7 +328,11 @@ var Search = {
                 if (!i || typeof results.results[i - 1].data === 'object') categorizeResult(i);
                 result.data.meta.title = result.data.meta.title.replace(/^Git - (.*) Documentation$/, "$1")
                 result.data.url = result.data.url.replace(/\.html$/, '')
-                result.li.html(`<a href = "${result.data.url}">${result.data.meta.title}</a>`);
+                // Build result item safely (no HTML parsing).
+                const a = $("<a>");
+                a.attr("href", result.data.url);
+                a.text(result.data.meta.title);
+                result.li.empty().append(a);
               })(displayCount).catch((err) => {
                 console.log(err);
                 result.li.html(`<i>Error loading result</i>`);
