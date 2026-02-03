@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-repo Documentation
 docname: git-repo
-version: 2.52.0
+version: 2.53.0
 headings:
 - text: NAME
   id: _name
@@ -24,7 +24,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.52.0
+latest-changes: 2.53.0
 aliases:
 - "/docs/git-repo/index.html"
 ---
@@ -40,8 +40,8 @@ aliases:
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="verseblock">
-<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>repo</code></span> <span class='synopsis'><code>info</code></span> [<span class='synopsis'><code>--format=</code></span>(<span class='synopsis'><code>keyvalue</code></span>|<span class='synopsis'><code>nul</code></span>)] [<span class='synopsis'><code>-z</code></span>] [<em>&lt;key&gt;</em>&#8230;&#8203;]
-<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>repo</code></span> <span class='synopsis'><code>structure</code></span> [<span class='synopsis'><code>--format=</code></span>(<span class='synopsis'><code>table</code></span>|<span class='synopsis'><code>keyvalue</code></span>|<span class='synopsis'><code>nul</code></span>)]</pre>
+<pre class="content"><span class='synopsis'><code>git</code></span> <span class='synopsis'><code>repo</code></span> <span class='synopsis'><code>info</code></span> [<span class='synopsis'><code>--format=</code></span>(<span class='synopsis'><code>keyvalue</code></span>|<span class='synopsis'><code>nul</code></span>) | <span class='synopsis'><code>-z</code></span>] [<span class='synopsis'><code>--all</code></span> | <em>&lt;key&gt;</em>&#8230;&#8203;]
+<span class='synopsis'><code>git</code></span> <span class='synopsis'><code>repo</code></span> <span class='synopsis'><code>structure</code></span> [<span class='synopsis'><code>--format=</code></span>(<span class='synopsis'><code>table</code></span>|<span class='synopsis'><code>keyvalue</code></span>|<span class='synopsis'><code>nul</code></span>) | <span class='synopsis'><code>-z</code></span>]</pre>
 </div>
 </div>
 </div>
@@ -61,14 +61,14 @@ aliases:
 <div class="sectionbody">
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/git-repo.txt-spanclasssynopsiscodeinfocodecode--formatcodecodekeyvaluecodecodenulcodecode-zcodeemltkeygtemspan"><a id="Documentation/git-repo.txt-info--formatkeyvaluenul-zkey" class="anchor" href="#Documentation/git-repo.txt-info--formatkeyvaluenul-zkey"></a><span class='synopsis'><code>info</code> [<code>--format=</code>(<code>keyvalue</code>|<code>nul</code>)] [<code>-z</code>] [<em>&lt;key&gt;</em>...]</span> </dt>
+<dt class="hdlist1" id="Documentation/git-repo.txt-spanclasssynopsiscodeinfocodecode--formatcodecodekeyvaluecodecodenulcodecode-zcodecode--allcodeemltkeygtemspan"><a id="Documentation/git-repo.txt-info--formatkeyvaluenul-z--allkey" class="anchor" href="#Documentation/git-repo.txt-info--formatkeyvaluenul-z--allkey"></a><span class='synopsis'><code>info</code> [<code>--format=</code>(<code>keyvalue</code>|<code>nul</code>) | <code>-z</code>] [<code>--all</code> | <em>&lt;key&gt;</em>...]</span> </dt>
 <dd>
 <p>Retrieve metadata-related information about the current repository. Only
 the requested data will be returned based on their keys (see "INFO KEYS"
 section below).</p>
 <div class="paragraph">
 <p>The values are returned in the same order in which their respective keys were
-requested.</p>
+requested. The <span class='synopsis'><code>--all</code></span> flag requests the values for all the available keys.</p>
 </div>
 <div class="paragraph">
 <p>The output format can be chosen through the flag <span class='synopsis'><code>--format</code></span>. Two formats are
@@ -96,7 +96,7 @@ This format is better suited for being parsed by another applications than
 </dl>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-repo.txt-spanclasssynopsiscodestructurecodecode--formatcodecodetablecodecodekeyvaluecodecodenulcodespan"><a id="Documentation/git-repo.txt-structure--formattablekeyvaluenul" class="anchor" href="#Documentation/git-repo.txt-structure--formattablekeyvaluenul"></a><span class='synopsis'><code>structure</code> [<code>--format=</code>(<code>table</code>|<code>keyvalue</code>|<code>nul</code>)]</span> </dt>
+<dt class="hdlist1" id="Documentation/git-repo.txt-spanclasssynopsiscodestructurecodecode--formatcodecodetablecodecodekeyvaluecodecodenulcodecode-zcodespan"><a id="Documentation/git-repo.txt-structure--formattablekeyvaluenul-z" class="anchor" href="#Documentation/git-repo.txt-structure--formattablekeyvaluenul-z"></a><span class='synopsis'><code>structure</code> [<code>--format=</code>(<code>table</code>|<code>keyvalue</code>|<code>nul</code>) | <code>-z</code>]</span> </dt>
 <dd>
 <p>Retrieve statistics about the current repository structure. The
 following kinds of information are reported:</p>
@@ -108,14 +108,14 @@ following kinds of information are reported:</p>
 <li>
 <p>Reachable object counts categorized by type</p>
 </li>
-</ul>
-</div>
+<li>
+<p>Total inflated size of reachable objects by type</p>
+</li>
+<li>
+<p>Total disk size of reachable objects by type</p>
 <div class="paragraph">
 <p>The output format can be chosen through the flag <span class='synopsis'><code>--format</code></span>. Three formats are
 supported:</p>
-</div>
-<div class="paragraph">
-<p>+</p>
 </div>
 <div class="dlist">
 <dl>
@@ -139,8 +139,14 @@ key-value pairs instead of a newline. Also uses a newline character as
 the delimiter between the key and value instead of <em>=</em>. Unlike the
 <span class='synopsis'><code>keyvalue</code></span> format, values containing "unusual" characters are never
 quoted.</p>
+<div class="paragraph">
+<p><span class='synopsis'><code>-z</code></span> is an alias for <span class='synopsis'><code>--format=nul</code></span>.</p>
+</div>
 </dd>
 </dl>
+</div>
+</li>
+</ul>
 </div>
 </dd>
 </dl>

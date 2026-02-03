@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-send-email Documentation
 docname: git-send-email
-version: 2.52.0
+version: 2.53.0
 headings:
 - text: NAME
   id: _name
@@ -26,7 +26,7 @@ headings:
   id: _see_also
 - text: GIT
   id: _git
-latest-changes: 2.52.0
+latest-changes: 2.53.0
 aliases:
 - "/docs/git-send-email/index.html"
 ---
@@ -293,7 +293,7 @@ for your own case. Default is the value of <span class='synopsis'><code>sendemai
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---smtp-domainltFQDNgt"><a id="Documentation/git-send-email.txt---smtp-domainFQDN" class="anchor" href="#Documentation/git-send-email.txt---smtp-domainFQDN"></a>--smtp-domain=&lt;FQDN&gt; </dt>
 <dd>
-<p>Specifies the Fully Qualified Domain Name (FQDN) used in the
+<p>Specify the Fully Qualified Domain Name (FQDN) used in the
 HELO/EHLO command to the SMTP server.  Some servers require the
 FQDN to match your IP address.  If not set, <span class='synopsis'><code>git</code> <code>send-email</code></span> attempts
 to determine your FQDN automatically.  Default is the value of
@@ -337,7 +337,7 @@ a password is obtained using <a href='{{< relurl "docs/git-credential" >}}'>git-
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---smtp-serverlthostgt"><a id="Documentation/git-send-email.txt---smtp-serverhost" class="anchor" href="#Documentation/git-send-email.txt---smtp-serverhost"></a>--smtp-server=&lt;host&gt; </dt>
 <dd>
-<p>If set, specifies the outgoing SMTP server to use (e.g.
+<p>Specify the outgoing SMTP server to use (e.g.
 <span class='synopsis'><code>smtp.example.com</code></span> or a raw IP address).  If unspecified, and if
 <span class='synopsis'><code>--sendmail-cmd</code></span> is also unspecified, the default is to search
 for <span class='synopsis'><code>sendmail</code></span> in <span class='synopsis'><code>/usr/sbin</code></span>, <span class='synopsis'><code>/usr/lib</code></span> and <span class='synopsis'><code>$PATH</code></span> if such a
@@ -352,7 +352,7 @@ instead.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---smtp-server-portltportgt"><a id="Documentation/git-send-email.txt---smtp-server-portport" class="anchor" href="#Documentation/git-send-email.txt---smtp-server-portport"></a>--smtp-server-port=&lt;port&gt; </dt>
 <dd>
-<p>Specifies a port different from the default port (SMTP
+<p>Specify a port different from the default port (SMTP
 servers typically listen to smtp port 25, but may also listen to
 submission port 587, or the common SSL smtp port 465);
 symbolic port names (e.g. <span class='synopsis'><code>submission</code></span> instead of 587)
@@ -361,7 +361,7 @@ are also accepted. The port can also be set with the
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---smtp-server-optionltoptiongt"><a id="Documentation/git-send-email.txt---smtp-server-optionoption" class="anchor" href="#Documentation/git-send-email.txt---smtp-server-optionoption"></a>--smtp-server-option=&lt;option&gt; </dt>
 <dd>
-<p>If set, specifies the outgoing SMTP server option to use.
+<p>Specify the outgoing SMTP server option to use.
 Default value can be specified by the <span class='synopsis'><code>sendemail.smtpServerOption</code></span>
 configuration option.</p>
 <div class="paragraph">
@@ -374,7 +374,7 @@ must be used for each option.</p>
 <dd>
 <p>Legacy alias for <span class='synopsis'><code>--smtp-encryption</code> <code>ssl</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-send-email.txt---smtp-ssl-cert-path"><a class="anchor" href="#Documentation/git-send-email.txt---smtp-ssl-cert-path"></a>--smtp-ssl-cert-path </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt---smtp-ssl-cert-pathltpathgt"><a id="Documentation/git-send-email.txt---smtp-ssl-cert-pathpath" class="anchor" href="#Documentation/git-send-email.txt---smtp-ssl-cert-pathpath"></a>--smtp-ssl-cert-path &lt;path&gt; </dt>
 <dd>
 <p>Path to a store of trusted CA certificates for SMTP SSL/TLS
 certificate validation (either a directory that has been processed
@@ -457,12 +457,12 @@ configuration variable.</p>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---no-cc"><a class="anchor" href="#Documentation/git-send-email.txt---no-cc"></a>--no-cc </dt>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---no-bcc"><a class="anchor" href="#Documentation/git-send-email.txt---no-bcc"></a>--no-bcc </dt>
 <dd>
-<p>Clears any list of <span class='synopsis'><code>To:</code></span>, <span class='synopsis'><code>Cc:</code></span>, <span class='synopsis'><code>Bcc:</code></span> addresses previously
+<p>Clear any list of <span class='synopsis'><code>To:</code></span>, <span class='synopsis'><code>Cc:</code></span>, <span class='synopsis'><code>Bcc:</code></span> addresses previously
 set via config.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---no-identity"><a class="anchor" href="#Documentation/git-send-email.txt---no-identity"></a>--no-identity </dt>
 <dd>
-<p>Clears the previously read value of <span class='synopsis'><code>sendemail.identity</code></span> set
+<p>Clear the previously read value of <span class='synopsis'><code>sendemail.identity</code></span> set
 via config, if any.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---to-cmdltcommandgt"><a id="Documentation/git-send-email.txt---to-cmdcommand" class="anchor" href="#Documentation/git-send-email.txt---to-cmdcommand"></a>--to-cmd=&lt;command&gt; </dt>

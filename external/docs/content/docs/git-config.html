@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-config Documentation
 docname: git-config
-version: 2.52.0
+version: 2.53.0
 headings:
 - text: NAME
   id: _name
@@ -36,7 +36,7 @@ headings:
   id: _bugs
 - text: GIT
   id: _git
-latest-changes: 2.52.0
+latest-changes: 2.53.0
 aliases:
 - "/docs/git-config/index.html"
 ---
@@ -483,7 +483,7 @@ recommended to migrate to the new syntax.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt---get-urlmatchltnamegtltURLgt"><a id="Documentation/git-config.txt---get-urlmatchnameURL" class="anchor" href="#Documentation/git-config.txt---get-urlmatchnameURL"></a>--get-urlmatch &lt;name&gt; &lt;URL&gt; </dt>
 <dd>
-<p>Replaced by <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> <code>--all</code> <code>--show-names</code> <code>--url=</code><em>&lt;URL&gt;</em> <em>&lt;name&gt;</em></span>.</p>
+<p>Replaced by <span class='synopsis'><code>git</code> <code>config</code> <code>get</code> <code>--url=</code><em>&lt;URL&gt;</em> <em>&lt;name&gt;</em></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt---get-colorltnamegtltdefaultgt"><a id="Documentation/git-config.txt---get-colornamedefault" class="anchor" href="#Documentation/git-config.txt---get-colornamedefault"></a>--get-color &lt;name&gt; [&lt;default&gt;] </dt>
 <dd>
@@ -3196,10 +3196,9 @@ command-line argument and write the password on its STDOUT.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-coreattributesFile"><a class="anchor" href="#Documentation/git-config.txt-coreattributesFile"></a>core.attributesFile </dt>
 <dd>
-<p>In addition to <span class='synopsis'><code>.gitattributes</code></span> (per-directory) and
-<span class='synopsis'><code>.git/info/attributes</code></span>, Git looks into this file for attributes
-(see <a href='{{< relurl "docs/gitattributes" >}}'>gitattributes[5]</a>). Path expansions are made the same
-way as for <span class='synopsis'><code>core.excludesFile</code></span>. Its default value is
+<p>Specifies the pathname to the file that contains attributes (see
+<a href='{{< relurl "docs/gitattributes" >}}'>gitattributes[5]</a>), in addition to <span class='synopsis'><code>.gitattributes</code></span> (per-directory)
+and <span class='synopsis'><code>.git/info/attributes</code></span>. Its default value is
 <span class='synopsis'><code>$XDG_CONFIG_HOME/git/attributes</code></span>. If <span class='synopsis'><code>$XDG_CONFIG_HOME</code></span> is either not
 set or empty, <span class='synopsis'><code>$HOME/.config/git/attributes</code></span> is used instead.</p>
 </dd>
@@ -3375,6 +3374,10 @@ the line as an error (not enabled by default).</p>
 part of the line terminator, i.e. with it, <span class='synopsis'><code>trailing-space</code></span>
 does not trigger if the character before such a carriage-return
 is not a whitespace (not enabled by default).</p>
+</li>
+<li>
+<p><span class='synopsis'><code>incomplete-line</code></span> treats the last line of a file that is missing the
+newline at the end as an error (not enabled by default).</p>
 </li>
 <li>
 <p><span class='synopsis'><code>tabwidth=</code><em>&lt;n&gt;</em></span> tells how many character positions a tab occupies; this
@@ -4333,39 +4336,39 @@ that mtime is working on your machine.</p>
 </ul>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchrecurseSubmodules"><a class="anchor" href="#Documentation/git-config.txt-fetchrecurseSubmodules"></a>fetch.recurseSubmodules </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchrecurseSubmodulescodespan"><a id="Documentation/git-config.txt-fetchrecurseSubmodules" class="anchor" href="#Documentation/git-config.txt-fetchrecurseSubmodules"></a><span class='synopsis'><code>fetch.recurseSubmodules</code></span> </dt>
 <dd>
 <p>This option controls whether <span class='synopsis'><code>git</code> <code>fetch</code></span> (and the underlying fetch
 in <span class='synopsis'><code>git</code> <code>pull</code></span>) will recursively fetch into populated submodules.
-This option can be set either to a boolean value or to <em>on-demand</em>.
+This option can be set either to a boolean value or to <span class='synopsis'><code>on-demand</code></span>.
 Setting it to a boolean changes the behavior of fetch and pull to
 recurse unconditionally into submodules when set to true or to not
-recurse at all when set to false. When set to <em>on-demand</em>, fetch and
+recurse at all when set to false. When set to <span class='synopsis'><code>on-demand</code></span>, fetch and
 pull will only recurse into a populated submodule when its
 superproject retrieves a commit that updates the submodule&#8217;s
 reference.
-Defaults to <em>on-demand</em>, or to the value of <em>submodule.recurse</em> if set.</p>
+Defaults to <span class='synopsis'><code>on-demand</code></span>, or to the value of <span class='synopsis'><code>submodule.recurse</code></span> if set.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchfsckObjects"><a class="anchor" href="#Documentation/git-config.txt-fetchfsckObjects"></a>fetch.fsckObjects </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchfsckObjectscodespan"><a id="Documentation/git-config.txt-fetchfsckObjects" class="anchor" href="#Documentation/git-config.txt-fetchfsckObjects"></a><span class='synopsis'><code>fetch.fsckObjects</code></span> </dt>
 <dd>
 <p>If it is set to true, git-fetch-pack will check all fetched
 objects. See <span class='synopsis'><code>transfer.fsckObjects</code></span> for what&#8217;s
-checked. Defaults to false. If not set, the value of
+checked. Defaults to <span class='synopsis'><code>false</code></span>. If not set, the value of
 <span class='synopsis'><code>transfer.fsckObjects</code></span> is used instead.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchfsckltmsg-idgt"><a id="Documentation/git-config.txt-fetchfsckmsg-id" class="anchor" href="#Documentation/git-config.txt-fetchfsckmsg-id"></a>fetch.fsck.&lt;msg-id&gt; </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchfsckcodeemltmsg-idgtemspan"><a id="Documentation/git-config.txt-fetchfsckmsg-id" class="anchor" href="#Documentation/git-config.txt-fetchfsckmsg-id"></a><span class='synopsis'><code>fetch.fsck.</code><em>&lt;msg-id&gt;</em></span> </dt>
 <dd>
 <p>Acts like <span class='synopsis'><code>fsck.</code><em>&lt;msg-id&gt;</em></span>, but is used by
 <a href='{{< relurl "docs/git-fetch-pack" >}}'>git-fetch-pack[1]</a> instead of <a href='{{< relurl "docs/git-fsck" >}}'>git-fsck[1]</a>. See
 the <span class='synopsis'><code>fsck.</code><em>&lt;msg-id&gt;</em></span> documentation for details.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchfsckskipList"><a class="anchor" href="#Documentation/git-config.txt-fetchfsckskipList"></a>fetch.fsck.skipList </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchfsckskipListcodespan"><a id="Documentation/git-config.txt-fetchfsckskipList" class="anchor" href="#Documentation/git-config.txt-fetchfsckskipList"></a><span class='synopsis'><code>fetch.fsck.skipList</code></span> </dt>
 <dd>
 <p>Acts like <span class='synopsis'><code>fsck.skipList</code></span>, but is used by
 <a href='{{< relurl "docs/git-fetch-pack" >}}'>git-fetch-pack[1]</a> instead of <a href='{{< relurl "docs/git-fsck" >}}'>git-fsck[1]</a>. See
 the <span class='synopsis'><code>fsck.skipList</code></span> documentation for details.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchunpackLimit"><a class="anchor" href="#Documentation/git-config.txt-fetchunpackLimit"></a>fetch.unpackLimit </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchunpackLimitcodespan"><a id="Documentation/git-config.txt-fetchunpackLimit" class="anchor" href="#Documentation/git-config.txt-fetchunpackLimit"></a><span class='synopsis'><code>fetch.unpackLimit</code></span> </dt>
 <dd>
 <p>If the number of objects fetched over the Git native
 transfer is below this
@@ -4377,13 +4380,13 @@ pack from a push can make the push operation complete faster,
 especially on slow filesystems.  If not set, the value of
 <span class='synopsis'><code>transfer.unpackLimit</code></span> is used instead.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchprune"><a class="anchor" href="#Documentation/git-config.txt-fetchprune"></a>fetch.prune </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchprunecodespan"><a id="Documentation/git-config.txt-fetchprune" class="anchor" href="#Documentation/git-config.txt-fetchprune"></a><span class='synopsis'><code>fetch.prune</code></span> </dt>
 <dd>
 <p>If true, fetch will automatically behave as if the <span class='synopsis'><code>--prune</code></span>
 option was given on the command line.  See also <span class='synopsis'><code>remote.</code><em>&lt;name&gt;</em><code>.prune</code></span>
 and the PRUNING section of <a href='{{< relurl "docs/git-fetch" >}}'>git-fetch[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchpruneTags"><a class="anchor" href="#Documentation/git-config.txt-fetchpruneTags"></a>fetch.pruneTags </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchpruneTagscodespan"><a id="Documentation/git-config.txt-fetchpruneTags" class="anchor" href="#Documentation/git-config.txt-fetchpruneTags"></a><span class='synopsis'><code>fetch.pruneTags</code></span> </dt>
 <dd>
 <p>If true, fetch will automatically behave as if the
 <span class='synopsis'><code>refs/tags/*:refs/tags/*</code></span> refspec was provided when pruning,
@@ -4392,46 +4395,46 @@ and <span class='synopsis'><code>fetch.prune</code></span> to maintain a 1=1 map
 refs. See also <span class='synopsis'><code>remote.</code><em>&lt;name&gt;</em><code>.pruneTags</code></span> and the PRUNING
 section of <a href='{{< relurl "docs/git-fetch" >}}'>git-fetch[1]</a>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchall"><a class="anchor" href="#Documentation/git-config.txt-fetchall"></a>fetch.all </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchallcodespan"><a id="Documentation/git-config.txt-fetchall" class="anchor" href="#Documentation/git-config.txt-fetchall"></a><span class='synopsis'><code>fetch.all</code></span> </dt>
 <dd>
 <p>If true, fetch will attempt to update all available remotes.
 This behavior can be overridden by passing <span class='synopsis'><code>--no-all</code></span> or by
 explicitly specifying one or more remote(s) to fetch from.
-Defaults to false.</p>
+Defaults to <span class='synopsis'><code>false</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchoutput"><a class="anchor" href="#Documentation/git-config.txt-fetchoutput"></a>fetch.output </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchoutputcodespan"><a id="Documentation/git-config.txt-fetchoutput" class="anchor" href="#Documentation/git-config.txt-fetchoutput"></a><span class='synopsis'><code>fetch.output</code></span> </dt>
 <dd>
 <p>Control how ref update status is printed. Valid values are
 <span class='synopsis'><code>full</code></span> and <span class='synopsis'><code>compact</code></span>. Default value is <span class='synopsis'><code>full</code></span>. See the
 OUTPUT section in <a href='{{< relurl "docs/git-fetch" >}}'>git-fetch[1]</a> for details.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchnegotiationAlgorithm"><a class="anchor" href="#Documentation/git-config.txt-fetchnegotiationAlgorithm"></a>fetch.negotiationAlgorithm </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchnegotiationAlgorithmcodespan"><a id="Documentation/git-config.txt-fetchnegotiationAlgorithm" class="anchor" href="#Documentation/git-config.txt-fetchnegotiationAlgorithm"></a><span class='synopsis'><code>fetch.negotiationAlgorithm</code></span> </dt>
 <dd>
 <p>Control how information about the commits in the local repository
 is sent when negotiating the contents of the packfile to be sent by
-the server.  Set to "consecutive" to use an algorithm that walks
-over consecutive commits checking each one.  Set to "skipping" to
+the server.  Set to <span class='synopsis'><code>consecutive</code></span> to use an algorithm that walks
+over consecutive commits checking each one.  Set to <span class='synopsis'><code>skipping</code></span> to
 use an algorithm that skips commits in an effort to converge
 faster, but may result in a larger-than-necessary packfile; or set
-to "noop" to not send any information at all, which will almost
+to <span class='synopsis'><code>noop</code></span> to not send any information at all, which will almost
 certainly result in a larger-than-necessary packfile, but will skip
-the negotiation step.  Set to "default" to override settings made
+the negotiation step.  Set to <span class='synopsis'><code>default</code></span> to override settings made
 previously and use the default behaviour.  The default is normally
-"consecutive", but if <span class='synopsis'><code>feature.experimental</code></span> is true, then the
-default is "skipping".  Unknown values will cause <em>git fetch</em> to
+<span class='synopsis'><code>consecutive</code></span>, but if <span class='synopsis'><code>feature.experimental</code></span> is <span class='synopsis'><code>true</code></span>, then the
+default is <span class='synopsis'><code>skipping</code></span>.  Unknown values will cause <span class='synopsis'><code>git</code> <code>fetch</code></span> to
 error out.</p>
 <div class="paragraph">
 <p>See also the <span class='synopsis'><code>--negotiate-only</code></span> and <span class='synopsis'><code>--negotiation-tip</code></span> options to
 <a href='{{< relurl "docs/git-fetch" >}}'>git-fetch[1]</a>.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchshowForcedUpdates"><a class="anchor" href="#Documentation/git-config.txt-fetchshowForcedUpdates"></a>fetch.showForcedUpdates </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchshowForcedUpdatescodespan"><a id="Documentation/git-config.txt-fetchshowForcedUpdates" class="anchor" href="#Documentation/git-config.txt-fetchshowForcedUpdates"></a><span class='synopsis'><code>fetch.showForcedUpdates</code></span> </dt>
 <dd>
-<p>Set to false to enable <span class='synopsis'><code>--no-show-forced-updates</code></span> in
+<p>Set to <span class='synopsis'><code>false</code></span> to enable <span class='synopsis'><code>--no-show-forced-updates</code></span> in
 <a href='{{< relurl "docs/git-fetch" >}}'>git-fetch[1]</a> and <a href='{{< relurl "docs/git-pull" >}}'>git-pull[1]</a> commands.
-Defaults to true.</p>
+Defaults to <span class='synopsis'><code>true</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchparallel"><a class="anchor" href="#Documentation/git-config.txt-fetchparallel"></a>fetch.parallel </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchparallelcodespan"><a id="Documentation/git-config.txt-fetchparallel" class="anchor" href="#Documentation/git-config.txt-fetchparallel"></a><span class='synopsis'><code>fetch.parallel</code></span> </dt>
 <dd>
 <p>Specifies the maximal number of fetch operations to be run in parallel
 at a time (submodules, or remotes when the <span class='synopsis'><code>--multiple</code></span> option of
@@ -4444,7 +4447,7 @@ at a time (submodules, or remotes when the <span class='synopsis'><code>--multip
 config setting.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchwriteCommitGraph"><a class="anchor" href="#Documentation/git-config.txt-fetchwriteCommitGraph"></a>fetch.writeCommitGraph </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchwriteCommitGraphcodespan"><a id="Documentation/git-config.txt-fetchwriteCommitGraph" class="anchor" href="#Documentation/git-config.txt-fetchwriteCommitGraph"></a><span class='synopsis'><code>fetch.writeCommitGraph</code></span> </dt>
 <dd>
 <p>Set to true to write a commit-graph after every <span class='synopsis'><code>git</code> <code>fetch</code></span> command
 that downloads a pack-file from a remote. Using the <span class='synopsis'><code>--split</code></span> option,
@@ -4452,9 +4455,9 @@ most executions will create a very small commit-graph file on top of
 the existing commit-graph file(s). Occasionally, these files will
 merge and the write may take longer. Having an updated commit-graph
 file helps performance of many Git commands, including <span class='synopsis'><code>git</code> <code>merge-base</code></span>,
-<span class='synopsis'><code>git</code> <code>push</code> <code>-f</code></span>, and <span class='synopsis'><code>git</code> <code>log</code> <code>--graph</code></span>. Defaults to false.</p>
+<span class='synopsis'><code>git</code> <code>push</code> <code>-f</code></span>, and <span class='synopsis'><code>git</code> <code>log</code> <code>--graph</code></span>. Defaults to <span class='synopsis'><code>false</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchbundleURI"><a class="anchor" href="#Documentation/git-config.txt-fetchbundleURI"></a>fetch.bundleURI </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchbundleURIcodespan"><a id="Documentation/git-config.txt-fetchbundleURI" class="anchor" href="#Documentation/git-config.txt-fetchbundleURI"></a><span class='synopsis'><code>fetch.bundleURI</code></span> </dt>
 <dd>
 <p>This value stores a URI for downloading Git object data from a bundle
 URI before performing an incremental fetch from the origin Git server.
@@ -4468,10 +4471,10 @@ value, then remove that <span class='synopsis'><code>fetch.bundleCreationToken</
 the new bundle URI.</p>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-fetchbundleCreationToken"><a class="anchor" href="#Documentation/git-config.txt-fetchbundleCreationToken"></a>fetch.bundleCreationToken </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodefetchbundleCreationTokencodespan"><a id="Documentation/git-config.txt-fetchbundleCreationToken" class="anchor" href="#Documentation/git-config.txt-fetchbundleCreationToken"></a><span class='synopsis'><code>fetch.bundleCreationToken</code></span> </dt>
 <dd>
 <p>When using <span class='synopsis'><code>fetch.bundleURI</code></span> to fetch incrementally from a bundle
-list that uses the "creationToken" heuristic, this config value
+list that uses the "<span class='synopsis'><code>creationToken</code></span>" heuristic, this config value
 stores the maximum <span class='synopsis'><code>creationToken</code></span> value of the downloaded bundles.
 This value is used to prevent downloading bundles in the future
 if the advertised <span class='synopsis'><code>creationToken</code></span> is not strictly larger than this
@@ -5306,6 +5309,12 @@ detection, measured in alphanumeric characters. See the
 
 <code>Context</code></span> menu item is invoked from <em>git gui blame</em>. If this
 variable is set to zero, the whole history is shown.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-guiGCWarning"><a class="anchor" href="#Documentation/git-config.txt-guiGCWarning"></a>gui.GCWarning </dt>
+<dd>
+<p>Determines whether <a href='{{< relurl "docs/git-gui" >}}'>git-gui[1]</a> should prompt for garbage
+collection when git detects a large number of loose objects in
+the repository. The default value is "true".</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-guitoolltnamegtcmd"><a id="Documentation/git-config.txt-guitoolnamecmd" class="anchor" href="#Documentation/git-config.txt-guitoolnamecmd"></a>guitool.&lt;name&gt;.cmd </dt>
 <dd>
@@ -7459,19 +7468,19 @@ option.</p>
 <dd>
 <p>The default merge strategy to use when pulling a single branch.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushautoSetupRemote"><a class="anchor" href="#Documentation/git-config.txt-pushautoSetupRemote"></a>push.autoSetupRemote </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushautoSetupRemotecodespan"><a id="Documentation/git-config.txt-pushautoSetupRemote" class="anchor" href="#Documentation/git-config.txt-pushautoSetupRemote"></a><span class='synopsis'><code>push.autoSetupRemote</code></span> </dt>
 <dd>
-<p>If set to "true" assume <span class='synopsis'><code>--set-upstream</code></span> on default push when no
+<p>If set to <span class='synopsis'><code>true</code></span> assume <span class='synopsis'><code>--set-upstream</code></span> on default push when no
 upstream tracking exists for the current branch; this option
-takes effect with push.default options <em>simple</em>, <em>upstream</em>,
-and <em>current</em>. It is useful if by default you want new branches
+takes effect with <span class='synopsis'><code>push.default</code></span> options <span class='synopsis'><code>simple</code></span>, <span class='synopsis'><code>upstream</code></span>,
+and <span class='synopsis'><code>current</code></span>. It is useful if by default you want new branches
 to be pushed to the default remote (like the behavior of
-<em>push.default=current</em>) and you also want the upstream tracking
+<span class='synopsis'><code>push.default=current</code></span>) and you also want the upstream tracking
 to be set. Workflows most likely to benefit from this option are
-<em>simple</em> central workflows where all branches are expected to
+<span class='synopsis'><code>simple</code></span> central workflows where all branches are expected to
 have the same name on the remote.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushdefault"><a class="anchor" href="#Documentation/git-config.txt-pushdefault"></a>push.default </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushdefaultcodespan"><a id="Documentation/git-config.txt-pushdefault" class="anchor" href="#Documentation/git-config.txt-pushdefault"></a><span class='synopsis'><code>push.default</code></span> </dt>
 <dd>
 <p>Defines the action <span class='synopsis'><code>git</code> <code>push</code></span> should take if no refspec is
 given (whether from the command-line, config, or elsewhere).
@@ -7481,30 +7490,35 @@ specific workflows; for instance, in a purely central workflow
 <span class='synopsis'><code>upstream</code></span> is probably what you want.  Possible values are:</p>
 <div class="openblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><span class='synopsis'><code>nothing</code></span> - do not push anything (error out) unless a refspec is
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodenothingcodespan"><a id="Documentation/git-config.txt-nothing" class="anchor" href="#Documentation/git-config.txt-nothing"></a><span class='synopsis'><code>nothing</code></span> </dt>
+<dd>
+<p>do not push anything (error out) unless a refspec is
 given. This is primarily meant for people who want to
 avoid mistakes by always being explicit.</p>
-</li>
-<li>
-<p><span class='synopsis'><code>current</code></span> - push the current branch to update a branch with the same
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodecurrentcodespan"><a id="Documentation/git-config.txt-current" class="anchor" href="#Documentation/git-config.txt-current"></a><span class='synopsis'><code>current</code></span> </dt>
+<dd>
+<p>push the current branch to update a branch with the same
 name on the receiving end.  Works in both central and non-central
 workflows.</p>
-</li>
-<li>
-<p><span class='synopsis'><code>upstream</code></span> - push the current branch back to the branch whose
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodeupstreamcodespan"><a id="Documentation/git-config.txt-upstream" class="anchor" href="#Documentation/git-config.txt-upstream"></a><span class='synopsis'><code>upstream</code></span> </dt>
+<dd>
+<p>push the current branch back to the branch whose
 changes are usually integrated into the current branch (which is
 called <span class='synopsis'><code>@{upstream}</code></span>).  This mode only makes sense if you are
 pushing to the same repository you would normally pull from
 (i.e. central workflow).</p>
-</li>
-<li>
-<p><span class='synopsis'><code>tracking</code></span> - This is a deprecated synonym for <span class='synopsis'><code>upstream</code></span>.</p>
-</li>
-<li>
-<p><span class='synopsis'><code>simple</code></span> - push the current branch with the same name on the remote.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodetrackingcodespan"><a id="Documentation/git-config.txt-tracking" class="anchor" href="#Documentation/git-config.txt-tracking"></a><span class='synopsis'><code>tracking</code></span> </dt>
+<dd>
+<p>this is a deprecated synonym for <span class='synopsis'><code>upstream</code></span>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodesimplecodespan-1"><a id="Documentation/git-config.txt-simple-1" class="anchor" href="#Documentation/git-config.txt-simple-1"></a><span class='synopsis'><code>simple</code></span> </dt>
+<dd>
+<p>push the current branch with the same name on the remote.</p>
 <div class="paragraph">
 <p>If you are working on a centralized workflow (pushing to the same repository you
 pull from, which is typically <span class='synopsis'><code>origin</code></span>), then you need to configure an upstream
@@ -7514,18 +7528,19 @@ branch with the same name.</p>
 <p>This mode is the default since Git 2.0, and is the safest option suited for
 beginners.</p>
 </div>
-</li>
-<li>
-<p><span class='synopsis'><code>matching</code></span> - push all branches having the same name on both ends.
+</dd>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodematchingcodespan"><a id="Documentation/git-config.txt-matching" class="anchor" href="#Documentation/git-config.txt-matching"></a><span class='synopsis'><code>matching</code></span> </dt>
+<dd>
+<p>push all branches having the same name on both ends.
 This makes the repository you are pushing to remember the set of
-branches that will be pushed out (e.g. if you always push <em>maint</em>
-and <em>master</em> there and no other branches, the repository you push
-to will have these two branches, and your local <em>maint</em> and
-<em>master</em> will be pushed there).</p>
+branches that will be pushed out (e.g. if you always push <span class='synopsis'><code>maint</code></span>
+and <span class='synopsis'><code>master</code></span> there and no other branches, the repository you push
+to will have these two branches, and your local <span class='synopsis'><code>maint</code></span> and
+<span class='synopsis'><code>master</code></span> will be pushed there).</p>
 <div class="paragraph">
 <p>To use this mode effectively, you have to make sure <em>all</em> the
 branches you would push out are ready to be pushed out before
-running <em>git push</em>, as the whole point of this mode is to allow you
+running <span class='synopsis'><code>git</code> <code>push</code></span>, as the whole point of this mode is to allow you
 to push all of the branches in one go.  If you usually finish work
 on only one branch and push out the result, while other branches are
 unfinished, this mode is not for you.  Also this mode is not
@@ -7537,33 +7552,33 @@ branches outside your control.</p>
 <p>This used to be the default, but not since Git 2.0 (<span class='synopsis'><code>simple</code></span> is the
 new default).</p>
 </div>
-</li>
-</ul>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushfollowTags"><a class="anchor" href="#Documentation/git-config.txt-pushfollowTags"></a>push.followTags </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushfollowTagscodespan"><a id="Documentation/git-config.txt-pushfollowTags" class="anchor" href="#Documentation/git-config.txt-pushfollowTags"></a><span class='synopsis'><code>push.followTags</code></span> </dt>
 <dd>
 <p>If set to true, enable <span class='synopsis'><code>--follow-tags</code></span> option by default.  You
 may override this configuration at time of push by specifying
 <span class='synopsis'><code>--no-follow-tags</code></span>.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushgpgSign"><a class="anchor" href="#Documentation/git-config.txt-pushgpgSign"></a>push.gpgSign </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushgpgSigncodespan"><a id="Documentation/git-config.txt-pushgpgSign" class="anchor" href="#Documentation/git-config.txt-pushgpgSign"></a><span class='synopsis'><code>push.gpgSign</code></span> </dt>
 <dd>
-<p>May be set to a boolean value, or the string <em>if-asked</em>. A true
+<p>May be set to a boolean value, or the string <span class='synopsis'><code>if-asked</code></span>. A true
 value causes all pushes to be GPG signed, as if <span class='synopsis'><code>--signed</code></span> is
-passed to <a href='{{< relurl "docs/git-push" >}}'>git-push[1]</a>. The string <em>if-asked</em> causes
+passed to <a href='{{< relurl "docs/git-push" >}}'>git-push[1]</a>. The string <span class='synopsis'><code>if-asked</code></span> causes
 pushes to be signed if the server supports it, as if
-<span class='synopsis'><code>--signed=if-asked</code></span> is passed to <em>git push</em>. A false value may
+<span class='synopsis'><code>--signed=if-asked</code></span> is passed to <span class='synopsis'><code>git</code> <code>push</code></span>. A false value may
 override a value from a lower-priority config file. An explicit
 command-line flag always overrides this config option.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushpushOption"><a class="anchor" href="#Documentation/git-config.txt-pushpushOption"></a>push.pushOption </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushpushOptioncodespan"><a id="Documentation/git-config.txt-pushpushOption" class="anchor" href="#Documentation/git-config.txt-pushpushOption"></a><span class='synopsis'><code>push.pushOption</code></span> </dt>
 <dd>
 <p>When no <span class='synopsis'><code>--push-option=</code><em>&lt;option&gt;</em></span> argument is given from the
-command line, <span class='synopsis'><code>git</code> <code>push</code></span> behaves as if each &lt;value&gt; of
-this variable is given as <span class='synopsis'><code>--push-option=</code><em>&lt;value&gt;</em></span>.</p>
+command line, <span class='synopsis'><code>git</code> <code>push</code></span> behaves as if each <em>&lt;option&gt;</em> of
+this variable is given as <span class='synopsis'><code>--push-option=</code><em>&lt;option&gt;</em></span>.</p>
 <div class="paragraph">
 <p>This is a multi-valued variable, and an empty value can be used in a
 higher priority configuration file (e.g. <span class='synopsis'><code>.git/config</code></span> in a
@@ -7589,33 +7604,33 @@ This will result in only b (a and c are cleared).</pre>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushrecurseSubmodules"><a class="anchor" href="#Documentation/git-config.txt-pushrecurseSubmodules"></a>push.recurseSubmodules </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushrecurseSubmodulescodespan"><a id="Documentation/git-config.txt-pushrecurseSubmodules" class="anchor" href="#Documentation/git-config.txt-pushrecurseSubmodules"></a><span class='synopsis'><code>push.recurseSubmodules</code></span> </dt>
 <dd>
-<p>May be "check", "on-demand", "only", or "no", with the same behavior
-as that of "push --recurse-submodules".
-If not set, <em>no</em> is used by default, unless <em>submodule.recurse</em> is
-set (in which case a <em>true</em> value means <em>on-demand</em>).</p>
+<p>May be <span class='synopsis'><code>check</code></span>, <span class='synopsis'><code>on-demand</code></span>, <span class='synopsis'><code>only</code></span>, or <span class='synopsis'><code>no</code></span>, with the same behavior
+as that of <span class='synopsis'><code>push</code> <code>--recurse-submodules</code></span>.
+If not set, <span class='synopsis'><code>no</code></span> is used by default, unless <span class='synopsis'><code>submodule.recurse</code></span> is
+set (in which case a <span class='synopsis'><code>true</code></span> value means <span class='synopsis'><code>on-demand</code></span>).</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushuseForceIfIncludes"><a class="anchor" href="#Documentation/git-config.txt-pushuseForceIfIncludes"></a>push.useForceIfIncludes </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushuseForceIfIncludescodespan"><a id="Documentation/git-config.txt-pushuseForceIfIncludes" class="anchor" href="#Documentation/git-config.txt-pushuseForceIfIncludes"></a><span class='synopsis'><code>push.useForceIfIncludes</code></span> </dt>
 <dd>
-<p>If set to "true", it is equivalent to specifying
+<p>If set to <span class='synopsis'><code>true</code></span>, it is equivalent to specifying
 <span class='synopsis'><code>--force-if-includes</code></span> as an option to <a href='{{< relurl "docs/git-push" >}}'>git-push[1]</a>
 in the command line. Adding <span class='synopsis'><code>--no-force-if-includes</code></span> at the
 time of push overrides this configuration setting.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushnegotiate"><a class="anchor" href="#Documentation/git-config.txt-pushnegotiate"></a>push.negotiate </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushnegotiatecodespan"><a id="Documentation/git-config.txt-pushnegotiate" class="anchor" href="#Documentation/git-config.txt-pushnegotiate"></a><span class='synopsis'><code>push.negotiate</code></span> </dt>
 <dd>
-<p>If set to "true", attempt to reduce the size of the packfile
+<p>If set to <span class='synopsis'><code>true</code></span>, attempt to reduce the size of the packfile
 sent by rounds of negotiation in which the client and the
-server attempt to find commits in common. If "false", Git will
+server attempt to find commits in common. If <span class='synopsis'><code>false</code></span>, Git will
 rely solely on the server&#8217;s ref advertisement to find commits
 in common.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-config.txt-pushuseBitmaps"><a class="anchor" href="#Documentation/git-config.txt-pushuseBitmaps"></a>push.useBitmaps </dt>
+<dt class="hdlist1" id="Documentation/git-config.txt-spanclasssynopsiscodepushuseBitmapscodespan"><a id="Documentation/git-config.txt-pushuseBitmaps" class="anchor" href="#Documentation/git-config.txt-pushuseBitmaps"></a><span class='synopsis'><code>push.useBitmaps</code></span> </dt>
 <dd>
-<p>If set to "false", disable use of bitmaps for "git push" even if
-<span class='synopsis'><code>pack.useBitmaps</code></span> is "true", without preventing other git operations
-from using bitmaps. Default is true.</p>
+<p>If set to <span class='synopsis'><code>false</code></span>, disable use of bitmaps for <span class='synopsis'><code>git</code> <code>push</code></span> even if
+<span class='synopsis'><code>pack.useBitmaps</code></span> is <span class='synopsis'><code>true</code></span>, without preventing other git operations
+from using bitmaps. Default is <span class='synopsis'><code>true</code></span>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-config.txt-rebasebackend"><a class="anchor" href="#Documentation/git-config.txt-rebasebackend"></a>rebase.backend </dt>
 <dd>

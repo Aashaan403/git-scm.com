@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-rebase Documentation
 docname: git-rebase
-version: 2.52.0
+version: 2.53.0
 headings:
 - text: NAME
   id: _name
@@ -40,7 +40,7 @@ headings:
   id: _configuration
 - text: GIT
   id: _git
-latest-changes: 2.52.0
+latest-changes: 2.53.0
 aliases:
 - "/docs/git-rebase/index.html"
 ---
@@ -178,7 +178,7 @@ of the to-be-rebased branch. However, <span class='synopsis'><code>ORIG_HEAD</co
 point to that commit at the end of the rebase if other commands that change
 <span class='synopsis'><code>ORIG_HEAD</code></span> (like <span class='synopsis'><code>git</code> <code>reset</code></span>) are used during the rebase. The previous branch
 tip, however, is accessible using the reflog of the current branch (i.e. <span class='synopsis'><code>@{1}</code></span>,
-see <a href='{{< relurl "docs/gitrevisions" >}}'>gitrevisions[7]</a>.
+see <a href='{{< relurl "docs/gitrevisions" >}}'>gitrevisions[7]</a>).
 </td>
 </tr>
 </table>
@@ -697,6 +697,23 @@ Implies <span class='synopsis'><code>--apply</code></span>.</p>
 <p>Instead of using the current time as the committer date, use
 the author date of the commit being rebased as the committer
 date. This option implies <span class='synopsis'><code>--force-rebase</code></span>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+The history walking machinery assumes that commits have
+non-decreasing commit timestamps. You should consider if you really need
+to use this option. Then you should only use this option to override the
+committer date when rebasing commits on top of a base which commit is
+older (in terms of the commit date) than the oldest commit you are
+applying (in terms of the author date).
+</td>
+</tr>
+</table>
+</div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-rebase.txt---ignore-date"><a class="anchor" href="#Documentation/git-rebase.txt---ignore-date"></a>--ignore-date </dt>
 <dt class="hdlist1" id="Documentation/git-rebase.txt---reset-author-date"><a class="anchor" href="#Documentation/git-rebase.txt---reset-author-date"></a>--reset-author-date </dt>

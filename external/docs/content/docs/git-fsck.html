@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-fsck Documentation
 docname: git-fsck
-version: 2.52.0
+version: 2.53.0
 headings:
 - text: NAME
   id: _name
@@ -28,7 +28,7 @@ headings:
   id: _environment_variables
 - text: GIT
   id: _git
-latest-changes: 2.52.0
+latest-changes: 2.53.0
 aliases:
 - "/docs/git-fsck/index.html"
 ---
@@ -362,6 +362,10 @@ by setting the corresponding <span class='synopsis'><code>fsck.</code><em>&lt;ms
 <dd>
 <p>(ERROR) A tag contains a bad (truncated) signature (e.g., <span class='synopsis'><code>gpgsig</code></span>) header.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-fsck.txt-spanclasssynopsiscodebadHeadTargetcodespan"><a id="Documentation/git-fsck.txt-badHeadTarget" class="anchor" href="#Documentation/git-fsck.txt-badHeadTarget"></a><span class='synopsis'><code>badHeadTarget</code></span> </dt>
+<dd>
+<p>(ERROR) The <span class='synopsis'><code>HEAD</code></span> ref is a symref that does not refer to a branch.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-fsck.txt-spanclasssynopsiscodebadHeaderContinuationcodespan"><a id="Documentation/git-fsck.txt-badHeaderContinuation" class="anchor" href="#Documentation/git-fsck.txt-badHeaderContinuation"></a><span class='synopsis'><code>badHeaderContinuation</code></span> </dt>
 <dd>
 <p>(ERROR) A continuation header (such as for <span class='synopsis'><code>gpgsig</code></span>) is unexpectedly truncated.</p>
@@ -398,6 +402,10 @@ header.</p>
 <dt class="hdlist1" id="Documentation/git-fsck.txt-spanclasssynopsiscodebadRefNamecodespan"><a id="Documentation/git-fsck.txt-badRefName" class="anchor" href="#Documentation/git-fsck.txt-badRefName"></a><span class='synopsis'><code>badRefName</code></span> </dt>
 <dd>
 <p>(ERROR) A ref has an invalid format.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-fsck.txt-spanclasssynopsiscodebadRefOidcodespan"><a id="Documentation/git-fsck.txt-badRefOid" class="anchor" href="#Documentation/git-fsck.txt-badRefOid"></a><span class='synopsis'><code>badRefOid</code></span> </dt>
+<dd>
+<p>(ERROR) A ref points to an invalid object ID.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-fsck.txt-spanclasssynopsiscodebadReferentNamecodespan"><a id="Documentation/git-fsck.txt-badReferentName" class="anchor" href="#Documentation/git-fsck.txt-badReferentName"></a><span class='synopsis'><code>badReferentName</code></span> </dt>
 <dd>

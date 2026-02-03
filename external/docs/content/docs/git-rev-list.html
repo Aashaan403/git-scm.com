@@ -6,7 +6,7 @@ section: documentation
 subsection: manual
 title: Git - git-rev-list Documentation
 docname: git-rev-list
-version: 2.52.0
+version: 2.53.0
 headings:
 - text: NAME
   id: _name
@@ -22,7 +22,7 @@ headings:
   id: _examples
 - text: GIT
   id: _git
-latest-changes: 2.52.0
+latest-changes: 2.53.0
 aliases:
 - "/docs/git-rev-list/index.html"
 ---
@@ -1299,7 +1299,9 @@ is the same as <em>blob:limit=1024</em>.</p>
 </div>
 <div class="paragraph">
 <p>The form <span class='synopsis'><code>--filter=object:type=</code>(<code>tag</code>|<code>commit</code>|<code>tree</code>|<code>blob</code>)</span> omits all objects
-which are not of the requested type.</p>
+which are not of the requested type. Note that explicitly provided objects
+ignore filters and are always printed unless <span class='synopsis'><code>--filter-provided-objects</code></span> is
+also specified.</p>
 </div>
 <div class="paragraph">
 <p>The form <span class='synopsis'><code>--filter=sparse:oid=</code><em>&lt;blob-ish&gt;</em></span> uses a sparse-checkout
