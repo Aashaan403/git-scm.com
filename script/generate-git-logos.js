@@ -1,8 +1,9 @@
-// Generate Git-Icon-*.svg and Git-Logo-*.svg using Paper.js boolean
-// operations to produce a single closed path from design primitives.
+// Generate Git-Icon-*.{svg,png} and Git-Logo-*.{svg,png} using Paper.js
+// boolean operations to produce a single closed path from design
+// primitives, then rasterize the SVGs to PNG via resvg.
 //
 // Prerequisites:
-//   npm install --no-save paper paperjs-offset
+//   npm install --no-save paper paperjs-offset @resvg/resvg-js
 //
 // Source geometry (on a 58x58 grid with origin at 0,0):
 //   - Rounded rectangle background: (0,0) 58x58, corner radius 5
@@ -20,6 +21,7 @@
 
 const paper = require('paper');
 const { PaperOffset } = require('paperjs-offset');
+const { Resvg } = require('@resvg/resvg-js');
 
 const fs = require('fs');
 const path = require('path');
@@ -29,6 +31,13 @@ function saveFile(filename, data) {
   const outPath = path.join(outDir, filename);
   fs.writeFileSync(outPath, data);
   console.log(`Wrote ${outPath}`);
+}
+
+// Render an SVG string to PNG at 300 DPI via resvg.
+// Icons (92pt × 92pt) render to 383x383; Logos (219pt × 92pt) to 913×383.
+function renderPng(svgString) {
+  const resvg = new Resvg(svgString, { dpi: 300 });
+  return resvg.render().asPng();
 }
 
 
@@ -82,6 +91,7 @@ function generateIcon(variant, iconFill) {
     ` viewBox="0 0 78 78"><path fill="${iconFill}"` +
     ` transform="${iconTransform}" d="${iconGlyph}"/></svg>`;
   saveFile(`Git-Icon-${variant}.svg`, svg);
+  saveFile(`Git-Icon-${variant}.png`, renderPng(svg));
 }
 
 
@@ -136,6 +146,7 @@ function generateLogo(variant, iconFill, textFill) {
     `<svg xmlns="http://www.w3.org/2000/svg" width="219pt" height="92pt"` +
     ` viewBox="0 0 219 92">${iconPath}${textPaths}</svg>`;
   saveFile(`Git-Logo-${variant}.svg`, svg);
+  saveFile(`Git-Logo-${variant}.png`, renderPng(svg));
 }
 
 
