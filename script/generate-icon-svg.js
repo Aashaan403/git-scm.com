@@ -5,14 +5,14 @@
 //
 // Source geometry (on a 58x58 grid with origin at 0,0):
 //   - Rounded rectangle background: (0,0) 58x58, corner radius 5
-//   - Main branch: vertical line x=40.5, y=-1..41, stroke-width 5
+//   - Main branch: vertical line x=40.5, y=0..41, stroke-width 5
 //   - Topic branch: diagonal (40.5,18) to (17.5,41), stroke-width 5
 //   - Three circles at (40.5,18), (40.5,41), (17.5,41), all r=6
 //
-// The result is placed into a 92x92 viewBox via:
-//   transform="scale(1.179487) translate(10 10) rotate(-45 29 29)"
-// Design on 58x58, translate to center in 78x78, rotate -45 around
-// the shape center, then scale by 92/78 to fill the 92x92 viewBox.
+// The result is placed into a 78x78 viewBox via:
+//   transform="translate(10 10) rotate(-45 29 29)"
+// Design on 58x58, rotate -45 around the shape center, translate
+// to center in 78x78 viewBox.
 
 const paper = require('paper');
 const { PaperOffset } = require('paperjs-offset');
@@ -29,7 +29,7 @@ const bg = new paper.Path.Rectangle({
 });
 
 // Branch lines (expand strokes into filled outlines)
-const mainBranch = new paper.Path.Line({ from: [40.5, -1], to: [40.5, 41] });
+const mainBranch = new paper.Path.Line({ from: [40.5, 0], to: [40.5, 41] });
 const mainExp = PaperOffset.offsetStroke(mainBranch, 2.5, { cap: 'butt' });
 mainBranch.remove();
 
@@ -53,9 +53,7 @@ const icon = bg.subtract(graph);
 
 const pathData = icon.pathData;
 
-// 92/78 scales the 78x78 intermediate space to fill the 92x92 viewBox
-const transform =
-  `scale(${+(92 / 78).toFixed(6)}) translate(10 10) rotate(-45 29 29)`;
+const transform = `translate(10 10) rotate(-45 29 29)`;
 
 const colors = {
   '1788C': '#f03c2e',
@@ -68,7 +66,7 @@ const outDir = path.join(__dirname, '../static/images/logos/downloads');
 for (const [variant, fill] of Object.entries(colors)) {
   const svg =
     `<svg xmlns="http://www.w3.org/2000/svg" width="92pt" height="92pt"` +
-    ` viewBox="0 0 92 92"><path fill="${fill}"` +
+    ` viewBox="0 0 78 78"><path fill="${fill}"` +
     ` transform="${transform}" d="${pathData}"/></svg>`;
 
   const outPath = path.join(outDir, `Git-Icon-${variant}.svg`);
