@@ -256,16 +256,26 @@ const iconScale = `scale(${+(92 / 78).toFixed(6)})`;
 
 // Generates and saves the logo (icon + text) image file.
 async function generateLogo(variant, iconFill, textFill) {
+  // If icon and text fills are the same, add a single fill attribute on the SVG
+  // element.
+  //
+  // We’re doing this because we’re using the SVG file on the website via USE
+  // element and want to override the FILL for logo and text.  If the PATH
+  // element has FILL we cannot USE it and then override FILL.  However, if we
+  // put FILL on SVG we can then USE the PATH elements and set FILL to a new
+  // value.
+  const [ svgFillAttr, iconFillAttr, textFillAttr ] = iconFill == textFill
+    ? [ ` fill="${iconFill}"`, '', '' ]
+    : [ '', ` fill="${iconFill}"`, ` fill="${textFill}"` ];
+
   const iconPath =
-    `<path fill="${iconFill}"` +
+    `<path id="icon"${iconFillAttr}` +
     ` transform="${iconScale} ${iconTransform}" d="${iconGlyph}"/>`;
   const textPaths =
-    `<path fill="${textFill}" d="${gGlyph}"/>` +
-    `<path fill="${textFill}" d="${iGlyph}"/>` +
-    `<path fill="${textFill}" d="${tGlyph}"/>`;
+    `<path id="text"${textFillAttr} d="${gGlyph}${iGlyph}${tGlyph}"/>`;
   const svg =
     `<svg xmlns="http://www.w3.org/2000/svg" width="219pt" height="92pt"` +
-    ` viewBox="0 0 219 92">${iconPath}${textPaths}</svg>`;
+    `${svgFillAttr} viewBox="0 0 219 92">${iconPath}${textPaths}</svg>`;
   saveFile(`Git-Logo-${variant}.svg`, svg);
 
   saveFile(`Git-Logo-${variant}.png`, renderPng(svg));
@@ -295,7 +305,6 @@ async function generateLogo(variant, iconFill, textFill) {
   ].join('\n');
   saveFile(`Git-Logo-${variant}.eps`, await buildEPS(ps, svg, { mode: 'height', value: 92 }));
 }
-
 
 // =========================== Variant definitions ===========================
 
