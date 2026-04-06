@@ -20,7 +20,7 @@ url: "/book/sv/v2/Git-verktyg-Nollställning-förklarad.html"
 ---
 <h2 id="_git_reset">Nollställning förklarad</h2>
 <div class="paragraph">
-<p>Innan vi går vidare till mer specialiserade verktyg, låt oss prata om Gits kommandon <code>reset</code> och <code>checkout</code>.
+<p>Innan vi går vidare till mer specialiserade verktyg pratar vi om Gits kommandon <code>reset</code> och <code>checkout</code>.
 Dessa kommandon är två av de mest förvirrande delarna av Git när du stöter på dem första gången.
 De gör så många saker att det verkar hopplöst att verkligen förstå dem och använda dem korrekt.
 För detta rekommenderar vi en enkel metafor.</p>
@@ -69,7 +69,7 @@ Det betyder att HEAD blir förälder till nästa incheckning som skapas.
 Det är i allmänhet enklast att se HEAD som ögonblicksbilden av <strong>din senaste incheckning på den grenen</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Faktum är att det är ganska lätt att se hur den ögonblicksbilden ser ut.
+<p>Det är i själva verket ganska lätt att se hur den ögonblicksbilden ser ut.
 Här är ett exempel på hur du hämtar den faktiska kataloglistan och SHA‑1-kontrollsummorna för varje fil i HEAD-ögonblicksbilden:</p>
 </div>
 <div class="listingblock">
@@ -150,7 +150,7 @@ Tänk på arbetskatalogen som en <strong>sandlåda</strong>, där du kan prova �
 <div class="title">Figur 135. Gits typiska arbetsflöde</div>
 </div>
 <div class="paragraph">
-<p>Låt oss visualisera processen: säg att du går in i en ny katalog med en enda fil.
+<p>Vi visualiserar processen: säg att du går in i en ny katalog med en enda fil.
 Vi kallar detta filens <strong>v1</strong>, och vi markerar den i blått.
 Nu kör vi <code>git init</code>, vilket skapar ett Git‑kodförråd med en HEAD-referens som pekar på den ännu ofödda <code>master</code>-grenen.</p>
 </div>
@@ -208,7 +208,7 @@ Nästa steg är att köa den med <code>git add</code>.</p>
 <div class="title">Figur 140. Köar ändring till index</div>
 </div>
 <div class="paragraph">
-<p>Vid det här laget, om vi kör <code>git status</code>, ser vi filen i grönt under "Ändringar att checka in" eftersom indexet och HEAD skiljer sig — det vill säga, vår föreslagna nästa incheckning skiljer sig nu från vår senaste incheckning.
+<p>Om vi nu kör <code>git status</code>, ser vi filen i grönt under "Ändringar att checka in" eftersom indexet och HEAD skiljer sig — det vill säga, vår föreslagna nästa incheckning skiljer sig nu från vår senaste incheckning.
 Till sist kör vi <code>git commit</code> för att färdigställa incheckningen.</p>
 </div>
 <div class="imageblock">
@@ -231,7 +231,7 @@ När du växlar till en gren ändrar det <strong>HEAD</strong> till att peka på
 <p>Kommandot <code>reset</code> blir mer begripligt när man ser det i detta sammanhang.</p>
 </div>
 <div class="paragraph">
-<p>För att exemplen ska bli tydligare, låt oss säga att vi har ändrat <code>file.txt</code> igen och checkat in den en tredje gång.
+<p>För att exemplen ska bli tydligare: säg att vi har ändrat <code>file.txt</code> igen och checkat in den en tredje gång.
 Så nu ser historiken ut så här:</p>
 </div>
 <div class="imageblock">
@@ -241,7 +241,7 @@ Så nu ser historiken ut så här:</p>
 <div class="title">Figur 142. Git‑kodförråd med tre incheckningar</div>
 </div>
 <div class="paragraph">
-<p>Låt oss nu gå igenom exakt vad <code>reset</code> gör när du anropar det.
+<p>Nu går vi igenom exakt vad <code>reset</code> gör när du anropar det.
 Det manipulerar direkt dessa tre träd på ett enkelt och förutsägbart sätt.
 Det gör upp till tre grundläggande operationer.</p>
 </div>
@@ -305,7 +305,7 @@ Om du använder <code>--hard</code> fortsätter den till detta steg.</p>
 <div class="title">Figur 145. Hård återställning</div>
 </div>
 <div class="paragraph">
-<p>Så låt oss tänka igenom vad som hände.
+<p>Vi tänker igenom vad som hände.
 Du ångrade din senaste incheckning, <code>git add</code> och <code>git commit</code>-kommandona, <strong>och</strong> allt arbete du gjorde i din arbetskatalog.</p>
 </div>
 <div class="paragraph">
@@ -378,7 +378,7 @@ Om vi tittar på diagrammet för det kommandot och tänker på vad <code>git add
 <div class="title">Figur 147. Köar fil till index</div>
 </div>
 <div class="paragraph">
-<p>Det är anledningen till att utdata från <code>git status</code> föreslår att du kör det här för att avköa en fil (se <a href="{{< relurl "book/sv/v2/ch00/_unstaging" >}}">Ta bort en köad fil</a> för mer om detta).</p>
+<p>Därför föreslår <code>git status</code> att du kör det här för att avköa en fil (se <a href="{{< relurl "book/sv/v2/ch00/_unstaging" >}}">Ta bort en köad fil</a> för mer om detta).</p>
 </div>
 <div class="paragraph">
 <p>Vi skulle lika gärna kunna hindra Git från att anta att vi menade "dra data från HEAD" genom att ange en specifik incheckning att hämta den filversionen från.
@@ -402,7 +402,7 @@ Så du kan selektivt avköa eller återställa innehåll.</p>
 <div class="sect3">
 <h3 id="_sammanfoga_incheckningar">Sammanfoga incheckningar</h3>
 <div class="paragraph">
-<p>Låt oss titta på hur du kan göra något intressant med den här nyfunna kraften — sammanfoga incheckningar.</p>
+<p>Vi tittar på hur du kan göra något intressant med den här nyfunna kraften — sammanfoga incheckningar.</p>
 </div>
 <div class="paragraph">
 <p>Säg att du har en serie incheckningar med meddelanden som "oops.", "WIP" och "forgot this file".
@@ -410,7 +410,7 @@ Du kan använda <code>reset</code> för att snabbt och enkelt sammanfoga dem til
 <a href="{{< relurl "book/sv/v2/ch00/_squashing" >}}">Sammanfoga incheckningar</a> visar ett annat sätt att göra detta, men i exemplet är det enklare att använda <code>reset</code>.</p>
 </div>
 <div class="paragraph">
-<p>Låt oss säga att du har ett projekt där den första incheckningen har en fil, den andra incheckningen lade till en ny fil och ändrade den första, och den tredje incheckningen ändrade den första filen igen.
+<p>Säg att du har ett projekt där den första incheckningen har en fil, den andra incheckningen lade till en ny fil och ändrade den första, och den tredje incheckningen ändrade den första filen igen.
 Den andra incheckningen var ett arbete på gång och du vill sammanfoga den.</p>
 </div>
 <div class="imageblock">
@@ -455,7 +455,7 @@ Likt <code>reset</code> manipulerar <code>checkout</code> de tre träden, och de
 </div>
 <div class="paragraph">
 <p>För det första, till skillnad från <code>reset --hard</code>, är <code>checkout</code> säkert för arbetskatalogen; den kontrollerar att den inte skriver över filer som har ändringar i sig.
-Faktum är att den är lite smartare än så — den försöker göra en trivialsammanfogning i arbetskatalogen, så alla filer du <em>inte</em> har ändrat blir uppdaterade.
+Den är i själva verket lite smartare än så — den försöker göra en trivialsammanfogning i arbetskatalogen, så alla filer du <em>inte</em> har ändrat blir uppdaterade.
 <code>reset --hard</code> kommer däremot helt enkelt ersätta allt utan att kontrollera.</p>
 </div>
 <div class="paragraph">
@@ -495,7 +495,7 @@ Det skulle vara exakt som <code>git reset --hard [gren] fil</code> (om <code>res
 <div class="sect3">
 <h3 id="_sammanfattning_9">Sammanfattning</h3>
 <div class="paragraph">
-<p>Förhoppningsvis förstår du nu och känner dig mer bekväm med kommandot <code>reset</code>, men du är sannolikt fortfarande lite förvirrad över hur exakt det skiljer sig från <code>checkout</code> och kan knappast minnas alla regler för de olika varianterna.</p>
+<p>Förhoppningsvis förstår du nu och känner dig tryggare med kommandot <code>reset</code>, men du är sannolikt fortfarande lite förvirrad över hur exakt det skiljer sig från <code>checkout</code> och kan knappast minnas alla regler för de olika varianterna.</p>
 </div>
 <div class="paragraph">
 <p>Här är en fusklapp för vilka kommandon som påverkar vilka träd.

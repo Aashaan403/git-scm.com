@@ -21,7 +21,7 @@ title: Git - Skriva om historik
 <div class="paragraph">
 <p>Många gånger när du arbetar med Git vill du revidera din lokala incheckningshistorik.
 En av de fina sakerna med Git är att du kan ta beslut i sista möjliga stund.
-Du kan bestämma vilka filer som ska hamna i vilka incheckningar precis innan du checkar in med hjälp av köytan, du kan bestämma att du egentligen inte skulle arbeta med något ännu med <code>git stash</code>, och du kan skriva om incheckningar som redan hänt så att de ser ut att ha hänt på ett annat sätt.
+Du kan bestämma vilka filer som ska hamna i vilka incheckningar precis innan du checkar in via köytan, du kan bestämma att du egentligen inte skulle arbeta med något ännu med <code>git stash</code>, och du kan skriva om incheckningar som redan hänt så att de ser ut att ha hänt på ett annat sätt.
 Det kan handla om att ändra ordningen på incheckningar, ändra meddelanden eller modifiera filer i en incheckning, sammanfoga eller dela upp incheckningar, eller ta bort incheckningar helt och hållet — allt innan du delar ditt arbete med andra.</p>
 </div>
 <div class="paragraph">
@@ -47,7 +47,7 @@ Kort sagt bör du undvika att skicka ditt arbete innan du är nöjd med det och 
 <div class="sect3">
 <h3 id="_git_amend">Ändra den senaste incheckningen</h3>
 <div class="paragraph">
-<p>Att ändra din senaste incheckning är troligen den vanligaste omskrivningen av historik du gör.
+<p>Att ändra din senaste incheckning är troligen det vanligaste du gör för att skriva om historiken.
 Ofta vill du göra två grundläggande saker med din senaste incheckning: helt enkelt ändra incheckningsmeddelandet, eller ändra själva innehållet i incheckningen genom att lägga till, ta bort och ändra filer.</p>
 </div>
 <div class="paragraph">
@@ -153,7 +153,7 @@ pick a5f4a0d Add cat-file
 </div>
 </div>
 <div class="paragraph">
-<p>Det är viktigt att förstå att dessa incheckningar listas i motsatt ordning än du normalt ser dem med <code>log</code>-kommandot.
+<p>Dessa incheckningar listas i omvänd ordning jämfört med <code>log</code>-kommandot.
 Om du kör <code>log</code> ser du något som detta:</p>
 </div>
 <div class="listingblock">
@@ -378,12 +378,12 @@ drop 5aecc10 This commit is broken</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>På grund av hur Git bygger incheckningsobjekt kommer borttagning eller ändring av en incheckning att skriva om alla incheckningar som följer efter den.
+<p>Att ta bort eller ändra en incheckning skriver om alla efterföljande incheckningar, på grund av hur Git bygger incheckningsobjekt.
 Ju längre bak i historiken du går, desto fler incheckningar måste skapas om.
 Det här kan ge många sammanslagningskonflikter om senare incheckningar i sekvensen bygger på den du just tog bort.</p>
 </div>
 <div class="paragraph">
-<p>Om du kommer halvvägs in i en ombasering som detta och bestämmer dig för att det inte var en bra idé kan du alltid avbryta.
+<p>Om du kommer halvvägs in i en ombasering som detta och bestämmer dig för att det inte var rätt kan du alltid avbryta.
 Skriv <code>git rebase --abort</code>, så återställs ditt kodförråd till det läge det var i innan du började ombasera.</p>
 </div>
 <div class="paragraph">
@@ -447,13 +447,13 @@ Ref 'refs/heads/master' was rewritten</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Flaggan <code>--tree-filter</code> kör det angivna kommandot efter varje utläggning av projektet och checkar in sedan resultaten.
+<p>Flaggan <code>--tree-filter</code> lägger ut varje incheckning, kör det angivna kommandot och checkar sedan in resultaten.
 I det här fallet tar du bort en fil som heter <code>passwords.txt</code> från varje ögonblicksbild, oavsett om den finns eller inte.
 Om du vill ta bort alla av misstag checkade in säkerhetskopior från redigerare kan du köra något som <code>git filter-branch --tree-filter 'rm -f *~' HEAD</code>.</p>
 </div>
 <div class="paragraph">
 <p>Du kan se Git skriva om träd och incheckningar och sedan flytta grenpekaren i slutet.
-Det är i allmänhet en bra idé att göra detta i en testgren och sedan göra en hård återställning av <code>master</code> när du har fastställt att resultatet är det du vill.
+Gör helst detta i en testgren och gör sedan en hård återställning av <code>master</code> när du har fastställt att resultatet är det du vill.
 För att köra <code>filter-branch</code> på alla dina grenar kan du skicka <code>--all</code> till kommandot.</p>
 </div>
 </div>

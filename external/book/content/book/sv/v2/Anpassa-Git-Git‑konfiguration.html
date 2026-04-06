@@ -19,7 +19,7 @@ title: Git - Git‑konfiguration
 url: "/book/sv/v2/Anpassa-Git-Git‑konfiguration.html"
 ---
 <p>Hittills har vi gått igenom grunderna i hur Git fungerar och hur man använder det, och vi har introducerat flera verktyg som Git erbjuder för att hjälpa dig använda det enkelt och effektivt.
-I kapitlet ser vi hur du kan få Git att arbeta mer skräddarsytt genom att introducera ett antal viktiga konfigurationsinställningar och krokssystemet.
+I kapitlet ser vi hur du kan få Git att arbeta mer skräddarsytt genom att introducera flera viktiga konfigurationsinställningar och krokssystemet.
 Med dessa verktyg är det lätt att få Git att fungera precis som du, din organisation eller ditt team behöver.</p>
 <h2 id="_git_config">Git‑konfiguration</h2>
 <div class="paragraph">
@@ -72,7 +72,7 @@ Det är dock oftast enklare att köra kommandot <code>git config</code>.</p>
 <h3 id="_grundläggande_klientkonfiguration">Grundläggande klientkonfiguration</h3>
 <div class="paragraph">
 <p>Konfigurationsalternativen som Git känner igen delas in i två kategorier: klientsidan och serversidan.
-Majoriteten av alternativen är på klientsidan – konfiguration av dina personliga arbetsvanor.
+Majoriteten av alternativen är på klientsidan – de styr dina personliga arbetsvanor.
 Många, <em>många</em> konfigurationsalternativ stöds, men en stor del av dem är bara användbara i vissa kantfall; här går vi igenom de vanligaste och mest användbara alternativen.
 Om du vill se en lista över alla alternativ som din version av Git känner igen kan du köra:</p>
 </div>
@@ -383,7 +383,7 @@ $ sudo chmod +x /usr/local/bin/extDiff</code></pre>
 </div>
 <div class="paragraph">
 <p>Nu kan du konfigurera din konfigurationsfil att använda din anpassade sammanslagningslösning och diffverktyg.
-Detta kräver ett antal egna inställningar: <code>merge.tool</code> för att tala om för Git vilken strategi som ska användas, <code>mergetool.&lt;tool&gt;.cmd</code> för att ange hur kommandot körs, <code>mergetool.&lt;tool&gt;.trustExitCode</code> för att tala om för Git om exit‑koden från programmet indikerar en lyckad sammanslagning eller inte, och <code>diff.external</code> för att tala om för Git vilket kommando som ska köras för diffar.
+Detta kräver flera egna inställningar: <code>merge.tool</code> talar om för Git vilken strategi den ska använda, <code>mergetool.&lt;tool&gt;.cmd</code> anger hur kommandot körs, <code>mergetool.&lt;tool&gt;.trustExitCode</code> talar om för Git om exit‑koden från programmet indikerar en lyckad sammanslagning eller inte, och <code>diff.external</code> talar om för Git vilket kommando den ska köra för diffar.
 Så du kan antingen köra fyra config‑kommandon:</p>
 </div>
 <div class="listingblock">
@@ -430,7 +430,7 @@ $ git config --global diff.external extDiff</code></pre>
 <p>Om du försöker sammanfoga två grenar och därefter får sammanslagningskonflikter kan du köra kommandot <code>git mergetool</code>; det startar P4Merge så att du kan lösa konflikterna med det grafiska verktyget.</p>
 </div>
 <div class="paragraph">
-<p>Det fina med denna omslagsuppsättning är att du lätt kan byta diff‑ och sammanslagningsverktyg.
+<p>Med den här omslagsuppsättningen kan du lätt byta diff‑ och sammanslagningsverktyg.
 Till exempel, för att byta dina <code>extDiff</code>‑ och <code>extMerge</code>‑verktyg till att köra KDiff3 i stället räcker det att redigera din <code>extMerge</code>‑fil:</p>
 </div>
 <div class="listingblock">
@@ -595,7 +595,7 @@ Om du har checkat in blankteckensproblem men ännu inte har skickat upp kan du k
 <div class="sect3">
 <h3 id="_serverkonfiguration">Serverkonfiguration</h3>
 <div class="paragraph">
-<p>Det finns inte i närheten lika många konfigurationsalternativ på serversidan av Git, men det finns några intressanta du kan vilja lägga märke till.</p>
+<p>Det finns inte i närheten lika många konfigurationsalternativ på serversidan av Git, men det finns några intressanta värda att känna till.</p>
 </div>
 <div class="sect4">
 <h4 id="_receive_fsckobjects"><code>receive.fsckObjects</code></h4>
@@ -644,7 +644,7 @@ För att undvika detta sätter du <code>receive.denyDeletes</code> till true:</p
 </div>
 </div>
 <div class="paragraph">
-<p>Detta nekar all radering av grenar eller taggar — ingen användare kan göra det.
+<p>Detta hindrar att grenar eller taggar raderas — ingen användare kan göra det.
 För att ta bort fjärrgrenar måste du ta bort ref‑filerna på servern manuellt.
 Det finns också mer intressanta sätt att göra detta per användare via ACL:er, som du kommer att lära dig i <a href="{{< relurl "book/sv/v2/ch00/_an_example_git_enforced_policy" >}}">Ett exempel på Git‑upprätthållen policy</a>.</p>
 </div>

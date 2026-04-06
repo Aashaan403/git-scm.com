@@ -64,7 +64,7 @@ I praktiken vill du behandla den som en binär fil.</p>
 Det gör du genom att tala om för Git hur den ska konvertera binärdata till ett textformat som kan jämföras med en vanlig diff.</p>
 </div>
 <div class="paragraph">
-<p>Först använder vi tekniken för att lösa ett av de mest frustrerande problemen som finns: versionshantering av Microsoft Word‑dokument.
+<p>Först använder vi tekniken för att lösa ett av de mest frustrerande problemen som finns: att versionshantera Microsoft Word‑dokument.
 Om du vill versionshantera Word‑dokument kan du lägga dem i ett Git‑kodförråd och checka in då och då; men vad hjälper det?
 Om du kör <code>git diff</code> som vanligt ser du bara något i stil med detta:</p>
 </div>
@@ -78,7 +78,7 @@ Binary files a/chapter1.docx and b/chapter1.docx differ</code></pre>
 </div>
 <div class="paragraph">
 <p>Du kan inte jämföra två versioner direkt om du inte lägger ut dem och granskar dem manuellt, eller hur?
-Det visar sig att du kan göra detta ganska bra med Git‑attribut.
+Du kan faktiskt göra detta ganska bra med Git‑attribut.
 Lägg följande rad i din <code>.gitattributes</code>‑fil:</p>
 </div>
 <div class="listingblock">
@@ -236,7 +236,7 @@ $Id: 42812b7653c7b88933f8a9d6cad0ca16714b9bb3 $</code></pre>
 Om du har använt nyckelordssubstitution i CVS eller Subversion kan du inkludera en datumstämpel – SHA‑1:an är inte särskilt hjälpsam, eftersom den är ganska slumpmässig och du kan inte se om en SHA‑1 är äldre eller nyare än en annan bara genom att titta på dem.</p>
 </div>
 <div class="paragraph">
-<p>Det visar sig att du kan skriva egna filter för att göra substitutioner i filer vid incheckning/utläggning.
+<p>Du kan också skriva egna filter för att göra substitutioner i filer vid incheckning/utläggning.
 Dessa kallas “clean”‑ och “smudge”‑filter.
 I <code>.gitattributes</code>‑filen kan du sätta ett filter för vissa sökvägar och sedan sätta upp skript som bearbetar filer strax innan de läggs ut (“smudge”, se <a href="{{< relurl "book/sv/v2/ch00/filters_a" >}}">“smudge”‑filtret körs vid utläggning</a>) och strax innan de köas (“clean”, se <a href="{{< relurl "book/sv/v2/ch00/filters_b" >}}">“clean”‑filtret körs när filer köas</a>).
 Dessa filter kan ställas in för att göra många olika saker.</p>
@@ -422,7 +422,7 @@ Du kan också använda Git‑attribut för att tala om för Git att använda oli
 Ett mycket användbart alternativ är att tala om för Git att inte försöka sammanfoga vissa filer när de har konflikter, utan i stället använda din sida av sammanslagningen framför någon annans.</p>
 </div>
 <div class="paragraph">
-<p>Det här är hjälpsamt om en gren i projektet har glidit isär eller är specialiserad, men du vill kunna sammanfoga in ändringar från den och samtidigt ignorera vissa filer.
+<p>Det hjälper om en gren i projektet har glidit isär eller är specialiserad, men du vill kunna sammanfoga in ändringar från den och samtidigt ignorera vissa filer.
 Säg att du har en databasinställningsfil som heter <code>database.xml</code> som är olika i två grenar, och du vill sammanfoga den andra grenen utan att stöka till databasfilen.
 Du kan ställa in ett attribut så här:</p>
 </div>

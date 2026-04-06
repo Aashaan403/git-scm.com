@@ -10,14 +10,14 @@ book:
     title: Git-verktyg
     number: 7
   section:
-    title: Lagring av inloggningsuppgifter
+    title: Lagra inloggningsuppgifter
     number: 14
     cs_number: '7.14'
     previous: book/sv/v2/Git-verktyg-Ersätt
     next: book/sv/v2/Git-verktyg-Sammanfattning
-title: Git - Lagring av inloggningsuppgifter
+title: Git - Lagra inloggningsuppgifter
 ---
-<h2 id="_credential_caching">Lagring av inloggningsuppgifter</h2>
+<h2 id="_credential_caching">Lagra inloggningsuppgifter</h2>
 <div class="paragraph">
 <p>
 
@@ -89,7 +89,7 @@ Här är hur en <code>.gitconfig</code> kan se ut om du har en inloggningsfil p�
 </div>
 </div>
 <div class="sect3">
-<h3 id="_under_huven">Under huven</h3>
+<h3 id="_internt">Internt</h3>
 <div class="paragraph">
 <p>Hur fungerar allt detta?
 Gits rotkommando för systemet med inloggningshjälpare är <code>git credential</code>, som tar ett kommando som argument och sedan mer indata via stdin.</p>
@@ -251,7 +251,7 @@ Hjälparna <code>osxkeychain</code> och <code>wincred</code> använder sina unde
 Hjälparna som följer med Git täcker många vanliga användningsfall, men inte alla.
 Till exempel, säg att ditt team har vissa inloggningsuppgifter som delas av hela teamet, kanske för driftsättning.
 Dessa lagras i en delad katalog, men du vill inte kopiera dem till din egen inloggningslagring, eftersom de ändras ofta.
-Inga av de befintliga hjälparna täcker detta fall; låt oss se vad som krävs för att skriva vår egen.
+Inga av de befintliga hjälparna täcker detta fall, så vi ser vad som krävs för att skriva vår egen.
 Det finns flera nyckelfunktioner som det här programmet behöver ha:</p>
 </div>
 <div class="olist arabic">
